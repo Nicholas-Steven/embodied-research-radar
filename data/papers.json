@@ -1,0 +1,822 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-08-12",
+  "source": "arXiv",
+  "candidate_count": 10,
+  "retained_count": 10,
+  "relevance_threshold": 45,
+  "papers": [
+    {
+      "paper_id": "arxiv-2605-11048",
+      "title": "ForceFlow: Learning to Feel and Act via Contact-Driven Flow Matching",
+      "authors": [
+        "Shuoheng Zhang",
+        "Yifu Yuan",
+        "Hongyao Tang",
+        "Yan Zheng",
+        "Qiaojun Yu",
+        "Pengyi Li",
+        "Guowei Huang",
+        "Helong Huang",
+        "Xingyue Quan",
+        "Jianye Hao"
+      ],
+      "abstract": "ForceFlow is a force-aware reactive framework based on flow matching for contact-rich manipulation. It addresses the tendency of high-dimensional visual features to overshadow sparse force signals through temporal force history and joint prediction, aiming for multimodal generalization in contact-stage policy design.",
+      "abstract_zh": "ForceFlow基于Flow Matching构建接触丰富任务的力感知反应式框架，通过力觉历史和联合预测缓解视觉特征压制稀疏力信号的问题。",
+      "published_date": "2026-05-11",
+      "updated_date": "2026-05-11",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "arxiv_id": "2605.11048",
+      "paper_url": "https://arxiv.org/abs/2605.11048",
+      "pdf_url": "https://arxiv.org/pdf/2605.11048",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "research_topics": [
+        "vision-force",
+        "generative-policy"
+      ],
+      "literature_categories": [
+        "unassigned"
+      ],
+      "methods": [
+        "flow matching",
+        "temporal force history",
+        "asymmetric multimodal fusion"
+      ],
+      "tasks": [
+        "contact-rich manipulation"
+      ],
+      "sensors": [
+        "Vision",
+        "Force/Torque"
+      ],
+      "keywords": [
+        "ForceFlow",
+        "flow matching",
+        "force-aware",
+        "contact-driven"
+      ],
+      "summary_one_sentence": "用Flow Matching和力觉时序建模生成接触阶段反应动作。",
+      "research_problem": "高维视觉特征容易淹没稀疏但关键的力觉信号，导致接触阶段策略不稳定。",
+      "core_contributions": [
+        "力感知Flow Matching框架",
+        "时间力觉历史建模",
+        "接触阶段非对称多模态融合"
+      ],
+      "method_summary": "对视觉和力觉采用不对称编码与时序融合，再通过Flow Matching动作生成器输出反应式控制。",
+      "experimental_setup": "摘要确认面向接触丰富操作；平台和具体基准需读正文。",
+      "key_results": "摘要没有提供可独立核验的关键数字，因此保留为待阅读全文。",
+      "limitations": "2026年预印本，公开代码、数据与真实硬件细节仍需持续核查。",
+      "why_it_matters": "直接对应用户第二篇论文的Flow Matching分支，是需要重点监测的前沿工作。",
+      "relevance_score": 86,
+      "relevance_reason": "明确涉及视觉–力/力矩或接触反馈；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；方法包含可迁移的策略学习或多模态建模；直接面向接触丰富任务",
+      "related_to_my_research": "小论文2；大论文；Potential Competition",
+      "recommended_reading": "重点读Contact-stage Design、Force History Encoder、Ablation和推理速度。",
+      "reproduction_value": "Medium：方法方向高度匹配，但新论文的实现与资源可得性尚需确认。",
+      "core_candidate": "Yes",
+      "source": "arXiv",
+      "last_checked": "2026-08-12",
+      "potential_competition": true,
+      "competition_reason": "Flow Matching用于力感知接触反应策略，与第二篇论文的生成式恢复动作分支存在方法交集。",
+      "analysis_status": "ready",
+      "ai_provider": "manual",
+      "fact_confidence": "verified-metadata",
+      "source_query_group": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_generated_at": ""
+    },
+    {
+      "paper_id": "arxiv-2604-01414",
+      "title": "Learning When to See and When to Feel: Adaptive Vision-Torque Fusion for Contact-Aware Manipulation",
+      "authors": [
+        "Jiuzhou Lei",
+        "Chang Liu",
+        "Yu She",
+        "Xiao Liang",
+        "Minghui Zheng"
+      ],
+      "abstract": "This work compares force/torque-vision integration strategies within diffusion-based manipulation policies and proposes an adaptive strategy that ignores force/torque during non-contact phases while leveraging vision and torque during contact. The paper reports a 14% success-rate improvement over its strongest baseline.",
+      "abstract_zh": "论文系统比较扩散策略中的视觉–F/T融合方式，并提出非接触阶段抑制F/T、接触阶段自适应利用视觉与力矩的策略。",
+      "published_date": "2026-04-01",
+      "updated_date": "2026-04-01",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "arxiv_id": "2604.01414",
+      "paper_url": "https://arxiv.org/abs/2604.01414",
+      "pdf_url": "https://arxiv.org/pdf/2604.01414",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "research_topics": [
+        "vision-force",
+        "generative-policy"
+      ],
+      "literature_categories": [
+        "unassigned"
+      ],
+      "methods": [
+        "adaptive fusion",
+        "contact-aware gating",
+        "diffusion policy"
+      ],
+      "tasks": [
+        "contact-aware manipulation",
+        "force-sensitive manipulation"
+      ],
+      "sensors": [
+        "Vision",
+        "Force/Torque"
+      ],
+      "keywords": [
+        "vision torque fusion",
+        "contact-aware",
+        "adaptive integration",
+        "diffusion"
+      ],
+      "summary_one_sentence": "让策略学习‘何时看、何时感受’，在接触阶段打开F/T通道，在非接触阶段降低其干扰。",
+      "research_problem": "力觉并非所有时间都同等有用，直接始终融合可能引入噪声或让视觉表征被稀疏力信号压制。",
+      "core_contributions": [
+        "比较多种视觉–F/T融合策略",
+        "提出接触感知自适应融合",
+        "在扩散策略内验证模态调度"
+      ],
+      "method_summary": "基于接触阶段门控对视觉和力矩特征进行条件融合，并把门控嵌入扩散式动作策略。",
+      "experimental_setup": "摘要确认基于扩散策略进行对比实验；平台、任务数量和F/T采样配置需读正文。",
+      "key_results": "摘要报告相对最强基线成功率提升14%；需核对统计口径和置信区间。",
+      "limitations": "截至当前仅能核验摘要，且论文是2026年预印本，正式发表状态和代码状态需持续检查。",
+      "why_it_matters": "与当前‘末端六维F/T+视觉’硬件配置几乎同构，是V1雷达最值得优先跟踪的竞争工作之一。",
+      "relevance_score": 94,
+      "relevance_reason": "明确涉及视觉–力/力矩或接触反馈；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；方法包含可迁移的策略学习或多模态建模；包含六维力/力矩或wrench信号；直接面向接触丰富任务",
+      "related_to_my_research": "小论文1；大论文；Potential Competition",
+      "recommended_reading": "优先精读全文、Fusion Ablation、Contact Gating和跨任务泛化。",
+      "reproduction_value": "High：概念与当前平台直接匹配，但需先确认代码和数据可得性。",
+      "core_candidate": "Yes",
+      "source": "arXiv",
+      "last_checked": "2026-08-12",
+      "potential_competition": true,
+      "competition_reason": "视觉–F/T接触感知自适应融合与当前小论文1的核心问题直接交叉；需要通过任务、数据和创新点进一步区分。",
+      "analysis_status": "ready",
+      "ai_provider": "manual",
+      "fact_confidence": "verified-metadata",
+      "source_query_group": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_generated_at": ""
+    },
+    {
+      "paper_id": "arxiv-2601-20321",
+      "title": "TaF-VLA: Tactile-Force Alignment in Vision-Language-Action Models for Force-aware Manipulation",
+      "authors": [
+        "Yuzhe Huang",
+        "Pei Lin",
+        "Wanlin Li",
+        "Daohan Li",
+        "Jiajun Li",
+        "Jiaming Jiang",
+        "Chenxi Xiao",
+        "Ziyuan Jiao"
+      ],
+      "abstract": "TaF-VLA argues that force-aware manipulation requires aligning high-dimensional tactile observations with physical interaction forces rather than treating tactile inputs as auxiliary visual textures. The work introduces an automated tactile-force data acquisition device and collects synchronized visuotactile observations, six-axis force/torque measurements and force maps.",
+      "abstract_zh": "TaF-VLA强调应将高维触觉观测与物理交互力对齐，而不是把触觉当作附加图像；论文构建自动化采集装置并同步记录视觉触觉、六维F/T和力图。",
+      "published_date": "2026-01-28",
+      "updated_date": "2026-01-28",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "arxiv_id": "2601.20321",
+      "paper_url": "https://arxiv.org/abs/2601.20321",
+      "pdf_url": "https://arxiv.org/pdf/2601.20321",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "research_topics": [
+        "vision-force",
+        "vla-manipulation"
+      ],
+      "literature_categories": [
+        "unassigned"
+      ],
+      "methods": [
+        "tactile-force alignment",
+        "multimodal representation learning",
+        "VLA"
+      ],
+      "tasks": [
+        "force-aware manipulation",
+        "contact-rich manipulation"
+      ],
+      "sensors": [
+        "Visuotactile",
+        "6-axis F/T",
+        "Force map"
+      ],
+      "keywords": [
+        "tactile-force alignment",
+        "VLA",
+        "six-axis force torque",
+        "multimodal"
+      ],
+      "summary_one_sentence": "将视觉触觉表征显式锚定到六维交互力，给VLA增加物理接触语义。",
+      "research_problem": "以视觉为主的VLA缺少接触物理直觉，简单拼接触觉纹理难以得到可控的力感知。",
+      "core_contributions": [
+        "触觉–力对齐范式",
+        "自动化同步数据采集设备",
+        "同步视觉触觉、六维F/T和力图数据"
+      ],
+      "method_summary": "以同步多模态数据学习触觉表征与物理力信号之间的对应关系，再服务于力感知VLA。",
+      "experimental_setup": "摘要明确包含同步视觉触觉、六维F/T和力图；具体机器人、数据规模和策略结构需阅读全文核对。",
+      "key_results": "当前展示的是方法与数据采集贡献，未在此处填入未经正文确认的性能数字。",
+      "limitations": "硬件包含额外的视觉触觉和力图采集条件，未必能直接复用单腕部F/T配置。",
+      "why_it_matters": "为‘力觉不是附加通道而是状态语义’提供了与VLA衔接的长期方向。",
+      "relevance_score": 84,
+      "relevance_reason": "明确涉及视觉–力/力矩或接触反馈；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；包含六维力/力矩或wrench信号；直接面向接触丰富任务",
+      "related_to_my_research": "大论文；背景文献；方法参考",
+      "recommended_reading": "重点读数据采集、Alignment Objective和VLA接口。",
+      "reproduction_value": "Low：数据采集硬件和VLA训练成本较高，不适合作为当前第一篇小论文的直接复现基线。",
+      "core_candidate": "Yes",
+      "source": "arXiv",
+      "last_checked": "2026-08-12",
+      "analysis_status": "ready",
+      "ai_provider": "manual",
+      "fact_confidence": "verified-metadata",
+      "source_query_group": "",
+      "potential_competition": true,
+      "competition_reason": "主题、传感器或闭环恢复机制与当前视觉–力觉研究规划存在明显交集；需要逐篇核对任务、平台和实验范围。",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_generated_at": ""
+    },
+    {
+      "paper_id": "arxiv-2510-13324",
+      "title": "Tactile-Conditioned Diffusion Policy for Force-Aware Robotic Manipulation",
+      "authors": [
+        "Erik Helmut",
+        "Niklas Funk",
+        "Tim Schneider",
+        "Cristiana de Farias",
+        "Jan Peters"
+      ],
+      "abstract": "FARM integrates high-dimensional tactile data to infer tactile-conditioned force signals and uses a matching force-based action space. Demonstrations are collected with a modified UMI gripper containing a GelSight Mini sensor. The policy jointly predicts robot pose, grip width and grip force, and is evaluated on tasks with distinct force requirements.",
+      "abstract_zh": "FARM将高维触觉数据用于推断触觉条件下的力信号，并把力纳入动作空间；策略联合预测位姿、夹爪宽度和抓取力。",
+      "published_date": "2025-10-15",
+      "updated_date": "2025-10-15",
+      "year": 2025,
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "arxiv_id": "2510.13324",
+      "paper_url": "https://arxiv.org/abs/2510.13324",
+      "pdf_url": "https://arxiv.org/pdf/2510.13324",
+      "code_url": "https://tactile-farm.github.io",
+      "project_url": "https://tactile-farm.github.io",
+      "image": "",
+      "research_topics": [
+        "vision-force",
+        "generative-policy"
+      ],
+      "literature_categories": [
+        "unassigned"
+      ],
+      "methods": [
+        "tactile-conditioned diffusion policy",
+        "force-based action space"
+      ],
+      "tasks": [
+        "plant insertion",
+        "grape picking",
+        "screw tightening"
+      ],
+      "sensors": [
+        "Vision",
+        "Visual Tactile",
+        "Force"
+      ],
+      "keywords": [
+        "tactile-conditioned",
+        "diffusion policy",
+        "force-aware",
+        "UMI",
+        "GelSight"
+      ],
+      "summary_one_sentence": "把触觉条件力和力控制动作空间一起纳入Diffusion Policy，面向不同力需求的操作任务。",
+      "research_problem": "仅把触觉作为观测输入并不能直接控制施力，精细接触任务需要可学习的力动作表示。",
+      "core_contributions": [
+        "触觉条件力信号推断",
+        "力基动作空间",
+        "位姿、夹爪宽度和夹爪力联合预测"
+      ],
+      "method_summary": "使用GelSight视觉触觉作为高维接触观测，扩展扩散策略输出，使动作同时描述运动和施力。",
+      "experimental_setup": "使用改造的UMI手持设备采集示范，并在匹配的执行夹爪上评估多种力需求任务。",
+      "key_results": "摘要报告不同任务上的成功率和力分布对比；具体数字需以正文表格为准。",
+      "limitations": "该工作核心是指尖视觉触觉，不是腕部六维F/T；动作空间迁移需要额外控制接口。",
+      "why_it_matters": "为第二篇论文的扩散/流匹配恢复动作生成提供‘把力作为动作目标’的参考。",
+      "relevance_score": 71,
+      "relevance_reason": "明确涉及视觉–力/力矩或接触反馈；研究对象是机器人操作或接触任务；方法包含可迁移的策略学习或多模态建模；直接面向接触丰富任务",
+      "related_to_my_research": "小论文2；方法参考",
+      "recommended_reading": "重点读Force Action Space、Policy Architecture、Force-domain Evaluation。",
+      "reproduction_value": "Medium：有公开项目页，但需要适配当前六维F/T而非GelSight。",
+      "core_candidate": "Review",
+      "source": "arXiv",
+      "last_checked": "2026-08-12",
+      "analysis_status": "ready",
+      "ai_provider": "manual",
+      "fact_confidence": "verified-metadata",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_generated_at": ""
+    },
+    {
+      "paper_id": "arxiv-2509-19047",
+      "title": "ManipForce: Force-Guided Policy Learning with Frequency-Aware Representation for Contact-Rich Manipulation",
+      "authors": [
+        "Geonhyup Lee",
+        "Yeongjin Lee",
+        "Kangmin Kim",
+        "Seongju Kim",
+        "Sangjun Noh",
+        "Seunghyeok Back",
+        "Kyoobin Lee"
+      ],
+      "abstract": "ManipForce presents a handheld system for collecting high-frequency force-torque and RGB demonstrations. Its Frequency-Aware Multimodal Transformer encodes asynchronous RGB and F/T signals with frequency- and modality-aware embeddings and fuses them with bidirectional cross-attention in a transformer diffusion policy.",
+      "abstract_zh": "ManipForce采集高频F/T与RGB示范，并用频率和模态感知嵌入处理异步信号，再通过双向交叉注意力输入Transformer Diffusion Policy。",
+      "published_date": "2025-09-23",
+      "updated_date": "2025-09-23",
+      "year": 2025,
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "arxiv_id": "2509.19047",
+      "paper_url": "https://arxiv.org/abs/2509.19047",
+      "pdf_url": "https://arxiv.org/pdf/2509.19047",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "research_topics": [
+        "vision-force",
+        "generative-policy"
+      ],
+      "literature_categories": [
+        "unassigned"
+      ],
+      "methods": [
+        "frequency-aware multimodal transformer",
+        "bidirectional cross-attention",
+        "transformer diffusion policy"
+      ],
+      "tasks": [
+        "contact-rich manipulation",
+        "precision assembly"
+      ],
+      "sensors": [
+        "RGB",
+        "Force/Torque",
+        "High-frequency F/T"
+      ],
+      "keywords": [
+        "frequency-aware",
+        "asynchronous fusion",
+        "force-guided",
+        "diffusion policy"
+      ],
+      "summary_one_sentence": "从频率和异步采样角度处理RGB–F/T融合，为高频接触控制提供时序建模线索。",
+      "research_problem": "RGB与高频F/T采样不同步，普通拼接会丢失接触瞬态和频率结构。",
+      "core_contributions": [
+        "高频RGB–F/T示范采集",
+        "频率/模态感知嵌入",
+        "双向交叉注意力融合"
+      ],
+      "method_summary": "把异步视觉和力觉映射到带频率信息的时序表示，再通过双向交叉注意力与扩散策略联合建模。",
+      "experimental_setup": "摘要确认包含六类真实接触丰富任务；平台和任务细节需阅读全文核对。",
+      "key_results": "摘要指出进行了广泛真实任务实验，但未在此处填入未核验数字。",
+      "limitations": "需要高频同步采集和时间戳标定；对当前尚未建立F/T记录链路的实验室，前置工程工作较多。",
+      "why_it_matters": "直接提醒当前项目不能只做模态拼接，采样率、同步和瞬态建模可能是论文创新点。",
+      "relevance_score": 71,
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；包含RGB-D/深度视觉；直接面向接触丰富任务",
+      "related_to_my_research": "小论文1；小论文2；方法参考",
+      "recommended_reading": "重点读Sensor Synchronization、Frequency Embedding、Cross-Attention和数据采集。",
+      "reproduction_value": "Medium：方法可借鉴，但需要先解决HKVL-75B驱动、时间戳与采样率问题。",
+      "core_candidate": "Yes",
+      "source": "arXiv",
+      "last_checked": "2026-08-12",
+      "analysis_status": "ready",
+      "ai_provider": "manual",
+      "fact_confidence": "verified-metadata",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_generated_at": ""
+    },
+    {
+      "paper_id": "arxiv-2505-13982",
+      "title": "Adaptive Visuo-Tactile Fusion with Predictive Force Attention for Dexterous Manipulation",
+      "authors": [
+        "Jinzhou Li",
+        "Tianhao Wu",
+        "Jiyao Zhang",
+        "Zeyuan Chen",
+        "Haotian Jin",
+        "Mingdong Wu",
+        "Yujun Shen",
+        "Yaodong Yang",
+        "Hao Dong"
+      ],
+      "abstract": "This work proposes a force-guided attention fusion module that adaptively adjusts the weights of visual and tactile features without human labeling. A self-supervised future force prediction task reinforces the tactile modality and encourages stage-appropriate fusion. The paper reports an average success rate of 93% across three fine-grained contact-rich tasks in real-world experiments.",
+      "abstract_zh": "论文提出力觉引导的注意力融合模块，根据操作阶段自适应调整视觉与触觉特征权重，并以未来力预测辅助任务增强触觉表示。",
+      "published_date": "2025-05-20",
+      "updated_date": "2025-05-20",
+      "year": 2025,
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "arxiv_id": "2505.13982",
+      "paper_url": "https://arxiv.org/abs/2505.13982",
+      "pdf_url": "https://arxiv.org/pdf/2505.13982",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [
+        "unassigned"
+      ],
+      "methods": [
+        "force-guided attention",
+        "future force prediction",
+        "imitation learning",
+        "diffusion policy"
+      ],
+      "tasks": [
+        "dexterous manipulation",
+        "contact-rich manipulation"
+      ],
+      "sensors": [
+        "Vision",
+        "Tactile",
+        "Force"
+      ],
+      "keywords": [
+        "visuo-tactile",
+        "force attention",
+        "cross-modal fusion",
+        "future prediction"
+      ],
+      "summary_one_sentence": "用当前与未来力信号作为引导，让视觉–触觉融合随操作阶段变化。",
+      "research_problem": "不同操作阶段对视觉和触觉的依赖不同，固定拼接或固定权重难以稳定利用多模态信号。",
+      "core_contributions": [
+        "力引导跨模态注意力",
+        "自监督未来力预测",
+        "无需人工阶段标签的自适应融合"
+      ],
+      "method_summary": "将观测力和预测未来力作为查询，视觉与触觉特征作为键和值，生成阶段自适应的融合表示并输入策略头。",
+      "experimental_setup": "摘要确认进行了真实机器人三类接触丰富任务实验；具体触觉传感器与机械臂配置需读正文。",
+      "key_results": "摘要报告三类真实任务平均成功率93%；该数字应在正文表格中再次核对。",
+      "limitations": "使用的是视觉触觉而非单独末端六维F/T，硬件迁移到HKVL-75B需要重新设计力编码。",
+      "why_it_matters": "提供了可迁移到视觉–六维力觉融合的‘力引导注意力+未来预测’设计。",
+      "relevance_score": 71,
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有真实机器人实验线索；直接面向接触丰富任务",
+      "related_to_my_research": "小论文1；方法参考",
+      "recommended_reading": "重点读Fusion、Future Force Prediction、Ablation。",
+      "reproduction_value": "Medium：方法思想清楚，但需要确认代码、触觉数据和训练成本。",
+      "core_candidate": "Yes",
+      "source": "arXiv",
+      "last_checked": "2026-08-12",
+      "analysis_status": "ready",
+      "ai_provider": "manual",
+      "fact_confidence": "verified-metadata",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_generated_at": ""
+    },
+    {
+      "paper_id": "arxiv-2411-15753",
+      "title": "FoAR: Force-Aware Reactive Policy for Contact-Rich Robotic Manipulation",
+      "authors": [
+        "Zihao He",
+        "Hongjie Fang",
+        "Jingjing Chen",
+        "Hao-Shu Fang",
+        "Cewu Lu"
+      ],
+      "abstract": "Contact-rich tasks present significant challenges for robotic manipulation policies due to complex contact dynamics. FoAR combines high-frequency force/torque sensing with visual inputs and uses a future contact predictor to adjust force/torque usage between non-contact and contact phases. Its reactive controller enables contact-rich tasks through simple position control and is evaluated under unexpected dynamic disturbances.",
+      "abstract_zh": "接触丰富任务需要策略处理复杂的接触动力学。FoAR将高频力/力矩信号与视觉输入结合，并通过未来接触预测器在非接触阶段和接触阶段之间动态调整力觉使用。",
+      "published_date": "2024-11-24",
+      "updated_date": "2025-05-02",
+      "year": 2024,
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "arxiv_id": "2411.15753",
+      "paper_url": "https://arxiv.org/abs/2411.15753",
+      "pdf_url": "https://arxiv.org/pdf/2411.15753",
+      "code_url": "",
+      "project_url": "https://tonyfang.net/FoAR/",
+      "image": "",
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [
+        "unassigned"
+      ],
+      "methods": [
+        "multimodal feature fusion",
+        "future contact prediction",
+        "reactive policy"
+      ],
+      "tasks": [
+        "contact-rich manipulation",
+        "dynamic disturbance"
+      ],
+      "sensors": [
+        "RGB",
+        "Force/Torque",
+        "6-axis F/T"
+      ],
+      "keywords": [
+        "force-aware",
+        "contact-rich",
+        "wrist force torque",
+        "robot manipulation"
+      ],
+      "summary_one_sentence": "用未来接触预测引导视觉–力觉融合，使策略在接触阶段更主动地利用高频F/T信号。",
+      "research_problem": "视觉策略缺少接触动力学反馈，在接触丰富任务和扰动下容易失效。",
+      "core_contributions": [
+        "视觉与高频F/T融合",
+        "未来接触预测引导模态使用",
+        "用简单位置控制实现反应式接触操作"
+      ],
+      "method_summary": "以视觉特征和力/力矩历史为输入，通过未来接触预测器调节多模态融合，再由反应式策略输出动作。",
+      "experimental_setup": "论文摘要确认使用真实机器人接触丰富任务与动态扰动；具体平台配置需阅读正文核对。",
+      "key_results": "摘要报告FoAR在多种接触丰富任务上显著优于基线，但未在此处填入未经正文核验的具体数字。",
+      "limitations": "当前演示数据未记录任务数量、硬件型号和全部基线；需要阅读全文审计实验边界。",
+      "why_it_matters": "与仅末端六维F/T传感器的视觉–力觉研究配置高度相关，适合作为接触阶段自适应融合的基线。",
+      "relevance_score": 94,
+      "relevance_reason": "明确涉及视觉–力/力矩或接触反馈；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；方法包含可迁移的策略学习或多模态建模；包含六维力/力矩或wrench信号；直接面向接触丰富任务",
+      "related_to_my_research": "小论文1；大论文；Baseline",
+      "recommended_reading": "重点读Method、Contact Predictor、Ablation和真实机器人实验。",
+      "reproduction_value": "High：研究问题、传感器形态与当前平台匹配，但需先确认代码和传感器接口。",
+      "core_candidate": "Yes",
+      "source": "arXiv",
+      "last_checked": "2026-08-12",
+      "analysis_status": "ready",
+      "ai_provider": "manual",
+      "fact_confidence": "verified-metadata",
+      "source_query_group": "",
+      "potential_competition": true,
+      "competition_reason": "主题、传感器或闭环恢复机制与当前视觉–力觉研究规划存在明显交集；需要逐篇核对任务、平台和实验范围。",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_generated_at": ""
+    },
+    {
+      "paper_id": "arxiv-2405-17418",
+      "title": "A Self-Correcting Vision-Language-Action Model for Fast and Slow System Manipulation",
+      "authors": [
+        "Chenxuan Li",
+        "Jiaming Liu",
+        "Guanqun Wang",
+        "Xiaoqi Li"
+      ],
+      "abstract": "SC-VLA integrates a fast system for direct action prediction and a slow system for reflecting on failed actions. It uses parameter-efficient fine-tuning for pose prediction and a chain-of-thought training strategy for failure correction within a VLA policy.",
+      "abstract_zh": "SC-VLA将直接预测动作的快速系统与失败反思的慢速系统结合，用参数高效微调和失败纠正训练提升操作鲁棒性。",
+      "published_date": "2024-05-27",
+      "updated_date": "2024-05-27",
+      "year": 2024,
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "arxiv_id": "2405.17418",
+      "paper_url": "https://arxiv.org/abs/2405.17418",
+      "pdf_url": "https://arxiv.org/pdf/2405.17418",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "research_topics": [
+        "failure-understanding",
+        "failure-recovery",
+        "vla-manipulation"
+      ],
+      "literature_categories": [
+        "unassigned"
+      ],
+      "methods": [
+        "vision-language-action",
+        "parameter-efficient fine-tuning",
+        "failure correction"
+      ],
+      "tasks": [
+        "robot manipulation",
+        "failure recovery"
+      ],
+      "sensors": [
+        "RGB",
+        "Proprioception"
+      ],
+      "keywords": [
+        "self-correcting",
+        "VLA",
+        "failure correction",
+        "fast and slow system"
+      ],
+      "summary_one_sentence": "用快–慢双系统把动作执行和失败反思放进同一个VLA闭环。",
+      "research_problem": "VLA在新颖和复杂任务中会执行失败，但常规策略缺少显式反思和纠正机制。",
+      "core_contributions": [
+        "快速动作系统与慢速反思系统",
+        "参数高效动作适配",
+        "面向失败纠正的训练策略"
+      ],
+      "method_summary": "快系统直接生成动作，慢系统在失败后利用反思信息生成纠正决策，再回到执行环。",
+      "experimental_setup": "摘要确认面向机器人操作和失败纠正；具体数据集、平台与评估指标需读正文。",
+      "key_results": "摘要未提供可独立核验的统一数字，因此保留为待阅读全文。",
+      "limitations": "不使用F/T，失败判断主要依赖视觉/语言推理；与当前方向结合需新增力觉状态验证模块。",
+      "why_it_matters": "可作为大论文‘状态验证→失败原因→恢复策略’闭环中慢速恢复层的概念参考。",
+      "relevance_score": 45,
+      "relevance_reason": "研究对象是机器人操作或接触任务；涉及失败、恢复、重规划或纠偏；方法包含可迁移的策略学习或多模态建模",
+      "related_to_my_research": "大论文；背景文献；方法参考",
+      "recommended_reading": "重点读Failure Reflection、Fast/Slow System和训练标签设计。",
+      "reproduction_value": "Low：需要VLA训练或较大模型资源，个人电脑阶段可先复现逻辑而非完整系统。",
+      "core_candidate": "Review",
+      "source": "arXiv",
+      "last_checked": "2026-08-12",
+      "analysis_status": "ready",
+      "ai_provider": "manual",
+      "fact_confidence": "verified-metadata",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_generated_at": ""
+    },
+    {
+      "paper_id": "arxiv-2303-04137",
+      "title": "Diffusion Policy: Visuomotor Policy Learning via Action Diffusion",
+      "authors": [
+        "Cheng Chi",
+        "Zhenjia Xu",
+        "Siyuan Feng",
+        "Eric Cousineau",
+        "Yilun Du",
+        "Benjamin Burchfiel",
+        "Russ Tedrake",
+        "Shuran Song"
+      ],
+      "abstract": "Diffusion Policy represents a visuomotor policy as a conditional denoising diffusion process. It benchmarks across 12 tasks from four robot manipulation benchmarks and reports an average improvement of 46.9% over prior methods. The diffusion formulation handles multimodal action distributions and high-dimensional action spaces.",
+      "abstract_zh": "Diffusion Policy将视觉运动策略表示为条件去噪扩散过程，在多个机器人操作基准上验证了其对多峰动作分布和高维动作空间的适应性。",
+      "published_date": "2023-03-07",
+      "updated_date": "2024-08-14",
+      "year": 2023,
+      "venue": "The International Journal of Robotics Research (2024) / arXiv",
+      "doi": "10.1177/02783649241273668",
+      "arxiv_id": "2303.04137",
+      "paper_url": "https://arxiv.org/abs/2303.04137",
+      "pdf_url": "https://arxiv.org/pdf/2303.04137",
+      "code_url": "https://github.com/real-stanford/diffusion_policy",
+      "project_url": "https://diffusion-policy.cs.columbia.edu/",
+      "image": "",
+      "research_topics": [
+        "generative-policy"
+      ],
+      "literature_categories": [
+        "unassigned"
+      ],
+      "methods": [
+        "action diffusion",
+        "visuomotor policy learning"
+      ],
+      "tasks": [
+        "robot manipulation",
+        "visuomotor control"
+      ],
+      "sensors": [
+        "RGB",
+        "RGB-D",
+        "Proprioception"
+      ],
+      "keywords": [
+        "diffusion policy",
+        "action diffusion",
+        "imitation learning",
+        "robot manipulation"
+      ],
+      "summary_one_sentence": "奠定了以条件动作扩散生成机器人操作轨迹的通用基线。",
+      "research_problem": "传统行为克隆难以表达多峰动作分布和高维连续动作，导致复杂操作策略不稳定。",
+      "core_contributions": [
+        "将策略建模为条件扩散过程",
+        "支持多峰高维动作分布",
+        "在多个机器人操作基准上系统评估"
+      ],
+      "method_summary": "视觉和状态条件输入经过时序网络，扩散采样器逐步去噪得到动作序列。",
+      "experimental_setup": "论文摘要报告12个任务、4个机器人操作基准；代码和项目页公开。",
+      "key_results": "摘要报告相对已有方法平均提升46.9%；具体比较需以发表版本表格为准。",
+      "limitations": "基础版本没有原生六维F/T或失败恢复机制，适合作为生成策略底座而不是完整融合方案。",
+      "why_it_matters": "是第二篇小论文扩散恢复动作生成和视觉–力觉策略改造的最重要基础Baseline之一。",
+      "relevance_score": 45,
+      "relevance_reason": "研究对象是机器人操作或接触任务；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索",
+      "related_to_my_research": "小论文2；Baseline",
+      "recommended_reading": "重点读Policy Architecture、Temporal U-Net/Transformer、Inference和代码。",
+      "reproduction_value": "High：代码和基准成熟，适合先在个人电脑上复现策略结构。",
+      "core_candidate": "Yes",
+      "source": "arXiv + IJRR",
+      "last_checked": "2026-08-12",
+      "analysis_status": "ready",
+      "ai_provider": "manual",
+      "fact_confidence": "verified-metadata",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_generated_at": ""
+    },
+    {
+      "paper_id": "arxiv-2212-06817",
+      "title": "RT-1: Robotics Transformer for Real-World Control at Scale",
+      "authors": [
+        "Anthony Brohan",
+        "Noah Brown",
+        "Justice Carbajal",
+        "Yevgen Chebotar",
+        "Joseph Dabis",
+        "Chelsea Finn",
+        "Keerthana Gopalakrishnan",
+        "Benjamin Hausman"
+      ],
+      "abstract": "RT-1 studies scalable general robotic control through open-ended task-agnostic training and a high-capacity Robotics Transformer. It investigates how diverse real-world robotic data can support generalization across tasks and objects.",
+      "abstract_zh": "RT-1研究如何利用大规模、多样、任务无关的真实机器人数据训练通用控制Transformer。",
+      "published_date": "2022-12-13",
+      "updated_date": "2022-12-13",
+      "year": 2022,
+      "venue": "Robotics: Science and Systems (RSS) 2023 / arXiv",
+      "doi": "",
+      "arxiv_id": "2212.06817",
+      "paper_url": "https://arxiv.org/abs/2212.06817",
+      "pdf_url": "https://arxiv.org/pdf/2212.06817",
+      "code_url": "",
+      "project_url": "https://robotics-transformer1.github.io/",
+      "image": "",
+      "research_topics": [
+        "vla-manipulation"
+      ],
+      "literature_categories": [
+        "unassigned"
+      ],
+      "methods": [
+        "Robotics Transformer",
+        "behavior cloning",
+        "large-scale data"
+      ],
+      "tasks": [
+        "real-world robot control",
+        "robot manipulation"
+      ],
+      "sensors": [
+        "RGB",
+        "Proprioception"
+      ],
+      "keywords": [
+        "RT-1",
+        "robotics transformer",
+        "generalist policy",
+        "real-world control"
+      ],
+      "summary_one_sentence": "展示了大规模真实机器人数据与Transformer策略结合的通用控制路线。",
+      "research_problem": "机器人数据规模和任务多样性不足限制了策略泛化，单任务策略难以复用。",
+      "core_contributions": [
+        "面向机器人控制的Transformer策略",
+        "开放式任务无关数据训练思路",
+        "真实世界跨任务泛化研究"
+      ],
+      "method_summary": "将图像、语言和机器人状态编码为序列，由Transformer预测离散化动作。",
+      "experimental_setup": "论文面向真实机器人控制和多任务数据；具体数据规模与任务列表需以正文为准。",
+      "key_results": "摘要确认研究了跨任务、跨物体泛化，但此处不填未从摘要直接核验的数字。",
+      "limitations": "视觉主导且不包含末端F/T，对当前研究更适合作为VLA/通用策略背景。",
+      "why_it_matters": "帮助理解为何当前项目应把视觉–力觉分支设计成可插拔的上层状态与反馈模块。",
+      "relevance_score": 50,
+      "relevance_reason": "研究对象是机器人操作或接触任务；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有真实机器人实验线索",
+      "related_to_my_research": "背景文献；VLA Baseline",
+      "recommended_reading": "重点读数据规模化、动作表示和泛化实验。",
+      "reproduction_value": "Low：真实数据与硬件规模较大，不适合作为当前个人电脑阶段的直接复现。",
+      "core_candidate": "Review",
+      "source": "arXiv + RSS",
+      "last_checked": "2026-08-12",
+      "analysis_status": "ready",
+      "ai_provider": "manual",
+      "fact_confidence": "verified-metadata",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_generated_at": ""
+    }
+  ]
+}

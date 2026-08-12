@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#07121f" />
+  <meta name="description" content="面向机器人操作与具身智能的个人科研论文雷达" />
+  <title>Embodied Research Radar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark"><span></span><span></span><span></span></div>
+        <div><div class="brand-name">Research Radar</div><div class="brand-sub">EMBODIED INTELLIGENCE</div></div>
+      </div>
+      <nav class="nav" aria-label="主导航">
+        <div class="nav-label">RESEARCH</div>
+        <a class="nav-item active" href="./" data-route="home"><span class="nav-dot cyan"></span><span>今日雷达</span><small data-nav-count="all">—</small></a>
+        <a class="nav-item" href="?topic=vision-force" data-topic="vision-force"><span class="nav-dot cyan"></span><span>视觉–力觉融合</span><small data-nav-count="vision-force">—</small></a>
+        <a class="nav-item muted-link" href="?topic=failure-understanding" data-topic="failure-understanding"><span class="nav-dot amber"></span><span>失败理解</span><small>soon</small></a>
+        <a class="nav-item muted-link" href="?topic=failure-recovery" data-topic="failure-recovery"><span class="nav-dot rose"></span><span>失败恢复</span><small>soon</small></a>
+        <a class="nav-item muted-link" href="?topic=vla-manipulation" data-topic="vla-manipulation"><span class="nav-dot violet"></span><span>VLA与操作</span><small>soon</small></a>
+        <a class="nav-item muted-link" href="?topic=generative-policy" data-topic="generative-policy"><span class="nav-dot blue"></span><span>生成式策略</span><small>soon</small></a>
+        <div class="nav-label nav-label-spaced">COLLECTIONS</div>
+        <a class="nav-item" href="?view=core" data-view="core"><span class="nav-icon">✦</span><span>核心论文</span><small data-nav-count="core">—</small></a>
+        <a class="nav-item" href="?view=map" data-view="map"><span class="nav-icon">⌁</span><span>Research Map</span></a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="status-line"><span class="live-dot"></span><span>RADAR ONLINE</span></div>
+        <div class="update-note">最后更新 <strong id="sidebar-date">—</strong></div>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换暗色模式"><span>◐</span> 外观</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobile-menu" type="button" aria-label="打开菜单">☰</button>
+        <div class="breadcrumbs"><span>RADAR</span><b>/</b><span id="breadcrumb-current">TODAY</span></div>
+        <div class="topbar-actions"><a href="https://arxiv.org/" target="_blank" rel="noopener">arXiv ↗</a><a href="https://github.com/Nicholas-Steven/embodied-research-radar" target="_blank" rel="noopener">GitHub ↗</a></div>
+      </header>
+
+      <div class="content" id="app">
+        <section class="hero" id="hero-section">
+          <div class="eyebrow"><span class="pulse"></span> PERSONAL RESEARCH INTELLIGENCE · <span id="hero-date">—</span></div>
+          <h1>今天，机器人<br><em>学会了什么。</em></h1>
+          <p>面向机器人操作与具身智能的个人科研论文雷达。聚焦视觉–力觉融合，持续追踪状态理解、失败恢复与可复现方法。</p>
+          <div class="hero-meta"><span><strong id="hero-count">—</strong> papers in radar</span><span class="meta-sep">·</span><span>source: arXiv</span><span class="meta-sep">·</span><span id="hero-threshold">relevance ≥ —</span></div>
+        </section>
+
+        <section class="quick-stats" id="quick-stats">
+          <div class="stat-card accent-cyan"><span class="stat-label">RADAR PAPERS</span><strong id="stat-papers">—</strong><small>当前保留</small></div>
+          <div class="stat-card accent-amber"><span class="stat-label">HIGH SIGNAL</span><strong id="stat-high">—</strong><small>相关度 ≥ 80</small></div>
+          <div class="stat-card accent-violet"><span class="stat-label">WITH CODE</span><strong id="stat-code">—</strong><small>公开代码或项目</small></div>
+          <div class="stat-card accent-rose"><span class="stat-label">2026 PULSE</span><strong id="stat-2026">—</strong><small>今年新增</small></div>
+        </section>
+
+        <section class="spotlight-grid" id="spotlight-grid">
+          <div class="spotlight-column">
+            <div class="section-heading"><div><span class="section-kicker">EDITORIAL SIGNAL</span><h2>今日最值得关注</h2></div><button class="text-button" data-action="topic" data-value="vision-force">查看全部 →</button></div>
+            <div class="spotlight-list" id="spotlight-list"></div>
+          </div>
+          <aside class="insight-card">
+            <div class="insight-top"><span class="section-kicker">RADAR INSIGHT</span><span class="insight-signal">● LIVE</span></div>
+            <h3 id="insight-title">正在读取今日趋势…</h3>
+            <p id="insight-body">趋势只基于当前收录样本计算；样本不足时会明确标记，而不是虚构热度。</p>
+            <div class="trend-bars" id="trend-bars"></div>
+            <div class="insight-foot"><span>近期主题分布</span><span id="trend-note">—</span></div>
+          </aside>
+        </section>
+
+        <section class="explore-section" id="explore-section">
+          <div class="section-heading"><div><span class="section-kicker">DISCOVER</span><h2 id="list-title">最近加入雷达</h2></div><span class="result-count" id="result-count">—</span></div>
+          <div class="toolbar">
+            <label class="search-box"><span>⌕</span><input id="search-input" type="search" placeholder="搜索标题、作者、摘要、方法…" autocomplete="off" /></label>
+            <div class="select-group"><label for="topic-filter">方向</label><select id="topic-filter"><option value="all">全部方向</option></select></div>
+            <div class="select-group"><label for="year-filter">年份</label><select id="year-filter"><option value="all">全部</option></select></div>
+            <div class="select-group"><label for="score-filter">相关度</label><select id="score-filter"><option value="all">全部</option><option value="80">80+ 高相关</option><option value="60">60+ 值得看</option></select></div>
+            <button class="filter-button" id="code-filter" type="button" aria-pressed="false">⌘ 有代码</button>
+            <button class="filter-button" id="reset-filter" type="button">重置</button>
+          </div>
+          <div class="active-filters" id="active-filters"></div>
+          <div class="paper-grid" id="paper-grid"></div>
+          <div class="empty-state hidden" id="empty-state"><div class="empty-icon">∅</div><h3>没有匹配的论文</h3><p>尝试放宽筛选条件，或等待下一次雷达更新。</p><button class="outline-button" id="empty-reset">清除筛选</button></div>
+        </section>
+
+        <section class="map-section hidden" id="map-section">
+          <div class="section-heading"><div><span class="section-kicker">SYSTEM VIEW</span><h2>Research Map</h2></div><span class="result-count">从感知到恢复的研究链路</span></div>
+          <div class="map-intro">把论文放回问题链路中：视觉/力觉感知不只是输入，而是状态验证与失败恢复的证据来源。</div>
+          <div class="research-map" id="research-map"></div>
+        </section>
+
+        <section class="branch-section hidden" id="branch-section">
+          <div class="branch-hero"><span class="section-kicker">RESEARCH BRANCH</span><h2 id="branch-title">—</h2><p id="branch-description">—</p><span class="coming-badge">V1 · STRUCTURE READY</span></div>
+          <div class="branch-columns"><div><span class="section-kicker">OPEN QUESTIONS</span><div id="branch-questions" class="question-list"></div></div><div class="branch-note"><span class="section-kicker">STATUS</span><h3>Coming Soon</h3><p>导航、配置和数据Schema已经为此分支预留。未来增加查询组和解析模块即可接入，不需要重做站点。</p></div></div>
+        </section>
+      </div>
+
+      <footer class="footer"><span>Embodied Research Radar · built for careful reading</span><span>事实字段 ≠ AI分析字段 · <a href="https://github.com/Nicholas-Steven/embodied-research-radar" target="_blank" rel="noopener">open source structure ↗</a></span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="assets/app.js" type="module"></script>
+</body>
+</html>

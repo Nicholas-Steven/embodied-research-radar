@@ -1,0 +1,87 @@
+{
+  "topics": [
+    {
+      "id": "vision-force",
+      "label": "Vision-Force Fusion",
+      "label_zh": "视觉–力觉融合",
+      "description": "重点追踪RGB/RGB-D视觉与末端六维力/力矩传感器协同用于机器人操作的研究。",
+      "status": "active",
+      "accent": "cyan",
+      "keywords": ["vision-force", "vision torque", "force-aware", "force torque", "wrist force", "6-axis force", "contact-rich", "force sensing"],
+      "sensors": ["RGB", "RGB-D", "Force/Torque", "6-axis F/T"],
+      "research_questions": ["接触何时发生？", "视觉与力觉如何自适应融合？", "如何从接触信号验证任务状态？"]
+    },
+    {
+      "id": "failure-understanding",
+      "label": "Failure Understanding",
+      "label_zh": "失败理解",
+      "description": "识别任务成功、执行进度、异常和失败原因，为闭环恢复提供状态证据。",
+      "status": "coming-soon",
+      "accent": "amber",
+      "keywords": ["failure detection", "task success prediction", "execution monitoring", "runtime monitoring", "progress estimation"],
+      "sensors": ["RGB", "RGB-D", "Force/Torque", "Proprioception"],
+      "research_questions": ["如何区分暂时偏差和不可恢复失败？", "如何利用多模态时序信号？"]
+    },
+    {
+      "id": "failure-recovery",
+      "label": "Failure Recovery",
+      "label_zh": "失败恢复",
+      "description": "研究重试、重规划、纠偏动作和层级恢复策略。",
+      "status": "coming-soon",
+      "accent": "rose",
+      "keywords": ["failure recovery", "replanning", "retry", "corrective action", "recovery policy"],
+      "sensors": ["RGB", "RGB-D", "Force/Torque"],
+      "research_questions": ["失败后应该选择哪一种恢复模式？", "恢复动作如何保证安全与可解释？"]
+    },
+    {
+      "id": "vla-manipulation",
+      "label": "VLA & Manipulation",
+      "label_zh": "VLA与机器人操作",
+      "description": "追踪Vision-Language-Action模型、模仿学习和通用机器人操作策略。",
+      "status": "coming-soon",
+      "accent": "violet",
+      "keywords": ["vision-language-action", "VLA", "robot manipulation", "imitation learning", "behavior cloning"],
+      "sensors": ["RGB", "RGB-D", "Proprioception"],
+      "research_questions": ["通用策略如何适配新平台？", "VLA如何接入接触反馈？"]
+    },
+    {
+      "id": "generative-policy",
+      "label": "Generative Policy",
+      "label_zh": "生成式策略",
+      "description": "追踪Diffusion Policy、Flow Matching和动作轨迹生成方法。",
+      "status": "coming-soon",
+      "accent": "blue",
+      "keywords": ["diffusion policy", "flow matching", "generative robot policy", "action chunking"],
+      "sensors": ["RGB", "RGB-D", "Force/Torque"],
+      "research_questions": ["生成式策略如何利用力觉？", "如何提高接触阶段的反应速度？"]
+    },
+    {
+      "id": "core-papers",
+      "label": "Core Papers",
+      "label_zh": "核心论文",
+      "description": "收集必读、综述、Benchmark、Baseline与值得复现的工作。",
+      "status": "active",
+      "accent": "lime",
+      "keywords": [],
+      "sensors": [],
+      "research_questions": []
+    }
+  ],
+  "research_map": [
+    {"id": "perception", "label": "视觉/力觉感知", "topic": "vision-force"},
+    {"id": "representation", "label": "多模态表示", "topic": "vision-force"},
+    {"id": "state", "label": "接触与任务状态估计", "topic": "failure-understanding"},
+    {"id": "progress", "label": "任务进度与成功预测", "topic": "failure-understanding"},
+    {"id": "failure", "label": "失败检测与原因判断", "topic": "failure-understanding"},
+    {"id": "selection", "label": "恢复策略选择", "topic": "failure-recovery"},
+    {"id": "action", "label": "恢复动作生成", "topic": "generative-policy"},
+    {"id": "continue", "label": "任务继续执行", "topic": "failure-recovery"}
+  ],
+  "literature_categories": [
+    {"id": "A", "label": "A", "defined": false},
+    {"id": "B", "label": "B", "defined": false},
+    {"id": "C", "label": "C", "defined": false},
+    {"id": "D", "label": "D", "defined": false},
+    {"id": "unassigned", "label": "待人工确认", "defined": true}
+  ]
+}

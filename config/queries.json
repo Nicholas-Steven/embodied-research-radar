@@ -1,0 +1,76 @@
+{
+  "query_groups": [
+    {
+      "id": "vision-force",
+      "label": "Vision–Force",
+      "topic": "vision-force",
+      "queries": [
+        "all:\"vision force\"",
+        "all:\"force torque\" AND (cat:cs.RO OR cat:cs.LG)",
+        "all:\"force-aware\" AND all:manipulation",
+        "all:\"wrist force\" AND all:robot"
+      ]
+    },
+    {
+      "id": "vision-tactile",
+      "label": "Vision–Tactile",
+      "topic": "vision-force",
+      "queries": [
+        "all:visuotactile",
+        "all:\"vision tactile\" AND all:manipulation",
+        "all:\"tactile-conditioned\" AND all:robot"
+      ]
+    },
+    {
+      "id": "contact",
+      "label": "Contact",
+      "topic": "vision-force",
+      "queries": [
+        "all:\"contact-rich manipulation\"",
+        "all:\"contact state estimation\"",
+        "all:\"contact detection\" AND all:robot"
+      ]
+    },
+    {
+      "id": "failure",
+      "label": "Failure Understanding",
+      "topic": "failure-understanding",
+      "queries": [
+        "all:\"robotic manipulation failure\"",
+        "all:\"task success prediction\" AND all:robot",
+        "all:\"execution monitoring\" AND all:manipulation"
+      ]
+    },
+    {
+      "id": "recovery",
+      "label": "Failure Recovery",
+      "topic": "failure-recovery",
+      "queries": [
+        "all:\"robot manipulation recovery\"",
+        "all:\"recovery policy\" AND all:robot",
+        "all:replanning AND all:manipulation"
+      ]
+    },
+    {
+      "id": "vla",
+      "label": "VLA",
+      "topic": "vla-manipulation",
+      "queries": [
+        "all:\"vision-language-action\"",
+        "all:\"robot manipulation\" AND all:imitation"
+      ]
+    },
+    {
+      "id": "generative",
+      "label": "Generative Policy",
+      "topic": "generative-policy",
+      "queries": [
+        "all:\"diffusion policy\"",
+        "all:\"flow matching\" AND all:robot",
+        "all:\"generative policy\" AND all:manipulation"
+      ]
+    }
+  ],
+  "allowed_primary_categories": ["cs.RO", "cs.AI", "cs.LG", "cs.CV", "cs.CL", "cs.SY", "eess.SY"],
+  "exclude_terms": ["galactic", "galaxy", "particle physics", "fluid dynamics", "materials science", "medical imaging"]
+}

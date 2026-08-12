@@ -1,0 +1,10 @@
+{
+  "name": "embodied-research-radar",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A configurable static research radar for embodied intelligence and robotic manipulation",
+  "scripts": {
+    "build": "python scripts/build_site.py",
+    "test": "python -m unittest discover -s tests -v"
+  }
+}

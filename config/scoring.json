@@ -1,0 +1,19 @@
+{
+  "weights": {
+    "vision_force": 30,
+    "manipulation": 25,
+    "state_understanding": 15,
+    "failure_recovery": 10,
+    "method_signal": 10,
+    "direct_reproduction": 10
+  },
+  "bonuses": {
+    "six_axis_ft": 8,
+    "rgbd": 5,
+    "real_robot": 5,
+    "open_code": 5,
+    "contact_rich": 6
+  },
+  "penalty": 35,
+  "stars": [20, 40, 60, 80, 95]
+}

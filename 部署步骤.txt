@@ -1,0 +1,235 @@
+可以。真正部署成功后，你不需要每次启动本地服务器，也不需要每次手动部署；直接打开线上网址即可：
+
+[Embodied Research Radar](https://nicholas-steven.github.io/embodied-research-radar/)
+
+目前尚无证据表明该GitHub仓库已经创建或部署，所以需要先完成下面一次性流程。
+
+## 一、下载并解压项目
+
+下载：
+
+[embodied-research-radar-v1.zip](sandbox:/workspace/scratch/f58e263424f9/embodied-research-radar-v1.zip)
+
+建议解压到：
+
+```text
+Windows：D:\embodied-research-radar
+Ubuntu：~/embodied-research-radar
+```
+
+进入后，确认能看到：
+
+```text
+README.md
+config/
+data/
+scripts/
+web/
+site/
+.github/
+```
+
+压缩包已经包含Demo论文数据和静态网站，首次部署不必先运行本地构建。
+
+## 二、创建GitHub仓库
+
+打开[GitHub新建仓库页面](https://github.com/new)，填写：
+
+```text
+Owner：Nicholas-Steven
+Repository name：embodied-research-radar
+Visibility：Public
+```
+
+创建时不要勾选：
+
+* Add a README file
+* Add .gitignore
+* Choose a license
+
+GitHub官方也建议推送已有本地项目时先创建空仓库，以避免初始提交冲突。[官方说明](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)
+
+## 三、把项目推送到GitHub
+
+### Windows PowerShell
+
+先安装Git，然后执行：
+
+```powershell
+cd "D:\embodied-research-radar"
+
+git init
+git branch -M main
+git add .
+git commit -m "Initial release"
+git remote add origin https://github.com/Nicholas-Steven/embodied-research-radar.git
+git push -u origin main
+```
+
+### Ubuntu 22.04
+
+```bash
+sudo apt update
+sudo apt install git python3 python3-venv -y
+
+cd ~/embodied-research-radar
+
+git init
+git branch -M main
+git add .
+git commit -m "Initial release"
+git remote add origin https://github.com/Nicholas-Steven/embodied-research-radar.git
+git push -u origin main
+```
+
+如果提示没有Git身份信息，先执行：
+
+```bash
+git config --global user.name "Nicholas-Steven"
+git config --global user.email "你的GitHub邮箱"
+```
+
+身份验证时不要使用GitHub账户密码作为Git密码。Windows通常会通过Git Credential Manager打开浏览器登录；也可以使用GitHub Desktop或GitHub CLI完成登录。
+
+## 四、启用GitHub Actions权限
+
+进入仓库：
+
+```text
+Settings
+→ Actions
+→ General
+→ Workflow permissions
+→ Read and write permissions
+→ Save
+```
+
+这是因为项目的自动更新流程会把新的论文数据提交回仓库。
+
+然后确认仓库中的文件存在：
+
+```text
+.github/workflows/deploy.yml
+```
+
+如果Actions被禁用，进入仓库的`Actions`页面并点击启用。
+
+## 五、启用GitHub Pages
+
+进入：
+
+```text
+Settings
+→ Pages
+→ Build and deployment
+→ Source
+→ GitHub Actions
+```
+
+不要选择“Deploy from a branch”。当前项目使用的是自定义GitHub Actions构建和部署流程。[GitHub官方说明](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+
+## 六、执行第一次部署
+
+推送代码后，Actions通常会自动运行。
+
+如果没有自动运行：
+
+```text
+Actions
+→ Radar update and GitHub Pages deploy
+→ Run workflow
+→ Branch选择main
+→ limit_per_query先填2或5
+→ Run workflow
+```
+
+等待两个任务都显示绿色：
+
+```text
+build
+deploy
+```
+
+第一次部署可能需要几分钟，GitHub官方说明页面更新最长可能需要约10分钟。[官方说明](https://docs.github.com/articles/creating-project-pages-manually)
+
+完成后访问：
+
+[https://nicholas-steven.github.io/embodied-research-radar/](https://nicholas-steven.github.io/embodied-research-radar/)
+
+## 七、以后如何使用
+
+| 需求         | 操作                              |
+| ---------- | ------------------------------- |
+| 只是查看论文网站   | 直接打开线上网址                        |
+| 手动更新论文     | GitHub → Actions → Run workflow |
+| 每日自动更新     | 不需要操作，工作流每天自动运行                 |
+| 修改网页样式或功能  | 本地修改后`git push`                 |
+| 修改研究方向和查询词 | 修改`config/`后提交并推送               |
+| 使用AI生成摘要   | 配置`LLM_API_KEY` Secret          |
+
+当前工作流设置的每日更新时间是：
+
+```text
+UTC 04:00
+北京时间 12:00
+日本时间 13:00
+```
+
+## 八、以后修改代码时
+
+先同步GitHub自动生成的数据：
+
+```bash
+git pull --rebase origin main
+```
+
+修改后运行：
+
+```bash
+python -m unittest discover -s tests -v
+python scripts/build_site.py
+git add .
+git commit -m "Update radar"
+git push origin main
+```
+
+推送后GitHub Actions会自动重新构建并发布，不需要你手动进入Pages部署。
+
+## 九、AI摘要配置
+
+这一步不是必须的。不配置也能正常使用网站，新论文的AI分析字段会显示`Pending`。
+
+如果需要AI摘要：
+
+```text
+Settings
+→ Secrets and variables
+→ Actions
+→ New repository secret
+```
+
+添加：
+
+```text
+Name：LLM_API_KEY
+Value：你的API Key
+```
+
+可选Variables：
+
+```text
+LLM_BASE_URL
+LLM_MODEL
+```
+
+不要把API Key写进源码或`.env`后提交到GitHub。
+
+## 十、出现问题时优先检查
+
+* 404：确认仓库名严格是`embodied-research-radar`，Pages来源是`GitHub Actions`。
+* Actions红色：打开失败的`build`步骤查看日志。
+* `git push`被拒绝：先执行`git pull --rebase origin main`。
+* 页面没有样式：确认访问网址最后包含`/embodied-research-radar/`，然后强制刷新。
+* 没有新论文：先在Actions中手动重新运行一次，可能是arXiv暂时限流。
+
+完成第五、六步后，网站就已经可以在手机、实验室电脑、个人电脑或任何联网设备上直接使用了。

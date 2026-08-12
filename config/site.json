@@ -1,0 +1,13 @@
+{
+  "site_name": "Embodied Research Radar",
+  "subtitle": "面向机器人操作与具身智能的个人科研论文雷达",
+  "english_description": "A Personal Research Radar for Embodied Intelligence and Robotic Manipulation",
+  "owner": "Nicholas-Steven",
+  "repository": "Nicholas-Steven/embodied-research-radar",
+  "default_language": "zh-CN",
+  "default_topic": "vision-force",
+  "default_page_size": 12,
+  "base_path": "/embodied-research-radar/",
+  "data_source": "arXiv",
+  "last_verified_note": "事实字段来自论文元数据；AI分析字段仅在配置Provider后生成。"
+}

@@ -1,0 +1,2 @@
+# The core pipeline intentionally uses only the Python standard library.
+# Optional local tooling can be installed separately; no API key is required for a demo build.
