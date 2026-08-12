@@ -1,7 +1,7 @@
 {
   "site": "Embodied Research Radar",
   "built_at": "2026-08-12",
-  "paper_count": 10,
+  "paper_count": 80,
   "data_source": "arXiv",
   "relative_data_path": "assets/data.json"
 }
