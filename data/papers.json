@@ -79,7 +79,8 @@
       "research_branches": [
         "vla-manipulation"
       ],
-      "image_caption": "Fig. 3: PCA projection of evaluation initial poses and task-level distributions. Blue diamonds denote 8 diversified PickApple training poses, while blue circles denote the remaining evaluation initial configurations. Yellow and gray circles respectively represent the task-level initial-state means of the pick-type and non-pick real-robot datasets."
+      "image_caption": "Fig. 3: PCA projection of evaluation initial poses and task-level distributions. Blue diamonds denote 8 diversified PickApple training poses, while blue circles denote the remaining evaluation initial configurations. Yellow and gray circles respectively represent the task-level initial-state means of the pick-type and non-pick real-robot datasets.",
+      "image_caption_zh": "PCA投影展示了评估初始姿态和任务级分布。蓝色菱形表示8个多样化的PickApple训练姿态，蓝色圆圈表示剩余的评估初始配置。黄色和灰色圆圈分别表示拾取类和非拾取类真实机器人数据集的任务级初始状态均值。"
     },
     {
       "paper_id": "arxiv-2608-11739",
@@ -182,7 +183,8 @@
         "vla-manipulation",
         "generative-policy"
       ],
-      "image_caption": "Figure 3: Structured action tokenization. Heterogeneous robot actions are decomposed into semantically aligned motion parts, encoded with a residual vector quantizer, and serialized as part-specific action tokens. This representation shares one action vocabulary across embodiments while allowing sparse prediction over only the activated parts."
+      "image_caption": "Figure 3: Structured action tokenization. Heterogeneous robot actions are decomposed into semantically aligned motion parts, encoded with a residual vector quantizer, and serialized as part-specific action tokens. This representation shares one action vocabulary across embodiments while allowing sparse prediction over only the activated parts.",
+      "image_caption_zh": "结构化动作标记化。异构机器人动作被分解为语义对齐的运动部分，用残差向量量化器编码，并序列化为部件特定的动作标记。该表示在不同实体间共享一个动作词汇表，同时仅对激活部分进行稀疏预测。"
     },
     {
       "paper_id": "arxiv-2608-11671",
@@ -262,7 +264,8 @@
       "research_branches": [
         "vla-manipulation"
       ],
-      "image_caption": "Figure 2 : Overview of StellaVLA. Top left: a retrieved context demonstration is represented as a task plan and a sequence of subgoals, each containing a keyframe, robot state, 2D trace, and 3D motion. Right: these annotations are generated automatically offline from VLM reasoning and robot trajectories, without human labeling. Bottom left: the vision-language model encodes the demonstration together with the current observation and instruction into a shared representation, which is consumed by an action expert for action prediction and a spatial-language expert for auxiliary supervision during training only. The spatial-language expert is removed at inference, requiring only a single forward pass."
+      "image_caption": "Figure 2 : Overview of StellaVLA. Top left: a retrieved context demonstration is represented as a task plan and a sequence of subgoals, each containing a keyframe, robot state, 2D trace, and 3D motion. Right: these annotations are generated automatically offline from VLM reasoning and robot trajectories, without human labeling. Bottom left: the vision-language model encodes the demonstration together with the current observation and instruction into a shared representation, which is consumed by an action expert for action prediction and a spatial-language expert for auxiliary supervision during training only. The spatial-language expert is removed at inference, requiring only a single forward pass.",
+      "image_caption_zh": "StellaVLA概述。左上：检索到的上下文演示表示为任务计划和一系列子目标，每个包含关键帧、机器人状态、二维轨迹和三维运动。右：这些注释通过VLM推理和机器人轨迹自动离线生成，无需人工标注。左下：视觉语言模型将演示与当前观测和指令编码为共享表示，由动作专家用于动作预测，并由空间语言专家在训练期间仅用于辅助监督。推理时移除空间语言专家，仅需单次前向传播。"
     },
     {
       "paper_id": "arxiv-2608-11204",
@@ -342,7 +345,8 @@
       "research_branches": [
         "failure-recovery"
       ],
-      "image_caption": "Figure 2: Surgical WAM architecture and two-stage training recipe. (Top) Architecture. Closed-loop inference with the Surgical WAM on SurRoL peg transfer. At each control step, the model conditions on the current endoscopic frame, robot state and goal, and the task text. A single video-action diffusion transformer samples an action chunk in the same latent sequence used for visual/state prediction. (Bottom) Two-stage training recipe. Stage 1 (Video pretraining): the world model is fine-tuned on unlabeled surgical video using only the video loss ℒ vid \\mathcal{L}_{\\mathrm{vid}} ; action latent frames are masked (zeroed). Stage 2 (Joint fine-tuning): the pretrained world model is jointly fine-tuned on action-labeled demonstrations using the full objective ℒ joint \\mathcal{L}_{\\mathrm{joint}} ."
+      "image_caption": "Figure 2: Surgical WAM architecture and two-stage training recipe. (Top) Architecture. Closed-loop inference with the Surgical WAM on SurRoL peg transfer. At each control step, the model conditions on the current endoscopic frame, robot state and goal, and the task text. A single video-action diffusion transformer samples an action chunk in the same latent sequence used for visual/state prediction. (Bottom) Two-stage training recipe. Stage 1 (Video pretraining): the world model is fine-tuned on unlabeled surgical video using only the video loss ℒ vid \\mathcal{L}_{\\mathrm{vid}} ; action latent frames are masked (zeroed). Stage 2 (Joint fine-tuning): the pretrained world model is jointly fine-tuned on action-labeled demonstrations using the full objective ℒ joint \\mathcal{L}_{\\mathrm{joint}} .",
+      "image_caption_zh": "手术WAM架构与两阶段训练方案。（上）架构。在SurRoL钉转移上使用手术WAM进行闭环推理。每步，模型基于当前内窥镜帧、机器人状态、目标和任务文本。一个视频-动作扩散Transformer在用于视觉/状态预测的同一潜在序列中采样动作块。（下）两阶段训练方案。阶段1（视频预训练）：世界模型仅在未标记的手术视频上使用视频损失ℒ_vid微调；动作潜在帧被掩码（归零）。阶段2（联合微调）：预训练的世界模型在带动作标签的演示上使用完整目标ℒ_joint联合微调。"
     },
     {
       "paper_id": "arxiv-2608-10824",
@@ -416,7 +420,8 @@
       "research_branches": [
         "vla-manipulation"
       ],
-      "image_caption": "Figure 2 : Gated VLA-Cache architecture. At each step t t , the logit-margin gate evaluates the action confidence from step t − 1 t{-}1 . If the margin signals low confidence, the cache is invalidated and full inference runs for step t t . Otherwise, the standard VLA-Cache pipeline proceeds."
+      "image_caption": "Figure 2 : Gated VLA-Cache architecture. At each step t t , the logit-margin gate evaluates the action confidence from step t − 1 t{-}1 . If the margin signals low confidence, the cache is invalidated and full inference runs for step t t . Otherwise, the standard VLA-Cache pipeline proceeds.",
+      "image_caption_zh": "门控VLA-Cache架构。在每个时间步t，logit-margin门评估来自时间步t-1的动作置信度。如果边际信号指示低置信度，则缓存失效并对时间步t运行完整推理。否则，执行标准VLA-Cache流程。"
     },
     {
       "paper_id": "arxiv-2608-09138",
@@ -492,7 +497,8 @@
       "research_branches": [
         "vla-manipulation"
       ],
-      "image_caption": "Fig. 1: Initialization and key actions for three real-world tasks (top to bottom): Tea Bag Disposal, Food Preparation, and Almond Pouring."
+      "image_caption": "Fig. 1: Initialization and key actions for three real-world tasks (top to bottom): Tea Bag Disposal, Food Preparation, and Almond Pouring.",
+      "image_caption_zh": "三个真实世界任务（从上到下）的初始化和关键动作：茶包处理、食物准备和倒杏仁。"
     },
     {
       "paper_id": "arxiv-2608-09125",
@@ -574,7 +580,8 @@
       "research_branches": [
         "failure-recovery"
       ],
-      "image_caption": "Fig. 1: Overview of the automated surgical manipulation framework with TDHD. (A) Multimodal context information includes multi-view images, a language instruction, and robotic arm proprioception; (B) VLA prefix construction, where visual, linguistic, and proprioceptive tokens are fused by a VLM Transformer into a Prefix KV Cache computed once per cycle; (C) Noise sampling creates a primary noise z 1 z_{1} and a perturbed copy z 2 = z 1 + ϵ ​ η z_{2}{=}z_{1}{+}\\epsilon\\eta ; (D) Adaptive horizon decision, where per-step divergence δ i \\delta_{i} between trajectories A ( 1 ) A^{(1)} and A ( 2 ) A^{(2)} is evaluated against absolute and ratio thresholds to determine the safe execution length s ∗ s^{*} ; (E) Robot action execution, where only the first s ∗ s^{*} reliable steps of A ( 1 ) A^{(1)} are dispatched to the robot."
+      "image_caption": "Fig. 1: Overview of the automated surgical manipulation framework with TDHD. (A) Multimodal context information includes multi-view images, a language instruction, and robotic arm proprioception; (B) VLA prefix construction, where visual, linguistic, and proprioceptive tokens are fused by a VLM Transformer into a Prefix KV Cache computed once per cycle; (C) Noise sampling creates a primary noise z 1 z_{1} and a perturbed copy z 2 = z 1 + ϵ ​ η z_{2}{=}z_{1}{+}\\epsilon\\eta ; (D) Adaptive horizon decision, where per-step divergence δ i \\delta_{i} between trajectories A ( 1 ) A^{(1)} and A ( 2 ) A^{(2)} is evaluated against absolute and ratio thresholds to determine the safe execution length s ∗ s^{*} ; (E) Robot action execution, where only the first s ∗ s^{*} reliable steps of A ( 1 ) A^{(1)} are dispatched to the robot.",
+      "image_caption_zh": "(A) 多模态上下文信息包括多视角图像、语言指令和机械臂本体感知；(B) VLA前缀构建，其中视觉、语言和本体感知标记由VLM Transformer融合为每个周期计算一次的前缀KV缓存；(C) 噪声采样生成主噪声z1和扰动副本z2 = z1 + εη；(D) 自适应视界决策，其中评估轨迹A^(1)和A^(2)之间每步的差异δ_i，与绝对阈值和比率阈值比较，以确定安全执行长度s^*；(E) 机器人动作执行，其中仅执行A^(1)的前s^*个可靠步骤。"
     },
     {
       "paper_id": "arxiv-2608-09410",
@@ -650,7 +657,8 @@
       "research_branches": [
         "vla-manipulation"
       ],
-      "image_caption": "Figure 2: Overview of the HyMeS within-episode execution loop. The instruction and the current observation are passed to the pretrained policy in weight space , whose weights stay fixed throughout. At initialization and after each verified stage transition, SAM and DINOv2 extract task-relevant keypoints; the coding agent (claude code / codex) combines them with the observation and the program 𝒫 ( n ) \\mathcal{P}^{(n)} refined over prior rollouts to instantiate a code-space memory holding an executable plan, the current stage, its verification rules, and a stage-specific constraint reward. The gradient of that reward is injected into action generation as guidance, so the executed action chunk 𝐚 t \\mathbf{a}_{t} follows the current memory state without any weight update. PACE verifies progress using synchronized multi-frame visual and joint-state evidence, advancing the stage only when at least k k of the most recent w w completion queries pass."
+      "image_caption": "Figure 2: Overview of the HyMeS within-episode execution loop. The instruction and the current observation are passed to the pretrained policy in weight space , whose weights stay fixed throughout. At initialization and after each verified stage transition, SAM and DINOv2 extract task-relevant keypoints; the coding agent (claude code / codex) combines them with the observation and the program 𝒫 ( n ) \\mathcal{P}^{(n)} refined over prior rollouts to instantiate a code-space memory holding an executable plan, the current stage, its verification rules, and a stage-specific constraint reward. The gradient of that reward is injected into action generation as guidance, so the executed action chunk 𝐚 t \\mathbf{a}_{t} follows the current memory state without any weight update. PACE verifies progress using synchronized multi-frame visual and joint-state evidence, advancing the stage only when at least k k of the most recent w w completion queries pass.",
+      "image_caption_zh": "HyMeS回合内执行循环概述。指令和当前观测被传递给权重空间中的预训练策略，其权重固定不变。初始化时和每个验证的阶段转换后，SAM和DINOv2提取任务相关关键点；编码代理（Claude Code/Codex）将它们与观测和先前rollout中优化的程序𝒫(n)结合，实例化一个代码空间记忆，包含可执行计划、当前阶段、其验证规则和阶段特定约束奖励。该奖励的梯度作为指导注入动作生成，因此执行的动作块𝐚_t遵循当前记忆状态，无需任何权重更新。PACE验证进度。"
     },
     {
       "paper_id": "arxiv-2608-09771",
@@ -733,7 +741,8 @@
         "generative-policy",
         "vla-manipulation"
       ],
-      "image_caption": "Figure 3: MoT backbone with observation-action joint attention and per-stream language cross-attention."
+      "image_caption": "Figure 3: MoT backbone with observation-action joint attention and per-stream language cross-attention.",
+      "image_caption_zh": "MoT骨干网络，具有观察-动作联合注意力和每流语言交叉注意力"
     },
     {
       "paper_id": "arxiv-2608-09303",
@@ -810,7 +819,8 @@
       "research_branches": [
         "vla-manipulation"
       ],
-      "image_caption": "Fig. 1 : An overview of our method SAFE-CHEM , which consists of four stages: (1) training an ensemble-based imitation learning policy ( π L \\pi_{L} ) in simulation for robotic chemistry manipulation tasks; (2) estimating the epistemic uncertainty σ \\sigma through ensemble variance; (3) action selection that monitors σ \\sigma to gate control between π L \\pi_{L} and a fail-safe rule-based backup robot controller ( π B \\pi_{B} ); and (4) real-world demonstration on a robotic system using zero-shot task transfer."
+      "image_caption": "Fig. 1 : An overview of our method SAFE-CHEM , which consists of four stages: (1) training an ensemble-based imitation learning policy ( π L \\pi_{L} ) in simulation for robotic chemistry manipulation tasks; (2) estimating the epistemic uncertainty σ \\sigma through ensemble variance; (3) action selection that monitors σ \\sigma to gate control between π L \\pi_{L} and a fail-safe rule-based backup robot controller ( π B \\pi_{B} ); and (4) real-world demonstration on a robotic system using zero-shot task transfer.",
+      "image_caption_zh": "SAFE-CHEM方法概览，包括四个阶段：(1) 在仿真中训练基于集成的模仿学习策略π_L，用于机器人化学操作；(2) 通过集成方差估计认知不确定性σ；(3) 动作选择时监控σ，在π_L和基于规则的安全备份控制器π_B之间切换；(4) 在真实机器人系统上零样本任务迁移演示。"
     },
     {
       "paper_id": "arxiv-2608-07045",
@@ -894,7 +904,8 @@
       "research_branches": [
         "vision-force"
       ],
-      "image_caption": "Fig. 1: Overview of C2Dex. Given a monocular human video, C2Dex first performs contact-consistent HOI reconstruction by aggregating frame-wise contact observations into stable object-side contacts, and then transfers the reconstructed interaction to a dexterous hand through contact-interaction-preserving retargeting with stable-contact preservation, Laplacian interaction optimization, and residual reinforcement learning."
+      "image_caption": "Fig. 1: Overview of C2Dex. Given a monocular human video, C2Dex first performs contact-consistent HOI reconstruction by aggregating frame-wise contact observations into stable object-side contacts, and then transfers the reconstructed interaction to a dexterous hand through contact-interaction-preserving retargeting with stable-contact preservation, Laplacian interaction optimization, and residual reinforcement learning.",
+      "image_caption_zh": "C2Dex概述。给定单目人体视频，C2Dex首先聚合逐帧接触观测为稳定物体侧接触，进行接触一致的人-物交互重建，然后通过稳定接触保持、拉普拉斯交互优化和残差强化学习的接触交互保持重定向，将重建的交互迁移到灵巧手。"
     },
     {
       "paper_id": "arxiv-2608-07075",
@@ -970,7 +981,8 @@
       "research_branches": [
         "vision-force"
       ],
-      "image_caption": "Fig. 1: Tactile sensing framework and representative interaction cases. The top panel illustrates four experimental scenarios with pre- and post-movement states: (a) a plastic prism for controlled baseline validation, a book simulating real-world line contact, and a paper cutter demonstrating constrained trajectory planning; and (b) a rotating pen representing a typical point-contact case. (c) shows the instantaneous rotational states, and (d) the corresponding gyroscope signal responses for the cases of the rotating book and pen. The embedded gyroscopes in the robot fingertip can capture high-frequency angular rate pulses (e.g., transients in G ​ y ​ r ​ o y Gyro_{y} ), which serve as the key tactile cues to estimate the spatial coordinates of the contact line or point."
+      "image_caption": "Fig. 1: Tactile sensing framework and representative interaction cases. The top panel illustrates four experimental scenarios with pre- and post-movement states: (a) a plastic prism for controlled baseline validation, a book simulating real-world line contact, and a paper cutter demonstrating constrained trajectory planning; and (b) a rotating pen representing a typical point-contact case. (c) shows the instantaneous rotational states, and (d) the corresponding gyroscope signal responses for the cases of the rotating book and pen. The embedded gyroscopes in the robot fingertip can capture high-frequency angular rate pulses (e.g., transients in G ​ y ​ r ​ o y Gyro_{y} ), which serve as the key tactile cues to estimate the spatial coordinates of the contact line or point.",
+      "image_caption_zh": "触觉感知框架及代表性交互案例。顶部面板展示了四种实验场景及其运动前后状态：(a) 用于控制基线验证的塑料棱镜、模拟现实线接触的书本、以及展示受限轨迹规划的裁纸刀；(b) 代表典型点接触案例的旋转笔。(c) 显示了瞬时旋转状态，(d) 显示了旋转书本和笔案例对应的陀螺仪信号响应。机器人指尖内置的陀螺仪能够捕获高频角速率脉冲（例如，Gyro_y中的瞬态信号），这些脉冲作为关键触觉线索，用于估计接触线或接触点的空间坐标。"
     },
     {
       "paper_id": "arxiv-2608-06210",
@@ -1048,7 +1060,8 @@
         "vision-force",
         "vla-manipulation",
         "generative-policy"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2608-05725",
@@ -1121,7 +1134,8 @@
       ],
       "research_branches": [
         "vision-force"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2608-05738",
@@ -1196,7 +1210,8 @@
       "research_branches": [
         "vla-manipulation"
       ],
-      "image_caption": "Figure 2: Overview of the VLA-Talker framework. An agentic tool-use module (depth estimation, open-vocabulary object detection, gripper projection, and VLM fallback) acquires grounded spatial evidence at each keyframe, which is rendered into a diverse, paraphrased in-context prompt. This evidence is injected into the VLM alongside the task instruction and image."
+      "image_caption": "Figure 2: Overview of the VLA-Talker framework. An agentic tool-use module (depth estimation, open-vocabulary object detection, gripper projection, and VLM fallback) acquires grounded spatial evidence at each keyframe, which is rendered into a diverse, paraphrased in-context prompt. This evidence is injected into the VLM alongside the task instruction and image.",
+      "image_caption_zh": "VLA-Talker框架概述。智能工具使用模块（深度估计、开放词汇目标检测、夹爪投影和VLM回退）在每个关键帧获取空间证据，并将其转化为多样化、释义的上下文提示，与任务指令和图像一同注入VLM。"
     },
     {
       "paper_id": "arxiv-2608-05970",
@@ -1279,7 +1294,8 @@
       "research_branches": [
         "generative-policy"
       ],
-      "image_caption": "Figure 2: Overview of the SkillMemo framework. The Expert-Guided Trajectory Segmentation module implicitly ∗ extracts latent atomic skills from demonstrations via MoE routing. The Skill-Level Memory Architecture structurally stores and dynamically prunes these learned gating profiles, enabling context-aware retrieval for robust compositional generalization on unseen task."
+      "image_caption": "Figure 2: Overview of the SkillMemo framework. The Expert-Guided Trajectory Segmentation module implicitly ∗ extracts latent atomic skills from demonstrations via MoE routing. The Skill-Level Memory Architecture structurally stores and dynamically prunes these learned gating profiles, enabling context-aware retrieval for robust compositional generalization on unseen task.",
+      "image_caption_zh": "SkillMemo框架概述。专家引导的轨迹分割模块通过MoE路由隐式∗地从演示中提取潜在原子技能。技能级记忆架构结构化存储并动态修剪这些学习到的门控配置，实现上下文感知检索，从而对未见任务进行鲁棒组合泛化。"
     },
     {
       "paper_id": "arxiv-2608-03872",
@@ -1360,7 +1376,8 @@
       "research_branches": [
         "vision-force"
       ],
-      "image_caption": "Fig. 2: Staged overview of EvoHIL. During online interaction, SER updates the deployed success classifier from human confirmations, and AFS learns action chunks from source-tagged persistent replay. Retention-aware offline fine-tuning subsequently combines source and externally relit replay with frozen references for execution-prefix values and flow velocities. The three components share an actor–critic workflow but use distinct data paths and training stages."
+      "image_caption": "Fig. 2: Staged overview of EvoHIL. During online interaction, SER updates the deployed success classifier from human confirmations, and AFS learns action chunks from source-tagged persistent replay. Retention-aware offline fine-tuning subsequently combines source and externally relit replay with frozen references for execution-prefix values and flow velocities. The three components share an actor–critic workflow but use distinct data paths and training stages.",
+      "image_caption_zh": "EvoHIL的分阶段概述。在线交互期间，SER根据人类确认更新部署的成功分类器，AFS从源标记的持久回放中学习动作块。随后，保留感知的离线微调将源回放和外部重放与执行前缀值和流速的冻结参考相结合。这三个组件共享一个演员-评论家工作流，但使用不同的数据路径和训练阶段。"
     },
     {
       "paper_id": "arxiv-2608-03483",
@@ -1447,7 +1464,8 @@
       "research_branches": [
         "failure-recovery"
       ],
-      "image_caption": "Figure 2: Overview of Bernoulli-Continuation Policy learning . Given a fixed-length action chunk predicted by a frozen VLA, BCP estimates continue probabilities to select an adaptive execution horizon, executes the corresponding action prefix, and is optimized with GRPO using the Replanning-Efficiency Reward."
+      "image_caption": "Figure 2: Overview of Bernoulli-Continuation Policy learning . Given a fixed-length action chunk predicted by a frozen VLA, BCP estimates continue probabilities to select an adaptive execution horizon, executes the corresponding action prefix, and is optimized with GRPO using the Replanning-Efficiency Reward.",
+      "image_caption_zh": "伯努利延续策略学习概述：给定冻结VLA预测的固定长度动作块，BCP估计继续概率以选择自适应执行范围，执行相应动作前缀，并使用重规划效率奖励通过GRPO优化。"
     },
     {
       "paper_id": "arxiv-2608-03103",
@@ -1525,7 +1543,8 @@
         "generative-policy",
         "vla-manipulation"
       ],
-      "image_caption": "Figure 2: System Architecture of DPA-FTG. The framework decouples high-level task planning from low-level reactive control. (A) Slow Loop (5 Hz): The Task Selection Policy ( π t ​ a ​ s ​ k \\pi_{task} ) takes a history of multi-modal observations (Vision, Force, Proprioception) to predict a continuous latent embedding z ~ \\tilde{z} . This embedding is quantized to the nearest codebook vector z k z_{k} and published to an atomic buffer. (B) Fast Loop (60 Hz): The Motion Generation Policy ( π m ​ o ​ t ​ i ​ o ​ n \\pi_{motion} ), running on a separate thread, reads the latest skill z k z_{k} . It combines this semantic intent with instantaneous force and proprioceptive feedback to generate high-frequency velocity commands ( 𝐚 t \\mathbf{a}_{t} ). The fast loop operates independently of the planner’s latency, ensuring continuous 60 Hz reactivity."
+      "image_caption": "Figure 2: System Architecture of DPA-FTG. The framework decouples high-level task planning from low-level reactive control. (A) Slow Loop (5 Hz): The Task Selection Policy ( π t ​ a ​ s ​ k \\pi_{task} ) takes a history of multi-modal observations (Vision, Force, Proprioception) to predict a continuous latent embedding z ~ \\tilde{z} . This embedding is quantized to the nearest codebook vector z k z_{k} and published to an atomic buffer. (B) Fast Loop (60 Hz): The Motion Generation Policy ( π m ​ o ​ t ​ i ​ o ​ n \\pi_{motion} ), running on a separate thread, reads the latest skill z k z_{k} . It combines this semantic intent with instantaneous force and proprioceptive feedback to generate high-frequency velocity commands ( 𝐚 t \\mathbf{a}_{t} ). The fast loop operates independently of the planner’s latency, ensuring continuous 60 Hz reactivity.",
+      "image_caption_zh": "DPA-FTG的系统架构。框架将高层任务规划与低层反应控制解耦。（A）慢循环（5 Hz）：任务选择策略（π_task）接收多模态观测历史（视觉、力、本体感觉），预测连续潜在嵌入z̃。该嵌入被量化到最近的码本向量z_k，并发布到原子缓冲区。（B）快循环（60 Hz）：运动生成策略（π_motion）在独立线程上运行，读取最新技能z_k。它将此语义意图与瞬时力和本体感觉反馈结合，生成高频速度命令（a_t）。快循环独立于pl运行。"
     },
     {
       "paper_id": "arxiv-2608-03938",
@@ -1602,7 +1621,8 @@
       ],
       "research_branches": [
         "generative-policy"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2608-02197",
@@ -1678,7 +1698,8 @@
       "research_branches": [
         "failure-recovery",
         "vla-manipulation"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2608-01733",
@@ -1752,7 +1773,8 @@
       ],
       "research_branches": [
         "vision-force"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2608-02326",
@@ -1829,7 +1851,8 @@
       "research_branches": [
         "failure-recovery",
         "vla-manipulation"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2608-01824",
@@ -1910,7 +1933,8 @@
       ],
       "research_branches": [
         "vision-force"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2608-07558",
@@ -2014,7 +2038,8 @@
       "research_branches": [
         "vision-force"
       ],
-      "image_caption": "Figure 3: Overview of the multimodal fusion and encoding framework. The upper part visualizes the physical interpretation of different modalities and their sub-classes, while the lower part illustrates the model structures of major representation-learning and modality-fusion methods."
+      "image_caption": "Figure 3: Overview of the multimodal fusion and encoding framework. The upper part visualizes the physical interpretation of different modalities and their sub-classes, while the lower part illustrates the model structures of major representation-learning and modality-fusion methods.",
+      "image_caption_zh": "多模态融合与编码框架概览。上半部分展示了不同模态及其子类的物理解释，下半部分展示了主要表示学习和模态融合方法的模型结构。"
     },
     {
       "paper_id": "arxiv-2607-26460",
@@ -2087,7 +2112,8 @@
       "research_branches": [
         "generative-policy"
       ],
-      "image_caption": "Figure 2: Overview of the RLMM-Flow training and inference pipeline."
+      "image_caption": "Figure 2: Overview of the RLMM-Flow training and inference pipeline.",
+      "image_caption_zh": "RLMM-Flow训练和推理流程概览"
     },
     {
       "paper_id": "arxiv-2607-23782",
@@ -2160,7 +2186,8 @@
       "research_branches": [
         "vision-force"
       ],
-      "image_caption": "Figure 6 : ALTER for offline policy improvement. Tactile contact changes, complemented by kinematic and visual cues, ground stage annotations of clean demonstrations and yield dense progress pairs. Tactile-detected object-drop events and logged HIL corrections yield sparse preference pairs. Both supervise a pairwise progress model, which is then frozen to estimate global task phase and local execution change for each stored trajectory. Within each predicted stage, local-change estimates produce binary advantage labels that are appended to the task prompt during policy training. At deployment, the task prompt uses the positive label."
+      "image_caption": "Figure 6 : ALTER for offline policy improvement. Tactile contact changes, complemented by kinematic and visual cues, ground stage annotations of clean demonstrations and yield dense progress pairs. Tactile-detected object-drop events and logged HIL corrections yield sparse preference pairs. Both supervise a pairwise progress model, which is then frozen to estimate global task phase and local execution change for each stored trajectory. Within each predicted stage, local-change estimates produce binary advantage labels that are appended to the task prompt during policy training. At deployment, the task prompt uses the positive label.",
+      "image_caption_zh": "ALTER用于离线策略改进。触觉接触变化，辅以运动学和视觉线索，为干净演示提供阶段标注，并产生密集的进度对。触觉检测到的物体掉落事件和记录的HIL修正产生稀疏的偏好对。两者都监督一个成对进度模型，该模型随后被冻结，以估计每个存储轨迹的全局任务阶段和局部执行变化。在每个预测阶段内，局部变化估计产生二元优势标签，这些标签在策略训练期间被附加到任务提示中。在部署时，任务提示使用正面标签。"
     },
     {
       "paper_id": "arxiv-2607-17257",
@@ -2237,7 +2264,8 @@
         "vision-force",
         "generative-policy"
       ],
-      "image_caption": "Figure 1: Overview of the LAG-Fusion Framework. LAG-Fusion composes modality-specific diffusion policies at their native inference frequencies. (Left) A low-frequency vision policy provides long-horizon scene guidance, while a high-frequency force/torque policy provides local contact guidance. (Right) In the diffusion composition head, the overlapping noisy action segment is rebased into the current force frame for force denoising. The corresponding vision guidance is rebased to the same frame, fused with force guidance, and mapped back to update the full-horizon noise prediction."
+      "image_caption": "Figure 1: Overview of the LAG-Fusion Framework. LAG-Fusion composes modality-specific diffusion policies at their native inference frequencies. (Left) A low-frequency vision policy provides long-horizon scene guidance, while a high-frequency force/torque policy provides local contact guidance. (Right) In the diffusion composition head, the overlapping noisy action segment is rebased into the current force frame for force denoising. The corresponding vision guidance is rebased to the same frame, fused with force guidance, and mapped back to update the full-horizon noise prediction.",
+      "image_caption_zh": "LAG-Fusion框架概述：以原生推理频率组合特定模态扩散策略。（左）低频视觉策略提供长程场景指导，高频力/力矩策略提供局部接触指导。（右）扩散组合头中，重叠噪声动作片段被重新基准到当前力框架用于力去噪。对应视觉指导被重新基准到同一框架，与力指导融合并映射回以更新全范围噪声预测。"
     },
     {
       "paper_id": "arxiv-2607-16123",
@@ -2313,7 +2341,8 @@
       "research_branches": [
         "vision-force"
       ],
-      "image_caption": "Fig. 2 : System overview. BayesContact performs pose estimation using simulation-based forward models with a graphics renderer for depth observations and a physics simulator for contact observations. These likelihoods serve as the frontend to a Sequential Monte Carlo inference backend. Together, these allow the robot to estimate belief over pose of a hole in a peg-insertion setup."
+      "image_caption": "Fig. 2 : System overview. BayesContact performs pose estimation using simulation-based forward models with a graphics renderer for depth observations and a physics simulator for contact observations. These likelihoods serve as the frontend to a Sequential Monte Carlo inference backend. Together, these allow the robot to estimate belief over pose of a hole in a peg-insertion setup.",
+      "image_caption_zh": "系统概述。BayesContact使用基于仿真的前向模型进行姿态估计，图形渲染器用于深度观测，物理模拟器用于接触观测。这些似然函数作为序贯蒙特卡洛推理后端的前端，共同使机器人能够估计插销插入场景中孔的姿态信念。"
     },
     {
       "paper_id": "arxiv-2607-15633",
@@ -2389,7 +2418,8 @@
       ],
       "research_branches": [
         "vision-force"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2607-15582",
@@ -2464,7 +2494,8 @@
       ],
       "research_branches": [
         "vision-force"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2607-14578",
@@ -2537,7 +2568,8 @@
       "research_branches": [
         "vision-force",
         "generative-policy"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2607-14842",
@@ -2612,7 +2644,8 @@
       ],
       "research_branches": [
         "vision-force"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2607-15448",
@@ -2688,7 +2721,8 @@
       ],
       "research_branches": [
         "vision-force"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2607-14236",
@@ -2774,7 +2808,8 @@
         "vision-force",
         "vla-manipulation"
       ],
-      "image_caption": "Figure 1: LIFT overview. LIFT adds reactive force control to a pretrained VLA by encoding recent force as causal force memory and injecting it through cross attention for within-chunk action updates. To preserve the pretrained prior, the reactive action expert is copied from the base action expert and the force-injected cross attention is zero-initialized, making the augmented policy initially output-equivalent to the original model. Our online post-training system supports on-policy contact correction and online policy updates, leading to better final performance than vision-only DAgger across the three evaluated manipulation tasks."
+      "image_caption": "Figure 1: LIFT overview. LIFT adds reactive force control to a pretrained VLA by encoding recent force as causal force memory and injecting it through cross attention for within-chunk action updates. To preserve the pretrained prior, the reactive action expert is copied from the base action expert and the force-injected cross attention is zero-initialized, making the augmented policy initially output-equivalent to the original model. Our online post-training system supports on-policy contact correction and online policy updates, leading to better final performance than vision-only DAgger across the three evaluated manipulation tasks.",
+      "image_caption_zh": "LIFT概述：通过编码近期力为因果力记忆并经由交叉注意力注入，实现块内动作更新，为预训练VLA添加反应力控制。为保持预训练先验，反应动作专家复制自基础动作专家，力注入交叉注意力零初始化，使增强策略初始输出等价于原模型。在线后训练系统支持在策略接触校正和在线策略更新，在三个操作任务上最终性能优于仅视觉DAgger。"
     },
     {
       "paper_id": "arxiv-2607-13522",
@@ -2851,7 +2886,8 @@
       "research_branches": [
         "vision-force"
       ],
-      "image_caption": "Figure 2: The training objective as a joint-embedding predictive architecture. Left: the generic JEPA template, in which an x-encoder and a y-encoder embed two views and a predictor maps one embedding to the other under a distance D ⁡ ( s ^ y , s y ) D(\\hat{s}_{y},s_{y}) ( Assran et al. 2023 ) . Right: our instantiation. The visible modalities are projected ( proj_v , proj_e , proj_m ), tagged with modality and slot embeddings, and fused by the two-block Perceiver over 217 tokens into z ∈ ℝ 256 z\\in\\mathbb{R}^{256} ; a per-modality MLP head h k h_{k} then predicts the held-out modality’s target embedding, produced by an EMA copy of that modality’s projection under stop-gradient (motor shown hidden; the held-out modality rotates over vision, motor, and ee). The template’s conditioning variable c c is unused. The loss is MSE ⁡ ( prediction , target ) \\mathrm{MSE}(\\text{prediction},\\text{target}) plus per-modality and joint SIGReg (LeJEPA), which prevents collapse."
+      "image_caption": "Figure 2: The training objective as a joint-embedding predictive architecture. Left: the generic JEPA template, in which an x-encoder and a y-encoder embed two views and a predictor maps one embedding to the other under a distance D ⁡ ( s ^ y , s y ) D(\\hat{s}_{y},s_{y}) ( Assran et al. 2023 ) . Right: our instantiation. The visible modalities are projected ( proj_v , proj_e , proj_m ), tagged with modality and slot embeddings, and fused by the two-block Perceiver over 217 tokens into z ∈ ℝ 256 z\\in\\mathbb{R}^{256} ; a per-modality MLP head h k h_{k} then predicts the held-out modality’s target embedding, produced by an EMA copy of that modality’s projection under stop-gradient (motor shown hidden; the held-out modality rotates over vision, motor, and ee). The template’s conditioning variable c c is unused. The loss is MSE ⁡ ( prediction , target ) \\mathrm{MSE}(\\text{prediction},\\text{target}) plus per-modality and joint SIGReg (LeJEPA), which prevents collapse.",
+      "image_caption_zh": "训练目标作为联合嵌入预测架构。左：通用JEPA模板，其中x编码器和y编码器嵌入两个视图，预测器在距离D(ŝ_y, s_y)下将一个映射到另一个（Assran et al. 2023）。右：我们的实例化。可见模态被投影（proj_v, proj_e, proj_m），标记有模态和槽嵌入，并由两模块Perceiver在217个令牌上融合成z∈ℝ^256；每个模态的MLP头h_k然后预测被保留模态的目标嵌入，该嵌入由该模态投影的EMA副本在停止梯度下产生（电机显示隐藏；被保留模态在视觉、电机和末端执行器之间轮换）。模板的条件变量。"
     },
     {
       "paper_id": "arxiv-2607-09515",
@@ -2924,7 +2960,8 @@
       "research_branches": [
         "vision-force"
       ],
-      "image_caption": "Fig. 5 : Demonstrations and reproductions across several different objects for a grasping task. A grasp is demonstrated using either the “push to vertical” or “flipping” methods. This grasp is then learned using force-inclusive demonstrations and reproduced across several objects, including new objects unknown to the robot (an apple and a banana), which it is still able to grasp successfully."
+      "image_caption": "Fig. 5 : Demonstrations and reproductions across several different objects for a grasping task. A grasp is demonstrated using either the “push to vertical” or “flipping” methods. This grasp is then learned using force-inclusive demonstrations and reproduced across several objects, including new objects unknown to the robot (an apple and a banana), which it is still able to grasp successfully.",
+      "image_caption_zh": "在多个不同物体上演示和复现抓取任务。使用“推至垂直”或“翻转”方法演示抓取。通过包含力的演示学习该抓取，并在多个物体上复现，包括机器人未知的新物体（苹果和香蕉），仍能成功抓取。"
     },
     {
       "paper_id": "arxiv-2607-07287",
@@ -3006,7 +3043,8 @@
       "research_branches": [
         "vision-force"
       ],
-      "image_caption": "Figure 1 : Conceptual overview of TouchWorld. The High-Level Planning Layer contains a Subtask Planner that produces executable subtasks and a Tactile World Model that predicts visual-tactile subgoals. A visuo-tactile goal-conditioned policy generates nominal action chunks, and a tactile-conditioned refinement policy refines the final action online using high-frequency tactile feedback."
+      "image_caption": "Figure 1 : Conceptual overview of TouchWorld. The High-Level Planning Layer contains a Subtask Planner that produces executable subtasks and a Tactile World Model that predicts visual-tactile subgoals. A visuo-tactile goal-conditioned policy generates nominal action chunks, and a tactile-conditioned refinement policy refines the final action online using high-frequency tactile feedback.",
+      "image_caption_zh": "TouchWorld的概念概述。高层规划层包含一个子任务规划器，用于生成可执行的子任务，以及一个触觉世界模型，用于预测视觉-触觉子目标。视觉-触觉目标条件策略生成名义动作块，触觉条件细化策略利用高频触觉反馈在线细化最终动作。"
     },
     {
       "paper_id": "arxiv-2607-05390",
@@ -3091,7 +3129,8 @@
       ],
       "research_branches": [
         "vision-force"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2607-03865",
@@ -3167,7 +3206,8 @@
       "research_branches": [
         "generative-policy"
       ],
-      "image_caption": "Fig. 2: Overview of the proposed framework. (a) The multimodal Diffusion Transformer (DiT) policy network architecture. (b) Recursive Consistent Action Flow (RCAF) for mitigating spatial truncation errors via high-order residual correction. (c) Contrastive Flow Matching (CFM) for decoupling interwoven flow fields and resolving mode averaging. (d) Dual-Timestep Frequency Consistency (DTFC) for adaptive high-frequency detail recovery."
+      "image_caption": "Fig. 2: Overview of the proposed framework. (a) The multimodal Diffusion Transformer (DiT) policy network architecture. (b) Recursive Consistent Action Flow (RCAF) for mitigating spatial truncation errors via high-order residual correction. (c) Contrastive Flow Matching (CFM) for decoupling interwoven flow fields and resolving mode averaging. (d) Dual-Timestep Frequency Consistency (DTFC) for adaptive high-frequency detail recovery.",
+      "image_caption_zh": "所提框架概述。(a) 多模态扩散Transformer（DiT）策略网络架构。(b) 递归一致动作流（RCAF），通过高阶残差校正缓解空间截断误差。(c) 对比流匹配（CFM），解耦交织流场并解决模式平均。(d) 双时间步频率一致性（DTFC），自适应高频细节恢复。"
     },
     {
       "paper_id": "arxiv-2607-01684",
@@ -3248,7 +3288,8 @@
       "research_branches": [
         "vision-force"
       ],
-      "image_caption": "Fig. 2: TacImag framework. TacImag enables touch-informed manipulation without tactile sensors at deployment. In Stage 1, a tactile imagination model is learned from paired visuotactile demonstrations using a conditional diffusion model that predicts tactile observations from visual observations and proprioceptive states. Separate models are trained for TacRGB and TacFF representations. After training, the imagination model is frozen. In Stage 2, imagined tactile observations generated by the frozen model are combined with visual and proprioceptive information to train a touch-informed manipulation policy. At deployment, the robot operates using only visual observations and proprioceptive states while internally generating tactile representations online."
+      "image_caption": "Fig. 2: TacImag framework. TacImag enables touch-informed manipulation without tactile sensors at deployment. In Stage 1, a tactile imagination model is learned from paired visuotactile demonstrations using a conditional diffusion model that predicts tactile observations from visual observations and proprioceptive states. Separate models are trained for TacRGB and TacFF representations. After training, the imagination model is frozen. In Stage 2, imagined tactile observations generated by the frozen model are combined with visual and proprioceptive information to train a touch-informed manipulation policy. At deployment, the robot operates using only visual observations and proprioceptive states while internally generating tactile representations online.",
+      "image_caption_zh": "TacImag框架。TacImag使得在部署时无需触觉传感器即可进行触觉感知操作。第一阶段，使用条件扩散模型从配对的视觉-触觉演示中学习触觉想象模型，该模型从视觉观察和本体感觉状态预测触觉观察。为TacRGB和TacFF表示分别训练单独的模型。训练后，想象模型被冻结。第二阶段，冻结模型生成的想象触觉观察与视觉和本体感觉信息结合，训练触觉感知操作策略。部署时，机器人仅使用视觉观察和本体感觉状态运行，同时在线内部生成触觉表示。"
     },
     {
       "paper_id": "arxiv-2607-01804",
@@ -3331,7 +3372,8 @@
         "generative-policy",
         "vla-manipulation"
       ],
-      "image_caption": "Figure 3 : Overview of VLA-Corrector. Starting from a standard chunked VLA pipeline ( A ), we add a Latent-space Vision Monitor (LVM) that detects persistent execution drift and triggers an interrupt event ( B ). The event truncates stale actions and switches the next replan from normal flow matching to OGG-guided flow matching ( C ). OGG uses the expected and observed latent evolution to guide the replan back toward a recoverable trajectory ( D )."
+      "image_caption": "Figure 3 : Overview of VLA-Corrector. Starting from a standard chunked VLA pipeline ( A ), we add a Latent-space Vision Monitor (LVM) that detects persistent execution drift and triggers an interrupt event ( B ). The event truncates stale actions and switches the next replan from normal flow matching to OGG-guided flow matching ( C ). OGG uses the expected and observed latent evolution to guide the replan back toward a recoverable trajectory ( D ).",
+      "image_caption_zh": "VLA-Corrector概述。从标准分块VLA流水线（A）开始，我们添加了一个潜在空间视觉监视器（LVM），用于检测持续的执行漂移并触发中断事件（B）。该事件截断过时的动作，并将下一次重新规划从正常流匹配切换到OGG引导的流匹配（C）。OGG利用预期和观察到的潜在演变来引导重新规划回到可恢复的轨迹（D）。"
     },
     {
       "paper_id": "arxiv-2606-31723",
@@ -3410,7 +3452,8 @@
       "research_branches": [
         "vision-force",
         "vla-manipulation"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2606-27475",
@@ -3486,7 +3529,8 @@
       ],
       "research_branches": [
         "generative-policy"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2606-19161",
@@ -3563,7 +3607,8 @@
       ],
       "research_branches": [
         "vision-force"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2606-13877",
@@ -3643,7 +3688,8 @@
       "research_branches": [
         "vision-force"
       ],
-      "image_caption": "Figure 4: Training and planning pipeline of ContactWorld. (A) During training, multimodal observations are encoded into latent representations, and the world model learns action-conditioned latent dynamics through autoregressive future prediction and latent regularization. (B) During planning, CEM samples candidate action sequences, and the learned world model performs latent rollouts for receding-horizon MPC control."
+      "image_caption": "Figure 4: Training and planning pipeline of ContactWorld. (A) During training, multimodal observations are encoded into latent representations, and the world model learns action-conditioned latent dynamics through autoregressive future prediction and latent regularization. (B) During planning, CEM samples candidate action sequences, and the learned world model performs latent rollouts for receding-horizon MPC control.",
+      "image_caption_zh": "ContactWorld的训练与规划流程。(A) 训练时，多模态观测被编码为潜在表示，世界模型通过自回归未来预测和潜在正则化学习动作条件下的潜在动态。(B) 规划时，CEM采样候选动作序列，学习到的世界模型执行潜在展开以实现滚动时域MPC控制。"
     },
     {
       "paper_id": "arxiv-2606-11743",
@@ -3725,7 +3771,8 @@
         "vision-force",
         "vla-manipulation"
       ],
-      "image_caption": "Figure 2: Pipeline. (A) We collect real demonstrations 𝒟 real \\mathcal{D}_{\\mathrm{real}} together with simulated tele-operation data 𝒟 sim teleop \\mathcal{D}^{\\mathrm{teleop}}_{\\mathrm{sim}} , and further scale up 𝒟 sim teleop \\mathcal{D}^{\\mathrm{teleop}}_{\\mathrm{sim}} using MimicGen to obtain 𝒟 sim Mimic \\mathcal{D}^{\\mathrm{Mimic}}_{\\mathrm{sim}} . (B) During sim-real co-training, tactile information is encoded and routed through contact-aware gating to modulate both the context of vision-language models (VLM) and the action expert. (C) Interactive simulation rollouts help the tactile-aware policy improve closed-loop task performance, while a supervised real-data loss constrains the update to avoid drifting away from the real robot distribution."
+      "image_caption": "Figure 2: Pipeline. (A) We collect real demonstrations 𝒟 real \\mathcal{D}_{\\mathrm{real}} together with simulated tele-operation data 𝒟 sim teleop \\mathcal{D}^{\\mathrm{teleop}}_{\\mathrm{sim}} , and further scale up 𝒟 sim teleop \\mathcal{D}^{\\mathrm{teleop}}_{\\mathrm{sim}} using MimicGen to obtain 𝒟 sim Mimic \\mathcal{D}^{\\mathrm{Mimic}}_{\\mathrm{sim}} . (B) During sim-real co-training, tactile information is encoded and routed through contact-aware gating to modulate both the context of vision-language models (VLM) and the action expert. (C) Interactive simulation rollouts help the tactile-aware policy improve closed-loop task performance, while a supervised real-data loss constrains the update to avoid drifting away from the real robot distribution.",
+      "image_caption_zh": "流程。(A) 我们收集真实演示𝒟_real以及模拟遥操作数据𝒟_sim^teleop，并使用MimicGen进一步扩展𝒟_sim^teleop以获得𝒟_sim^Mimic。(B) 在模拟-真实联合训练中，触觉信息被编码并通过接触感知门控路由，以调节视觉语言模型（VLM）的上下文和动作专家。(C) 交互式模拟展开帮助触觉感知策略改进闭环任务性能，同时监督的真实数据损失约束更新以避免偏离真实机器人分布。"
     },
     {
       "paper_id": "arxiv-2606-12372",
@@ -3804,7 +3851,8 @@
       "research_branches": [
         "failure-recovery"
       ],
-      "image_caption": "Figure 2 : Overview of UniIntervene . (a) A Qwen-VL backbone feeds a Latent Future Head with twin-critic and temporal value-risk supervision, and a Recovery Action Head producing corrective actions a rec a_{\\mathrm{rec}} . (b) A memory buffer pairs past intervention states with retrieved high-value goals. (c) The temporal value-risk R t R_{t} triggers intervention upon sustained stagnation. (d) UniIntervene plugs into the real-world RL loop, overriding a t a_{t} with a rec a_{\\mathrm{rec}} when triggered and contributing recovery transitions to the replay buffer."
+      "image_caption": "Figure 2 : Overview of UniIntervene . (a) A Qwen-VL backbone feeds a Latent Future Head with twin-critic and temporal value-risk supervision, and a Recovery Action Head producing corrective actions a rec a_{\\mathrm{rec}} . (b) A memory buffer pairs past intervention states with retrieved high-value goals. (c) The temporal value-risk R t R_{t} triggers intervention upon sustained stagnation. (d) UniIntervene plugs into the real-world RL loop, overriding a t a_{t} with a rec a_{\\mathrm{rec}} when triggered and contributing recovery transitions to the replay buffer.",
+      "image_caption_zh": "(a) Qwen-VL骨干网络为潜在未来头提供双评论家和时间价值-风险监督，以及一个恢复动作头产生纠正动作a_rec。 (b) 记忆缓冲区将过去的干预状态与检索到的高价值目标配对。 (c) 时间价值-风险R_t在持续停滞时触发干预。 (d) UniIntervene接入真实世界RL循环，在触发时用a_rec覆盖a_t，并将恢复转换贡献给回放缓冲区。"
     },
     {
       "paper_id": "arxiv-2606-11767",
@@ -3880,7 +3928,8 @@
       ],
       "research_branches": [
         "vision-force"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2606-11184",
@@ -3960,7 +4009,8 @@
       ],
       "research_branches": [
         "vision-force"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2606-10818",
@@ -4034,7 +4084,8 @@
       ],
       "research_branches": [
         "vision-force"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2606-08737",
@@ -4116,7 +4167,8 @@
         "vision-force",
         "vla-manipulation"
       ],
-      "image_caption": "Figure 1 . Overview of our work. (a) Comparison of RGB and tactile sensing for perceiving contact-state changes before and after contact. (b) Illustration of Dream-Tac, a unified tactile world action model, including its inputs and outputs. (c) Comparison with baseline methods on six contact-rich manipulation tasks. (d) Visualization of the settings for the six tasks. Enjoying the baseball game from the third-base seats. Ichiro Suzuki preparing to bat."
+      "image_caption": "Figure 1 . Overview of our work. (a) Comparison of RGB and tactile sensing for perceiving contact-state changes before and after contact. (b) Illustration of Dream-Tac, a unified tactile world action model, including its inputs and outputs. (c) Comparison with baseline methods on six contact-rich manipulation tasks. (d) Visualization of the settings for the six tasks. Enjoying the baseball game from the third-base seats. Ichiro Suzuki preparing to bat.",
+      "image_caption_zh": "我们的工作概览。(a) RGB与触觉感知在接触前后感知接触状态变化的比较。(b) Dream-Tac（统一触觉世界动作模型）示意图，包括其输入和输出。(c) 在六个接触丰富的操作任务上与基线方法的比较。(d) 六个任务设置的可视化。从三垒座位欣赏棒球比赛。铃木一朗准备击球。"
     },
     {
       "paper_id": "arxiv-2606-07723",
@@ -4198,7 +4250,8 @@
       "research_branches": [
         "failure-understanding"
       ],
-      "image_caption": "Figure 3 : VoLoAgent system. A VLM agent plans, monitors, and orchestrates tools (VLA/WAM rollouts, perception models, grasp/place primitives) through one closed-loop control law. The agent can interrupt a VLA rollout and switch to a different tool when execution drifts."
+      "image_caption": "Figure 3 : VoLoAgent system. A VLM agent plans, monitors, and orchestrates tools (VLA/WAM rollouts, perception models, grasp/place primitives) through one closed-loop control law. The agent can interrupt a VLA rollout and switch to a different tool when execution drifts.",
+      "image_caption_zh": "VoLoAgent系统。一个VLM代理通过一个闭环控制律规划、监控和编排工具（VLA/WAM展开、感知模型、抓取/放置原语）。当执行偏离时，代理可以中断VLA展开并切换到不同的工具。"
     },
     {
       "paper_id": "arxiv-2606-01478",
@@ -4283,7 +4336,8 @@
       "research_branches": [
         "failure-recovery"
       ],
-      "image_caption": "Figure 1: An overview of the Crazyflow simulator. Built on JAX , Crazyflow leverages just-in-time compilation via XLA to unify physics and controllers into a single differentiable computation graph, enabling massive parallelization and the training of deployable RL agents in as little as 0.38 s. The simulation has been built from the ground up for parallelization and swarms: data passed between steps is represented as M w ​ o ​ r ​ l ​ d ​ s × N d ​ r ​ o ​ n ​ e ​ s M_{worlds}\\times N_{drones} - sized tensors, visualized here as 3D cubes. Our modular pipeline supports two types of models, one from first principles and an abstracted model identified from flight data, with reliable sim-to-real transfer for the Crazyflie family of drones and customized platforms. Website and videos: https://learnsyslab.github.io/crazyflow"
+      "image_caption": "Figure 1: An overview of the Crazyflow simulator. Built on JAX , Crazyflow leverages just-in-time compilation via XLA to unify physics and controllers into a single differentiable computation graph, enabling massive parallelization and the training of deployable RL agents in as little as 0.38 s. The simulation has been built from the ground up for parallelization and swarms: data passed between steps is represented as M w ​ o ​ r ​ l ​ d ​ s × N d ​ r ​ o ​ n ​ e ​ s M_{worlds}\\times N_{drones} - sized tensors, visualized here as 3D cubes. Our modular pipeline supports two types of models, one from first principles and an abstracted model identified from flight data, with reliable sim-to-real transfer for the Crazyflie family of drones and customized platforms. Website and videos: https://learnsyslab.github.io/crazyflow",
+      "image_caption_zh": "Crazyflow模拟器概览。基于JAX构建，Crazyflow利用XLA的即时编译将物理和控制器统一为单个可微分计算图，实现大规模并行化，并可在0.38秒内训练可部署的RL智能体。该模拟从头开始为并行化和集群设计：步骤间传递的数据表示为M_worlds × N_drones大小的张量，此处可视化为3D立方体。我们的模块化流水线支持两种模型：一种基于第一性原理，另一种从飞行数据中识别出的抽象模型，为Crazyflie系列无人机和定制平台提供可靠的仿真到现实迁移。网站和视频：https://"
     },
     {
       "paper_id": "arxiv-2605-30569",
@@ -4359,7 +4413,8 @@
       ],
       "research_branches": [
         "failure-understanding"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2605-28412",
@@ -4436,7 +4491,8 @@
       ],
       "research_branches": [
         "vision-force"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2605-11048",
@@ -4523,7 +4579,8 @@
       "research_branches": [
         "vision-force",
         "generative-policy"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2605-01201",
@@ -4596,7 +4653,8 @@
       ],
       "research_branches": [
         "failure-recovery"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2604-19469",
@@ -4670,7 +4728,8 @@
       "research_branches": [
         "vision-force"
       ],
-      "image_caption": "Figure 1: Task schematic and planned waypoints in the X-Z plane."
+      "image_caption": "Figure 1: Task schematic and planned waypoints in the X-Z plane.",
+      "image_caption_zh": "X-Z平面中的任务示意图和计划航点"
     },
     {
       "paper_id": "arxiv-2604-18961",
@@ -4745,7 +4804,8 @@
       "research_branches": [
         "vision-force"
       ],
-      "image_caption": "Fig. 1 : The schematic representation of the TD-ACM and the key coordinate frames."
+      "image_caption": "Fig. 1 : The schematic representation of the TD-ACM and the key coordinate frames.",
+      "image_caption_zh": "TD-ACM的示意图和关键坐标系"
     },
     {
       "paper_id": "arxiv-2604-07395",
@@ -4823,7 +4883,8 @@
         "failure-understanding",
         "vision-force"
       ],
-      "image_caption": "Fig. 6: End-to-end execution workflow of the proposed system across representative task scenarios. Each row illustrates a complete execution trace, and each column corresponds to a stage of the agentic grasping pipeline. Column 1: Scene observation. The robot observes the scene and receives a natural-language instruction specifying the target object or constraint. Column 2: Target grounding and perception conditioning. The system parses the instruction and applies perception conditioning to isolate the intended target. Depending on the task, non-target objects may be suppressed (black regions) using RGB-D conditioning or instance selection. Column 3: Grasping execution. The robot executes the visual servoing policy to approach and grasp the selected target object while maintaining target consistency. Column 4: Outcome evaluation and final grasp state. The watchdog monitors gripper signals and system state to determine the outcome, enabling bounded decisions such as finalize, retry, or clarification if needed. The four rows correspond to different task scenarios: (top) toy grasping under distractor presence, (second) multiple diverse cups under varying background conditions, (third) two identical cups with the target positioned farther away, and (bottom) selecting the target-colored cup from two differently colored cups. Across scenarios, the system maintains consistent target selection through semantic grounding and outcome-aware execution."
+      "image_caption": "Fig. 6: End-to-end execution workflow of the proposed system across representative task scenarios. Each row illustrates a complete execution trace, and each column corresponds to a stage of the agentic grasping pipeline. Column 1: Scene observation. The robot observes the scene and receives a natural-language instruction specifying the target object or constraint. Column 2: Target grounding and perception conditioning. The system parses the instruction and applies perception conditioning to isolate the intended target. Depending on the task, non-target objects may be suppressed (black regions) using RGB-D conditioning or instance selection. Column 3: Grasping execution. The robot executes the visual servoing policy to approach and grasp the selected target object while maintaining target consistency. Column 4: Outcome evaluation and final grasp state. The watchdog monitors gripper signals and system state to determine the outcome, enabling bounded decisions such as finalize, retry, or clarification if needed. The four rows correspond to different task scenarios: (top) toy grasping under distractor presence, (second) multiple diverse cups under varying background conditions, (third) two identical cups with the target positioned farther away, and (bottom) selecting the target-colored cup from two differently colored cups. Across scenarios, the system maintains consistent target selection through semantic grounding and outcome-aware execution.",
+      "image_caption_zh": "所提出系统在代表性任务场景中的端到端执行工作流。每一行展示一个完整的执行轨迹，每一列对应自主抓取流水线的一个阶段。第1列：场景观察。机器人观察场景并接收指定目标物体或约束的自然语言指令。第2列：目标定位与感知条件化。系统解析指令并应用感知条件化来隔离预期目标。根据任务，可以使用RGB-D条件化或实例选择来抑制非目标物体（黑色区域）。第3列：抓取执行。机器人执行视觉伺服策略以接近并抓取选定的目标物体，同时保持目标c"
     },
     {
       "paper_id": "arxiv-2604-01414",
@@ -4907,7 +4968,8 @@
         "vision-force",
         "generative-policy"
       ],
-      "image_caption": "Fig. 1 : Contact-Aware Manipulation Challenges. The top row shows that relying solely on visual input leaves the policy contact-unaware, causing failures in relevant tasks. The middle row shows that naively fusing F/T signals with visual features can degrade policy accuracy during free-space motion. The bottom-left panel shows that the predicted torque guidance weight varies interpretably over inference steps, rising during contact phases and falling during free-space motion. We evaluate across three contact-rich tasks (right), and our method achieves 82% average success rate, outperforming all baselines by a substantial margin (bottom)."
+      "image_caption": "Fig. 1 : Contact-Aware Manipulation Challenges. The top row shows that relying solely on visual input leaves the policy contact-unaware, causing failures in relevant tasks. The middle row shows that naively fusing F/T signals with visual features can degrade policy accuracy during free-space motion. The bottom-left panel shows that the predicted torque guidance weight varies interpretably over inference steps, rising during contact phases and falling during free-space motion. We evaluate across three contact-rich tasks (right), and our method achieves 82% average success rate, outperforming all baselines by a substantial margin (bottom).",
+      "image_caption_zh": "接触感知操作挑战：第一行显示仅依赖视觉输入使策略缺乏接触感知，导致任务失败；中间行显示简单融合力/扭矩信号与视觉特征降低自由空间运动精度；左下角显示预测扭矩引导权重在推理中可解释变化，接触阶段上升，自由空间下降。我们在三个接触密集型任务（右）评估，方法达82%平均成功率，大幅超越所有基线（底部）。"
     },
     {
       "paper_id": "arxiv-2603-21410",
@@ -4984,7 +5046,8 @@
       "research_branches": [
         "vision-force"
       ],
-      "image_caption": "Fig. 2 : Overview of the proposed system. The system processes measurements from the GelSight sensor, the force/torque sensor, and robot proprioception to extract contact points and contact-type labels, and to build a free-space map. These observations are then fed to a customized particle filter, which performs Bayesian inference over object class and 6D pose. The particle filter proposes new particles conditioned on the incoming observations, approximates their weights, and mixes them with the existing particle set for subsequent belief updates, yielding both the MAP estimate and the posterior distribution. The MAP estimate is used to select the next target point and approach direction for data collection. Given the target point and approach direction, our planning and control stack generates and executes a trajectory with compliance, and aligns the GelSight sensor with the contact surface once contact is detected. Each module shown in the figure is described in detail in the Section III ."
+      "image_caption": "Fig. 2 : Overview of the proposed system. The system processes measurements from the GelSight sensor, the force/torque sensor, and robot proprioception to extract contact points and contact-type labels, and to build a free-space map. These observations are then fed to a customized particle filter, which performs Bayesian inference over object class and 6D pose. The particle filter proposes new particles conditioned on the incoming observations, approximates their weights, and mixes them with the existing particle set for subsequent belief updates, yielding both the MAP estimate and the posterior distribution. The MAP estimate is used to select the next target point and approach direction for data collection. Given the target point and approach direction, our planning and control stack generates and executes a trajectory with compliance, and aligns the GelSight sensor with the contact surface once contact is detected. Each module shown in the figure is described in detail in the Section III .",
+      "image_caption_zh": "系统概述：系统处理GelSight传感器、力/扭矩传感器和机器人本体感觉的测量数据，提取接触点和接触类型标签，构建自由空间地图。观测结果输入定制粒子滤波器，对物体类别和6D位姿进行贝叶斯推断。粒子滤波器根据观测值提出新粒子、近似权重、与现有粒子集混合更新信念，得到MAP估计和后验分布。MAP估计用于选择下一个目标点和接近方向。规划与控制栈根据目标点和接近方向生成运动计划执行数据采集，测量结果更新信念。重复直至信念收敛。"
     },
     {
       "paper_id": "arxiv-2602-22088",
@@ -5065,7 +5128,8 @@
       ],
       "research_branches": [
         "vision-force"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2601-20321",
@@ -5153,7 +5217,8 @@
         "vision-force",
         "vla-manipulation"
       ],
-      "image_caption": "Fig. 3 : Overview of the TaF-VLA learning framework. The architecture consists of two distinct stages: (a) Tactile-Force Alignment (TaF-Adapter): We propose a self-supervised learning paradigm. The Force Encoder ( f ϕ ′ , f ϕ ′′ f_{\\phi^{\\prime}},f_{\\phi^{\\prime\\prime}} ) quantizes heterogeneous force signals, distributed pressure maps, and 6-axis F/T vectors, into two discrete codebooks via vqvae , creating stable physical anchors. The Tactile Encoder ( f causal-TF f_{\\textrm{causal-TF}} ) employs a Causal Transformer to process sequential tactile images. These branches are synchronized in a shared latent space via a contrastive InfoNCE objective ( ℒ NCE \\mathcal{L}_{\\text{NCE}} ), effectively teaching the tactile encoder to infer force dynamics from visual deformation. (b) Policy Integration (TaF-VLA): The pre-trained, frozen TaF-Adapter is integrated into a vla backbone. It injects force-aligned tactile tokens alongside visual and language embeddings, allowing the Action Expert to generate force-aware manipulation trajectories."
+      "image_caption": "Fig. 3 : Overview of the TaF-VLA learning framework. The architecture consists of two distinct stages: (a) Tactile-Force Alignment (TaF-Adapter): We propose a self-supervised learning paradigm. The Force Encoder ( f ϕ ′ , f ϕ ′′ f_{\\phi^{\\prime}},f_{\\phi^{\\prime\\prime}} ) quantizes heterogeneous force signals, distributed pressure maps, and 6-axis F/T vectors, into two discrete codebooks via vqvae , creating stable physical anchors. The Tactile Encoder ( f causal-TF f_{\\textrm{causal-TF}} ) employs a Causal Transformer to process sequential tactile images. These branches are synchronized in a shared latent space via a contrastive InfoNCE objective ( ℒ NCE \\mathcal{L}_{\\text{NCE}} ), effectively teaching the tactile encoder to infer force dynamics from visual deformation. (b) Policy Integration (TaF-VLA): The pre-trained, frozen TaF-Adapter is integrated into a vla backbone. It injects force-aligned tactile tokens alongside visual and language embeddings, allowing the Action Expert to generate force-aware manipulation trajectories.",
+      "image_caption_zh": "TaF-VLA学习框架概述。该架构包含两个不同阶段：(a) 触觉-力对齐（TaF-Adapter）：我们提出一种自监督学习范式。力编码器（f_φ', f_φ''）通过vqvae将异质力信号、分布压力图和六轴力/扭矩向量量化到两个离散码本，创建稳定的物理锚点。触觉编码器（f_causal-TF）采用因果Transformer处理序列触觉图像。这些分支通过对比InfoNCE目标（ℒ_NCE）在共享潜在空间中同步，有效教导触觉编码器从视觉变形推断力动态。(b) 策略集成"
     },
     {
       "paper_id": "arxiv-2512-02787",
@@ -5234,7 +5299,8 @@
       "research_branches": [
         "failure-understanding"
       ],
-      "image_caption": "Figure 2 : Overview of ViFailback Framework. Left: We collect real-world manipulation trajectories via teleoperation and policy rollout, then use our high-efficiency, visual-symbol-based annotation framework to generate VQA pairs for the dataset. Middle: Our dataset comprises 58,128 VQA pairs from 5,202 real-world trajectories. We extract ViFailback-Bench (Lite and Hard) from this dataset to evaluate VLM failure diagnosis and correction capabilities. Right: We finetune Qwen3-VL-8B on our VQA pairs to obtain ViFailback-8B. This model is deployed as an external supervisor to assist the policy in recovering from failures."
+      "image_caption": "Figure 2 : Overview of ViFailback Framework. Left: We collect real-world manipulation trajectories via teleoperation and policy rollout, then use our high-efficiency, visual-symbol-based annotation framework to generate VQA pairs for the dataset. Middle: Our dataset comprises 58,128 VQA pairs from 5,202 real-world trajectories. We extract ViFailback-Bench (Lite and Hard) from this dataset to evaluate VLM failure diagnosis and correction capabilities. Right: We finetune Qwen3-VL-8B on our VQA pairs to obtain ViFailback-8B. This model is deployed as an external supervisor to assist the policy in recovering from failures.",
+      "image_caption_zh": "ViFailback框架概述。左：我们通过遥操作和策略部署收集真实世界操作轨迹，然后使用高效、基于视觉符号的标注框架为数据集生成VQA对。中：我们的数据集包含来自5,202条真实世界轨迹的58,128个VQA对。我们从中提取ViFailback-Bench（Lite和Hard）以评估VLM的故障诊断和纠正能力。右：我们在VQA对上微调Qwen3-VL-8B以获得ViFailback-8B。该模型作为外部监督者部署，以帮助策略从故障中恢复。"
     },
     {
       "paper_id": "arxiv-2511-14427",
@@ -5310,7 +5376,8 @@
       "research_branches": [
         "vision-force"
       ],
-      "image_caption": "Fig. 1 : Multisensory Dynamic Pretraining fuses multiple sensors, like human senses, to solve complex contact-rich manipulation tasks."
+      "image_caption": "Fig. 1 : Multisensory Dynamic Pretraining fuses multiple sensors, like human senses, to solve complex contact-rich manipulation tasks.",
+      "image_caption_zh": "多感官动态预训练融合多种传感器，如人类感官，以解决复杂的接触密集型操作任务。"
     },
     {
       "paper_id": "arxiv-2510-13324",
@@ -5401,7 +5468,8 @@
       "research_branches": [
         "vision-force",
         "generative-policy"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2509-19047",
@@ -5487,7 +5555,8 @@
       "research_branches": [
         "vision-force",
         "generative-policy"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2506-19077",
@@ -5558,7 +5627,8 @@
       ],
       "research_branches": [
         "failure-understanding"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2505-13982",
@@ -5647,7 +5717,8 @@
         "vision-force",
         "vla-manipulation",
         "generative-policy"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2505-14941",
@@ -5725,7 +5796,8 @@
       ],
       "research_branches": [
         "failure-understanding"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2505-04565",
@@ -5800,7 +5872,8 @@
         "failure-understanding",
         "failure-recovery"
       ],
-      "image_caption": "Figure 2 : Our proposed incremental high- and low-level task learning framework. The process of learning a new task starts with an initial teaching sequence \\raisebox{-.9pt} {1}⃝ (Sec. 3.1 ), where the user provides several demonstrations of the intended task that are segmented using BNG-IRL to learn an initial task model. The low-level skills of this initial model can then be further refined during the skill refinement teaching sequence \\raisebox{-.9pt} {2}⃝ (Sec. 3.2 ), depicted at the bottom. During this phase, the robot performs the initial task, while the user supervises and assists in phases, where the skills need refinement. The recorded training data is used to update the skills. The last teaching sequence \\raisebox{-.9pt} {3}⃝ (Sec. 3.3 ) is triggered if the execution module identifies a new anomaly (see Sec. 6.1 and 6.3 ). Similar to the initial teaching sequence, the user provides a demonstration that shows how to recover from the anomaly, which is segmented and appended to the skill during which the anomaly occurred."
+      "image_caption": "Figure 2 : Our proposed incremental high- and low-level task learning framework. The process of learning a new task starts with an initial teaching sequence \\raisebox{-.9pt} {1}⃝ (Sec. 3.1 ), where the user provides several demonstrations of the intended task that are segmented using BNG-IRL to learn an initial task model. The low-level skills of this initial model can then be further refined during the skill refinement teaching sequence \\raisebox{-.9pt} {2}⃝ (Sec. 3.2 ), depicted at the bottom. During this phase, the robot performs the initial task, while the user supervises and assists in phases, where the skills need refinement. The recorded training data is used to update the skills. The last teaching sequence \\raisebox{-.9pt} {3}⃝ (Sec. 3.3 ) is triggered if the execution module identifies a new anomaly (see Sec. 6.1 and 6.3 ). Similar to the initial teaching sequence, the user provides a demonstration that shows how to recover from the anomaly, which is segmented and appended to the skill during which the anomaly occurred.",
+      "image_caption_zh": "我们提出的增量式高低层任务学习框架。学习新任务的过程始于初始教学序列①（第3.1节），用户提供若干预期任务的演示，这些演示通过BNG-IRL进行分割，以学习初始任务模型。然后，在技能精炼教学序列②（第3.2节）中，可以进一步优化该初始模型的低层技能，如底部所示。在此阶段，机器人执行初始任务，而用户在需要精炼技能的阶段进行监督和协助。记录的训练数据用于更新技能。最后一个教学序列③（第3.3节）在执行模块识别出需要新技能时触发。"
     },
     {
       "paper_id": "arxiv-2411-15753",
@@ -5884,7 +5957,8 @@
         "vision-force",
         "vla-manipulation"
       ],
-      "image_caption": "Fig. 2: FoAR Architecture. FoAR consists of a point cloud encoder [ 44 ] , a force/torque encoder, a future contact predictor, and a diffusion action head [ 10 ] . The scene features and force features are fused under the guidance of the future contact predictor."
+      "image_caption": "Fig. 2: FoAR Architecture. FoAR consists of a point cloud encoder [ 44 ] , a force/torque encoder, a future contact predictor, and a diffusion action head [ 10 ] . The scene features and force features are fused under the guidance of the future contact predictor.",
+      "image_caption_zh": "FoAR架构。FoAR由一个点云编码器[44]、一个力/扭矩编码器、一个未来接触预测器和一个扩散动作头[10]组成。场景特征和力特征在未来接触预测器的指导下融合。"
     },
     {
       "paper_id": "arxiv-2410-19684",
@@ -5957,7 +6031,8 @@
       "research_branches": [
         "vision-force"
       ],
-      "image_caption": "Fig. 7: Data pipeline from input through the contact state detection"
+      "image_caption": "Fig. 7: Data pipeline from input through the contact state detection",
+      "image_caption_zh": "从输入到接触状态检测的数据管道"
     },
     {
       "paper_id": "arxiv-2410-00436",
@@ -6034,7 +6109,8 @@
       "research_branches": [
         "failure-understanding"
       ],
-      "image_caption": "Figure 2: Overview of Contrastive λ \\lambda -Repformer. Given an instruction sentence and images before and after manipulation, our model outputs the predicted probability that the robot successfully performed the manipulation."
+      "image_caption": "Figure 2: Overview of Contrastive λ \\lambda -Repformer. Given an instruction sentence and images before and after manipulation, our model outputs the predicted probability that the robot successfully performed the manipulation.",
+      "image_caption_zh": "对比λ-Repformer概述。给定指令句子和操作前后图像，模型输出机器人成功执行操作的概率预测。"
     },
     {
       "paper_id": "arxiv-2405-17418",
@@ -6119,7 +6195,8 @@
         "failure-recovery",
         "vla-manipulation"
       ],
-      "image_caption": "Figure 2 : Overall framework of SC-VLA. The left part shows the SC-VLA model architecture, where a vision encoder and projection layer transform robot images into LLM language embeddings. These embeddings are combined with text tokens and input into the LLM to generate end-effector poses. The right part illustrates SC-VLA’s training strategy, using both the fast and slow systems. The fast system predicts poses, while the slow system corrects failures through CoT reasoning strategy. SC-VLA uses the same prompt format for both training and inference. After correcting failures, continuous policy learning is designed to fine-tune the adapters to improve the fast system’s manipulation stability."
+      "image_caption": "Figure 2 : Overall framework of SC-VLA. The left part shows the SC-VLA model architecture, where a vision encoder and projection layer transform robot images into LLM language embeddings. These embeddings are combined with text tokens and input into the LLM to generate end-effector poses. The right part illustrates SC-VLA’s training strategy, using both the fast and slow systems. The fast system predicts poses, while the slow system corrects failures through CoT reasoning strategy. SC-VLA uses the same prompt format for both training and inference. After correcting failures, continuous policy learning is designed to fine-tune the adapters to improve the fast system’s manipulation stability.",
+      "image_caption_zh": "SC-VLA的整体框架。左侧展示了SC-VLA的模型架构，其中视觉编码器和投影层将机器人图像转换为LLM语言嵌入，这些嵌入与文本标记结合后输入LLM以生成末端执行器位姿。右侧说明了SC-VLA的训练策略，同时使用快速系统和慢速系统：快速系统预测位姿，慢速系统通过思维链推理策略纠正失败。SC-VLA在训练和推理中使用相同的提示格式。纠正失败后，通过连续策略学习微调配器，以提高快速系统的操作稳定性。"
     },
     {
       "paper_id": "arxiv-2305-04639",
@@ -6192,7 +6269,8 @@
         "failure-understanding",
         "vla-manipulation"
       ],
-      "image_caption": "Fig. 3: FINO-Net Architecture"
+      "image_caption": "Fig. 3: FINO-Net Architecture",
+      "image_caption_zh": "FINO-Net架构"
     },
     {
       "paper_id": "arxiv-2303-10865",
@@ -6267,7 +6345,8 @@
       "research_branches": [
         "vision-force"
       ],
-      "image_caption": "Fig. 3 : System diagram"
+      "image_caption": "Fig. 3 : System diagram",
+      "image_caption_zh": "系统图"
     },
     {
       "paper_id": "arxiv-2303-04137",
@@ -6353,7 +6432,8 @@
         "generative-policy",
         "vla-manipulation"
       ],
-      "image_caption": "Figure 2 : Diffusion Policy Overview a) General formulation. At time step t t , the policy takes the latest T o T_{o} steps of observation data O t O_{t} as input and outputs T a T_{a} steps of actions A t A_{t} . b) In the CNN-based Diffusion Policy, FiLM (Feature-wise Linear Modulation) [ 39 ] conditioning of the observation feature O t O_{t} is applied to every convolution layer, channel-wise. Starting from 𝐀 t K \\mathbf{A}^{K}_{t} drawn from Gaussian noise, the output of noise-prediction network ϵ θ \\epsilon_{\\theta} is subtracted, repeating K K times to get 𝐀 t 0 \\mathbf{A}^{0}_{t} , the denoised action sequence. c) In the Transformer-based [ 60 ] Diffusion Policy, the embedding of observation 𝐎 t \\mathbf{O}_{t} is passed into a multi-head cross-attention layer of each transformer decoder block. Each action embedding is constrained to only attend to itself and previous action embeddings (causal attention) using the attention mask illustrated."
+      "image_caption": "Figure 2 : Diffusion Policy Overview a) General formulation. At time step t t , the policy takes the latest T o T_{o} steps of observation data O t O_{t} as input and outputs T a T_{a} steps of actions A t A_{t} . b) In the CNN-based Diffusion Policy, FiLM (Feature-wise Linear Modulation) [ 39 ] conditioning of the observation feature O t O_{t} is applied to every convolution layer, channel-wise. Starting from 𝐀 t K \\mathbf{A}^{K}_{t} drawn from Gaussian noise, the output of noise-prediction network ϵ θ \\epsilon_{\\theta} is subtracted, repeating K K times to get 𝐀 t 0 \\mathbf{A}^{0}_{t} , the denoised action sequence. c) In the Transformer-based [ 60 ] Diffusion Policy, the embedding of observation 𝐎 t \\mathbf{O}_{t} is passed into a multi-head cross-attention layer of each transformer decoder block. Each action embedding is constrained to only attend to itself and previous action embeddings (causal attention) using the attention mask illustrated.",
+      "image_caption_zh": "a) 通用公式。在时间步t，策略将最新的T_o步观测数据O_t作为输入，并输出T_a步动作A_t。b) 在基于CNN的扩散策略中，观测特征O_t的FiLM（特征级线性调制）[39]条件被逐通道地应用于每个卷积层。从高斯噪声中采样的A_t^K开始，减去噪声预测网络ε_θ的输出，重复K次得到去噪动作序列A_t^0。c) 在基于Transformer的[60]扩散策略中，观测O_t的嵌入被传递到每个Transformer解码器的多头交叉注意力层。"
     },
     {
       "paper_id": "arxiv-2303-00538",
@@ -6425,7 +6505,8 @@
       ],
       "research_branches": [
         "vision-force"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2212-06817",
@@ -6509,7 +6590,8 @@
       "ai_generated_at": "",
       "research_branches": [
         "vla-manipulation"
-      ]
+      ],
+      "image_caption": ""
     },
     {
       "paper_id": "arxiv-2208-00278",
@@ -6588,7 +6670,8 @@
       "research_branches": [
         "vision-force"
       ],
-      "image_caption": "Figure 1 : LCD Deep Learning Architecture."
+      "image_caption": "Figure 1 : LCD Deep Learning Architecture.",
+      "image_caption_zh": "LCD深度学习架构"
     }
   ]
 }
