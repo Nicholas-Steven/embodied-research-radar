@@ -55,7 +55,7 @@ class PipelineOrderTests(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory()
         self.dump = Path(self.tmp.name) / "papers.json"
         mock.patch.object(pipeline, "DATA_PATH", self.dump).start()
-        mock.patch.object(pipeline, "fetch_method_image", return_value="").start()
+        mock.patch.object(pipeline, "fetch_method_figure", return_value={"url": "", "caption": ""}).start()
         self.addCleanup(mock.patch.stopall)
         self.addCleanup(self.tmp.cleanup)
 
