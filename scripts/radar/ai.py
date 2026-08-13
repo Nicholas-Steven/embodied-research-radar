@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import json
 import os
+import random
 import re
+import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -44,35 +46,53 @@ def generate_analysis(paper: dict[str, Any]) -> dict[str, Any]:
     model = os.getenv("LLM_MODEL", "gpt-4o-mini")
     if not api_key:
         return pending_analysis()
+    timeout = float(os.getenv("LLM_TIMEOUT_SECONDS", "90"))
     headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json", "User-Agent": "EmbodiedResearchRadar/0.1"}
     messages = [{"role": "user", "content": prompt_for(paper)}]
 
     def _post(payload: dict[str, Any]) -> dict[str, Any]:
         request = urllib.request.Request(f"{base_url}/chat/completions", data=json.dumps(payload).encode(), headers=headers)
-        with urllib.request.urlopen(request, timeout=90) as response:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
             return json.loads(response.read().decode("utf-8"))
 
-    try:
+    last_error: Exception | None = None
+    for attempt in range(3):
         try:
-            body = _post({"model": model, "temperature": 0.1, "response_format": {"type": "json_object"}, "messages": messages})
+            try:
+                body = _post({"model": model, "temperature": 0.1, "response_format": {"type": "json_object"}, "messages": messages})
+            except urllib.error.HTTPError as exc:
+                # Some OpenAI-compatible providers (e.g. SiliconFlow DeepSeek models) reject json_object mode.
+                if exc.code in (400, 422):
+                    body = _post({"model": model, "temperature": 0.1, "messages": messages})
+                else:
+                    raise
+            content = body["choices"][0]["message"]["content"]
+            data = _extract_json(content)
+            if not data:
+                return pending_analysis()
+            result = pending_analysis()
+            for field in ANALYSIS_FIELDS:
+                if field in data and data[field] not in (None, ""):
+                    result[field] = data[field]
+            result["analysis_status"] = "ready"
+            result["ai_provider"] = os.getenv("LLM_PROVIDER", "openai-compatible")
+            result["ai_generated_at"] = datetime.now(timezone.utc).isoformat()
+            return result
         except urllib.error.HTTPError as exc:
-            # Some OpenAI-compatible providers (e.g. SiliconFlow DeepSeek models) reject json_object mode.
-            if exc.code in (400, 422):
-                body = _post({"model": model, "temperature": 0.1, "messages": messages})
+            last_error = exc
+            if exc.code in (408, 429, 500, 502, 503, 504) and attempt < 2:
+                wait = 5 * (2 ** attempt) + random.uniform(0, 2)
+                print(f"AI analysis retry {attempt + 1}/3 after HTTP {exc.code}, waiting {wait:.1f}s")
+                time.sleep(wait)
+            else:  # 400/401/402/403/404/422 etc. are not retried.
+                break
+        except (urllib.error.URLError, TimeoutError, OSError) as exc:
+            last_error = exc
+            if attempt < 2:
+                wait = 5 * (2 ** attempt) + random.uniform(0, 2)
+                print(f"AI analysis retry {attempt + 1}/3 after {exc.__class__.__name__}, waiting {wait:.1f}s")
+                time.sleep(wait)
             else:
-                raise
-        content = body["choices"][0]["message"]["content"]
-        data = _extract_json(content)
-        if not data:
-            return pending_analysis()
-        result = pending_analysis()
-        for field in ANALYSIS_FIELDS:
-            if field in data and data[field] not in (None, ""):
-                result[field] = data[field]
-        result["analysis_status"] = "ready"
-        result["ai_provider"] = os.getenv("LLM_PROVIDER", "openai-compatible")
-        result["ai_generated_at"] = datetime.now(timezone.utc).isoformat()
-        return result
-    except Exception as exc:
-        print(f"AI analysis skipped for {paper.get('paper_id')}: {exc}")
-        return pending_analysis()
+                break
+    print(f"AI analysis skipped for {paper.get('paper_id')}: {last_error}")
+    return pending_analysis()

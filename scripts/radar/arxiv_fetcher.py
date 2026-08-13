@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
+import random
 import re
 import time
 import urllib.parse
@@ -25,6 +27,16 @@ def _request(url: str, user_agent: str, timeout: int = 45) -> bytes:
     request = urllib.request.Request(url, headers={"User-Agent": user_agent, "Accept": "application/atom+xml"})
     with urllib.request.urlopen(request, timeout=timeout) as response:
         return response.read()
+
+
+def _retry_after_seconds(exc: urllib.error.HTTPError) -> float | None:
+    value = exc.headers.get("Retry-After") if exc.headers else None
+    if not value:
+        return None
+    try:
+        return max(1.0, min(float(value), 300.0))
+    except ValueError:
+        return None
 
 
 def fetch_method_image(arxiv_id: str, user_agent: str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36", timeout: int = 30) -> str:
@@ -75,12 +87,32 @@ def query_arxiv(query: str, limit: int, user_agent: str, retries: int = 3, delay
                 })
                 papers.append(paper)
             return papers
+        except urllib.error.HTTPError as exc:
+            if exc.code == 429:
+                error = exc
+                if attempt < retries - 1:
+                    retry_after = _retry_after_seconds(exc)
+                    if retry_after is not None:
+                        wait = retry_after
+                    else:
+                        base = float(os.getenv("ARXIV_BACKOFF_BASE_SECONDS", "15"))
+                        cap = float(os.getenv("ARXIV_BACKOFF_MAX_SECONDS", "120"))
+                        wait = min(base * (2 ** attempt) + random.uniform(0, 5), cap)
+                    print(f"arXiv rate limited (429), waiting {wait:.0f}s before retry {attempt + 1}/{retries}")
+                    time.sleep(wait)
+            elif exc.code in (400, 401, 403, 404):
+                print(f"arXiv query rejected (HTTP {exc.code}), not retrying: {query}")
+                return []
+            else:  # 408 and 5xx are transient
+                error = exc
+                if attempt < retries - 1:
+                    time.sleep(delay * (attempt + 1))
         except Exception as exc:  # network and malformed responses should not erase existing data
             error = exc
             if attempt < retries - 1:
                 time.sleep(delay * (attempt + 1))
     print(f"arXiv query failed after {retries} attempts: {error}")
-    return []
+    return None  # exhausted by 429s; collect() decides whether to keep fetching
 
 
 def load_query_groups(path: Path | None = None) -> list[dict[str, Any]]:
@@ -88,20 +120,42 @@ def load_query_groups(path: Path | None = None) -> list[dict[str, Any]]:
     return json.loads(path.read_text(encoding="utf-8"))["query_groups"]
 
 
-def collect(query_groups: list[dict[str, Any]], limit_per_query: int, user_agent: str, retries: int, delay: float) -> list[dict[str, Any]]:
+def collect(query_groups: list[dict[str, Any]], limit_per_query: int, user_agent: str, retries: int, delay: float, max_consecutive_429: int = 5) -> list[dict[str, Any]]:
     collected: dict[str, dict[str, Any]] = {}
+    consecutive_429 = 0
     allowed_categories = set(json.loads((ROOT / "config/queries.json").read_text(encoding="utf-8")).get("allowed_primary_categories", []))
     for group in query_groups:
         for query in group["queries"]:
-            for paper in query_arxiv(query, limit_per_query, user_agent, retries, delay):
+            result = query_arxiv(query, limit_per_query, user_agent, retries, delay)
+            if result is None:
+                consecutive_429 += 1
+                if consecutive_429 >= max_consecutive_429:
+                    print("arXiv returned 429 repeatedly; skipping remaining queries to keep the radar update bounded.")
+                    return list(collected.values())
+            else:
+                consecutive_429 = 0
+            for paper in (result or []):
                 categories = set(paper.get("source_categories", []))
                 if allowed_categories and not (categories & allowed_categories):
                     continue
-                paper["source_query_group"] = group["id"]
-                paper["research_topics"] = [group["topic"]]
                 key = paper.get("arxiv_id") or paper.get("paper_id")
-                if key and key not in collected:
+                if not key:
+                    continue
+                if key not in collected:
+                    paper["research_topics"] = [group["topic"]]
+                    paper["source_query_groups"] = [group["id"]]
                     collected[key] = paper
+                else:
+                    # Same paper hit by another query group: merge topics and keep the richer record.
+                    existing = collected[key]
+                    topics = list(existing.get("research_topics") or [])
+                    if group["topic"] and group["topic"] not in topics:
+                        topics.append(group["topic"])
+                    existing["research_topics"] = topics
+                    groups = list(existing.get("source_query_groups") or ([existing.get("source_query_group")] if existing.get("source_query_group") else []))
+                    if group["id"] not in groups:
+                        groups.append(group["id"])
+                    existing["source_query_groups"] = groups
             if delay:
                 time.sleep(delay)
     return list(collected.values())

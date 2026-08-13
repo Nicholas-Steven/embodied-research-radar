@@ -84,8 +84,16 @@ def run(fetch: bool = False, limit_per_query: int = 10, threshold: int = 35, wit
         import urllib.error
         candidates = existing + collect(load_query_groups(), limit_per_query, os.getenv("ARXIV_USER_AGENT", "EmbodiedResearchRadar/0.1"), int(os.getenv("ARXIV_MAX_RETRIES", "3")), float(os.getenv("ARXIV_DELAY_SECONDS", "3")))
     deduped = deduplicate(candidates)
-    enriched = enrich(deduped, with_ai=with_ai)
-    retained = select_relevant(enriched, threshold)
+    # Phase 1: rule-based scoring and topic identification only (no LLM calls).
+    scored = [clean_paper(enrich_score_and_topics(raw)) for raw in deduped]
+    # Phase 2: keep papers above the relevance threshold; low-scoring papers never consume LLM budget.
+    retained = select_relevant(scored, threshold)
+    # Phase 3: AI analysis only for retained papers, reusing existing ready results.
+    if with_ai:
+        for paper in retained:
+            if paper.get("analysis_status") in (None, "", "pending") or paper.get("summary_one_sentence") in ("", "Pending"):
+                paper.update(generate_analysis(paper))
+    retained.sort(key=lambda p: (p.get("published_date", ""), p.get("relevance_score", 0)), reverse=True)
     # Attach a method figure from the arXiv HTML version when the paper has none yet.
     for paper in retained:
         if not paper.get("image") and paper.get("arxiv_id"):
