@@ -27,6 +27,25 @@ def _request(url: str, user_agent: str, timeout: int = 45) -> bytes:
         return response.read()
 
 
+def fetch_method_image(arxiv_id: str, user_agent: str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36", timeout: int = 30) -> str:
+    """Return the first real figure URL from the arXiv HTML version of a paper, or empty string."""
+    try:
+        base = f"https://arxiv.org/html/{arxiv_id}"
+        request = urllib.request.Request(base, headers={"User-Agent": user_agent})
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            html = response.read().decode("utf-8", errors="ignore")
+        for match in re.finditer(r"<img[^>]+src=[\"']([^\"']+)[\"']", html, re.I):
+            src = match.group(1).strip()
+            if not src or "/static/" in src or src.startswith("data:"):
+                continue
+            # arXiv HTML pages use version-qualified relative paths like "2505.13982v2/main.png",
+            # which resolve against https://arxiv.org/html/ directly.
+            return urllib.parse.urljoin("https://arxiv.org/html/", src)
+        return ""
+    except Exception:
+        return ""
+
+
 def query_arxiv(query: str, limit: int, user_agent: str, retries: int = 3, delay: float = 3.0) -> list[dict[str, Any]]:
     params = urllib.parse.urlencode({"search_query": query, "start": 0, "max_results": limit, "sortBy": "submittedDate", "sortOrder": "descending"})
     url = "https://export.arxiv.org/api/query?" + params

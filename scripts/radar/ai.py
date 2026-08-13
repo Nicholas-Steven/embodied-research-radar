@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 from typing import Any
@@ -12,6 +13,7 @@ ANALYSIS_FIELDS = (
     "abstract_zh", "summary_one_sentence", "research_problem", "core_contributions",
     "method_summary", "experimental_setup", "key_results", "limitations",
     "why_it_matters", "recommended_reading", "reproduction_value", "relevance_reason",
+    "related_to_my_research",
 )
 
 
@@ -20,7 +22,7 @@ def pending_analysis() -> dict[str, Any]:
 
 
 def prompt_for(paper: dict[str, Any]) -> str:
-    return f"""你是机器人操作与具身智能论文审稿助理。只根据下面的论文元数据和摘要填写JSON，不得猜测DOI、Venue、作者、实验数字、代码地址或论文发表状态。无法从摘要确认的内容写\"无法从摘要确认\"。输出必须是JSON对象，字段为：abstract_zh(string), summary_one_sentence(string), research_problem(string), core_contributions(array of strings), method_summary(string), experimental_setup(string), key_results(string), limitations(string), why_it_matters(string), recommended_reading(string), reproduction_value(string: High/Medium/Low + reason), relevance_reason(string)。\n\nTitle: {paper.get('title')}\nAuthors: {', '.join(paper.get('authors', []))}\nVenue: {paper.get('venue')}\nAbstract: {paper.get('abstract')}"""
+    return f"""你是机器人操作与具身智能论文审稿助理。只根据下面的论文元数据和摘要填写JSON，不得猜测DOI、Venue、作者、实验数字、代码地址或论文发表状态。无法从摘要确认的内容写\"无法从摘要确认\"。输出必须是JSON对象，字段为：abstract_zh(string), summary_one_sentence(string), research_problem(string), core_contributions(array of strings), method_summary(string), experimental_setup(string), key_results(string), limitations(string), why_it_matters(string), recommended_reading(string), reproduction_value(string: High/Medium/Low + reason), relevance_reason(string), related_to_my_research(string: 基于论文内容说明它与视觉-力觉融合/接触状态估计/机器人操作/具身智能研究的关系，如\"方法参考/基线对比/背景文献/潜在竞争\"等，不要虚构用户个人论文信息)。\n\nTitle: {paper.get('title')}\nAuthors: {', '.join(paper.get('authors', []))}\nVenue: {paper.get('venue')}\nAbstract: {paper.get('abstract')}"""
 
 
 def _extract_json(text: str) -> dict[str, Any] | None:
@@ -42,11 +44,23 @@ def generate_analysis(paper: dict[str, Any]) -> dict[str, Any]:
     model = os.getenv("LLM_MODEL", "gpt-4o-mini")
     if not api_key:
         return pending_analysis()
-    payload = json.dumps({"model": model, "temperature": 0.1, "response_format": {"type": "json_object"}, "messages": [{"role": "user", "content": prompt_for(paper)}]}).encode()
-    request = urllib.request.Request(f"{base_url}/chat/completions", data=payload, headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json", "User-Agent": "EmbodiedResearchRadar/0.1"})
-    try:
+    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json", "User-Agent": "EmbodiedResearchRadar/0.1"}
+    messages = [{"role": "user", "content": prompt_for(paper)}]
+
+    def _post(payload: dict[str, Any]) -> dict[str, Any]:
+        request = urllib.request.Request(f"{base_url}/chat/completions", data=json.dumps(payload).encode(), headers=headers)
         with urllib.request.urlopen(request, timeout=90) as response:
-            body = json.loads(response.read().decode("utf-8"))
+            return json.loads(response.read().decode("utf-8"))
+
+    try:
+        try:
+            body = _post({"model": model, "temperature": 0.1, "response_format": {"type": "json_object"}, "messages": messages})
+        except urllib.error.HTTPError as exc:
+            # Some OpenAI-compatible providers (e.g. SiliconFlow DeepSeek models) reject json_object mode.
+            if exc.code in (400, 422):
+                body = _post({"model": model, "temperature": 0.1, "messages": messages})
+            else:
+                raise
         content = body["choices"][0]["message"]["content"]
         data = _extract_json(content)
         if not data:

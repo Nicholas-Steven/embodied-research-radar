@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from .ai import generate_analysis
-from .arxiv_fetcher import collect, load_query_groups
+from .arxiv_fetcher import collect, fetch_method_image, load_query_groups
 from .schema import clean_paper, normalize_title, validate_collection
 from .scoring import enrich_score_and_topics
 
@@ -86,6 +86,10 @@ def run(fetch: bool = False, limit_per_query: int = 10, threshold: int = 35, wit
     deduped = deduplicate(candidates)
     enriched = enrich(deduped, with_ai=with_ai)
     retained = select_relevant(enriched, threshold)
+    # Attach a method figure from the arXiv HTML version when the paper has none yet.
+    for paper in retained:
+        if not paper.get("image") and paper.get("arxiv_id"):
+            paper["image"] = fetch_method_image(paper["arxiv_id"])
     # Keep low-scoring papers out of the public radar while preserving a small audit trail in metadata.
     payload = {
         "schema_version": "1.0.0", "generated_at": date.today().isoformat(),
