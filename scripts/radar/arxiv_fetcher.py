@@ -39,23 +39,61 @@ def _retry_after_seconds(exc: urllib.error.HTTPError) -> float | None:
         return None
 
 
-def fetch_method_image(arxiv_id: str, user_agent: str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36", timeout: int = 30) -> str:
-    """Return the first real figure URL from the arXiv HTML version of a paper, or empty string."""
+METHOD_HINT_KEYWORDS = ("overview", "framework", "method", "architecture", "pipeline", "system", "approach", "model", "training", "inference")
+METHOD_PENALTY_KEYWORDS = ("results", "result", "accuracy", "bar chart", "line chart", "qualitative", "example")
+
+
+def fetch_method_figure(arxiv_id: str, user_agent: str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36", timeout: int = 30) -> dict[str, str]:
+    """Pick the best method/framework figure from the arXiv HTML version.
+
+    Returns {"url": ..., "caption": ...}. Scores figures by keywords in the
+    caption (method hints win, pure result/quantitative figures lose), so the
+    teaser/cover image is no longer picked blindly.
+    """
     try:
         base = f"https://arxiv.org/html/{arxiv_id}"
         request = urllib.request.Request(base, headers={"User-Agent": user_agent})
         with urllib.request.urlopen(request, timeout=timeout) as response:
             html = response.read().decode("utf-8", errors="ignore")
-        for match in re.finditer(r"<img[^>]+src=[\"']([^\"']+)[\"']", html, re.I):
-            src = match.group(1).strip()
-            if not src or "/static/" in src or src.startswith("data:"):
-                continue
-            # arXiv HTML pages use version-qualified relative paths like "2505.13982v2/main.png",
-            # which resolve against https://arxiv.org/html/ directly.
-            return urllib.parse.urljoin("https://arxiv.org/html/", src)
-        return ""
     except Exception:
-        return ""
+        return {"url": "", "caption": ""}
+
+    candidates: list[tuple[str, str]] = []
+    for block in re.findall(r"<figure[^>]*>(.*?)</figure>", html, re.I | re.S):
+        img = re.search(r"<img[^>]+src=[\"']([^\"']+)[\"']", block, re.I)
+        if not img:
+            continue
+        src = img.group(1).strip()
+        if not src or "/static/" in src or src.startswith("data:"):
+            continue
+        caption_match = re.search(r"<figcaption[^>]*>(.*?)</figcaption>", block, re.I | re.S)
+        caption = re.sub(r"<[^>]+>", " ", caption_match.group(1)) if caption_match else ""
+        caption = re.sub(r"\s+", " ", caption).strip()
+        candidates.append((src, caption))
+
+    if not candidates:  # fallback: any non-static image without a figure wrapper
+        for img in re.finditer(r"<img[^>]+src=[\"']([^\"']+)[\"']", html, re.I):
+            src = img.group(1).strip()
+            if src and "/static/" not in src and not src.startswith("data:"):
+                candidates.append((src, ""))
+
+    if not candidates:
+        return {"url": "", "caption": ""}
+
+    def score(item: tuple[str, str]) -> int:
+        text = f"{item[1]} {item[0]}".lower()
+        value = sum(2 for kw in METHOD_HINT_KEYWORDS if kw in text)
+        value -= sum(1 for kw in METHOD_PENALTY_KEYWORDS if kw in text)
+        return value
+
+    best = max(candidates, key=lambda item: (score(item), -candidates.index(item)))
+    src, caption = best
+    return {"url": urllib.parse.urljoin("https://arxiv.org/html/", src), "caption": caption}
+
+
+def fetch_method_image(arxiv_id: str, user_agent: str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36", timeout: int = 30) -> str:
+    """Backward-compatible helper returning just the figure URL."""
+    return fetch_method_figure(arxiv_id, user_agent, timeout)["url"]
 
 
 def query_arxiv(query: str, limit: int, user_agent: str, retries: int = 3, delay: float = 3.0) -> list[dict[str, Any]]:

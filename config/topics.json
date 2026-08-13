@@ -8,6 +8,7 @@
       "status": "active",
       "accent": "cyan",
       "keywords": ["vision-force", "vision torque", "force-aware", "force torque", "wrist force", "6-axis force", "contact-rich", "force sensing"],
+      "aliases": ["vision-force", "visual-force", "vision-tactile", "visuotactile", "force-aware manipulation", "tactile manipulation", "contact state", "force torque", "6d f/t", "wrist force", "force sensing", "contact-rich", "slip detection", "grasping", "peg-in-hole", "force/torque", "visual-haptic"],
       "sensors": ["RGB", "RGB-D", "Force/Torque", "6-axis F/T"],
       "research_questions": ["接触何时发生？", "视觉与力觉如何自适应融合？", "如何从接触信号验证任务状态？"]
     },
@@ -19,6 +20,7 @@
       "status": "coming-soon",
       "accent": "amber",
       "keywords": ["failure detection", "task success prediction", "execution monitoring", "runtime monitoring", "progress estimation"],
+      "aliases": ["failure detection", "success prediction", "progress estimation", "execution monitoring", "anomaly detection", "runtime monitoring", "state verification", "task success prediction"],
       "sensors": ["RGB", "RGB-D", "Force/Torque", "Proprioception"],
       "research_questions": ["如何区分暂时偏差和不可恢复失败？", "如何利用多模态时序信号？"]
     },
@@ -30,6 +32,7 @@
       "status": "coming-soon",
       "accent": "rose",
       "keywords": ["failure recovery", "replanning", "retry", "corrective action", "recovery policy"],
+      "aliases": ["failure recovery", "retry", "replanning", "corrective action", "recovery policy", "trajectory divergence", "replan", "recovery"],
       "sensors": ["RGB", "RGB-D", "Force/Torque"],
       "research_questions": ["失败后应该选择哪一种恢复模式？", "恢复动作如何保证安全与可解释？"]
     },
@@ -41,6 +44,7 @@
       "status": "coming-soon",
       "accent": "violet",
       "keywords": ["vision-language-action", "VLA", "robot manipulation", "imitation learning", "behavior cloning"],
+      "aliases": ["vla", "vision-language-action", "robot manipulation", "imitation learning", "behavior cloning", "generalist robot policy", "robot arm", "manipulation policy"],
       "sensors": ["RGB", "RGB-D", "Proprioception"],
       "research_questions": ["通用策略如何适配新平台？", "VLA如何接入接触反馈？"]
     },
@@ -52,6 +56,7 @@
       "status": "coming-soon",
       "accent": "blue",
       "keywords": ["diffusion policy", "flow matching", "generative robot policy", "action chunking"],
+      "aliases": ["diffusion policy", "diffusion", "flow matching", "generative policy", "action generation", "action chunking", "trajectory generation"],
       "sensors": ["RGB", "RGB-D", "Force/Torque"],
       "research_questions": ["生成式策略如何利用力觉？", "如何提高接触阶段的反应速度？"]
     },
@@ -63,6 +68,7 @@
       "status": "active",
       "accent": "lime",
       "keywords": [],
+      "aliases": [],
       "sensors": [],
       "research_questions": []
     }

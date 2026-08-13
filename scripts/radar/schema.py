@@ -63,9 +63,9 @@ def clean_paper(paper: dict[str, Any]) -> dict[str, Any]:
         result["paper_url"] = result.get("paper_url") or f"https://arxiv.org/abs/{result['arxiv_id']}"
         result["pdf_url"] = result.get("pdf_url") or f"https://arxiv.org/pdf/{result['arxiv_id']}"
     result["authors"] = [str(a).strip() for a in as_list(result.get("authors")) if str(a).strip()]
-    for key in ("research_topics", "literature_categories", "methods", "tasks", "sensors", "keywords", "core_contributions"):
+    for key in ("research_topics", "literature_categories", "methods", "tasks", "sensors", "keywords", "core_contributions", "research_branches"):
         result[key] = [str(x) for x in as_list(result.get(key)) if str(x).strip()]
-    for key in ("title", "abstract", "abstract_zh", "venue", "doi", "code_url", "project_url", "image", "summary_one_sentence", "research_problem", "method_summary", "experimental_setup", "key_results", "limitations", "why_it_matters", "relevance_reason", "related_to_my_research", "recommended_reading", "reproduction_value", "core_candidate", "source", "last_checked"):
+    for key in ("title", "abstract", "abstract_zh", "venue", "doi", "code_url", "project_url", "image", "image_caption", "summary_one_sentence", "research_problem", "method_summary", "experimental_setup", "key_results", "limitations", "why_it_matters", "relevance_reason", "related_to_my_research", "recommended_reading", "reproduction_value", "core_candidate", "source", "last_checked"):
         result[key] = str(result.get(key) or "").strip()
     result["year"] = int(result.get("year") or (str(result.get("published_date") or "")[:4] or 0))
     result["relevance_score"] = max(0, min(100, int(result.get("relevance_score") or 0)))
