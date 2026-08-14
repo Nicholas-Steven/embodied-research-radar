@@ -1,11 +1,239 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-08-13",
+  "generated_at": "2026-08-14",
   "source": "arXiv",
-  "candidate_count": 95,
-  "retained_count": 83,
+  "candidate_count": 102,
+  "retained_count": 86,
   "relevance_threshold": 45,
   "papers": [
+    {
+      "paper_id": "arxiv-2608-13396",
+      "title": "Capstan-driven Continuum Surgical Robot: Design, Modeling, and Perception",
+      "authors": [
+        "Gang Zhang",
+        "Yufu Qiu",
+        "Junyan Yan",
+        "Wenhui Zeng",
+        "Wenlong Lu",
+        "Shing Shin Cheng"
+      ],
+      "abstract": "Shape and force sensing have long been critical bottlenecks in the development of compact capstan-driven continuum surgical robots, primarily due to the difficulty of obtaining cable tension information within the confined capstan assembly. To overcome these challenges, this paper presents an integrated design-modeling-sensing approach based on the concept of actuation-perception co-design. A compliant element is introduced into the motor mounting bracket of the drive system, enabling micro-deformation under the cable reaction force and thereby allowing real-time cable tension measurement without occupying the compact capstan space. To address the modeling complexity arising from unconventional joint configurations introduced by the spatial cable routing strategy, a parallel computation framework based on a multibody short-thick-beam model is proposed, which captures shear effects in short beam segments and synergistic multi-cable interactions while achieving real-time performance. Building on this framework, stable shape and force sensing is achieved by incorporating a proximal multi-axis force/torque sensor as an additional measurement anchor. Following this design-modeling-sensing framework, capstan-driven continuum surgical robots with single- and dual-segment configurations are developed. Experimental results validate the proposed framework in both single- and dual-segment continuum robots, demonstrating real-time tip pose estimation together with contact force and location perception. By enabling cable tension feedback without compromising the compact capstan architecture, the proposed framework makes integrated perception feasible for capstan-driven continuum surgical robots.",
+      "published_date": "2026-08-13",
+      "updated_date": "2026-08-13",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.13396",
+      "paper_url": "https://arxiv.org/abs/2608.13396",
+      "pdf_url": "https://arxiv.org/pdf/2608.13396",
+      "source": "arXiv",
+      "last_checked": "2026-08-14",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出了基于驱动-感知协同设计的集成设计-建模-传感方法",
+        "在电机安装支架中引入柔性元件，实现实时缆绳张力测量而不占用绞盘空间",
+        "提出了基于多体短粗梁模型的并行计算框架，处理空间缆绳布线带来的建模复杂性",
+        "通过集成近端多轴力/扭矩传感器实现了稳定的形状和力传感",
+        "开发了单段和双段配置的绞盘驱动连续体手术机器人并实验验证了框架的有效性"
+      ],
+      "research_branches": [],
+      "abstract_zh": "形状和力传感长期以来一直是紧凑型绞盘驱动连续体手术机器人发展的关键瓶颈，主要由于在受限的绞盘组件内获取缆绳张力信息的困难。为了克服这些挑战，本文提出了一种基于驱动-感知协同设计概念的集成设计-建模-传感方法。在驱动系统的电机安装支架中引入一个柔性元件，使其在缆绳反作用力下产生微变形，从而在不占用紧凑绞盘空间的情况下实现实时缆绳张力测量。为了解决空间缆绳布线策略引入的非传统关节配置带来的建模复杂性，提出了一种基于多体短粗梁模型的并行计算框架，该框架捕捉短梁段中的剪切效应和多缆绳协同相互作用，同时实现实时性能。在此框架基础上，通过引入近端多轴力/扭矩传感器作为额外的测量锚点，实现了稳定的形状和力传感。遵循这一设计-建模-传感框架，开发了单段和双段配置的绞盘驱动连续体手术机器人。实验结果在单段和双段连续体机器人上验证了所提出的框架，展示了实时尖端姿态估计以及接触力和位置感知。通过在不影响紧凑绞盘架构的情况下实现缆绳张力反馈，所提出的框架使绞盘驱动连续体手术机器人的集成感知成为可能。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.13396v1/Fig/Ex_1e.png",
+      "image_caption": "Fig. 3: Experimental setup and validation of the modeling framework for a single-segment continuum robot design. (a) Experimental setup for robot validation; (b) Experimental setup for validating cable tension sensing using strain gauges; (c) Error in force sensing using strain gauges; (d) Validation of bending in the plane A under no-load conditions; (e) Validation of bending in the plane A under a 25g load; (f) Validation of bending in the plane B under no-load conditions; (g) Validation of bending in the plane B under a 25g load.",
+      "summary_one_sentence": "本文提出了一种基于驱动-感知协同设计的集成方法，通过引入柔性元件和基于多体短粗梁模型的并行计算框架，实现了绞盘驱动连续体手术机器人的实时形状和力感知。",
+      "research_problem": "如何在紧凑的绞盘驱动连续体手术机器人中实现形状和力感知，克服在受限绞盘组件内获取缆绳张力信息的困难。",
+      "method_summary": "本文方法包括三个部分：设计上，在电机安装支架中引入柔性元件实现缆绳张力测量；建模上，提出基于多体短粗梁模型的并行计算框架处理复杂关节配置；传感上，结合缆绳张力反馈和近端多轴力/扭矩传感器实现形状和力感知。",
+      "experimental_setup": "开发了单段和双段配置的绞盘驱动连续体手术机器人，并进行了实验验证。具体实验细节未在摘要中提供。",
+      "key_results": "实验结果表明，所提出的框架能够在单段和双段连续体机器人上实现实时尖端姿态估计以及接触力和位置感知。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该工作解决了绞盘驱动连续体手术机器人中形状和力感知的关键瓶颈，通过驱动-感知协同设计实现了集成感知，为紧凑型手术机器人的感知能力提升提供了可行方案，对微创手术机器人发展具有重要意义。",
+      "relevance_reason": "该论文涉及力传感和形状感知，与接触状态估计和机器人操作领域密切相关，特别是手术机器人中的力觉感知和状态估计。",
+      "related_to_my_research": "该论文可作为背景文献或方法参考，特别是在力传感和形状感知方面，与接触状态估计和机器人操作研究相关，可能用于对比或借鉴其感知框架。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Medium: 论文描述了设计、建模和传感框架，但未提供详细的设计参数、模型细节和实验数据，复现需要进一步信息。",
+      "core_candidate": "Yes",
+      "relevance_score": 84,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": true,
+      "competition_reason": "主题、传感器或闭环恢复机制与当前视觉–力觉研究规划存在明显交集；需要逐篇核对任务、平台和实验范围。",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-14T05:23:28.572060+00:00",
+      "source_query_groups": [
+        "vision-force"
+      ],
+      "image_caption_zh": "Pending"
+    },
+    {
+      "paper_id": "arxiv-2608-13438",
+      "title": "ContactGuard: Pre-Contact Execution Monitoring with Action-Conditioned Latent World Models",
+      "authors": [
+        "Gehan Zheng",
+        "Matthew Johnson-Roberson",
+        "Weiming Zhi"
+      ],
+      "abstract": "Contact-rich manipulation failures are often detected only after the robot has committed to contact. This is especially limiting in wrist-camera setups: close gripper--object views help observe contact, but a poor approach may already push, miss, slip, or disturb the object before conventional detectors react. We introduce \\emph{ContactGuard}, a pre-contact execution monitor for chunked visuomotor policies. Given the policy's planned action chunk, ContactGuard predicts its short-horizon consequence in latent visual space and aborts if the predicted future latent indicates likely failure. Its latent world model is trained from unlabelled robot trajectories to predict compact multi-view visual embeddings under planned actions, avoiding pixel-level video prediction. A lightweight failure probe is then trained from a small labelled set of pre-contact clips. At deployment, ContactGuard anchors prediction before an imminent contact event, rolls the model forward under the policy's own actions, and verifies the predicted post-contact latent. Across real-world contact-rich manipulation tasks, ContactGuard predicts failure more accurately than direct and corrupted-action ablations, and transfers to live robot as a pre-contact abort signal without modifying the underlying policy.",
+      "published_date": "2026-08-13",
+      "updated_date": "2026-08-13",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.13438",
+      "paper_url": "https://arxiv.org/abs/2608.13438",
+      "pdf_url": "https://arxiv.org/pdf/2608.13438",
+      "source": "arXiv",
+      "last_checked": "2026-08-14",
+      "keywords": [
+        "cs.RO",
+        "cs.AI",
+        "cs.CV",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.CV"
+      ],
+      "research_topics": [
+        "vision-force",
+        "failure-understanding"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出ContactGuard，一种用于分块视觉运动策略的预接触执行监控器",
+        "利用潜在世界模型从无标签轨迹中预测动作的短期后果，避免像素级视频预测",
+        "使用少量标记的预接触片段训练轻量级失败探针",
+        "在真实世界任务中准确预测失败，并可作为预接触中止信号，无需修改底层策略"
+      ],
+      "research_branches": [],
+      "abstract_zh": "接触丰富的操作失败通常只有在机器人已经接触之后才被检测到。这在腕部相机设置中尤其受限：近距离的夹爪-物体视图有助于观察接触，但在传统检测器反应之前，一个糟糕的接近可能已经推动、错过、滑动或干扰物体。我们提出了ContactGuard，一种用于分块视觉运动策略的预接触执行监控器。给定策略规划的动作块，ContactGuard在潜在视觉空间中预测其短期后果，如果预测的未来潜在表示指示可能失败，则中止。其潜在世界模型从未标记的机器人轨迹中训练，以在规划动作下预测紧凑的多视图视觉嵌入，避免了像素级视频预测。然后，从一小批标记的预接触片段中训练一个轻量级失败探针。在部署时，ContactGuard在即将发生的接触事件之前锚定预测，在策略自身动作下滚动模型，并验证预测的接触后潜在表示。在真实世界的接触丰富操作任务中，ContactGuard比直接和破坏动作消融更准确地预测失败，并作为预接触中止信号转移到真实机器人，而无需修改底层策略。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.13438v1/overview.png",
+      "image_caption": "Figure 2: ContactGuard overview. A shared multi-view encoder maps camera observations to a latent context. An action-conditioned predictor rolls this context forward under the policy’s planned action chunk to produce future latents z ^ t + 1 : t + K \\hat{z}_{t+1:t+K} . A lightweight probe is trained offline on labelled pre-contact clips and used online to score the predicted post-contact latent z ^ t + K \\hat{z}_{t+K} . If the predicted failure probability exceeds threshold τ \\tau , execution is aborted before contact. Training uses teacher-forced next-latent prediction; inference uses autoregressive rollout.",
+      "summary_one_sentence": "ContactGuard提出一种预接触执行监控方法，利用潜在世界模型预测动作块的结果并在失败前中止。",
+      "research_problem": "接触丰富的操作失败通常只有在接触发生后才能被检测到，尤其是在腕部相机设置中，传统方法反应滞后，导致机器人可能已经推动、错过、滑动或干扰物体。",
+      "method_summary": "ContactGuard使用潜在世界模型，该模型从无标签机器人轨迹中训练，预测在规划动作下的多视图视觉嵌入。然后，从标记的预接触片段训练失败探针。部署时，在接触事件前锚定预测，滚动模型并验证接触后潜在表示，以决定是否中止。",
+      "experimental_setup": "在真实世界的接触丰富操作任务上进行实验，与直接和破坏动作消融方法对比。",
+      "key_results": "ContactGuard比直接和破坏动作消融更准确地预测失败，并能作为预接触中止信号在真实机器人上运行，无需修改底层策略。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该工作解决了接触丰富操作中失败检测滞后的问题，通过预接触监控提高了操作安全性，且无需修改底层策略，具有实用价值。",
+      "relevance_reason": "该论文直接针对机器人操作中的接触失败预测问题，与接触状态估计和具身智能安全执行密切相关。",
+      "related_to_my_research": "该方法利用视觉潜在世界模型预测接触后果，可作为接触状态估计的预检测手段，与视觉-力觉融合领域相关，可作为基线对比或方法参考。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Medium: 方法描述清晰，但未提及代码或数据是否公开",
+      "core_candidate": "Yes",
+      "relevance_score": 81,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-14T05:24:24.277815+00:00",
+      "source_query_groups": [
+        "contact",
+        "failure"
+      ],
+      "image_caption_zh": "Pending"
+    },
+    {
+      "paper_id": "arxiv-2608-13474",
+      "title": "Decoding Task Progress from VLA Representations",
+      "authors": [
+        "Atiksh Bhardwaj",
+        "Edward Weiyi Duan",
+        "Prithwish Dan",
+        "Wei-Chiu Ma",
+        "Preston Culbertson"
+      ],
+      "abstract": "Vision-language-action models (VLAs) are moving rapidly towards deployment as general-purpose manipulation policies, but we currently lack basic tools for understanding what these models represent internally or for monitoring them at runtime. Leveraging ideas from mechanistic interpretability, we probe the residual stream of $π_{0.5}$ and find that task progress, the normalized time remaining in a trajectory, is linearly readable from the activations. We find that this signal is present in the pretrained PaliGemma backbone prior to training on any robot-specific data. A single linear probe generalizes to unseen tasks and varies under language counterfactuals when trained on multi-prompt data, but does not enable meaningful steering of the policy. These properties make the signal directly useful for instrumenting deployed VLAs. We use the probe as a simple label-free OOD detector, which detects stalled task progress, and find it competitive with state-of-the-art methods. Our results suggest that VLAs have rich, linearly readable internal representations of semantic quantities like task progress, and that learning to read these signals offers a lightweight, interpretable path toward monitoring deployed visuomotor policies.",
+      "published_date": "2026-08-13",
+      "updated_date": "2026-08-13",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.13474",
+      "paper_url": "https://arxiv.org/abs/2608.13474",
+      "pdf_url": "https://arxiv.org/pdf/2608.13474",
+      "source": "arXiv",
+      "last_checked": "2026-08-14",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "发现VLA模型残差流中任务进度可线性读取",
+        "任务进度信号存在于预训练PaliGemma骨干中",
+        "线性探针可泛化到未见任务并随语言反事实变化",
+        "探针作为无标签OOD检测器，性能与SOTA相当"
+      ],
+      "research_branches": [],
+      "abstract_zh": "视觉-语言-动作模型（VLA）正迅速向通用操作策略部署迈进，但目前我们缺乏理解这些模型内部表示或运行时监控的基本工具。利用机械可解释性的思想，我们探测了π0.5的残差流，发现任务进度（轨迹中归一化的剩余时间）可以从激活中线性读取。我们发现这个信号存在于预训练的PaliGemma骨干网络中，在训练任何机器人特定数据之前。一个单一的线性探针可以泛化到未见过的任务，并在多提示数据训练下随语言反事实变化，但不能实现有意义的策略引导。这些特性使得该信号直接可用于部署VLA的仪器化。我们使用该探针作为简单的无标签OOD检测器，检测停滞的任务进度，并发现它与最先进的方法具有竞争力。我们的结果表明，VLA具有丰富的、可线性读取的语义量内部表示，如任务进度，学习读取这些信号为监控部署的视觉运动策略提供了一条轻量级、可解释的路径。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.13474v1/figures/comparison_progress_1x4.png",
+      "image_caption": "Figure 3: Weak decodability of the progress feature across four models, probed at successive stages of training: PaliGemma (vision-language backbone only), base π 0.5 \\pi_{0.5} (after large-scale robot pre-training, before fine-tuning), and VLABench fine-tuned π 0 \\pi_{0} (a distinct VLA architecture), and VLABench fine-tuned π 0.5 \\pi_{0.5} (our target model).",
+      "summary_one_sentence": "本文通过机械可解释性方法探测VLA模型中的任务进度表示，发现其可线性读取并用于OOD检测。",
+      "research_problem": "缺乏理解VLA模型内部表示和运行时监控的工具。",
+      "method_summary": "使用机械可解释性方法，在π0.5模型的残差流上训练线性探针来读取任务进度，并用于OOD检测。",
+      "experimental_setup": "使用π0.5模型及其PaliGemma骨干，在多提示数据上训练线性探针，并在未见任务上测试泛化性；使用探针作为OOD检测器检测任务停滞。",
+      "key_results": "任务进度信号可线性读取，泛化到未见任务，探针OOD检测与SOTA竞争。",
+      "limitations": "线性探针不能实现有意义的策略引导。",
+      "why_it_matters": "提供了一种轻量级、可解释的方法来监控部署的VLA策略，有助于理解模型内部表示。",
+      "relevance_reason": "本文研究VLA模型的内部表示，直接涉及机器人操作策略的监控和可解释性。",
+      "related_to_my_research": "本文关注VLA模型的任务进度表示，可用于机器人操作策略的监控，与具身智能中的策略部署和安全性相关。方法可借鉴于接触状态估计中的进度监控。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Low: 缺乏实验细节和代码",
+      "core_candidate": "Review",
+      "relevance_score": 60,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-14T05:25:00.398276+00:00",
+      "source_query_groups": [
+        "vla"
+      ],
+      "image_caption_zh": "Pending"
+    },
     {
       "paper_id": "arxiv-2608-11769",
       "title": "Policy-Induced Hand Priors in Humanoid Dual-Arm Manipulation: Diagnosing and Mitigating Initial-Pose Dependence",
@@ -5225,7 +5453,7 @@
         "vla-manipulation"
       ],
       "image_caption": "Fig. 3 : Overview of the TaF-VLA learning framework. The architecture consists of two distinct stages: (a) Tactile-Force Alignment (TaF-Adapter): We propose a self-supervised learning paradigm. The Force Encoder ( f ϕ ′ , f ϕ ′′ f_{\\phi^{\\prime}},f_{\\phi^{\\prime\\prime}} ) quantizes heterogeneous force signals, distributed pressure maps, and 6-axis F/T vectors, into two discrete codebooks via vqvae , creating stable physical anchors. The Tactile Encoder ( f causal-TF f_{\\textrm{causal-TF}} ) employs a Causal Transformer to process sequential tactile images. These branches are synchronized in a shared latent space via a contrastive InfoNCE objective ( ℒ NCE \\mathcal{L}_{\\text{NCE}} ), effectively teaching the tactile encoder to infer force dynamics from visual deformation. (b) Policy Integration (TaF-VLA): The pre-trained, frozen TaF-Adapter is integrated into a vla backbone. It injects force-aligned tactile tokens alongside visual and language embeddings, allowing the Action Expert to generate force-aware manipulation trajectories.",
-      "image_caption_zh": ""
+      "image_caption_zh": "TaF-VLA学习框架概述。该架构包含两个不同阶段：(a) 触觉-力对齐（TaF-适配器）：我们提出一种自监督学习范式。力编码器（f_φ', f_φ''）通过vqvae将异质力信号、分布压力图和六轴力/扭矩向量量化到两个离散码本，创建稳定的物理锚点。触觉编码器（f_causal-TF）采用因果Transformer处理序列触觉图像。这些分支通过对比InfoNCE目标（L_NCE）在共享潜在空间中同步，有效教导触觉编码器从视觉变形推断力动态。(b) 策略集成"
     },
     {
       "paper_id": "arxiv-2512-02787",
