@@ -80,7 +80,7 @@
       "source_query_groups": [
         "vision-force"
       ],
-      "image_caption_zh": "Pending"
+      "image_caption_zh": "单段连续体机器人设计建模框架的实验设置与验证。(a) 机器人验证的实验设置；(b) 使用应变片验证缆绳张力传感的实验设置；(c) 使用应变片的力传感误差；(d) 无负载条件下A平面弯曲的验证；(e) 25g负载下A平面弯曲的验证；(f) 无负载条件下B平面弯曲的验证；(g) 25g负载下B平面弯曲的验证。"
     },
     {
       "paper_id": "arxiv-2608-13438",
@@ -158,7 +158,7 @@
         "contact",
         "failure"
       ],
-      "image_caption_zh": "Pending"
+      "image_caption_zh": "ContactGuard概述。一个共享的多视角编码器将相机观测映射到潜在上下文。一个动作条件预测器根据策略的计划动作块将上下文向前滚动，生成未来潜在变量ẑ_{t+1:t+K}。一个轻量级探针在标注的接触前片段上离线训练，并在线用于评分预测的接触后潜在变量ẑ_{t+K}。如果预测的失败概率超过阈值τ，则在接触前中止执行。训练使用教师强制下一潜在预测；推理使用自回归滚动。"
     },
     {
       "paper_id": "arxiv-2608-13474",
@@ -232,7 +232,7 @@
       "source_query_groups": [
         "vla"
       ],
-      "image_caption_zh": "Pending"
+      "image_caption_zh": "在四个模型上于训练的不同阶段探测的进度特征弱可解码性：PaliGemma（仅视觉-语言骨干），基础π_{0.5}（大规模机器人预训练后，微调前），VLABench微调的π_{0}（一种不同的VLA架构），以及VLABench微调的π_{0.5}（我们的目标模型）。"
     },
     {
       "paper_id": "arxiv-2608-11769",
