@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#07121f" />
+  <script>(function(){try{if(localStorage.getItem('radar-theme')==='dark')document.documentElement.classList.add('dark');}catch(e){}})();</script>
   <meta name="description" content="面向机器人操作与具身智能的个人科研论文雷达" />
   <title>Embodied Research Radar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,14 +47,14 @@
 
       <div class="content" id="app">
         <section class="hero" id="hero-section">
-          <div class="eyebrow"><span class="pulse"></span> PERSONAL RESEARCH INTELLIGENCE · <span id="hero-date">—</span></div>
-          <h1>今天，机器人<br><em>学会了什么。</em></h1>
-          <p>面向机器人操作与具身智能的个人科研论文雷达。聚焦视觉–力觉融合，持续追踪状态理解、失败恢复与可复现方法。</p>
+          <div class="eyebrow"><span class="pulse"></span> <span id="hero-eyebrow">PERSONAL RESEARCH INTELLIGENCE</span> · <span id="hero-date">—</span></div>
+          <h1 id="hero-title">今天，机器人<br><em>学会了什么。</em></h1>
+          <p id="hero-desc">面向机器人操作与具身智能的个人科研论文雷达。聚焦视觉–力觉融合，持续追踪状态理解、失败恢复与可复现方法。</p>
           <div class="hero-meta"><span><strong id="hero-count">—</strong> papers in radar</span><span class="meta-sep">·</span><span>source: arXiv</span><span class="meta-sep">·</span><span id="hero-threshold">relevance ≥ —</span></div>
         </section>
 
         <section class="quick-stats" id="quick-stats">
-          <div class="stat-card accent-cyan"><span class="stat-label">RADAR PAPERS</span><strong id="stat-papers">—</strong><small>当前保留</small></div>
+          <div class="stat-card accent-cyan"><span class="stat-label" id="stat-label-1">RADAR PAPERS</span><strong id="stat-papers">—</strong><small>当前保留</small></div>
           <div class="stat-card accent-amber"><span class="stat-label">HIGH SIGNAL</span><strong id="stat-high">—</strong><small>相关度 ≥ 80</small></div>
           <div class="stat-card accent-violet"><span class="stat-label">WITH CODE</span><strong id="stat-code">—</strong><small>公开代码或项目</small></div>
           <div class="stat-card accent-rose"><span class="stat-label">2026 PULSE</span><strong id="stat-2026">—</strong><small>今年新增</small></div>
