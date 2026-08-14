@@ -15,7 +15,7 @@ ANALYSIS_FIELDS = (
     "abstract_zh", "summary_one_sentence", "research_problem", "core_contributions",
     "method_summary", "experimental_setup", "key_results", "limitations",
     "why_it_matters", "recommended_reading", "reproduction_value", "relevance_reason",
-    "related_to_my_research", "image_caption_zh",
+    "related_to_my_research",
 )
 
 

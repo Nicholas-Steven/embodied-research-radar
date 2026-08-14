@@ -96,7 +96,7 @@ def run(fetch: bool = False, limit_per_query: int = 10, threshold: int = 35, wit
     # Translate figure captions to Chinese for papers that have an English caption but no translation yet.
     if with_ai:
         for paper in retained:
-            if paper.get("image_caption") and not paper.get("image_caption_zh"):
+            if paper.get("image_caption") and (not paper.get("image_caption_zh") or str(paper.get("image_caption_zh")) == "Pending"):
                 paper["image_caption_zh"] = translate_caption(paper.get("image_caption", ""))
     retained.sort(key=lambda p: (p.get("published_date", ""), p.get("relevance_score", 0)), reverse=True)
     # Attach the best method figure from the arXiv HTML version when the paper has none yet.
