@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-08-16",
+  "generated_at": "2026-08-17",
   "source": "arXiv",
-  "candidate_count": 102,
+  "candidate_count": 86,
   "retained_count": 86,
   "relevance_threshold": 45,
   "papers": [
@@ -7191,5 +7191,5 @@
     "data_source": "arXiv",
     "last_verified_note": "事实字段来自论文元数据；AI分析字段仅在配置Provider后生成。"
   },
-  "built_at": "2026-08-16"
+  "built_at": "2026-08-17"
 }
