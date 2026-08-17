@@ -2,10 +2,82 @@
   "schema_version": "1.0.0",
   "generated_at": "2026-08-17",
   "source": "arXiv",
-  "candidate_count": 86,
-  "retained_count": 86,
+  "candidate_count": 104,
+  "retained_count": 88,
   "relevance_threshold": 45,
   "papers": [
+    {
+      "paper_id": "arxiv-2608-14379",
+      "title": "Reflex: Enabling Fast and Predictive Vision-Language-Action Models for Reaction-Critical Manipulation",
+      "authors": [
+        "Yuxuan Chen",
+        "Wanruo Zhang",
+        "Xiao Li"
+      ],
+      "abstract": "Vision-Language-Action (VLA) models have recently achieved promising performance in robotic manipulation. However, existing benchmarks mainly evaluate generalization on static manipulation tasks and largely overlook dynamic interaction scenarios. To address this gap, we present ReflexBench, a benchmark for reaction-critical manipulation. ReflexBench contains six dynamic tasks and introduces an evaluation framework that decouples simulator stepping from robot control while supporting configurable latency under synchronous and asynchronous inference. Building upon ReflexBench, we propose ReflexVLA, an efficient VLA model designed for reaction-critical manipulation without large-scale robot-data pretraining. ReflexVLA enhances temporal reasoning through latent future prediction and multi-frame temporal fusion within the vision backbone, while reducing deployment latency through batched visual encoding and CUDA Graph replay. Experiments show that ReflexVLA consistently improves dynamic manipulation performance while maintaining competitive accuracy on standard static manipulation benchmarks, and real-world experiments further demonstrate its effectiveness under practical deployment conditions. Project website: https://reflexvla.github.io",
+      "published_date": "2026-08-14",
+      "updated_date": "2026-08-14",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.14379",
+      "paper_url": "https://arxiv.org/abs/2608.14379",
+      "pdf_url": "https://arxiv.org/pdf/2608.14379",
+      "source": "arXiv",
+      "last_checked": "2026-08-17",
+      "keywords": [
+        "cs.RO",
+        "cs.AI",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "research_topics": [
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出了ReflexBench，一个包含六个动态任务的反应关键型操作基准，并引入了解耦模拟器步进与机器人控制的评估框架",
+        "提出了ReflexVLA，一个无需大规模机器人数据预训练的高效VLA模型，通过潜在未来预测和多帧时间融合增强时间推理，并通过批量视觉编码和CUDA Graph replay减少部署延迟",
+        "实验表明ReflexVLA在动态操作性能上持续提升，同时在静态基准上保持竞争力，真实世界实验验证了有效性"
+      ],
+      "research_branches": [],
+      "abstract_zh": "视觉-语言-动作（VLA）模型最近在机器人操作中取得了有希望的性能。然而，现有基准主要评估静态操作任务的泛化能力，而很大程度上忽略了动态交互场景。为了解决这一差距，我们提出了ReflexBench，一个用于反应关键型操作的基准。ReflexBench包含六个动态任务，并引入了一个评估框架，该框架将模拟器步进与机器人控制解耦，同时支持同步和异步推理下的可配置延迟。基于ReflexBench，我们提出了ReflexVLA，一个高效的VLA模型，专为反应关键型操作设计，无需大规模机器人数据预训练。ReflexVLA通过视觉骨干中的潜在未来预测和多帧时间融合增强了时间推理，同时通过批量视觉编码和CUDA Graph replay减少了部署延迟。实验表明，ReflexVLA在标准静态操作基准上保持竞争性准确率的同时，持续提高了动态操作性能，真实世界实验进一步证明了其在实际部署条件下的有效性。项目网站：https://reflexvla.github.io",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.14379v1/figures/reflexvla.png",
+      "image_caption": "Fig. 3 : Overview of ReflexVLA. ReflexVLA is an efficient vision-language-action model for reaction-critical robotic manipulation, integrating latent future prediction, multi-frame temporal fusion, and inference latency optimization to enable fast and anticipatory decision-making.",
+      "summary_one_sentence": "提出了ReflexBench基准和ReflexVLA模型，用于提升机器人在反应关键型动态操作中的性能。",
+      "research_problem": "现有基准主要评估静态操作任务，忽略了动态交互场景，需要针对反应关键型操作的基准和高效模型。",
+      "method_summary": "ReflexVLA通过视觉骨干中的潜在未来预测和多帧时间融合来增强时间推理，并通过批量视觉编码和CUDA Graph replay来减少部署延迟。",
+      "experimental_setup": "在ReflexBench的六个动态任务和标准静态操作基准上评估，并进行了真实世界实验。其他实验细节无法从摘要确认。",
+      "key_results": "ReflexVLA在动态操作性能上持续提升，同时在标准静态操作基准上保持竞争性准确率，真实世界实验进一步证明了其有效性。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该工作填补了现有基准忽略动态交互场景的空白，提出了专门针对反应关键型操作的基准和高效模型，有助于推动机器人在动态环境中的操作能力。",
+      "relevance_reason": "该论文研究反应关键型机器人操作，涉及视觉-语言-动作模型，与机器人操作和具身智能领域直接相关，但未涉及力觉融合或接触状态估计。",
+      "related_to_my_research": "该论文可作为机器人操作和具身智能研究的背景文献，其提出的基准和模型可用于对比或参考，尤其适用于需要快速反应的操作场景。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "无法从摘要确认",
+      "core_candidate": "No",
+      "relevance_score": 45,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-17T02:14:00.445293+00:00",
+      "source_query_groups": [
+        "vla"
+      ]
+    },
     {
       "paper_id": "arxiv-2608-13396",
       "title": "Capstan-driven Continuum Surgical Robot: Design, Modeling, and Perception",
@@ -233,6 +305,79 @@
         "vla"
       ],
       "image_caption_zh": "在四个模型上于训练的不同阶段探测的进度特征弱可解码性：PaliGemma（仅视觉-语言骨干），基础π_{0.5}（大规模机器人预训练后，微调前），VLABench微调的π_{0}（一种不同的VLA架构），以及VLABench微调的π_{0.5}（我们的目标模型）。"
+    },
+    {
+      "paper_id": "arxiv-2608-13678",
+      "title": "hint$^2$: Hierarchical World Models for Inference-Time Temporal Logic Guidance",
+      "authors": [
+        "Moritz Zoellner",
+        "Anastasios Manganaris",
+        "Ahmed H. Qureshi",
+        "Rohan Paleja"
+      ],
+      "abstract": "A central goal of robot learning is to enable robots to execute rich instructions specified at runtime. Large-scale language-conditioned policies have made substantial progress toward this goal, yet still struggle with temporal structure and safety constraints. Linear Temporal Logic (LTL) provides a powerful language to express complex, non-Markovian instructions. However, guiding learned manipulation policies toward LTL satisfaction remains challenging because modern policies generate short-horizon action chunks and replan in closed loop, while almost all LTL specifications are evaluated over long-horizon trajectories. In this paper, we introduce hint$^2$, a method for guiding short-horizon policies toward satisfying complex LTL specifications at inference time using hierarchical world models. Our key idea is to derive two separate guidance objectives using each world model's abstraction level. A high-level model predicts future action-induced transitions in task-relevant atomic propositions to guide progress through the LTL automaton, while a low-level dynamics model predicts immediate state evolution for accurate local safety guidance. Our results show that hint$^2$ overcomes the limitations of current LTL-guided diffusion methods, outperforms existing inference-time steering methods in CALVIN, and successfully completes instructions with complex liveness and safety constraints more elegantly than language-conditioned alternatives. Finally, we demonstrate that hint$^2$ can handle complex instructions on a real UR5e manipulator.",
+      "published_date": "2026-08-13",
+      "updated_date": "2026-08-13",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.13678",
+      "paper_url": "https://arxiv.org/abs/2608.13678",
+      "pdf_url": "https://arxiv.org/pdf/2608.13678",
+      "source": "arXiv",
+      "last_checked": "2026-08-17",
+      "keywords": [
+        "cs.RO",
+        "cs.LG",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO",
+        "cs.LG"
+      ],
+      "research_topics": [
+        "failure-recovery"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出hint$^2$方法，利用分层世界模型在推理时引导策略满足LTL规范。",
+        "设计高层世界模型预测原子命题转换以指导LTL自动机进展，低层世界模型预测状态演化以提供局部安全引导。",
+        "在CALVIN基准和真实UR5e机械臂上验证了方法有效性，优于现有推理时引导方法。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "机器人学习的一个核心目标是使机器人能够执行运行时指定的丰富指令。大规模语言条件策略已经朝着这个目标取得了实质性进展，但仍然难以处理时间结构和安全约束。线性时序逻辑（LTL）提供了一种强大的语言来表达复杂的非马尔可夫指令。然而，引导学习到的操作策略满足LTL仍然具有挑战性，因为现代策略生成短视动作块并在闭环中重新规划，而几乎所有LTL规范都是在长视轨迹上评估的。在本文中，我们介绍了hint$^2$，一种使用分层世界模型在推理时引导短视策略满足复杂LTL规范的方法。我们的关键思想是利用每个世界模型的抽象级别推导出两个独立的引导目标。高层模型预测未来动作引起的任务相关原子命题转换，以指导LTL自动机的进展，而低层动力学模型预测即时状态演化，以提供准确的局部安全引导。我们的结果表明，hint$^2$克服了当前LTL引导扩散方法的局限性，在CALVIN基准上优于现有的推理时引导方法，并且比语言条件替代方案更优雅地完成了具有复杂活性和安全约束的指令。最后，我们展示了hint$^2$可以在真实的UR5e机械臂上处理复杂指令。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.13678v1/calvin_overview.png",
+      "image_caption": "Figure 1: Our method hint 2 can guide a diffusion policy based on TL constraints specified at inference time. In the CALVIN environment, hint 2 executes complex long-horizon instructions that a state-of-the-art vision-language-action policy trained on the same data fails to complete.",
+      "summary_one_sentence": "提出hint$^2$方法，使用分层世界模型在推理时引导短视操作策略满足复杂线性时序逻辑规范。",
+      "research_problem": "如何引导短视操作策略满足具有时间结构和安全约束的复杂线性时序逻辑指令。",
+      "method_summary": "hint$^2$使用两个世界模型：高层模型预测未来动作引起的任务相关原子命题转换，用于引导LTL自动机进展；低层动力学模型预测即时状态演化，用于局部安全引导。在推理时，通过这两个引导目标调整短视策略的动作输出，使其满足LTL规范。",
+      "experimental_setup": "在CALVIN基准上评估，与现有推理时引导方法（如LTL引导扩散方法）比较，并在真实UR5e机械臂上演示复杂指令的执行。",
+      "key_results": "hint$^2$克服了当前LTL引导扩散方法的局限性，在CALVIN上优于现有推理时引导方法，并能更优雅地完成具有复杂活性和安全约束的指令，同时在真实机械臂上成功执行复杂指令。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "这项工作将线性时序逻辑规范集成到机器人学习策略中，使机器人能够执行具有复杂时间结构和安全约束的指令，提高了机器人操作的可靠性和安全性，推动了具身智能中任务规划与执行的发展。",
+      "relevance_reason": "本文关注机器人操作中的时序逻辑引导，涉及策略学习、世界模型和任务规划，与机器人操作和具身智能研究高度相关。",
+      "related_to_my_research": "本文提出使用分层世界模型引导机器人操作策略满足LTL规范，涉及机器人操作和具身智能中的任务规划与执行，可作为背景文献或方法参考，尤其适用于需要时间结构约束的操作任务。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Low: 摘要仅提供方法的高层描述，缺乏算法细节和实验设置，难以直接复现。",
+      "core_candidate": "Review",
+      "relevance_score": 60,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-17T02:13:06.616806+00:00",
+      "source_query_groups": [
+        "recovery"
+      ]
     },
     {
       "paper_id": "arxiv-2608-11769",
