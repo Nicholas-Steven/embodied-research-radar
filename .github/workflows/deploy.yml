@@ -52,7 +52,11 @@ jobs:
           LLM_BASE_URL: ${{ vars.LLM_BASE_URL || 'https://api.openai.com/v1' }}
           LLM_MODEL: ${{ vars.LLM_MODEL || 'gpt-4o-mini' }}
           ARXIV_USER_AGENT: "EmbodiedResearchRadar/0.1 (GitHub Actions; owner=Nicholas-Steven)"
-          ARXIV_DELAY_SECONDS: "4"
+          # arXiv's export API aggressively 429s shared runner IPs; keep well under its rate limit.
+          ARXIV_DELAY_SECONDS: "10"
+          ARXIV_MAX_RETRIES: "5"
+          ARXIV_BACKOFF_BASE_SECONDS: "30"
+          ARXIV_BACKOFF_MAX_SECONDS: "300"
 
       - name: Build static site
         run: python scripts/build_site.py

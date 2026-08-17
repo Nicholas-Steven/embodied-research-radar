@@ -32,7 +32,16 @@ def _request(url: str, user_agent: str, timeout: int = 45) -> bytes:
 def _retry_after_seconds(exc: urllib.error.HTTPError) -> float | None:
     value = exc.headers.get("Retry-After") if exc.headers else None
     if not value:
-        return None
+        # arXiv sometimes suggests a wait inside the 429 body instead of a header.
+        try:
+            body = exc.read().decode("utf-8", errors="ignore")
+        except Exception:
+            body = ""
+        match = re.search(r"retry\s+(?:after\s+)?(\d+(?:\.\d+)?)\s*(?:seconds?|s)?", body, re.I)
+        if match:
+            value = match.group(1)
+        else:
+            return None
     try:
         return max(1.0, min(float(value), 300.0))
     except ValueError:
@@ -135,7 +144,8 @@ def query_arxiv(query: str, limit: int, user_agent: str, retries: int = 3, delay
                     else:
                         base = float(os.getenv("ARXIV_BACKOFF_BASE_SECONDS", "15"))
                         cap = float(os.getenv("ARXIV_BACKOFF_MAX_SECONDS", "120"))
-                        wait = min(base * (2 ** attempt) + random.uniform(0, 5), cap)
+                        # Full jitter avoids synchronized retry storms from shared runner IPs.
+                        wait = random.uniform(0, min(cap, base * (2 ** attempt)))
                     print(f"arXiv rate limited (429), waiting {wait:.0f}s before retry {attempt + 1}/{retries}")
                     time.sleep(wait)
             elif exc.code in (400, 401, 403, 404):
