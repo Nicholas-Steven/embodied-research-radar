@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-08-17",
+  "generated_at": "2026-08-18",
   "source": "arXiv",
-  "candidate_count": 104,
+  "candidate_count": 88,
   "retained_count": 88,
   "relevance_threshold": 45,
   "papers": [
