@@ -1,11 +1,460 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-08-18",
+  "generated_at": "2026-08-19",
   "source": "arXiv",
-  "candidate_count": 112,
-  "retained_count": 100,
+  "candidate_count": 122,
+  "retained_count": 107,
   "relevance_threshold": 45,
   "papers": [
+    {
+      "paper_id": "arxiv-2608-17962",
+      "title": "PRISM: Precision and contact-rich Real-world Industrial Skill dataset with Multimodal sensing",
+      "authors": [
+        "Tengbo Yu",
+        "Jiahao Wu",
+        "Hanning Wang",
+        "Rui Chen",
+        "Chuanhou Liu",
+        "Chuang Sun",
+        "Hangxin Liu"
+      ],
+      "abstract": "Recent progress in robotic learning has been fueled by large-scale datasets collected in everyday environments. However, most existing datasets emphasize short-horizon, low-contact tasks such as pick-and-place, and therefore do not capture the precision control, force/torque or tactile regulation, and multimodal feedback required for industrial assembly. To address this gap, we introduce PRISM, a large-scale multimodal dataset for contact-rich industrial operations. The dataset spans more than 25 manipulation tasks (e.g., electronic components plug/unplug, conveyor-based sorting) and covers diverse mechanical constraints. PRISM includes more than 5,000 trajectories totaling 45 hours of teleoperated demonstrations, recorded using synchronized multi-view RGB-D, force/torque, tactile, and robot-state measurements. In contrast to datasets collected in household or laboratory settings, PRISM provides a realistic benchmark for multimodal perception and control under high-precision industrial constraints, and serves as a foundation for contact-rich, generalizable manipulation in real-world manufacturing environments. The dataset is open-sourced at: https://tengbo-yu.github.io/PRISM/",
+      "published_date": "2026-08-18",
+      "updated_date": "2026-08-18",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.17962",
+      "paper_url": "https://arxiv.org/abs/2608.17962",
+      "pdf_url": "https://arxiv.org/pdf/2608.17962",
+      "source": "arXiv",
+      "last_checked": "2026-08-19",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出了PRISM数据集，涵盖超过25个工业操作任务",
+        "包含超过5000条轨迹，总计45小时遥操作演示",
+        "提供同步多视角RGB-D、力/力矩、触觉和机器人状态测量数据",
+        "为高精度工业约束下的多模态感知和控制提供现实基准"
+      ],
+      "research_branches": [],
+      "abstract_zh": "机器人学习的最新进展得益于在日常环境中收集的大规模数据集。然而，大多数现有数据集强调短时域、低接触任务，如拾取和放置，因此无法捕捉工业装配所需的精确控制、力/力矩或触觉调节以及多模态反馈。为了解决这一差距，我们引入了PRISM，一个用于接触丰富工业操作的大规模多模态数据集。该数据集涵盖超过25个操作任务（例如，电子元件插拔、基于传送带的分拣），并覆盖多种机械约束。PRISM包括超过5000条轨迹，总计45小时的遥操作演示，使用同步多视角RGB-D、力/力矩、触觉和机器人状态测量进行记录。与在家庭或实验室环境中收集的数据集相比，PRISM为高精度工业约束下的多模态感知和控制提供了现实基准，并作为现实制造环境中接触丰富、可泛化操作的基础。该数据集已开源：https://tengbo-yu.github.io/PRISM/",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.17962v1/overview_v2.png",
+      "image_caption": "Fig. 1 : Overview of PRISM dataset. We collect data using multiple robot platforms in diverse environments. Each manipulation episode includes synchronized multimodal observations, including visual, force, and proprioceptive signals, with tactile signals available for a subset of episodes.. For each episode, the full manipulation process is captured with well-calibrated multi-view cameras. The dataset spans a wide range of manipulation skills, and each episode is paired with a corresponding language description. In total, we provide more than 5,000 robot trajectories and 5,000 paired human demonstrations, covering over 45 hours of interaction across more than 25 tasks.",
+      "summary_one_sentence": "PRISM是一个大规模多模态数据集，用于接触丰富的工业操作任务，包含超过5000条轨迹和多传感器数据。",
+      "research_problem": "现有数据集缺乏接触丰富、高精度的工业操作数据，无法支持多模态感知和控制。",
+      "method_summary": "通过遥操作收集多模态数据，使用同步多视角RGB-D、力/力矩、触觉和机器人状态传感器。",
+      "experimental_setup": "数据收集在工业场景中进行，包含25+操作任务，使用遥操作和多种传感器同步记录。",
+      "key_results": "无法从摘要确认",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该数据集填补了工业操作领域多模态数据集的空白，为高精度、接触丰富的机器人操作研究提供了基准，有助于推动具身智能在真实制造环境中的应用。",
+      "relevance_reason": "该数据集包含力/力矩和触觉数据，与视觉-力觉融合和接触状态估计研究高度相关，可作为多模态感知的基准。",
+      "related_to_my_research": "该数据集可作为接触状态估计和多模态感知的基准数据集，方法参考价值高，可用于验证视觉-力觉融合算法。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "High: 数据集已开源，可复现",
+      "core_candidate": "Yes",
+      "relevance_score": 100,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": true,
+      "competition_reason": "主题、传感器或闭环恢复机制与当前视觉–力觉研究规划存在明显交集；需要逐篇核对任务、平台和实验范围。",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-19T04:27:32.274033+00:00",
+      "source_query_groups": [
+        "vision-force"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2608-17691",
+      "title": "Force-Based Offset Estimation for Keyed Peg-in-Hole Assembly Using Local Gaussian Process Regression",
+      "authors": [
+        "Chandra Yuvesh Aubeeluck",
+        "Abilash Philip Madavath",
+        "Augustin Raju",
+        "Nicolas Pyschny",
+        "Felix Hackelöer",
+        "Florian Zwanzig"
+      ],
+      "abstract": "Key-keyway assembly tasks impose strict geometric constraints and are highly sensitive to grasp pose deviations in uncertain environments. This work presents a force-based offset estimation method for keyed peg-in-hole assembly, embedded within a perception-validation-insertion pipeline. Residual misalignment is estimated directly from wrist force/torque measurements using a local KNN-Gaussian Process hybrid regressor. The framework distinguishes between two contact regimes, hard collision and guided chamfer insertion, and routes inference to a dedicated model for each. Regime classification is achieved via a contact-window duration threshold. KNN combined with a deterministic search using the results of a post-grasp monocular visual validation contributes to an increased accuracy of the regressor model. This approach achieves accurate radial offset estimation in chamfered peg insertion, during a keypoint detection-based pick and place application. Experiments using the integrated force/torque sensor of a collaborative robot arm showed an increase in insertion success rate from 67% to 87% after the pipeline was applied.",
+      "published_date": "2026-08-18",
+      "updated_date": "2026-08-18",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.17691",
+      "paper_url": "https://arxiv.org/abs/2608.17691",
+      "pdf_url": "https://arxiv.org/pdf/2608.17691",
+      "source": "arXiv",
+      "last_checked": "2026-08-19",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出了一种基于力的偏移估计方法，嵌入感知-验证-插入流水线",
+        "使用局部KNN-高斯过程混合回归器直接从腕部力/力矩测量估计残余未对准",
+        "区分硬碰撞和导向倒角插入两种接触状态，并路由到专用模型进行推理",
+        "通过接触窗口持续时间阈值实现接触状态分类",
+        "结合KNN和基于单目视觉验证的确定性搜索提高回归模型准确性",
+        "实验证明该方法将插入成功率从67%提升至87%"
+      ],
+      "research_branches": [],
+      "abstract_zh": "键-键槽装配任务施加了严格的几何约束，并且在不确定环境中对抓取姿态偏差高度敏感。本文提出了一种基于力的偏移估计方法，用于键合销-孔装配，嵌入在感知-验证-插入流水线中。残余未对准直接通过腕部力/力矩测量使用局部KNN-高斯过程混合回归器进行估计。该框架区分两种接触状态：硬碰撞和导向倒角插入，并将推理路由到每个状态的专用模型。状态分类通过接触窗口持续时间阈值实现。KNN结合使用抓取后单目视觉验证结果的确定性搜索，提高了回归模型的准确性。该方法在基于关键点检测的拾取和放置应用中，实现了倒角销插入的准确径向偏移估计。使用协作机器人臂的集成力/力矩传感器进行的实验表明，应用该流水线后，插入成功率从67%提高到87%。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.17691v1/intro_to_paper_fig_1.png",
+      "image_caption": "Fig. 1 : Insertion process with keyed circular hole.",
+      "summary_one_sentence": "本文提出了一种基于力的偏移估计方法，利用局部KNN-高斯过程混合回归器从力/力矩测量中估计残余未对准，用于键合销-孔装配，并通过接触状态分类和视觉验证提高了插入成功率。",
+      "research_problem": "键-键槽装配任务对抓取姿态偏差高度敏感，需要准确的径向偏移估计以确保在不确定环境中的成功插入。",
+      "method_summary": "该方法利用协作机器人臂的集成力/力矩传感器，通过局部KNN-高斯过程混合回归器估计径向偏移。首先通过接触窗口持续时间阈值分类当前接触状态（硬碰撞或导向倒角插入），然后使用对应状态的专用模型进行推理。KNN结合基于抓取后单目视觉验证结果的确定性搜索，提高了偏移估计的准确性。整个方法嵌入在感知-验证-插入流水线中。",
+      "experimental_setup": "使用协作机器人臂的集成力/力矩传感器，在基于关键点检测的拾取和放置应用中进行实验，评估插入成功率。",
+      "key_results": "插入成功率从67%提高到87%。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该方法有效解决了键-键槽装配中的偏移估计问题，显著提高了插入成功率，对机器人精密装配任务具有实际意义。",
+      "relevance_reason": "本文涉及基于力/力矩测量的偏移估计和接触状态分类，与力觉融合、接触状态估计和机器人操作研究直接相关。",
+      "related_to_my_research": "本文可作为接触状态估计和力觉融合研究的参考方法，其接触状态分类和混合回归策略可用于类似机器人装配任务。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Medium: 方法描述清晰，但未提供代码或详细实验参数，复现需要一定工作量",
+      "core_candidate": "Yes",
+      "relevance_score": 94,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": true,
+      "competition_reason": "主题、传感器或闭环恢复机制与当前视觉–力觉研究规划存在明显交集；需要逐篇核对任务、平台和实验范围。",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-19T04:28:05.682679+00:00",
+      "source_query_groups": [
+        "vision-force"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2608-17628",
+      "title": "Iterative Grasp Pose Refinement: A Deep Reinforcement Learning Approach for 2D Vision",
+      "authors": [
+        "Amir Arsalan Nematollahi",
+        "Shayan Ahmadi",
+        "Mehdi Tale Masouleh",
+        "Ahmad Kalhor"
+      ],
+      "abstract": "Developing robots capable of understanding and manipulating objects requires compact, interpretable, and generalizable representations. This work proposes a reinforcement learning-based framework for robotic grasp refinement, integrating keypoint-based object representations with a Deep Q-Network (DQN). Using 2D overhead images captured in a simulated environment, a geometric-based algorithm generates initial grasp candidates, which are iteratively refined by the proposed framework, transforming failed grasps into successful ones. Experiments conducted on 300 objects from the Dex-Net dataset using a UR5 manipulator demonstrate the framework's effectiveness, achieving a 100% success rate on objects previously deemed ungraspable by geometrical methods. The framework's sim-to-real transferability is further validated through physical experiments on a Delta parallel robot, where a refined grasp successfully manipulates an object that was previously ungraspable. The findings underscore the effectiveness of reinforcement learning in addressing challenges in robotic grasping, offering a scalable and adaptable solution for contact-rich manipulation tasks.",
+      "published_date": "2026-08-18",
+      "updated_date": "2026-08-18",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.17628",
+      "paper_url": "https://arxiv.org/abs/2608.17628",
+      "pdf_url": "https://arxiv.org/pdf/2608.17628",
+      "source": "arXiv",
+      "last_checked": "2026-08-19",
+      "keywords": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG",
+        "eess.IV",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG",
+        "eess.IV"
+      ],
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出了一个基于强化学习的抓取优化框架，结合关键点表示和深度Q网络（DQN）",
+        "在Dex-Net数据集的300个物体上实现了100%的抓取成功率，包括先前几何方法认为不可抓取的物体",
+        "验证了框架从仿真到真实机器人的可迁移性（sim-to-real）",
+        "提供了一种可扩展且适应性强的解决方案，用于接触丰富的操作任务"
+      ],
+      "research_branches": [],
+      "abstract_zh": "开发能够理解和操作物体的机器人需要紧凑、可解释且可泛化的表示。本文提出了一种基于强化学习的机器人抓取优化框架，将基于关键点的物体表示与深度Q网络（DQN）相结合。利用模拟环境中捕获的2D俯视图像，基于几何的算法生成初始抓取候选，然后通过所提出的框架迭代优化，将失败的抓取转化为成功的抓取。在Dex-Net数据集的300个物体上使用UR5机械臂进行的实验证明了该框架的有效性，在先前被几何方法认为不可抓取的物体上实现了100%的成功率。该框架的仿真到现实的可迁移性进一步通过Delta并联机器人的物理实验得到验证，其中优化的抓取成功操纵了先前不可抓取的物体。研究结果强调了强化学习在解决机器人抓取挑战中的有效性，为接触丰富的操作任务提供了可扩展且适应性强的解决方案。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.17628v1/Slide2.png",
+      "image_caption": "Fig. 6: Sim-to-real validation of the proposed grasp refinement framework using a pair of pliers. (Top) An initial grasp candidate, generated by the geometric algorithm, proves unstable, leading to failure in both the simulation and the real-world execution . (Bottom) After processing the failed candidate, the proposed RL framework generates a refined grasp pose. This new pose, which was identified as successful in simulation , enables a stable lift with a Delta parallel robot, confirming the direct transfer of the refined grasp’s effectiveness from simulation to a real-world task.",
+      "summary_one_sentence": "本文提出了一种基于深度强化学习的迭代抓取姿态优化框架，利用2D视觉和关键点表示，将几何方法失败的抓取转化为成功，并在仿真和真实机器人上验证了有效性。",
+      "research_problem": "如何通过强化学习迭代优化抓取姿态以提高抓取成功率，特别是对于几何方法难以抓取的物体。",
+      "method_summary": "使用2D俯视图像，基于几何的算法生成初始抓取候选，然后通过深度Q网络（DQN）迭代优化，利用关键点表示物体，将失败抓取转化为成功抓取。",
+      "experimental_setup": "仿真实验使用Dex-Net数据集的300个物体和UR5机械臂；真实实验使用Delta并联机器人验证sim-to-real迁移性。",
+      "key_results": "在几何方法认为不可抓取的物体上达到100%成功率，并且仿真到真实的迁移实验成功。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "强调了强化学习在解决机器人抓取挑战中的有效性，为接触丰富的操作任务提供了可扩展且适应性强的解决方案，有助于推动具身智能中操作技能的学习。",
+      "relevance_reason": "该论文聚焦于机器人抓取优化，属于机器人操作和具身智能的核心问题，与视觉-力觉融合和接触状态估计间接相关，可作为基于视觉的抓取方法参考。",
+      "related_to_my_research": "该方法可作为机器人操作中基于视觉的抓取优化的参考，与接触状态估计和力觉融合无直接关联，但属于具身智能中操作技能学习的范畴，可作为背景文献或方法参考。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Medium: 摘要描述了实验设置和数据集，但未提及代码开源，复现需要一定工作量",
+      "core_candidate": "Review",
+      "relevance_score": 66,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-19T04:28:32.266838+00:00",
+      "source_query_groups": [
+        "contact"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2608-17717",
+      "title": "CompCPZ: Preserving Multi-Modal Intent in Language-Guided Robot Manipulation",
+      "authors": [
+        "Zhen Zhang",
+        "Ahmad Hafez",
+        "Peng Xie",
+        "Yanliang Huang",
+        "Wenyuan Wu",
+        "Amr Alanwar"
+      ],
+      "abstract": "A robot asked to \"place the cup near the red plate or the blue plate\" may reach the centroid between them and appear geometrically successful, while satisfying neither disjunct of the instruction. This silent semantic failure exposes a structural limitation of language-conditioned robot policies: representations that collapse a disjunctive instruction into a single connected set cannot preserve all feasible modes, and planners that commit to one action degrade under run-time mode uncertainty. We address this limitation with CompCPZ, a sound algebraic layer that language-conditioned learning systems wrap to recover multi-modal disjunctive representation, recursively composing per-primitive constrained polynomial zonotope enclosures along the language parse tree with distribution-free conformal coverage and sub-millisecond runtime. On a closed-loop ManiSkill3 tabletop-manipulation benchmark, CompCPZ outperforms convex set baselines, multi-peak decoders, and a zero-shot vision-language-action model (1,900/1,918 paired wins, p << 10^(-30)); the same compiler also transfers without retuning to planar real-robot trials on a Unitree Go2 quadruped under motion capture. These results suggest that compositional language grounding should be evaluated not only by reaching a decoded target, but by whether the represented feasibility set preserves the connected-component structure of the user's intent.",
+      "published_date": "2026-08-18",
+      "updated_date": "2026-08-18",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.17717",
+      "paper_url": "https://arxiv.org/abs/2608.17717",
+      "pdf_url": "https://arxiv.org/pdf/2608.17717",
+      "source": "arXiv",
+      "last_checked": "2026-08-19",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "识别了语言条件策略中析取指令表示的结构性限制：将指令压缩为单一连通集无法保留多模态意图。",
+        "提出了CompCPZ，一个可靠的代数层，通过递归组合约束多项式区域包围来恢复多模态析取表示。",
+        "在ManiSkill3基准和真实机器人上验证了CompCPZ优于凸集基线、多峰解码器和零样本VLA模型。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "一个机器人被要求“把杯子放在红盘子或蓝盘子附近”可能会到达它们之间的质心，看起来几何上成功，但既不满足指令的任何一个分支。这种无声的语义失败暴露了语言条件机器人策略的结构性限制：将析取指令压缩成单个连通集的表示无法保留所有可行模式，而承诺一个动作的规划器在运行时模式不确定性下会退化。我们通过CompCPZ解决了这个限制，这是一个可靠的代数层，语言条件学习系统可以包装它来恢复多模态析取表示，沿着语言解析树递归组合每个原语的约束多项式区域包围，具有无分布共形覆盖和亚毫秒级运行时。在闭环ManiSkill3桌面操作基准测试上，CompCPZ优于凸集基线、多峰解码器和零样本视觉-语言-动作模型（1,900/1,918配对胜利，p << 10^(-30)）；相同的编译器无需重新调整即可迁移到在运动捕捉下的Unitree Go2四足机器人上的平面真实机器人试验。这些结果表明，组合语言基础应该不仅通过到达解码目标来评估，还要通过表示的可行性集是否保留了用户意图的连通分量结构。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.17717v1/pipeline_overview.png",
+      "image_caption": "Figure 1 : CompCPZ compiles a natural-language instruction into a sound k k -component feasibility set via bottom-up Boolean composition of two-sided per-primitive enclosures, with run-time mode switching for handling occlusion of the nearest mode.",
+      "summary_one_sentence": "CompCPZ通过一个可靠的代数层恢复多模态析取表示，解决了语言引导机器人操作中指令意图被压缩丢失的问题。",
+      "research_problem": "语言引导机器人操作中，析取指令（如“A或B”）被压缩成单一连通集，导致语义失败，无法保留所有可行模式，且规划器在运行时模式不确定性下退化。",
+      "method_summary": "CompCPZ是一个代数层，沿着语言解析树递归组合每个原语的约束多项式区域包围（constrained polynomial zonotope enclosures），具有无分布共形覆盖（distribution-free conformal coverage）和亚毫秒级运行时。",
+      "experimental_setup": "在闭环ManiSkill3桌面操作基准测试上评估，与凸集基线、多峰解码器和零样本视觉-语言-动作模型比较；并迁移到Unitree Go2四足机器人上的平面真实机器人试验（运动捕捉下）。",
+      "key_results": "CompCPZ在ManiSkill3上以1,900/1,918配对胜利优于所有基线，p << 10^(-30)；无需重新调整即可迁移到真实机器人试验。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "这项工作强调了组合语言基础评估的新标准：不仅要看是否到达解码目标，还要看表示的可行性集是否保留用户意图的连通分量结构，这对构建更可靠的机器人操作策略至关重要。",
+      "relevance_reason": "该论文直接涉及语言引导机器人操作中的多模态意图表示与组合基础，属于机器人操作与具身智能的核心问题。",
+      "related_to_my_research": "背景文献/潜在竞争：该论文关注语言引导操作中的多模态表示问题，与视觉-力觉融合和接触状态估计的研究方向不同，但可作为机器人操作中高层语义理解的背景文献，或与具身智能中语言基础的研究形成潜在竞争。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Medium: 方法描述清晰（代数层、递归组合、共形覆盖），但未提及代码开源，复现需要一定努力。",
+      "core_candidate": "No",
+      "relevance_score": 55,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-19T04:30:24.176026+00:00",
+      "source_query_groups": [
+        "vla"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2608-17323",
+      "title": "ORPA: Online Residual Policy Adaptation for Robot Manipulation Control with Human Feedback",
+      "authors": [
+        "Muhammad A. Muttaqien",
+        "Tomohiro Motoda",
+        "Ryo Hanai",
+        "Yukiyasu Domae"
+      ],
+      "abstract": "Robotic manipulation policies trained via imitation learning, such as Action Chunking with Transformers (ACT), can achieve strong performance under ideal conditions but often remain sensitive to small execution errors and distribution shifts. Correcting these failures typically requires dataset aggregation and full-policy retraining, which is computationally expensive and unsuitable for real-time deployment. In this work, we propose Online Residual Policy Adaptation (ORPA), a framework that enables immediate, feedback-driven correction of robot actions without modifying the underlying policy parameters. ORPA augments a pretrained control policy with a lightweight, feedback-conditioned module that predicts residual adjustments directly in joint space, allowing the system to adapt its behavior at runtime. We evaluate ORPA on a set of precision-sensitive manipulation tasks using the ALOHA platform, demonstrating improvements in success rate and recovery from small perturbations compared to baseline control policies and rule-based inverse kinematics corrections.",
+      "published_date": "2026-08-18",
+      "updated_date": "2026-08-18",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.17323",
+      "paper_url": "https://arxiv.org/abs/2608.17323",
+      "pdf_url": "https://arxiv.org/pdf/2608.17323",
+      "source": "arXiv",
+      "last_checked": "2026-08-19",
+      "keywords": [
+        "cs.RO",
+        "cs.AI",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "research_topics": [
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出ORPA框架，在不修改策略参数的情况下实现即时反馈驱动修正",
+        "设计轻量级反馈条件模块预测关节空间残差调整",
+        "在ALOHA平台上验证了ORPA在精度敏感任务上的有效性"
+      ],
+      "research_branches": [],
+      "abstract_zh": "通过模仿学习训练的机器人操作策略（如Action Chunking with Transformers (ACT)）在理想条件下可以取得强性能，但通常对小执行错误和分布偏移敏感。纠正这些失败通常需要数据集聚合和全策略重新训练，这计算成本高且不适合实时部署。在这项工作中，我们提出了在线残差策略适应（ORPA），一个框架，能够在不修改底层策略参数的情况下，实现即时、反馈驱动的机器人动作修正。ORPA通过一个轻量级的、反馈条件的模块增强预训练控制策略，该模块直接在关节空间预测残差调整，使系统能够在运行时适应其行为。我们在ALOHA平台上对一组精度敏感的操作任务评估了ORPA，展示了与基线控制策略和基于规则的运动学修正相比，在成功率和从小扰动中恢复方面的改进。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.17323v1/orpadiagram.png",
+      "image_caption": "Fig. 2 : Training pipeline of the proposed Online Residual Policy Adaptation (ORPA) framework. Left : A pretrained ACT policy generates nominal joint-space actions from visual observations and robot states. Structured perturbations are introduced to create synthetic errors together with corresponding corrective feedback labels. Right : The Feedback Encoder (FE) and Policy Updater (PU) are trained to predict residual action corrections conditioned on RGB images, robot states, bad actions, and human feedback. The predicted residual is supervised using the difference between perturbed and reference actions.",
+      "summary_one_sentence": "提出ORPA框架，通过在线残差调整实现机器人操作的即时反馈修正，无需重新训练策略。",
+      "research_problem": "模仿学习策略对执行错误和分布偏移敏感，且修正需要重新训练，不适合实时部署。",
+      "method_summary": "ORPA通过一个反馈条件模块增强预训练策略，该模块直接在关节空间预测残差调整，使系统能够在运行时适应行为。",
+      "experimental_setup": "在ALOHA平台上进行精度敏感操作任务，与基线控制策略和基于规则的运动学修正比较。",
+      "key_results": "ORPA在成功率和从小扰动中恢复方面优于基线控制策略和基于规则的运动学修正。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "提供了一种实时修正机器人操作策略的方法，避免了昂贵的重新训练，适用于实时部署，提高了策略的鲁棒性和适应性。",
+      "relevance_reason": "该论文涉及机器人操作控制中的策略适应和人类反馈，属于机器人操作和具身智能领域，与视觉-力觉融合和接触状态估计相关，因为残差调整可以基于反馈信号（可能包括力觉）进行在线适应。",
+      "related_to_my_research": "该论文可作为背景文献或方法参考，特别是在机器人操作中的在线策略适应方面，与接触状态估计和力觉融合研究相关，可能提供在线调整的思路。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Medium: 方法框架描述清晰，但未提供代码或完整实验细节，复现需要一定努力。",
+      "core_candidate": "No",
+      "relevance_score": 55,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-19T04:35:45.970646+00:00",
+      "source_query_groups": [
+        "vla"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2608-17347",
+      "title": "Repetition as Reinforcement: Enhancing Sample Efficiency via Instant Episode Repetition in Reinforcement Learning",
+      "authors": [
+        "Hoda Yamani",
+        "Yuning Xing",
+        "Koen van Rijnsoever",
+        "Bruce A. MacDonald",
+        "Henry Williams"
+      ],
+      "abstract": "Repetition is a fundamental mechanism in human learning, where revisiting successful experiences strengthens memory, consolidates skills, and improves future performance. Motivated by this biological principle, we introduce Instant Episode Repetition (IER), a simple and novel mechanism that improves sample efficiency by immediately repeating action sequences from successful episodes during environment interaction. Unlike conventional approaches such as Experience Replay and Self-Imitation Learning (SIL), which passively reuse past experience during training updates, IER directly influences the data collection process. Upon identifying a high-reward episode, the agent repeats its action sequence for a fixed number of subsequent episodes, reinforcing valuable behaviors through renewed interaction with the environment. We integrate IER into state-of-the-art SAC and TD3 algorithms and evaluate its effectiveness on continuous-control benchmarks, including MuJoCo, the DeepMind Control Suite, and a real-world dynamic object translation task with a robotic manipulator. Experimental results demonstrate that this simple mechanism improves learning performance over standard and self-imitation-based baselines.",
+      "published_date": "2026-08-18",
+      "updated_date": "2026-08-18",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.17347",
+      "paper_url": "https://arxiv.org/abs/2608.17347",
+      "pdf_url": "https://arxiv.org/pdf/2608.17347",
+      "source": "arXiv",
+      "last_checked": "2026-08-19",
+      "keywords": [
+        "cs.LG",
+        "cs.RO",
+        "cs.LG"
+      ],
+      "source_categories": [
+        "cs.LG",
+        "cs.RO"
+      ],
+      "research_topics": [
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出即时情节重复（IER）机制，通过在线重复成功情节的动作序列来提高样本效率。",
+        "将IER集成到SAC和TD3算法中，并在多个连续控制基准和真实机器人任务上验证其有效性。",
+        "实验表明IER优于标准和自我模仿基线，证明了简单重复机制的有效性。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "重复是人类学习中的基本机制，重新审视成功经验能够加强记忆、巩固技能并提升未来表现。受这一生物学原理启发，我们提出了即时情节重复（Instant Episode Repetition, IER），一种简单而新颖的机制，通过在环境交互过程中立即重复来自成功情节的动作序列来提高样本效率。与经验回放和自我模仿学习等传统方法不同，后者在训练更新中被动地重用过去经验，IER直接影响数据收集过程。在识别出高奖励情节后，智能体在后续固定数量的情节中重复其动作序列，通过与环境的重新互动来强化有价值的行为。我们将IER集成到最先进的SAC和TD3算法中，并在连续控制基准测试中评估其有效性，包括MuJoCo、DeepMind控制套件以及一个使用机器人操纵器的真实世界动态物体平移任务。实验结果表明，这种简单机制相比标准和基于自我模仿的基线提高了学习性能。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.17347v1/AnonymousSubmission/LaTeX/Images/IER.png",
+      "image_caption": "Figure 1 : Illustration of the Instant Episode Repetition Algorithm: At the end of each episode (when done is true), if the agent identifies an episode with a high reward , it immediately initiates repetition by executing the actions from that episode sequentially, from start to end, for R ​ N RN repetitions within the environment.",
+      "summary_one_sentence": "提出即时情节重复（IER）机制，通过在线重复成功情节的动作序列来提高强化学习的样本效率，并在连续控制任务中验证了其有效性。",
+      "research_problem": "如何通过在线重复成功经验来提高强化学习的样本效率？",
+      "method_summary": "IER在环境交互过程中，当检测到高奖励情节时，智能体在后续固定数量的情节中重复该情节的动作序列，从而直接影响数据收集过程，强化有价值的行为。与经验回放和自我模仿学习不同，IER在线地重复成功经验，而不是在训练更新中被动重用。",
+      "experimental_setup": "在MuJoCo、DeepMind Control Suite等连续控制基准以及一个使用机器人操纵器的真实世界动态物体平移任务上进行评估。将IER集成到SAC和TD3算法中，与标准和自我模仿基线进行比较。",
+      "key_results": "IER提高了学习性能，在多个任务上优于标准和基于自我模仿的基线。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "提出了一种简单且受生物学启发的样本效率提升机制，可直接应用于在线强化学习，具有实用价值，并且通过真实机器人任务验证了其有效性。",
+      "relevance_reason": "论文在真实机器人操纵器上进行了动态物体平移任务验证，其提出的IER机制可直接应用于机器人操作中的样本效率提升，与机器人操作领域相关。",
+      "related_to_my_research": "论文主要关注强化学习样本效率，在机器人操作任务上验证，但未涉及视觉-力觉融合或接触状态估计。可作为机器人操作中策略学习方法的背景文献或基线对比。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Medium: 方法描述清晰，但缺乏代码和详细实验配置（如重复次数、超参数等），复现需要一定工作量。",
+      "core_candidate": "No",
+      "relevance_score": 50,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-19T04:31:40.330993+00:00",
+      "source_query_groups": [
+        "vla"
+      ]
+    },
     {
       "paper_id": "arxiv-2608-16889",
       "title": "Don't Drop the BATON: Long-Horizon Robot Manipulation via Agentic Subtask Exploration and Transition-aware Memory",
@@ -61,7 +510,7 @@
       "key_results": "任务成功率提升11.6%，累积成功率提升14.9%，优于当前最优方法。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "解决了长时域机器人操作中探索成本高和子任务衔接难的关键问题，为复杂多阶段任务提供了高效、可归因的解决方案，推动了具身智能在真实场景中的应用。",
-      "relevance_reason": "该论文直接研究长时域机器人操作，涉及接触密集型技能、VLA模型和LLM代理，与机器人操作和具身智能的核心问题高度相关。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；直接面向接触丰富任务",
       "related_to_my_research": "该论文可作为机器人操作中长时域任务规划的方法参考，其子任务探索和过渡感知思想可应用于接触状态估计和力觉融合场景，例如通过验证器确保接触前状态就绪，或通过交接过渡处理力/触觉信息的连续性。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 方法框架和关键组件描述清晰，但未提供代码、具体模型配置或实验细节，复现需较多补充工作。",
@@ -78,7 +527,8 @@
       "ai_generated_at": "2026-08-18T04:29:10.330844+00:00",
       "source_query_groups": [
         "vla"
-      ]
+      ],
+      "image_caption_zh": "Baton 将长周期任务的每个转换都作为一等对象。下方：LLM 编码智能体基于分析原语编写程序，仅在接触时调用冻结的 VLA，并将经验存入语言记忆；无需更新参数。❶ 智能体子任务探索（左）：整体任务探索需 T^K 个回合，且无法定位失败阶段；Baton 对每个子任务进行短周期探索，逐轮提升已验证单元，成本保持累加，失败可明确阶段。❷ 转换感知记忆（右）：三种转换，统一存储。调用转换仅在腕部视图确认场景就绪后触发 VLA；交接转换修复前序任务残留干扰的入口状态；前瞻转换让 n..."
     },
     {
       "paper_id": "arxiv-2608-16837",
@@ -149,7 +599,7 @@
       "key_results": "HAF超越了普通的单阶段VLA基线，改善了全身协调和任务性能。",
       "limitations": "无法从摘要确认。",
       "why_it_matters": "该工作解决了通用VLA模型在人形机器人全身移动操作中的适应性问题，通过层次化动作生成和潜在空间RL实现了高效安全的策略优化，推动了人形机器人在真实世界中的应用。",
-      "relevance_reason": "该论文涉及机器人操作和具身智能，特别是人形机器人的全身移动操作，使用了VLA和RL方法，与视觉-力觉融合和接触状态估计间接相关，但未直接涉及。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有真实机器人实验线索；有公开代码或资源线索",
       "related_to_my_research": "作为背景文献，展示了通用VLA在人形机器人全身移动操作中的应用，可能作为基线对比或方法参考。",
       "recommended_reading": "无法从摘要确认。",
       "reproduction_value": "Low: 摘要未提供代码或详细实验设置，仅提及项目网站，复现需要额外信息。",
@@ -167,6 +617,81 @@
       "source_query_groups": [
         "vla",
         "generative"
+      ],
+      "image_caption_zh": "HAF概述。我们在真实场景中展示了七种人形机器人移动操作任务。HAF由两个互补组件构成：HAF-VLA是一种分层动作流视觉-语言-动作模型，根据行走、躯干调整和双臂操作之间的运动学依赖关系，逐阶段生成全身运动；HAF-Steer对来自冻结的基于流的VLA策略的离散余弦变换压缩时间噪声进行潜在空间强化学习。两者共同提升了真实场景中的任务表现。"
+    },
+    {
+      "paper_id": "arxiv-2608-16978",
+      "title": "VLCP: Vision Language Control Policy Closed-Loop Code Replanning for Robot Manipulation",
+      "authors": [
+        "Dhia Naouali",
+        "Minghan Wu",
+        "Claudia Wong",
+        "Abhinav Puthran",
+        "Omar G. Younis"
+      ],
+      "abstract": "Turning a frontier vision-language model into a robot policy usually means fine-tuning it to emit an action representation it never saw in pretraining, which throws away much of the reasoning that made the model worth reaching for. We go the other way and keep the VLM frozen. It writes the policy as a short Python control function, with no demonstrations and no fine-tuning. Writing that code once is open-loop, though. Existing closed-loop methods react at the wrong level: they retry a fixed policy or pick a different subtask, but never rewrite the code that failed. VLCP closes the loop where the failure actually lives, on the control code, within a single episode. Every $K$ steps the VLM re-observes the scene from multi-view RGB, proprioceptive state, and a state delta, then rewrites the control function from what it just saw, so a failure is caught before it compounds. We evaluate on a 57-task MuJoCo/RoboVerse sweep. This training-free policy reaches $35.1\\%$ pooled success, against $3.5\\%$ for the identical system queried once per episode. That tenfold gap holds with non-overlapping confidence intervals in every scene family. The gain traces to a $27.3\\%$ within-episode recovery rate on failed grasps: a miss an open-loop controller would carry to the end of the episode gets re-observed and fixed at the next replan. And the loop stays cheap. A median $84\\%$ of input tokens hit cache, an episode needs only about $10$ compact queries, and control blocks written during any replan persist to a cross-episode skill library reused in later prompts.",
+      "published_date": "2026-08-17",
+      "updated_date": "2026-08-17",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.16978",
+      "paper_url": "https://arxiv.org/abs/2608.16978",
+      "pdf_url": "https://arxiv.org/pdf/2608.16978",
+      "source": "arXiv",
+      "last_checked": "2026-08-19",
+      "keywords": [
+        "cs.RO",
+        "cs.LG",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO",
+        "cs.LG"
+      ],
+      "research_topics": [
+        "failure-recovery"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出VLCP方法，保持VLM冻结，通过编写Python控制函数作为策略，无需微调和演示。",
+        "引入闭环代码重规划机制，在回合内每K步重写控制代码以捕获和修复失败。",
+        "在57个任务上实验证明，无需训练的策略成功率相比开环提升10倍，并具有高效的缓存和查询机制。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "将前沿视觉语言模型转化为机器人策略通常意味着对其进行微调，以输出其在预训练中从未见过的动作表示，这丢弃了使该模型值得使用的许多推理能力。我们反其道而行之，保持VLM冻结。它编写策略作为一个简短的Python控制函数，无需演示和微调。然而，一次性编写代码是开环的。现有的闭环方法在错误的层面做出反应：它们重试固定策略或选择不同的子任务，但从不重写失败的代码。VLCP在失败实际发生的层面——控制代码上——在单个回合内闭环。每K步，VLM从多视角RGB、本体感受状态和状态增量重新观察场景，然后根据刚刚看到的内容重写控制函数，从而在失败累积之前捕获它。我们在57个任务的MuJoCo/RoboVerse扫描上评估。这种无需训练的策略达到了35.1%的总体成功率，而相同系统每回合只查询一次的成功率为3.5%。这个十倍的差距在每个场景族中都具有不重叠的置信区间。增益源于在失败抓取上27.3%的回合内恢复率：开环控制器会一直带到回合结束的失误，在下次重规划时被重新观察并修复。而且循环保持廉价。中位数84%的输入令牌命中缓存，一个回合只需要大约10次紧凑查询，并且在任何重规划期间编写的控制块会持久化到跨回合技能库中，在后续提示中重用。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.16978v1/fig_recovery_1.png",
+      "image_caption": "Figure 4 : Closed-loop recovery within a single episode ( chocolate_pudding , front camera), one instance from the recovery population of Table 2 . (a) The first control block reaches for the object and attempts a grasp. (b) The gripper closes short and lifts empty ; the object stays on the table. An open-loop controller would carry this failure to the end of the episode. (c) At the next replan boundary VLCP re-observes the miss and rewrites the control function, re-approaching the object. (d) The corrected code grasps and lifts the pudding. (e) It goes into the basket and the task succeeds. Recovery works because the loop closes on the control code itself, not just on the observations fed to a fixed policy.",
+      "summary_one_sentence": "VLCP提出了一种无需微调的视觉语言模型机器人策略，通过闭环代码重规划在回合内修复失败，显著提高了操作成功率。",
+      "research_problem": "如何在不微调视觉语言模型的情况下，将其用于机器人操作策略，并实现闭环失败恢复？",
+      "method_summary": "VLCP使用冻结的前沿VLM，在每个回合中，VLM根据多视角RGB、本体感受状态和状态增量编写Python控制函数作为策略。每K步，VLM重新观察场景并重写控制函数，实现闭环失败修复。无需微调或演示。",
+      "experimental_setup": "在MuJoCo/RoboVerse的57个任务上进行评估，使用多视角RGB、本体感受状态和状态增量作为输入。",
+      "key_results": "无需训练的策略达到35.1%总体成功率，相比开环查询的3.5%提升10倍；抓取失败回合内恢复率27.3%；中位数84%输入令牌命中缓存，每个回合约10次查询。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该方法展示了无需微调即可将前沿VLM用于机器人操作，通过闭环代码重规划有效解决失败累积问题，为训练-free的具身智能策略提供了新思路。",
+      "relevance_reason": "该论文直接涉及机器人操作和具身智能，提出了一种基于VLM的闭环控制策略，与视觉-力觉融合和接触状态估计领域相关，可作为基线方法或背景文献。",
+      "related_to_my_research": "方法参考：该论文提出的VLCP方法是一种基于视觉语言模型的机器人操作策略，通过闭环代码重规划实现失败恢复，可作为机器人操作和具身智能研究的参考方法，未来可与力觉融合或接触状态估计结合。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Medium: 方法无需微调且描述清晰，但依赖特定的冻结VLM，且未提及代码是否开源，复现需要访问类似VLM。",
+      "core_candidate": "No",
+      "relevance_score": 55,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-19T04:29:45.277683+00:00",
+      "source_query_groups": [
+        "recovery"
       ]
     },
     {
@@ -257,7 +782,7 @@
       "key_results": "分配额外的测试时计算显著提高了下一子任务预测准确性，并且这些增益转化为长程机器人操作任务中更高的闭环成功率。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该工作展示了通过测试时计算扩展提升长程操作任务性能的潜力，为机器人基础模型在复杂任务中的应用提供了新思路。",
-      "relevance_reason": "论文聚焦于机器人长程操作的分层VLA模型，与机器人操作和具身智能研究直接相关，但未涉及力觉或接触状态估计。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有真实机器人实验线索",
       "related_to_my_research": "作为背景文献，该论文提出了一个分层机器人基础模型，可用于长程操作任务，与机器人操作和具身智能领域相关，但未涉及力觉融合或接触状态估计。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Low: 训练数据规模大且异构，未提供代码和实验细节，复现困难。",
@@ -274,7 +799,8 @@
       "ai_generated_at": "2026-08-18T04:29:42.708233+00:00",
       "source_query_groups": [
         "vla"
-      ]
+      ],
+      "image_caption_zh": "分层τ₀-VLA架构。(a) 在高层推理步骤t，提议模型P以最新多视角观测oₜ、任务指令ℓ、携带的执行记忆ℳₜ₋₁和先前生成的子任务zₜ₋₁⋆为条件，生成与观测对齐的记忆ℳₜ和直接提议zₜᵈⁱʳ。(b) 底层策略以生成的子任务zₜ⋆、多视角观测oₜ、本体感知状态𝐬ₜ和文本控制元数据η为条件，视觉-语言骨干和混合变换器（MoT）动作专家通过条件流匹配生成动作块𝐚ₜ:ₜ₊ₕ₋₁。"
     },
     {
       "paper_id": "arxiv-2608-16715",
@@ -329,7 +855,7 @@
       "key_results": "MatchingPolicy在少样本设置下实现了优越的性能，能够可靠地泛化到未见过的物体实例和语义类别。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该方法通过显式解耦对应匹配与动作适应，解决了少样本模仿学习在未见物体和场景上的泛化瓶颈，为机器人操作中的快速适应提供了新思路，推动了具身智能在开放世界中的泛化能力。",
-      "relevance_reason": "论文直接针对机器人操作中的少样本模仿学习问题，提出对应关系驱动的策略，与具身智能和机器人操作高度相关。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有真实机器人实验线索",
       "related_to_my_research": "该论文聚焦于视觉驱动的少样本模仿学习，与视觉-力觉融合和接触状态估计无直接关联，但可作为机器人操作中基于视觉的泛化方法参考或基线对比。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 方法框架清晰，但缺少实现细节（如网络结构、训练参数），需要参考视觉基础模型和扩散策略的相关文献进行复现。",
@@ -346,7 +872,8 @@
       "ai_generated_at": "2026-08-18T04:35:13.509775+00:00",
       "source_query_groups": [
         "generative"
-      ]
+      ],
+      "image_caption_zh": ""
     },
     {
       "paper_id": "arxiv-2608-16806",
@@ -406,7 +933,7 @@
       "key_results": "无法从摘要确认",
       "limitations": "无法从摘要确认",
       "why_it_matters": "随着LLM驱动的具身智能体在机器人操作中的广泛应用，状态语义注入攻击可能带来严重安全威胁，因此研究此问题对于保障具身智能系统的安全性具有重要意义。",
-      "relevance_reason": "本文涉及LLM驱动的具身智能体，与机器人操作和具身智能领域直接相关，但未涉及视觉-力觉融合或接触状态估计。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索",
       "related_to_my_research": "本文以具身智能体为背景，可能提出针对状态语义的攻击，与机器人操作安全相关，可作为背景文献或潜在竞争参考。",
       "recommended_reading": "建议阅读SayCan、Code as Policies、ProgPrompt、VoxPoser、PaLM-E、RT-2、GR00T N1等相关工作。",
       "reproduction_value": "Low: 摘要未提供实验细节，无法评估复现性。",
@@ -423,7 +950,8 @@
       "ai_generated_at": "2026-08-18T04:33:11.961507+00:00",
       "source_query_groups": [
         "vla"
-      ]
+      ],
+      "image_caption_zh": "ESTI概述。将预先选定的对抗目标实例化到可接地的基准状态，编码为被攻破生产者本地记录中与模式兼容的值，并通过不变的规划-执行循环进行评估。"
     },
     {
       "paper_id": "arxiv-2608-15560",
@@ -479,7 +1007,7 @@
       "key_results": "实现了更低的力跟踪误差和更强的多指接触参与。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该工作解决了从人类演示到机器人操作迁移中的力感知问题，对于接触密集型任务的遥操作和数据收集具有重要意义，有助于缩小具身差距。",
-      "relevance_reason": "该论文直接涉及机器人操作中的力感知重定向，与接触状态估计和具身智能中的技能迁移密切相关。",
+      "relevance_reason": "明确涉及视觉–力/力矩或接触反馈；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；有真实机器人实验线索；直接面向接触丰富任务",
       "related_to_my_research": "该论文提出力感知重定向方法，可作为机器人操作中接触力控制的背景文献或方法参考，尤其适用于视觉-力觉融合的遥操作研究。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Low: 摘要未提供代码或详细实验设置，复现需要额外信息",
@@ -496,7 +1024,8 @@
       "ai_generated_at": "2026-08-18T04:25:53.974442+00:00",
       "source_query_groups": [
         "vision-force"
-      ]
+      ],
+      "image_caption_zh": "ReForce训练和推理流程。训练期间，随机化和增强的模拟交互提供关节和力轨迹，从中构建未来窗口运动和接触目标。部署期间，ReForce使用在线指尖力反馈调整参考。"
     },
     {
       "paper_id": "arxiv-2608-15748",
@@ -554,7 +1083,7 @@
       "key_results": "共享潜变量在总体最优时被擦除；共享源噪声的协调效果随表示映射改变符号；一致性正则化降低有效对率；训练支持的离散分区稳健实现接近上限协调。在LIBERO-Plus上，良性多模态增加1.57%误报，残差是最强故障信号；预注册令牌干预未达到误报标准。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该研究为多模态任务中双头策略的协调提供了系统分析，提出了物理可解释的运行时信号和无标签崩溃证书，有助于提高机器人操作中故障检测的可靠性。",
-      "relevance_reason": "论文直接涉及机器人操作中的运动策略，使用双头流匹配进行关节和末端执行器空间解码，并在机器人环境上实验，与具身智能和机器人操作高度相关。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有公开代码或资源线索",
       "related_to_my_research": "论文研究双头协调机制和运行时故障信号，可用于机器人操作中的运动规划和故障检测，与视觉-力觉融合和接触状态估计有潜在联系，但未直接涉及力觉或接触信息。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "High: Code, models, and per-run configurations are publicly available at GitHub.",
@@ -571,7 +1100,8 @@
       "ai_generated_at": "2026-08-18T04:39:15.601361+00:00",
       "source_query_groups": [
         "generative"
-      ]
+      ],
+      "image_caption_zh": "两个机器人环境的可达区域（K=2）。横轴为模态多样性容量C，纵轴为机会校正效应Δ = BL - obs，均按条件形成并用双有效权重聚合。对角线为可行性边界。每个标记代表一次训练运行；填充表示有效对率。17次运行有精确双有效边际。其余50次使用存储头有效边际，故近似；6次最多高于线0.6%，而每个可重估条件在精确核算下满足边界。虚线路径为共享源噪声一致性扫描。"
     },
     {
       "paper_id": "arxiv-2608-15816",
@@ -626,7 +1156,7 @@
       "key_results": "ViTaR在UniVTAC基准上平均成功率为61.3%，比冻结VLA基础提高30.6个百分点，并超越专门触觉基线。物理机器人实验证实了方法的迁移性。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该工作解决了VLA模型在接触丰富操作中的关键盲点，通过有界触觉调制保留了VLA的泛化能力，同时显著提升操作成功率，为将触觉反馈有效集成到大规模VLA模型中提供了新范式。",
-      "relevance_reason": "该论文直接针对接触丰富操作中的触觉反馈利用问题，提出了视觉-触觉残差适应方法，与视觉-力觉融合和机器人操作紧密相关。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；具有真实机器人、公开代码或可复现资源线索；有真实机器人实验线索；直接面向接触丰富任务",
       "related_to_my_research": "方法参考：ViTaR将触觉作为执行调制器，为视觉-力觉融合提供了新思路；基线对比：在UniVTAC基准上超越触觉基线，可作为接触状态估计方法的对比；背景文献：涉及VLA模型在操作中的局限性，是具身智能领域的重要进展。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 方法描述清晰，实验在标准基准和物理机器人上进行，但未提及代码或数据开源。",
@@ -644,7 +1174,8 @@
       "source_query_groups": [
         "vision-tactile",
         "contact"
-      ]
+      ],
+      "image_caption_zh": "ViTaR概述。冻结的VLA将语言、RGB观测和本体感觉映射到基础动作。标记和触觉图像块提供局部接触证据。EGM估计基础动作和残差选项的状态适应性和相对效果；RAM在执行前选择动作选项并预测所选残差的连续尺度。"
     },
     {
       "paper_id": "arxiv-2608-15938",
@@ -701,7 +1232,7 @@
       "key_results": "1. 专家非马尔可夫性强烈影响任务成功与开环执行时程的关系。2. 复合误差有影响，但非马尔可夫性影响更强。3. 当策略有足够长上下文时，开环执行不再有益，闭环策略表现最好。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "本文挑战了当前模仿学习中广泛使用的长开环执行范式，揭示了其真正作用机制，并提出了长上下文反应性策略作为更原则性和高性能的替代方案，对机器人操作和具身智能策略设计有重要指导意义。",
-      "relevance_reason": "本文直接研究机器人操作中的模仿学习策略执行方式，涉及开环与闭环控制、反应性等核心问题，与机器人操作和具身智能高度相关。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有真实机器人实验线索",
       "related_to_my_research": "本文研究机器人操作中的开环执行与反应性策略，可作为背景文献或方法参考，尤其适用于视觉-力觉融合和接触状态估计中的策略设计讨论。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "无法从摘要确认",
@@ -718,7 +1249,8 @@
       "ai_generated_at": "2026-08-18T04:34:24.874212+00:00",
       "source_query_groups": [
         "vla"
-      ]
+      ],
+      "image_caption_zh": "循环示意图。两个演示共同在聚合数据集中诱导出一个循环。当仅观察o⁰或o²时，短上下文模仿者无法确定是继续还是退出循环，因为两个动作在训练数据中看起来都有效。因此它可能会在演示轨迹之间反复切换并进入循环：o⁰→o¹→o²→o³→o⁰。更长的执行视野减少了进入此类循环的机会：从o⁰开始朝向o¹并以开环方式执行且T_exec≥3的动作块将越过o²，而在o²重新规划会增加返回o³并进入循环的机会。"
     },
     {
       "paper_id": "arxiv-2608-15541",
@@ -770,7 +1302,7 @@
       "key_results": "规划器在几秒内返回解决方案，无需预先指定模式、接触序列或层。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该工作揭示了接触模式与配置空间层之间的直接对应关系，为离散-连续规划提供了几何结构视角，可能提高接触丰富操作的规划效率。",
-      "relevance_reason": "该论文直接研究接触丰富操作中的规划问题，涉及接触状态和运动规划，与机器人操作和具身智能中的接触状态估计和规划密切相关。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；直接面向接触丰富任务",
       "related_to_my_research": "该论文提供了接触模式作为几何层的视角，可用于接触状态估计和规划，是机器人操作领域的背景文献或方法参考，尤其适用于接触丰富操作中的离散-连续规划问题。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Low: 摘要未提供代码或详细实验设置，难以直接复现。",
@@ -844,7 +1376,7 @@
       "key_results": "相比名义GCS，方法实现高达两个数量级加速，保持100%成功率，但解存在一定次优性。",
       "limitations": "恢复的解存在一定的次优性；可能对复杂图结构或极端情况需要进一步验证。",
       "why_it_matters": "该方法显著加速了混合离散连续运动规划，使GCS框架更适用于在线重新规划，对机器人实时操作和导航有重要意义。",
-      "relevance_reason": "本文研究运动规划，特别是接触丰富的操作（如平面推搡），与机器人操作和具身智能中的接触状态估计和力觉融合相关。其加速规划的方法可用于实时操作规划。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有公开代码或资源线索；直接面向接触丰富任务",
       "related_to_my_research": "本文提出的加速运动规划方法可作为机器人操作中实时规划的背景文献或潜在方法参考，尤其适用于接触丰富的操作任务。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "High: 摘要提供了代码和视频演示链接，方法步骤详细，实验任务多样，复现可能性高。",
@@ -862,7 +1394,8 @@
       "source_query_groups": [
         "contact",
         "recovery"
-      ]
+      ],
+      "image_caption_zh": "四旋翼飞行器在建筑物内部导航的无碰撞轨迹。最左侧面板为从起点到终点的完整路径俯视图，其余面板为飞行的连续特写视图。"
     },
     {
       "paper_id": "arxiv-2608-15026",
@@ -921,7 +1454,7 @@
       "key_results": "PACE在仿真和真实实验中始终比最强基线取得显著改进。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "长时域操作是具身智能的关键挑战，PACE提供了有效的步骤级信用分配方法，显著提升VLA模型后训练效果，推动机器人操作能力提升。",
-      "relevance_reason": "该论文针对长时域机器人操作中的信用分配问题，涉及视觉和运动特征融合，与机器人操作和具身智能研究高度相关。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有真实机器人实验线索",
       "related_to_my_research": "该方法涉及视觉和运动特征融合用于阶段进度推断，与视觉-力觉融合有潜在联系；其信用分配机制可用于机器人操作策略优化；属于具身智能中后训练方法，可作为背景文献或方法参考。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 方法框架描述清晰，但缺乏具体实现细节和代码，复现需要较多工作。",
@@ -938,7 +1471,8 @@
       "ai_generated_at": "2026-08-18T04:40:20.876158+00:00",
       "source_query_groups": [
         "generative"
-      ]
+      ],
+      "image_caption_zh": "PACE概览：后训练轨迹监督阶段进度感知的GLC-Critic，生成修正的剩余成本估计以进行信用重标。渐进式策略蒸馏随后调整正负信用的使用，随着迭代数据收集改进Critic覆盖，更新VLA策略用于仿真和真实机器人部署。"
     },
     {
       "paper_id": "arxiv-2608-14379",
@@ -8272,5 +8806,5 @@
     "data_source": "arXiv",
     "last_verified_note": "事实字段来自论文元数据；AI分析字段仅在配置Provider后生成。"
   },
-  "built_at": "2026-08-18"
+  "built_at": "2026-08-19"
 }
