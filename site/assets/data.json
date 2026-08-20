@@ -1,11 +1,96 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-08-19",
+  "generated_at": "2026-08-20",
   "source": "arXiv",
-  "candidate_count": 122,
-  "retained_count": 107,
+  "candidate_count": 124,
+  "retained_count": 109,
   "relevance_threshold": 45,
   "papers": [
+    {
+      "paper_id": "arxiv-2608-18701",
+      "title": "SoftVTBench: A Deformation-Aware Visuo-Tactile Dataset and Benchmark for Deformable-Object Manipulation",
+      "authors": [
+        "Bowen Jing",
+        "Mingxin Wang",
+        "Ruiyang Hao",
+        "Chenchen Ge",
+        "Hanwen Shen",
+        "Junjie He",
+        "Yang Cui",
+        "Yiming Hou",
+        "Weitao Zhou",
+        "Jiawei Wang",
+        "Minglei Li",
+        "Dandan Zhang",
+        "Ding Zhao",
+        "Houde Liu",
+        "Xiaofan Li",
+        "Si Liu",
+        "Ping Luo",
+        "Haibao Yu"
+      ],
+      "abstract": "Physical interaction quality is central to deformable-object manipulation, yet most benchmarks evaluate task success alone. A policy may complete the task while allowing slip or causing excessive compression. A primary bottleneck is the absence of visuo-tactile datasets that pair policy-visible contact observations with independent physical ground truth over complete tasks. We introduce SoftVTBench, a visuo-tactile dataset for physical-interaction-aware deformable-object manipulation. It contains 4,000 expert demonstrations and more than 50 assets, including volumetric deformable objects and visually matched rigid twins. At 20 Hz, each episode synchronizes multi-view RGB, dual-finger tactile RGB and marker motion, proprioception, language, and binary and continuous gripper actions, alongside evaluator-only finite-element (FEM) states. Building upon this dataset, we establish a closed-loop benchmark that uses fixed object-specific calibration to define the Deformation-aware Success Rate (DSR), which counts a rollout as successful only when it completes the task and keeps peak normalized deformation within tolerance. Across Diffusion Policy, $π_{0.5}$, and FastWAM, all 12 in-distribution configurations contain successful rollouts that violate the deformation tolerance, accounting for 0.7--24% of each configuration's successes. Under distribution shift, visuo-tactile variants achieve higher task success in all six policy--suite comparisons and higher DSR in five, whereas their in-distribution benefits are mixed. These results show that making touch available does not by itself ensure effective multimodal fusion. SoftVTBench therefore provides a common visuo-tactile resource for studying not only whether a policy succeeds, but how it physically interacts with deformable objects and when touch improves that interaction.",
+      "published_date": "2026-08-19",
+      "updated_date": "2026-08-19",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.18701",
+      "paper_url": "https://arxiv.org/abs/2608.18701",
+      "pdf_url": "https://arxiv.org/pdf/2608.18701",
+      "source": "arXiv",
+      "last_checked": "2026-08-20",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "generative-policy"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "引入SoftVTBench，一个包含4000个专家演示和超过50个资产的视觉触觉数据集，同步多模态传感与有限元物理真值。",
+        "建立闭环基准，提出变形感知成功率（DSR）指标，将变形容差纳入成功判定。",
+        "通过多策略实验揭示触觉融合在分布内和分布偏移下的不同效果，表明提供触觉并不确保有效多模态融合。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "物理交互质量对于变形物体操作至关重要，然而大多数基准仅评估任务成功。一个策略可能完成任务的同时允许滑动或造成过度压缩。主要瓶颈是缺乏将策略可见的接触观测与独立物理真值在完整任务中配对的视觉触觉数据集。我们引入SoftVTBench，一个用于物理交互感知的变形物体操作的视觉触觉数据集。它包含4000个专家演示和超过50个资产，包括体积变形物体和视觉匹配的刚性孪生。在20Hz下，每个片段同步多视角RGB、双指触觉RGB和标记运动、本体感觉、语言、二值和连续夹爪动作，以及仅评估者使用的有限元（FEM）状态。基于该数据集，我们建立了一个闭环基准，使用固定的对象特定校准来定义变形感知成功率（DSR），只有当 rollout 完成任务且峰值归一化变形保持在容差内时才计为成功。在Diffusion Policy、π0.5和FastWAM上，所有12个分布内配置都包含违反变形容差的成功rollout，占每个配置成功率的0.7%–24%。在分布偏移下，视觉触觉变体在所有六个策略-套件比较中实现更高的任务成功率，在五个中实现更高的DSR，而它们在分布内的收益是混合的。这些结果表明，提供触觉本身并不能确保有效的多模态融合。因此，SoftVTBench提供了一个共同的视觉触觉资源，用于研究策略是否成功，以及它如何与变形物体物理交互，以及触觉何时改善这种交互。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.18701v1/SoftVTBench_Figure2.png",
+      "image_caption": "Figure 2: SoftVTBench construction and evaluation pipeline. Stage 1 constructs matched rigid–deformable objects and calibrates object-specific interaction constraints. Stage 2 generates controlled tasks and records policy-visible observations separately from evaluator-only physical states. Stage 3 applies automatic quality control and human verification, producing the released training, ID, and OOD splits. Task success and deformation compliance are labeled separately; DSR combines them during benchmark evaluation.",
+      "summary_one_sentence": "SoftVTBench是一个变形感知的视觉触觉数据集和闭环基准，通过变形感知成功率揭示触觉融合在变形物体操作中的混合效果。",
+      "research_problem": "变形物体操作中缺乏将策略可见接触观测与独立物理真值配对的数据集，导致基准仅评估任务成功而忽略物理交互质量。",
+      "method_summary": "构建了同步多模态视觉触觉数据集，包含多视角RGB、双指触觉RGB和标记运动、本体感觉、语言、二值和连续夹爪动作，以及仅评估者使用的FEM状态；基于固定对象特定校准定义DSR，并评估多个策略。",
+      "experimental_setup": "数据集包含4000个专家演示、50+资产，20Hz同步多视图RGB、双指触觉RGB和标记运动、本体感觉、语言、二值和连续夹爪动作，以及FEM状态。基准评估使用Diffusion Policy、π0.5和FastWAM，涵盖12个分布内配置和分布偏移场景。",
+      "key_results": "所有12个分布内配置都有成功rollout违反变形容差，占0.7%–24%；分布偏移下视觉触觉变体在6个策略-套件比较中任务成功率更高，DSR在5个中更高；分布内收益混合。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "提供了公共视觉触觉资源，推动研究从“是否成功”转向“如何物理交互”，并揭示触觉融合的挑战。",
+      "relevance_reason": "该论文直接提供视觉-触觉融合数据集和基准，专注于变形物体操作中的物理交互质量，与视觉-力觉融合、接触状态估计和机器人操作研究高度相关。",
+      "related_to_my_research": "可作为视觉-力觉融合和接触状态估计的方法参考与基线对比，尤其适用于变形物体操作中的物理交互质量评估。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Medium: 摘要提供了数据集和基准的详细规格，但未明确代码/数据公开情况，复现需依赖作者发布。",
+      "core_candidate": "Review",
+      "relevance_score": 60,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-20T04:29:14.121964+00:00",
+      "source_query_groups": [
+        "generative"
+      ]
+    },
     {
       "paper_id": "arxiv-2608-17962",
       "title": "PRISM: Precision and contact-rich Real-world Industrial Skill dataset with Multimodal sensing",
@@ -62,7 +147,7 @@
       "key_results": "无法从摘要确认",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该数据集填补了工业操作领域多模态数据集的空白，为高精度、接触丰富的机器人操作研究提供了基准，有助于推动具身智能在真实制造环境中的应用。",
-      "relevance_reason": "该数据集包含力/力矩和触觉数据，与视觉-力觉融合和接触状态估计研究高度相关，可作为多模态感知的基准。",
+      "relevance_reason": "明确涉及视觉–力/力矩或接触反馈；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；具有真实机器人、公开代码或可复现资源线索；包含六维力/力矩或wrench信号；包含RGB-D/深度视觉；有真实机器人实验线索；有公开代码或资源线索；直接面向接触丰富任务",
       "related_to_my_research": "该数据集可作为接触状态估计和多模态感知的基准数据集，方法参考价值高，可用于验证视觉-力觉融合算法。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "High: 数据集已开源，可复现",
@@ -79,7 +164,8 @@
       "ai_generated_at": "2026-08-19T04:27:32.274033+00:00",
       "source_query_groups": [
         "vision-force"
-      ]
+      ],
+      "image_caption_zh": "PRISM数据集概览。我们使用多种机器人平台在不同环境中收集数据。每个操作片段包含同步的多模态观测，包括视觉、力和本体感觉信号，部分片段还提供触觉信号。对于每个片段，整个操作过程由校准良好的多视角相机捕捉。数据集涵盖广泛的操作技能，每个片段都配有相应的语言描述。总计提供超过5000条机器人轨迹和5000条配对的人类演示，涵盖超过45小时的交互，涉及超过25个任务。"
     },
     {
       "paper_id": "arxiv-2608-17691",
@@ -138,7 +224,7 @@
       "key_results": "插入成功率从67%提高到87%。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该方法有效解决了键-键槽装配中的偏移估计问题，显著提高了插入成功率，对机器人精密装配任务具有实际意义。",
-      "relevance_reason": "本文涉及基于力/力矩测量的偏移估计和接触状态分类，与力觉融合、接触状态估计和机器人操作研究直接相关。",
+      "relevance_reason": "明确涉及视觉–力/力矩或接触反馈；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；包含六维力/力矩或wrench信号；直接面向接触丰富任务",
       "related_to_my_research": "本文可作为接触状态估计和力觉融合研究的参考方法，其接触状态分类和混合回归策略可用于类似机器人装配任务。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 方法描述清晰，但未提供代码或详细实验参数，复现需要一定工作量",
@@ -155,7 +241,8 @@
       "ai_generated_at": "2026-08-19T04:28:05.682679+00:00",
       "source_query_groups": [
         "vision-force"
-      ]
+      ],
+      "image_caption_zh": "带键槽圆孔的插入过程"
     },
     {
       "paper_id": "arxiv-2608-17628",
@@ -216,7 +303,7 @@
       "key_results": "在几何方法认为不可抓取的物体上达到100%成功率，并且仿真到真实的迁移实验成功。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "强调了强化学习在解决机器人抓取挑战中的有效性，为接触丰富的操作任务提供了可扩展且适应性强的解决方案，有助于推动具身智能中操作技能的学习。",
-      "relevance_reason": "该论文聚焦于机器人抓取优化，属于机器人操作和具身智能的核心问题，与视觉-力觉融合和接触状态估计间接相关，可作为基于视觉的抓取方法参考。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；直接面向接触丰富任务",
       "related_to_my_research": "该方法可作为机器人操作中基于视觉的抓取优化的参考，与接触状态估计和力觉融合无直接关联，但属于具身智能中操作技能学习的范畴，可作为背景文献或方法参考。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 摘要描述了实验设置和数据集，但未提及代码开源，复现需要一定工作量",
@@ -233,6 +320,80 @@
       "ai_generated_at": "2026-08-19T04:28:32.266838+00:00",
       "source_query_groups": [
         "contact"
+      ],
+      "image_caption_zh": "用钳子对所提抓取优化框架进行仿真到现实验证。(上) 几何算法生成的初始抓取候选不稳定，导致仿真和现实执行均失败。(下) 处理失败候选后，所提RL框架生成优化抓取姿态。该新姿态在仿真中成功，使Delta并联机器人稳定提起，证实了优化抓取的有效性从仿真直接转移到现实任务。"
+    },
+    {
+      "paper_id": "arxiv-2608-18227",
+      "title": "Revisiting the \"Push-T\" Robot Manipulation Task with Agentic Robotics",
+      "authors": [
+        "Shuangyu Xie",
+        "Kaiyuan Chen",
+        "Ken Goldberg"
+      ],
+      "abstract": "Push-T is an iconic benchmark for learning manipulation policies from human demonstrations. The robot must use a single point of contact to push a T-shaped block into a target pose. In this short paper, we revisit the Push-T task in the context of emerging advances in Agentic Robotics where an LLM coding agent -- Claude Code with Fable 5 -- is prompted to create an algorithmic solution that does not require any demonstration data. We study how effective the agentic coding loop can solve the Push-T task, and compare the resulting code as policy with the visuomotor imitation learning policy. Results suggest that the agent found the 2D gym simulation online, and used sim experiments to learn push mechanics, iteratively optimizing to achieve 100% success rate using 46% fewer steps than the best diffusion policy trained with 200 human demonstrations. The coding agent also solve extensions from T to the full alphabet (Push-A to Push-Z) using a self generated curriculum and generated simulation code for the Franka and UR5 robot arms in 3D cross-embodiment simulations with visual feedback. Videos, policies and details will be posted online.",
+      "published_date": "2026-08-18",
+      "updated_date": "2026-08-18",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.18227",
+      "paper_url": "https://arxiv.org/abs/2608.18227",
+      "pdf_url": "https://arxiv.org/pdf/2608.18227",
+      "source": "arXiv",
+      "last_checked": "2026-08-20",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "vla-manipulation",
+        "generative-policy"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出使用LLM编码代理（Claude Code with Fable 5）解决Push-T任务，无需演示数据。",
+        "代理通过在线发现2D gym模拟并迭代优化，实现了100%成功率，步骤比最佳扩散策略少46%。",
+        "代理使用自我生成的课程将任务扩展到从T到完整字母表（Push-A到Push-Z）。",
+        "代理为Franka和UR5机器人手臂生成了带有视觉反馈的3D跨实体模拟代码。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "Push-T是一个从人类演示学习操作策略的经典基准。机器人必须使用单个接触点将T形块推入目标姿态。在这篇短文中，我们在Agentic Robotics新兴进展的背景下重新审视Push-T任务，其中LLM编码代理——Claude Code with Fable 5——被提示创建一个不需要任何演示数据的算法解决方案。我们研究代理编码循环如何有效解决Push-T任务，并将生成的代码作为策略与视觉运动模仿学习策略进行比较。结果表明，代理在线找到了2D gym模拟，并使用模拟实验学习推动力学，迭代优化，实现了100%的成功率，使用的步骤比使用200个人类演示训练的最佳扩散策略少46%。编码代理还使用自我生成的课程解决了从T到完整字母表（Push-A到Push-Z）的扩展，并为Franka和UR5机器人手臂生成了带有视觉反馈的3D跨实体模拟的模拟代码。视频、策略和细节将在线发布。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.18227v1/figures/pusht_az_2d.png",
+      "image_caption": "Figure 1: The agent-written Push A–Z benchmark in the 2D gym. Each tile shows the goal letter pose (green), the block (gray), and the pusher (blue dot); headers give the letter, seed, and final coverage. Red frames mark failures of the pre-MPC baseline controller (B and R at coverage 0.00, S at 0.36), which motivated the self-improvement rounds below.",
+      "summary_one_sentence": "本文使用LLM编码代理（Claude Code with Fable 5）在没有演示数据的情况下解决Push-T任务，实现了100%成功率且步骤比扩散策略少46%，并扩展到其他字母形状和跨实体模拟。",
+      "research_problem": "在没有人类演示数据的情况下，利用LLM编码代理解决Push-T机器人操作任务，并评估其与模仿学习策略的性能对比。",
+      "method_summary": "使用LLM编码代理（Claude Code with Fable 5）通过提示创建算法，代理自主发现2D gym模拟环境，通过模拟实验学习推动力学，并迭代优化代码以实现任务。",
+      "experimental_setup": "在2D gym模拟环境中进行Push-T任务，与使用200个人类演示训练的扩散策略进行比较。扩展实验包括其他字母形状（Push-A到Push-Z）以及Franka和UR5机器人手臂的3D跨实体模拟。",
+      "key_results": "代理生成的代码策略在Push-T任务上达到100%成功率，且步骤数比使用200个人类演示训练的最佳扩散策略少46%。代理还成功解决了从T到完整字母表的扩展，并生成了Franka和UR5的3D跨实体模拟代码。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "这项工作展示了LLM编码代理在机器人操作任务中的潜力，无需人类演示数据即可通过自主模拟实验和迭代优化达到甚至超越模仿学习策略的性能，为Agentic Robotics提供了新的范式。",
+      "relevance_reason": "该论文聚焦于机器人操作任务（Push-T），利用LLM编码代理实现无需演示的策略学习，属于具身智能和机器人操作领域，但与视觉-力觉融合和接触状态估计无直接关联。",
+      "related_to_my_research": "该论文展示了LLM代理在机器人操作任务中的应用，可作为具身智能研究中利用大语言模型进行策略生成的背景文献或方法参考，尤其在无需演示数据的策略学习方面具有启发意义。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Medium: 论文提到视频、策略和细节将在线发布，但当前尚未提供，且依赖特定LLM代理（Claude Code with Fable 5），可能难以完全复现。",
+      "core_candidate": "Review",
+      "relevance_score": 60,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-20T04:27:54.468607+00:00",
+      "source_query_groups": [
+        "vla",
+        "generative"
       ]
     },
     {
@@ -289,7 +450,7 @@
       "key_results": "CompCPZ在ManiSkill3上以1,900/1,918配对胜利优于所有基线，p << 10^(-30)；无需重新调整即可迁移到真实机器人试验。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "这项工作强调了组合语言基础评估的新标准：不仅要看是否到达解码目标，还要看表示的可行性集是否保留用户意图的连通分量结构，这对构建更可靠的机器人操作策略至关重要。",
-      "relevance_reason": "该论文直接涉及语言引导机器人操作中的多模态意图表示与组合基础，属于机器人操作与具身智能的核心问题。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；涉及失败、恢复、重规划或纠偏；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索",
       "related_to_my_research": "背景文献/潜在竞争：该论文关注语言引导操作中的多模态表示问题，与视觉-力觉融合和接触状态估计的研究方向不同，但可作为机器人操作中高层语义理解的背景文献，或与具身智能中语言基础的研究形成潜在竞争。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 方法描述清晰（代数层、递归组合、共形覆盖），但未提及代码开源，复现需要一定努力。",
@@ -306,7 +467,8 @@
       "ai_generated_at": "2026-08-19T04:30:24.176026+00:00",
       "source_query_groups": [
         "vla"
-      ]
+      ],
+      "image_caption_zh": "CompCPZ 通过自底向上地布尔组合每个原语的双侧包围盒，将自然语言指令编译为可靠的 k 分量可行集，并通过运行时模式切换处理最近模式的遮挡。"
     },
     {
       "paper_id": "arxiv-2608-17323",
@@ -362,7 +524,7 @@
       "key_results": "ORPA在成功率和从小扰动中恢复方面优于基线控制策略和基于规则的运动学修正。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "提供了一种实时修正机器人操作策略的方法，避免了昂贵的重新训练，适用于实时部署，提高了策略的鲁棒性和适应性。",
-      "relevance_reason": "该论文涉及机器人操作控制中的策略适应和人类反馈，属于机器人操作和具身智能领域，与视觉-力觉融合和接触状态估计相关，因为残差调整可以基于反馈信号（可能包括力觉）进行在线适应。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；涉及失败、恢复、重规划或纠偏；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索",
       "related_to_my_research": "该论文可作为背景文献或方法参考，特别是在机器人操作中的在线策略适应方面，与接触状态估计和力觉融合研究相关，可能提供在线调整的思路。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 方法框架描述清晰，但未提供代码或完整实验细节，复现需要一定努力。",
@@ -379,7 +541,8 @@
       "ai_generated_at": "2026-08-19T04:35:45.970646+00:00",
       "source_query_groups": [
         "vla"
-      ]
+      ],
+      "image_caption_zh": "在线残差策略适应（ORPA）框架的训练流程。左：预训练的ACT策略根据视觉观测和机器人状态生成名义关节空间动作。引入结构化扰动以创建合成错误及相应的纠正反馈标签。右：训练反馈编码器（FE）和策略更新器（PU），以根据RGB图像、机器人状态、不良动作和人类反馈预测残差动作修正。预测的残差通过扰动动作与参考动作之间的差异进行监督。"
     },
     {
       "paper_id": "arxiv-2608-17347",
@@ -436,7 +599,7 @@
       "key_results": "IER提高了学习性能，在多个任务上优于标准和基于自我模仿的基线。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "提出了一种简单且受生物学启发的样本效率提升机制，可直接应用于在线强化学习，具有实用价值，并且通过真实机器人任务验证了其有效性。",
-      "relevance_reason": "论文在真实机器人操纵器上进行了动态物体平移任务验证，其提出的IER机制可直接应用于机器人操作中的样本效率提升，与机器人操作领域相关。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有真实机器人实验线索",
       "related_to_my_research": "论文主要关注强化学习样本效率，在机器人操作任务上验证，但未涉及视觉-力觉融合或接触状态估计。可作为机器人操作中策略学习方法的背景文献或基线对比。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 方法描述清晰，但缺乏代码和详细实验配置（如重复次数、超参数等），复现需要一定工作量。",
@@ -453,7 +616,8 @@
       "ai_generated_at": "2026-08-19T04:31:40.330993+00:00",
       "source_query_groups": [
         "vla"
-      ]
+      ],
+      "image_caption_zh": "即时回合重复算法的图示：在每个回合结束时（当done为真时），如果智能体识别出一个高奖励的回合，它会立即开始重复，通过从开始到结束顺序执行该回合的动作，在环境中重复RN次。"
     },
     {
       "paper_id": "arxiv-2608-16889",
@@ -675,7 +839,7 @@
       "key_results": "无需训练的策略达到35.1%总体成功率，相比开环查询的3.5%提升10倍；抓取失败回合内恢复率27.3%；中位数84%输入令牌命中缓存，每个回合约10次查询。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该方法展示了无需微调即可将前沿VLM用于机器人操作，通过闭环代码重规划有效解决失败累积问题，为训练-free的具身智能策略提供了新思路。",
-      "relevance_reason": "该论文直接涉及机器人操作和具身智能，提出了一种基于VLM的闭环控制策略，与视觉-力觉融合和接触状态估计领域相关，可作为基线方法或背景文献。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；涉及失败、恢复、重规划或纠偏；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索",
       "related_to_my_research": "方法参考：该论文提出的VLCP方法是一种基于视觉语言模型的机器人操作策略，通过闭环代码重规划实现失败恢复，可作为机器人操作和具身智能研究的参考方法，未来可与力觉融合或接触状态估计结合。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 方法无需微调且描述清晰，但依赖特定的冻结VLM，且未提及代码是否开源，复现需要访问类似VLM。",
@@ -692,7 +856,8 @@
       "ai_generated_at": "2026-08-19T04:29:45.277683+00:00",
       "source_query_groups": [
         "recovery"
-      ]
+      ],
+      "image_caption_zh": "单次试验中的闭环恢复（巧克力布丁，前置摄像头），表2恢复种群的一个实例。(a) 第一个控制块伸向物体并尝试抓取。(b) 夹爪闭合过短，空载抬起；物体留在桌上。开环控制器会将此失败延续到回合结束。(c) 在下一个重规划边界，VLCP重新观察失败并重写控制函数，再次接近物体。(d) 修正后的代码抓取并抬起布丁。(e) 它放入篮子中，任务成功。恢复之所以有效，是因为闭环作用于控制代码本身，而不仅仅是输入给固定策略的观测。"
     },
     {
       "paper_id": "arxiv-2608-16885",
@@ -873,7 +1038,7 @@
       "source_query_groups": [
         "generative"
       ],
-      "image_caption_zh": ""
+      "image_caption_zh": "MatchingPolicy概述。使用带有VFM的两阶段特征匹配算法提取对应点，随后输入基于图的扩散策略模型以预测6D夹爪姿态。这些预测运动被转换为机器人关节指令，模型在我们的合成数据集上进行端到端训练。"
     },
     {
       "paper_id": "arxiv-2608-16806",
@@ -8806,5 +8971,5 @@
     "data_source": "arXiv",
     "last_verified_note": "事实字段来自论文元数据；AI分析字段仅在配置Provider后生成。"
   },
-  "built_at": "2026-08-19"
+  "built_at": "2026-08-20"
 }
