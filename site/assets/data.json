@@ -1,11 +1,235 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-08-20",
+  "generated_at": "2026-08-21",
   "source": "arXiv",
-  "candidate_count": 124,
-  "retained_count": 109,
+  "candidate_count": 127,
+  "retained_count": 112,
   "relevance_threshold": 45,
   "papers": [
+    {
+      "paper_id": "arxiv-2608-19574",
+      "title": "HiTac-WAM: A Hierarchical Tactile World Action Model for Contact-Rich Robot Manipulation",
+      "authors": [
+        "Chao Xue",
+        "Chaofan Zhang",
+        "Wenxuan Ma",
+        "Guocai Yao",
+        "Shaowei Cui",
+        "Shuo Wang"
+      ],
+      "abstract": "World action models jointly predict future visual observations and actions, whereas existing tactile-aware variants typically represent future touch as an image or latent stream without modeling the physical dependencies that organize tactile states hierarchically. We present HiTac-WAM, a hierarchical tactile world action model that forecasts a sequence of future tactile states for each candidate action chunk before execution. The forecast factorizes into contact state, a 3D deformation field, and slip risk, organized as a directed hierarchy in which each downstream stage is conditioned on stop-gradient signals from preceding stages. A directed attention mask allows tactile queries to attend to the video-action context of each candidate while preventing video and action queries from attending to tactile tokens. For planning, HiTac-WAM ranks candidate action chunks using tactile forecasts and task-progress estimates. For execution, the selected tactile forecast is retained as a reference; persistent discrepancies between predicted and observed tactile states trigger corrective replanning. HiTac-WAM achieves a mean contact F1 of 0.921; under matched training budgets, the directed hierarchy reduces 3D displacement L2 error by 17.6% relative to the deformation-only predictor and improves slip AUPRC by 60.4% relative to the slip-only predictor. Across chip grasping, blackboard erasing, and USB insertion, selection guided by the hierarchical forecasts increases the average real-robot success rate from 31.1% to 61.1%, while the full system attains 72.2%.",
+      "published_date": "2026-08-20",
+      "updated_date": "2026-08-20",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.19574",
+      "paper_url": "https://arxiv.org/abs/2608.19574",
+      "pdf_url": "https://arxiv.org/pdf/2608.19574",
+      "source": "arXiv",
+      "last_checked": "2026-08-21",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "failure-recovery"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出HiTac-WAM，一种分层触觉世界动作模型，将触觉状态预测分解为接触状态、3D变形场和滑移风险，并组织为有向层次结构。",
+        "设计有向注意力掩码，使触觉查询关注视频-动作上下文，同时防止视频和动作查询关注触觉标记。",
+        "提出基于触觉预测和任务进度估计的规划与执行框架，利用预测与观测差异触发纠正性重新规划。",
+        "在芯片抓取、黑板擦除和USB插入任务上验证，完整系统达到72.2%成功率，显著优于基线。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "世界动作模型联合预测未来的视觉观察和动作，而现有的触觉感知变体通常将未来触觉表示为图像或潜在流，而不建模组织触觉状态层次结构的物理依赖性。我们提出HiTac-WAM，一个分层触觉世界动作模型，在执行之前预测每个候选动作块的未来触觉状态序列。预测分解为接触状态、3D变形场和滑移风险，组织为有向层次结构，其中每个下游阶段以来自前阶段的停止梯度信号为条件。有向注意力掩码允许触觉查询关注每个候选的视频-动作上下文，同时防止视频和动作查询关注触觉标记。对于规划，HiTac-WAM使用触觉预测和任务进度估计对候选动作块进行排序。对于执行，选定的触觉预测作为参考保留；预测和观察到的触觉状态之间的持续差异触发纠正性重新规划。HiTac-WAM实现了平均接触F1为0.921；在匹配的训练预算下，有向层次结构相对于仅变形预测器将3D位移L2误差降低了17.6%，相对于仅滑移预测器将滑移AUPRC提高了60.4%。在芯片抓取、黑板擦除和USB插入中，由层次预测引导的选择将平均真实机器人成功率从31.1%提高到61.1%，而完整系统达到72.2%。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.19574v1/fig2_submission.png",
+      "image_caption": "Fig. 2: Architecture of HiTac-WAM. (a) A directed attention mask allows tactile queries to access the video–action context while isolating video and action queries from tactile history. (b) The hierarchy predicts bilateral contact, contact-conditioned 3D deformation, and contact-gated slip risk. (c) Candidate action–forecast pairs are ranked by J ( k ) J^{(k)} ; the selected tactile forecast is retained as the execution-time reference, and persistent forecast deviations trigger corrective replanning.",
+      "summary_one_sentence": "HiTac-WAM提出一种分层触觉世界动作模型，通过层次化预测接触状态、3D变形场和滑移风险，显著提升接触丰富机器人操作的成功率。",
+      "research_problem": "现有触觉感知世界动作模型未建模触觉状态的层次结构物理依赖性，导致预测不准确，影响接触丰富操作的规划与执行。",
+      "method_summary": "HiTac-WAM首先将每个候选动作块的未来触觉状态序列预测分解为接触状态、3D变形场和滑移风险三个层次，并以有向层次结构组织，每个下游阶段条件于前阶段的停止梯度信号。使用有向注意力掩码，触觉查询可以关注视频-动作上下文，而视频和动作查询不能关注触觉标记。规划时，根据触觉预测和任务进度估计对候选动作块排序；执行时，选定的触觉预测作为参考，持续差异触发重新规划。",
+      "experimental_setup": "在芯片抓取、黑板擦除和USB插入三个接触丰富任务上评估，使用真实机器人平台。比较完整HiTac-WAM与消融变体（仅变形预测器、仅滑移预测器等），报告接触F1、3D位移L2误差、滑移AUPRC和任务成功率。",
+      "key_results": "平均接触F1为0.921；有向层次结构相对于仅变形预测器降低3D位移L2误差17.6%，相对于仅滑移预测器提高滑移AUPRC 60.4%；层次预测引导的选择将平均成功率从31.1%提高到61.1%，完整系统达到72.2%。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该工作首次将触觉状态的层次结构预测引入世界动作模型，有效提升了接触丰富机器人操作的规划与执行性能，为触觉感知在具身智能中的应用提供了新范式。",
+      "relevance_reason": "该论文直接针对接触丰富机器人操作问题，提出利用触觉层次预测进行规划，涉及接触状态估计、滑移检测等核心问题，与机器人操作和具身智能高度相关。",
+      "related_to_my_research": "该论文可作为接触状态估计和触觉-视觉融合方法的参考，其层次化触觉预测框架可用于机器人操作规划中的状态估计与决策，与视觉-力觉融合和接触状态估计研究直接相关。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Medium: 摘要提供了方法框架和关键设计（层次结构、停止梯度、注意力掩码），但缺乏网络架构、训练细节等实现信息，复现需要补充。",
+      "core_candidate": "No",
+      "relevance_score": 56,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-21T04:30:13.762512+00:00",
+      "source_query_groups": [
+        "recovery"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2608-19891",
+      "title": "EXIMO: VLM Guided Exploration of VLA Policies",
+      "authors": [
+        "Bhavya Sukhija",
+        "Oliver Groth",
+        "Mohit Shridhar",
+        "Tim Hertweck",
+        "Michael Bloesch",
+        "Markus Wulfmeier",
+        "Abbas Abdolmaleki",
+        "Martin Riedmiller"
+      ],
+      "abstract": "How to efficiently finetune robot policies to learn new tasks on the fly? State of the art robotic manipulation policies are based on behaviour cloning of large vision-language-action (VLA) models with billions of parameters on huge teleoperation datasets. While this simple approach has enabled significant advances for robotic manipulation, finetuning of VLA policies for learning new tasks still remains an open problem. In particular, collecting teleoperation datasets requires hundreds of hours of expensive human labour and the alternative, reinforcement learning (RL), can be notoriously sample-inefficient especially for long-horizon tasks. In addition, RL with VLAs imposes several challenges due to the model's size and architectural design. In this work, we propose EXIMO, an efficient algorithm for finetuning of VLA policies. EXIMO operates in three stages: explore, imitate, and optimize. During the explore phase, EXIMO equips the VLA with a vision language model (VLM) that acts as a planner. The VLM thinks and breaks down challenging long-horizon problems into shorter ones for the VLA. The VLM, together with the VLA, is used to collect an orchestrated dataset on new tasks. During the imitate phase, the VLA is finetuned with the orchestrated data. Finally, during the optimize stage, we use residual off-policy RL to further finetune the policy. In our experiments, we ablate all three stages of EXIMO and show that it outperforms existing approaches significantly in terms of sample-efficiency and final performance.",
+      "published_date": "2026-08-20",
+      "updated_date": "2026-08-20",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.19891",
+      "paper_url": "https://arxiv.org/abs/2608.19891",
+      "pdf_url": "https://arxiv.org/pdf/2608.19891",
+      "source": "arXiv",
+      "last_checked": "2026-08-21",
+      "keywords": [
+        "cs.AI",
+        "cs.AI"
+      ],
+      "source_categories": [
+        "cs.AI"
+      ],
+      "research_topics": [
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出EXIMO算法，用于VLA策略的高效微调。",
+        "设计三阶段框架：探索（VLM引导规划与数据收集）、模仿（VLA微调）、优化（残差离策略RL）。",
+        "通过消融实验验证三个阶段的有效性，并证明EXIMO在样本效率和最终性能上显著优于现有方法。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "如何高效地微调机器人策略以即时学习新任务？最先进的机器人操作策略基于行为克隆，使用数十亿参数的大型视觉-语言-动作（VLA）模型在大量遥操作数据集上训练。虽然这种简单方法推动了机器人操作的重要进展，但微调VLA策略以学习新任务仍然是一个开放问题。特别是，收集遥操作数据集需要数百小时的昂贵人工劳动，而强化学习（RL）替代方案可能样本效率极低，尤其是对于长时任务。此外，由于模型的规模和架构设计，RL与VLA结合也带来了若干挑战。在这项工作中，我们提出了EXIMO，一种用于微调VLA策略的高效算法。EXIMO分三个阶段运行：探索、模仿和优化。在探索阶段，EXIMO为VLA配备一个视觉语言模型（VLM）作为规划器。VLM进行思考并将具有挑战性的长时问题分解为较短的子问题供VLA执行。VLM与VLA一起用于收集新任务上的编排数据集。在模仿阶段，使用编排数据微调VLA。最后，在优化阶段，我们使用残差离策略RL进一步微调策略。在实验中，我们对EXIMO的三个阶段进行了消融，并表明它在样本效率和最终性能方面显著优于现有方法。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.19891v1/assets/vlm_as_policy/example_vlm_interaction/ezgif-frame-001.png",
+      "image_caption": "Figure 1 : Example interaction of the VLM during the explore phase of Eximo . The VLM is given a sequence of images from the environment along with the task description in the prompt. The VLM analyzes the provided information within a &lt;think&gt; &lt;/think&gt; block and provides an instruction in the &lt;answer&gt;&lt;/answer&gt; block for the VLA to execute.",
+      "summary_one_sentence": "EXIMO提出一种三阶段（探索-模仿-优化）的VLA策略高效微调算法，利用VLM规划器分解长时任务并收集数据，再通过模仿学习和残差离策略RL优化，显著提升样本效率和最终性能。",
+      "research_problem": "如何高效微调VLA机器人策略以快速学习新任务，避免昂贵的遥操作数据收集和RL样本低效问题。",
+      "method_summary": "EXIMO包含三个阶段：探索阶段，VLM作为规划器将长时任务分解为短时子问题，并与VLA协作收集编排数据集；模仿阶段，使用该数据集微调VLA；优化阶段，采用残差离策略RL进一步微调策略。",
+      "experimental_setup": "对EXIMO的三个阶段进行消融实验，并与现有方法比较；具体任务、数据集和基线未在摘要中说明。",
+      "key_results": "EXIMO在样本效率和最终性能上显著优于现有方法；消融实验验证了探索、模仿、优化三个阶段均有效。",
+      "limitations": "无法从摘要确认。",
+      "why_it_matters": "该工作针对VLA策略微调困难的问题，提出结合VLM规划与残差RL的高效微调方案，有望减少机器人新任务学习中对大量遥操作数据和RL样本的依赖，推动具身智能策略的快速适应。",
+      "relevance_reason": "EXIMO聚焦于VLA策略的高效微调，属于机器人操作与具身智能领域，可作为策略学习与微调的方法参考；其VLM引导探索机制与视觉-语言模型在机器人操作中的应用相关，但与力觉融合和接触状态估计无直接关联。",
+      "related_to_my_research": "方法参考：EXIMO的VLM引导探索与三阶段微调框架可用于机器人操作策略学习，与视觉-力觉融合和接触状态估计无直接交集，但可作为具身智能策略优化的背景文献或潜在竞争方法。",
+      "recommended_reading": "无法从摘要确认。",
+      "reproduction_value": "Medium: 摘要提供了算法框架和实验结论，但未给出代码、超参数、任务细节等复现所需信息。",
+      "core_candidate": "No",
+      "relevance_score": 55,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-21T04:30:49.013746+00:00",
+      "source_query_groups": [
+        "vla"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2608-20208",
+      "title": "RoMAN-Flow: Taming Autoregressive Normalizing Flows for Offline Reinforcement Learning in Robotic Manipulation",
+      "authors": [
+        "Shaoxuan Wang",
+        "Guangting Zheng",
+        "Rui Huang",
+        "Zhipeng Tang",
+        "Sha Zhang",
+        "Jiajun Deng",
+        "Yanyong Zhang"
+      ],
+      "abstract": "Offline reinforcement learning improves robotic policies using previously collected data without further environment interaction. Yet prevalent diffusion- and flow-matching robot policies lack tractable likelihoods, limiting their use in likelihood-based offline RL post-training. AR-NFs offer both expressive action modeling and exact likelihood evaluation, but their sequential sampling incurs substantial sampling overhead during policy optimization and deployment. We present RoMAN-Flow (Robotic Manipulation with Autoregressive Normalizing Flows), an offline reinforcement learning framework that makes AR-NF policies practical for robotic manipulation by addressing this sampling bottleneck in both stages. During policy optimization, RoMAN-Flow employs a sampling-free, advantage-weighted likelihood objective that assigns higher likelihood to high-advantage actions from the offline dataset without sampling from the autoregressive policy. For efficient deployment, it distills the optimized autoregressive policy into a one-step action generator, enabling low-latency action prediction. Experiments across multiple simulated manipulation benchmarks and real-world robotic platforms demonstrate that RoMAN-Flow achieves competitive policy performance while substantially reducing inference latency. Code is available at https://github.com/konnyaku28/RoMAN-Flow.",
+      "published_date": "2026-08-20",
+      "updated_date": "2026-08-20",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.20208",
+      "paper_url": "https://arxiv.org/abs/2608.20208",
+      "pdf_url": "https://arxiv.org/pdf/2608.20208",
+      "source": "arXiv",
+      "last_checked": "2026-08-21",
+      "keywords": [
+        "cs.CV",
+        "cs.CV"
+      ],
+      "source_categories": [
+        "cs.CV"
+      ],
+      "research_topics": [
+        "generative-policy"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出了RoMAN-Flow框架，使自回归归一化流策略在离线机器人操作RL中实用",
+        "在策略优化阶段提出无采样的优势加权似然目标，避免从自回归策略采样",
+        "在部署阶段将优化的自回归策略蒸馏为一步动作生成器，降低推理延迟",
+        "在多个模拟操作基准和真实机器人平台上验证了方法的有效性和效率"
+      ],
+      "research_branches": [],
+      "abstract_zh": "离线强化学习利用先前收集的数据改进机器人策略，无需进一步与环境交互。然而，流行的扩散和流匹配机器人策略缺乏可处理的似然，限制了它们在基于似然的离线RL后训练中的使用。自回归归一化流（AR-NFs）既提供表达性动作建模又提供精确似然评估，但它们的顺序采样在策略优化和部署期间产生大量采样开销。我们提出RoMAN-Flow（基于自回归归一化流的机器人操作），一个离线强化学习框架，通过解决这两个阶段的采样瓶颈使AR-NF策略在机器人操作中实用。在策略优化期间，RoMAN-Flow采用无采样的、优势加权似然目标，从离线数据集中赋予高优势动作更高的似然，而不需要从自回归策略中采样。为了高效部署，它将优化的自回归策略蒸馏为一个一步动作生成器，实现低延迟动作预测。在多个模拟操作基准和真实机器人平台上的实验表明，RoMAN-Flow实现了有竞争力的策略性能，同时显著降低了推理延迟。代码可在https://github.com/konnyaku28/RoMAN-Flow获取。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.20208v1/RoMAN-Flow-Overview-roman.png",
+      "image_caption": "Figure 1: Overview of RoMAN-Flow. RoMAN-Flow adopts an invertible AR-NF architecture that maps continuous action chunks to latent variables conditioned on multimodal inputs. For imitation learning, it maximizes the exact conditional likelihood of demonstrated action chunks under a Gaussian latent prior. For action generation, it samples latent variables from the Gaussian prior and recovers action chunks through the autoregressive inverse transformation. For likelihood-based reinforcement learning, NF-IQL directly increases the exact likelihoods of high-advantage offline action chunks without autoregressive policy sampling.",
+      "summary_one_sentence": "RoMAN-Flow通过无采样优势加权似然目标和一步蒸馏，使自回归归一化流在离线机器人操作RL中实用且高效。",
+      "research_problem": "流行的扩散和流匹配机器人策略缺乏可处理的似然，限制了它们在基于似然的离线RL后训练中的使用；而自回归归一化流（AR-NFs）虽提供精确似然但顺序采样开销大，如何使AR-NF策略在离线机器人操作RL中实用并解决采样瓶颈。",
+      "method_summary": "RoMAN-Flow包含两个阶段：策略优化阶段使用无采样的优势加权似然目标，从离线数据集中赋予高优势动作更高似然，无需从自回归策略采样；部署阶段将优化的自回归策略蒸馏为一个一步动作生成器，实现低延迟动作预测。",
+      "experimental_setup": "在多个模拟操作基准和真实机器人平台上进行实验（具体名称未在摘要中提及）。",
+      "key_results": "RoMAN-Flow实现了有竞争力的策略性能，同时显著降低了推理延迟。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该工作使得具有精确似然评估的自回归归一化流能够高效用于离线机器人操作RL，克服了采样开销瓶颈，有望提升基于似然的离线RL后训练在实际机器人系统中的应用。",
+      "relevance_reason": "该论文针对机器人操作中的离线强化学习问题，提出了高效的自回归归一化流框架，与机器人操作和具身智能中的策略学习密切相关。",
+      "related_to_my_research": "该论文主要关注机器人操作中的离线强化学习策略优化，与机器人操作和具身智能研究直接相关，可作为方法参考或基线对比；但未涉及视觉-力觉融合或接触状态估计。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "High: 代码已开源（https://github.com/konnyaku28/RoMAN-Flow）",
+      "core_candidate": "No",
+      "relevance_score": 55,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-21T04:31:28.434254+00:00",
+      "source_query_groups": [
+        "generative"
+      ]
+    },
     {
       "paper_id": "arxiv-2608-18701",
       "title": "SoftVTBench: A Deformation-Aware Visuo-Tactile Dataset and Benchmark for Deformable-Object Manipulation",
@@ -72,7 +296,7 @@
       "key_results": "所有12个分布内配置都有成功rollout违反变形容差，占0.7%–24%；分布偏移下视觉触觉变体在6个策略-套件比较中任务成功率更高，DSR在5个中更高；分布内收益混合。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "提供了公共视觉触觉资源，推动研究从“是否成功”转向“如何物理交互”，并揭示触觉融合的挑战。",
-      "relevance_reason": "该论文直接提供视觉-触觉融合数据集和基准，专注于变形物体操作中的物理交互质量，与视觉-力觉融合、接触状态估计和机器人操作研究高度相关。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索",
       "related_to_my_research": "可作为视觉-力觉融合和接触状态估计的方法参考与基线对比，尤其适用于变形物体操作中的物理交互质量评估。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 摘要提供了数据集和基准的详细规格，但未明确代码/数据公开情况，复现需依赖作者发布。",
@@ -89,7 +313,8 @@
       "ai_generated_at": "2026-08-20T04:29:14.121964+00:00",
       "source_query_groups": [
         "generative"
-      ]
+      ],
+      "image_caption_zh": "SoftVTBench构建与评估流程。阶段1构建匹配的刚体-可变形物体，并校准物体特定的交互约束。阶段2生成受控任务，将策略可见的观测与仅评估者可见的物理状态分开记录。阶段3应用自动质量控制和人工验证，生成发布的训练集、ID集和OOD集。任务成功与形变符合度分别标注；DSR在基准评估中将二者结合。"
     },
     {
       "paper_id": "arxiv-2608-17962",
@@ -376,7 +601,7 @@
       "key_results": "代理生成的代码策略在Push-T任务上达到100%成功率，且步骤数比使用200个人类演示训练的最佳扩散策略少46%。代理还成功解决了从T到完整字母表的扩展，并生成了Franka和UR5的3D跨实体模拟代码。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "这项工作展示了LLM编码代理在机器人操作任务中的潜力，无需人类演示数据即可通过自主模拟实验和迭代优化达到甚至超越模仿学习策略的性能，为Agentic Robotics提供了新的范式。",
-      "relevance_reason": "该论文聚焦于机器人操作任务（Push-T），利用LLM编码代理实现无需演示的策略学习，属于具身智能和机器人操作领域，但与视觉-力觉融合和接触状态估计无直接关联。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索",
       "related_to_my_research": "该论文展示了LLM代理在机器人操作任务中的应用，可作为具身智能研究中利用大语言模型进行策略生成的背景文献或方法参考，尤其在无需演示数据的策略学习方面具有启发意义。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 论文提到视频、策略和细节将在线发布，但当前尚未提供，且依赖特定LLM代理（Claude Code with Fable 5），可能难以完全复现。",
@@ -394,7 +619,8 @@
       "source_query_groups": [
         "vla",
         "generative"
-      ]
+      ],
+      "image_caption_zh": "2D gym 环境中由智能体编写的 Push A–Z 基准。每个格子显示目标字母姿态（绿色）、方块（灰色）和推动器（蓝点）；标题给出字母、种子和最终覆盖率。红框标出 pre-MPC 基线控制器的失败案例（B 和 R 覆盖率为 0.00，S 为 0.36），这促使了下面的自我改进轮次。"
     },
     {
       "paper_id": "arxiv-2608-17717",
@@ -8971,5 +9197,5 @@
     "data_source": "arXiv",
     "last_verified_note": "事实字段来自论文元数据；AI分析字段仅在配置Provider后生成。"
   },
-  "built_at": "2026-08-20"
+  "built_at": "2026-08-21"
 }
