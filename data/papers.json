@@ -1,11 +1,388 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-08-25",
+  "generated_at": "2026-08-26",
   "source": "arXiv",
-  "candidate_count": 135,
-  "retained_count": 124,
+  "candidate_count": 141,
+  "retained_count": 129,
   "relevance_threshold": 45,
   "papers": [
+    {
+      "paper_id": "arxiv-2608-24741",
+      "title": "One-Shot Learning from Demonstration of Contact-Rich Robotic Manipulation by Identifying Physical Interactions",
+      "authors": [
+        "A. H. G. Overbeek",
+        "H. van der Kooij",
+        "M. Vlutters"
+      ],
+      "abstract": "Learning from Demonstration (LfD) allows robots to learn manipulation tasks directly from humans, thereby supporting the versatile application of robots. Most LfD methods do not explicitly model the physical interactions between a robot and its environment, such as the making and breaking of contact, while these are crucial during manipulation tasks. Because the same basic physical interactions recur often, they can be a basis for robust, generalizable, and adaptive task reproduction. We propose an LfD method that explicitly uses what physical interactions take place where and when. Using that information, a hybrid position-force controller tracks demonstrated trajectories until contact-based transition conditions from the demonstrations are met. We evaluate our method in real robot experiments consisting of opening doors and locks, bolt picking and screwing, dislodging, and surface contouring. We show that explicitly modeling physical interactions benefits LfD in four ways. First, by allowing reproduction of complex, sequential, and contact-rich manipulation tasks using only a single demonstration and no prior knowledge of the task. Second, by facilitating robustness to unknown geometric variations in the environment. Third, by facilitating generalization when geometric variations are known. Fourth, by facilitating online adaptation using geometric information explored during task reproduction. We discuss how robustness, generalization, and adaptivity can be explicitly implemented, which is generally lacking in the LfD literature. Thereby, our work aims to close a gap in interpretable few-shot LfD of robotic manipulation.",
+      "published_date": "2026-08-25",
+      "updated_date": "2026-08-25",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.24741",
+      "paper_url": "https://arxiv.org/abs/2608.24741",
+      "pdf_url": "https://arxiv.org/pdf/2608.24741",
+      "source": "arXiv",
+      "last_checked": "2026-08-26",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出一种显式利用物理交互发生位置和时机的LfD方法。",
+        "使用混合位置-力控制器跟踪演示轨迹，并基于接触转换条件进行任务复现。",
+        "在真实机器人上验证了开门/开锁、螺栓拾取与拧紧、拆卸、表面轮廓跟踪等任务。",
+        "展示了显式建模物理交互在单次演示、鲁棒性、泛化和在线自适应四个方面的优势。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "从演示中学习（LfD）允许机器人直接从人类学习操作任务，从而支持机器人的多用途应用。大多数LfD方法没有显式建模机器人与环境之间的物理交互，例如接触的建立和断开，而这些在操作任务中至关重要。因为相同的基本物理交互经常重复出现，它们可以成为鲁棒、可泛化和自适应任务复现的基础。我们提出一种LfD方法，显式使用物理交互发生的位置和时机。利用该信息，混合位置-力控制器跟踪演示轨迹，直到满足来自演示的基于接触的转换条件。我们在真实机器人实验中评估了该方法，包括开门和开锁、螺栓拾取与拧紧、拆卸以及表面轮廓跟踪。我们表明，显式建模物理交互在四个方面有利于LfD。第一，仅使用单个演示且无需任务先验知识即可复现复杂、顺序、接触丰富的操作任务。第二，促进对环境中未知几何变化的鲁棒性。第三，在几何变化已知时促进泛化。第四，利用任务复现过程中探索的几何信息促进在线自适应。我们讨论了如何显式实现鲁棒性、泛化和自适应性，这通常在LfD文献中缺乏。因此，我们的工作旨在弥合可解释的少样本LfD机器人操作中的空白。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "本文提出一种基于显式物理交互建模的单次演示学习框架，通过混合位置-力控制实现接触丰富操作任务的鲁棒复现、泛化和自适应。",
+      "research_problem": "大多数LfD方法未显式建模机器人与环境之间的物理交互（如接触的建立与断开），而这些交互对操作任务至关重要，导致缺乏鲁棒性、泛化性和自适应性。",
+      "method_summary": "该方法从演示中提取物理交互（接触建立/断开）的位置和时机，构建基于接触的转换条件；在复现时，混合位置-力控制器跟踪演示轨迹，直到满足这些转换条件，从而切换控制模式或任务阶段。",
+      "experimental_setup": "真实机器人实验，任务包括开门和开锁、螺栓拾取与拧紧、拆卸（dislodging）以及表面轮廓跟踪（surface contouring）。",
+      "key_results": "显式建模物理交互使LfD在四个方面受益：1) 仅需单次演示且无需任务先验即可复现复杂顺序接触丰富任务；2) 对未知几何变化具有鲁棒性；3) 对已知几何变化能够泛化；4) 利用任务复现中探索的几何信息进行在线自适应。",
+      "limitations": "无法从摘要确认。",
+      "why_it_matters": "该工作弥合了可解释少样本LfD机器人操作的空白，为接触丰富操作提供了一种显式利用物理交互的范式，有助于提升机器人操作的鲁棒性、泛化性和自适应性。",
+      "relevance_reason": "论文聚焦接触丰富操作中的物理交互建模，与视觉-力觉融合和接触状态估计密切相关；其混合位置-力控制与基于接触转换的任务切换是机器人操作和具身智能中的关键方法。",
+      "related_to_my_research": "该论文可作为接触状态估计与力觉融合在机器人操作中的方法参考，特别是其显式建模接触事件和混合力控策略，与我的研究领域直接相关。",
+      "recommended_reading": "无法从摘要确认。",
+      "reproduction_value": "Medium：摘要提供了方法核心思想和真实机器人实验任务，但未给出控制器细节、演示数量、硬件配置或代码，复现需要较多补充信息。",
+      "core_candidate": "Review",
+      "relevance_score": 61,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-26T04:31:37.969562+00:00",
+      "source_query_groups": [
+        "contact"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2608-24042",
+      "title": "Hierarchical Skill Retrieval for Data-Efficient Adaptation of Vision-Language-Action Models",
+      "authors": [
+        "Haoran Hao",
+        "Shahram Najam Syed",
+        "Jeff Schneider",
+        "Jeffrey Ichnowski"
+      ],
+      "abstract": "While Vision-Language-Action (VLA) models pretrained on large-scale robot datasets provide a strong foundation for robot manipulation, their performance can degrade when adapted to new tasks with limited task-specific demonstrations. Retrieval offers a practical way to reuse existing demonstrations for data-efficient adaptation, but existing methods often rely on visual similarity, state-action representations, or task-level language matching. These approaches may overlook the hierarchical structure of long-horizon manipulation tasks, where complete task matches are rare but reusable skills are often abundant. To address this challenge, we propose Hierarchical Skill Retrieval (HSR), a retrieval framework for data-efficient VLA adaptation. Specifically, HSR first decomposes a target task into candidate skill sequences. It evaluates each plan based on both semantic plausibility and skill reliability estimated from the prior dataset. The selected decomposition is then used for hybrid retrieval. This combines subtask-level language retrieval with behavior-feature reranking to identify demonstrations that are both semantically relevant and compatible with the target task. Finally, we adapt the policy through a two-stage pretraining and finetuning pipeline, which separates general skill acquisition from task-specific adaptation. Experiments on the LIBERO benchmark and several real-world robot manipulation tasks show that HSR improves the average success rate by 10.3% and 21.3% over the strongest baseline, respectively. These results demonstrate the effectiveness of structured skill-level retrieval for data-efficient VLA adaptation. Videos and code are available at https://hoar012.github.io/HSR-Project.",
+      "published_date": "2026-08-25",
+      "updated_date": "2026-08-25",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.24042",
+      "paper_url": "https://arxiv.org/abs/2608.24042",
+      "pdf_url": "https://arxiv.org/pdf/2608.24042",
+      "source": "arXiv",
+      "last_checked": "2026-08-26",
+      "keywords": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "research_topics": [
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出层次化技能检索（HSR）框架，将目标任务分解为候选技能序列并评估其语义合理性和技能可靠性。",
+        "设计混合检索机制，结合子任务级语言检索与行为特征重排序，选择语义相关且兼容的演示。",
+        "采用两阶段预训练和微调流程，分离通用技能获取与任务特定适应。",
+        "在LIBERO基准和真实机器人操作任务上验证了HSR的有效性，平均成功率分别提升10.3%和21.3%。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "虽然在大规模机器人数据集上预训练的视觉-语言-动作（VLA）模型为机器人操作提供了强大的基础，但在任务特定演示有限的情况下，将其适应到新任务时性能可能会下降。检索提供了一种重用现有演示以实现数据高效适应的实用方法，但现有方法通常依赖视觉相似性、状态-动作表示或任务级语言匹配。这些方法可能忽略长时程操作任务的层次结构，其中完整的任务匹配很少见，但可重用的技能往往很丰富。为了解决这一挑战，我们提出了层次化技能检索（HSR），一种用于数据高效VLA适应的检索框架。具体来说，HSR首先将目标任务分解为候选技能序列。它基于语义合理性和从先前数据集估计的技能可靠性来评估每个计划。选定的分解随后用于混合检索，该检索结合了子任务级语言检索和行为特征重排序，以识别既语义相关又与目标任务兼容的演示。最后，我们通过两阶段预训练和微调流程来调整策略，该流程将通用技能获取与任务特定适应分开。在LIBERO基准和多个真实世界机器人操作任务上的实验表明，HSR相对于最强基线分别将平均成功率提高了10.3%和21.3%。这些结果证明了结构化技能级检索对于数据高效VLA适应的有效性。视频和代码可在 https://hoar012.github.io/HSR-Project 获取。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.24042v1/framework.png",
+      "image_caption": "Fig. 2: Overview of the Proposed HSR Framework . HSR identifies existing skills in the prior dataset based on task-instruction clustering. Given a long-horizon target task, 1. HSR first decomposes the task into several subtasks, evaluates and selects the plan with the highest score; 2. for each subtask, HSR retrieves data based on the subtask instruction, and further reranks using representative demonstrations from the target task to filter out low-consistency data; 3. HSR first pretrains the policy on retrieved data to learn general skills, and then finetunes it on task-related data to adapt to the target task.",
+      "summary_one_sentence": "本文提出层次化技能检索（HSR）框架，通过将目标任务分解为技能序列并进行混合检索，实现视觉-语言-动作模型在有限演示下的数据高效适应。",
+      "research_problem": "VLA模型在适应新任务时，若任务特定演示有限，性能会下降；现有检索方法忽略长时程操作任务的层次结构，难以有效重用已有演示。",
+      "method_summary": "HSR首先将目标任务分解为候选技能序列，基于语义合理性和从先前数据集估计的技能可靠性评估每个计划；然后使用选定的分解进行混合检索，结合子任务级语言检索与行为特征重排序；最后通过两阶段预训练和微调流程适应策略。",
+      "experimental_setup": "在LIBERO基准和多个真实世界机器人操作任务上进行实验。",
+      "key_results": "HSR相对于最强基线在LIBERO基准上平均成功率提升10.3%，在真实世界任务上提升21.3%。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该工作展示了结构化技能级检索在数据高效VLA适应中的有效性，为机器人操作中有限演示下的策略迁移提供了新思路，有助于提升具身智能模型的泛化能力。",
+      "relevance_reason": "该论文聚焦于机器人操作中VLA模型的数据高效适应，属于具身智能和机器人操作领域，其分层技能检索方法可作为策略迁移和演示利用的参考。",
+      "related_to_my_research": "该论文属于具身智能中VLA模型数据高效适应的背景文献，其分层技能检索方法可作为机器人操作任务中策略迁移的参考，与视觉-力觉融合和接触状态估计无直接关联，但属于同一操作学习领域。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Medium: 摘要提供了方法概述和代码链接，但缺少完整实验细节和超参数，复现需要参考原文。",
+      "core_candidate": "No",
+      "relevance_score": 55,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-26T04:33:44.457300+00:00",
+      "source_query_groups": [
+        "vla"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2608-23983",
+      "title": "Sensorless damage-safe grasping",
+      "authors": [
+        "Yusei Shuto",
+        "Danilo Vasconcellos Vargas"
+      ],
+      "abstract": "Robotic fruit harvesting must hold produce securely without bruising it, yet compression stiffness varies several-fold with ripeness within a single species, so no fixed grip force spans the range. Rather than tune force, we bound deformation: a controller closes the gripper until the object's estimated compression strain reaches a user-specified limit $\\varepsilon$, using only the encoder position and motor-effort signal on every servo gripper---no tactile or force-torque sensor. Dividing an effort-based contact force by a lower bound on object stiffness makes the stop provably conservative---true compression stays at or below $\\varepsilon$---for any $\\varepsilon$ above a contact-detection strain floor we identify and quantify: robust detection itself spends compression, linearly in closing speed, making speed an explicit throughput--gentleness knob. Unlike a hand-tuned force threshold, $\\varepsilon$ is a certified, size-scaling, operator-interpretable damage limit, and a ready safe-action parameter for learned grasping policies. In MuJoCo simulation over a realistic fruit-stiffness range, under a sensor-noise model calibrated to the real servo, the controller holds $\\ge 98\\,\\%$ grasp at $0\\,\\%$ damage across all medium-to-firm stiffnesses for the entire certified $\\varepsilon$ range, which neither fixed-force baseline attains; on stiffness-graded 3D-printed TPU cubes it matches baseline grasp success at roughly half the grip force and cuts soft-object damage from $100\\,\\%$ to $40\\,\\%$.",
+      "published_date": "2026-08-25",
+      "updated_date": "2026-08-25",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.23983",
+      "paper_url": "https://arxiv.org/abs/2608.23983",
+      "pdf_url": "https://arxiv.org/pdf/2608.23983",
+      "source": "arXiv",
+      "last_checked": "2026-08-26",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出无传感器损伤安全抓取控制器，仅使用编码器位置和电机力矩信号，无需触觉或力/力矩传感器。",
+        "通过将力矩估计的接触力除以物体刚度下界，证明真实压缩应变不超过用户指定极限ε。",
+        "识别并量化接触检测的应变下限，揭示闭合速度与吞吐量/温和度之间的显式权衡。",
+        "将ε作为可解释、随尺寸缩放的损伤极限参数，可直接用作学习型抓取策略的安全动作参数。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "机器人水果采摘必须在不碰伤水果的情况下牢固抓取，然而同一物种内压缩刚度随成熟度变化数倍，因此没有固定的抓取力能覆盖整个范围。我们不调整力，而是限制变形：控制器闭合夹爪，直到物体的估计压缩应变达到用户指定的极限ε，仅使用每个伺服夹爪上的编码器位置和电机力矩信号——无需触觉或力/力矩传感器。将基于力矩的接触力除以物体刚度的下界，使得停止被证明是保守的——真实压缩保持在ε或以下——对于任何高于我们识别并量化的接触检测应变下限的ε：稳健检测本身会消耗压缩，且随闭合速度线性增加，使速度成为显式的吞吐量-温和度旋钮。与手动调整的力阈值不同，ε是一个经过认证的、随尺寸缩放的、操作者可解释的损伤极限，也是学习型抓取策略的现成安全动作参数。在MuJoCo仿真中，在真实水果刚度范围内，在标定到真实伺服电机的传感器噪声模型下，控制器在整个认证ε范围内对所有中等到坚硬刚度保持≥98%的抓取成功率和0%损伤，这是任何固定力基线都无法达到的；在刚度分级的3D打印TPU立方体上，它以大约一半的抓取力匹配基线抓取成功率，并将软物体损伤从100%降至40%。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.23983v1/figures/pipeline.png",
+      "image_caption": "Figure 2: Method pipeline. Encoder position x x and motor effort I I are read at 50 ​ Hz 50\\,\\mathrm{Hz} ; the estimation block detects contact by amplitude threshold and computes the compression-strain estimate r ^ = F ^ / ( k min ​ D ) \\hat{r}=\\hat{F}/(k_{\\min}D) ; the control block applies a proportional law that drives r ^ → ε \\hat{r}\\to\\varepsilon , producing the velocity command (close or hold). Fruit diameter D D and the user-set bound ε \\varepsilon enter as external inputs; the stiffness lower bound k min k_{\\min} sets the strain scale inside the estimate.",
+      "summary_one_sentence": "本文提出一种仅利用编码器和电机力矩的无传感器损伤安全抓取控制器，通过限制估计压缩应变来保证抓取不损伤物体，并在仿真和实物实验中验证了其有效性。",
+      "research_problem": "机器人抓取中，物体刚度随成熟度变化大，固定抓取力无法同时保证牢固抓取和不损伤物体，需要一种无需力传感器、可解释的损伤限制方法。",
+      "method_summary": "控制器利用伺服电机编码器位置和力矩信号估计接触力，除以物体刚度下界得到压缩应变上界，当达到用户指定ε时停止闭合；通过保守估计保证真实压缩应变不超过ε，并识别了接触检测的应变下限。",
+      "experimental_setup": "仿真使用MuJoCo，覆盖真实水果刚度范围，并采用标定到真实伺服电机的传感器噪声模型；实物实验使用刚度分级的3D打印TPU立方体。",
+      "key_results": "仿真中，整个认证ε范围内，对所有中等到坚硬刚度，控制器保持≥98%抓取成功率和0%损伤，固定力基线无法达到；实物中，以约一半抓取力匹配基线成功率，软物体损伤从100%降至40%。",
+      "limitations": "摘要未明确讨论局限性；但实验显示软物体损伤仍为40%，且方法存在接触检测应变下限，低于该下限无法保证。",
+      "why_it_matters": "该工作提供了一种无需额外力传感器的损伤安全抓取方案，ε作为可解释的损伤极限参数，对机器人收获和柔顺操作具有重要意义，并为学习型抓取策略提供了安全动作参数。",
+      "relevance_reason": "本文属于机器人操作中的无传感器力控抓取，通过电机力矩估计接触力，与接触状态估计和力觉替代方案相关，可作为视觉-力觉融合研究的背景文献或方法参考。",
+      "related_to_my_research": "本文与机器人操作中的无传感器力控抓取直接相关，涉及接触状态估计（通过电机力矩估计接触力），可作为视觉-力觉融合研究中力觉替代方案的参考，也可作为具身智能抓取策略的安全动作参数背景。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Medium：方法基于通用伺服电机信号和MuJoCo仿真，实验使用3D打印TPU，可复现性中等；但未提供代码和详细参数，需自行实现。",
+      "core_candidate": "No",
+      "relevance_score": 50,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-26T04:31:01.596377+00:00",
+      "source_query_groups": [
+        "vision-force",
+        "contact"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2608-24603",
+      "title": "Gripper-aware Vision Language Action Models",
+      "authors": [
+        "Hanyi Zhang",
+        "Zihong Luo",
+        "Tianyu Li",
+        "Khang Nguyen",
+        "Basu Hela",
+        "Shreyas Kumar",
+        "Ngoc Duy Tran",
+        "Feng Dai",
+        "Charith Munasinghe",
+        "Jorge Peña Queralta",
+        "Giovanni Toffetti",
+        "Khoa Vo",
+        "Ngan Le",
+        "Ravi Prakash",
+        "Quan Vuong",
+        "Tung D. Ta",
+        "Long Hu",
+        "Anh Nguyen",
+        "Baoru Huang"
+      ],
+      "abstract": "Vision language action models (VLAs) have advanced general purpose robotic grasping and manipulation by enabling robots to interpret visual observations and natural language instructions to generate executable action sequences. However, existing VLAs often implicitly assume gripper invariance, despite grasping strategies being inherently embodiment-dependent. Different gripper types, such as parallel-jaw and suction, usually require distinct interaction strategies to achieve the same grasping objective. Moreover, current datasets for VLAs predominantly rely on parallel-jaw grippers, limiting gripper-aware learning. To address this gap, we introduce MiGA, a multi-gripper-aware dataset spanning five distinct gripper types across multiple robots with 103,000 demonstrations, explicitly capturing strategy divergence under shared task objectives. We further propose GVLA, which combines a new multi-gripper tokenizer with adapter-based policy routing. Our new gripper encoding induces structured embedding information that balances parameter sharing and strategy differentiation, while layer-wise probing confirms meaningful gripper-conditioned representations for VLAs. Intensive experiments in both simulation and real-world robots show that our GVLA outperforms the current baselines across evaluated settings. Our method also improves zero-shot generalization or few-shot adaptation to new objects or unseen tasks, and enable more efficient gripper adaptation.",
+      "published_date": "2026-08-25",
+      "updated_date": "2026-08-25",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.24603",
+      "paper_url": "https://arxiv.org/abs/2608.24603",
+      "pdf_url": "https://arxiv.org/pdf/2608.24603",
+      "source": "arXiv",
+      "last_checked": "2026-08-26",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "引入MiGA，一个多夹爪感知数据集，涵盖五种不同夹爪类型、多个机器人、103,000个演示，明确捕捉共享任务目标下的策略差异。",
+        "提出GVLA，结合新的多夹爪分词器与基于适配器的策略路由。",
+        "新的夹爪编码诱导结构化嵌入信息，平衡参数共享与策略差异化；逐层探测确认有意义的夹爪条件表示。",
+        "在仿真和真实机器人上验证GVLA优于基线，并提升零样本泛化/少样本适应及夹爪适应效率。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "视觉语言动作模型（VLAs）通过使机器人能够解释视觉观察和自然语言指令来生成可执行的动作序列，从而推进了通用机器人抓取和操作。然而，现有的VLA通常隐式假设夹爪不变性，尽管抓取策略本质上依赖于具体本体。不同类型的夹爪，例如平行夹爪和吸盘，通常需要不同的交互策略来实现相同的抓取目标。此外，当前用于VLA的数据集主要依赖平行夹爪，限制了夹爪感知学习。为解决这一差距，我们引入了MiGA，一个多夹爪感知数据集，涵盖五种不同夹爪类型，跨多个机器人，包含103,000个演示，明确捕捉共享任务目标下的策略差异。我们进一步提出了GVLA，它结合了一种新的多夹爪分词器与基于适配器的策略路由。我们新的夹爪编码引入了结构化嵌入信息，平衡了参数共享和策略差异化，而逐层探测确认了VLA的有意义的夹爪条件表示。在仿真和真实机器人上的大量实验表明，我们的GVLA在评估设置中优于当前基线。我们的方法还提高了对新物体或未见任务的零样本泛化或少样本适应能力，并实现了更高效的夹爪适应。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.24603v1/introduction_1.png",
+      "image_caption": "Figure 1 : We tackle the challenge of gripper-specific grasping in robotics, e.g., a suction cup gripper lifts a thin, flat, DVD-case-like box from above, while a parallel-jaw gripper pushes it to the table edge and grasps it from the side. We first introduce MiGA, a large-scale multi-gripper-aware dataset collected by diverse gripper types. Leveraging this dataset, we then develop a Gripper-aware Vision Language Action (GVLA) model that incorporates gripper conditioning through a new multi-gripper tokenization method and a dual Mixture-of-Adapter. Our approach improves task performance over gripper-agnostic baselines and enables cross-gripper adaptation.",
+      "summary_one_sentence": "本文提出多夹爪感知数据集MiGA和夹爪感知VLA模型GVLA，通过多夹爪分词器和适配器策略路由提升机器人抓取泛化与夹爪适应能力。",
+      "research_problem": "现有视觉语言动作模型隐式假设夹爪不变性，忽略不同夹爪类型（如平行夹爪和吸盘）需要不同抓取策略，且现有数据集主要依赖平行夹爪，缺乏多夹爪感知学习。",
+      "method_summary": "提出GVLA模型，包含多夹爪分词器（multi-gripper tokenizer）和基于适配器的策略路由（adapter-based policy routing），通过夹爪编码生成结构化嵌入，在共享参数和策略差异化之间取得平衡。",
+      "experimental_setup": "在仿真和真实机器人上进行实验，评估多种夹爪类型和任务；具体环境、基线、评估指标等细节无法从摘要确认。",
+      "key_results": "GVLA在仿真和真实机器人上优于当前基线；提高了对新物体或未见任务的零样本泛化或少样本适应能力，并实现更高效的夹爪适应。",
+      "limitations": "无法从摘要确认。",
+      "why_it_matters": "该工作首次显式建模VLA中的夹爪感知，通过多夹爪数据集和模型架构解决夹爪不变性假设，推动通用机器人操作在多样化末端执行器下的适应性和泛化能力。",
+      "relevance_reason": "该论文直接针对机器人操作中的夹爪感知问题，提出多夹爪数据集和VLA模型，与具身智能和机器人操作紧密相关；其夹爪条件表示和策略路由方法可为视觉-力觉融合中的末端执行器感知提供参考，但与接触状态估计的直接关联较弱。",
+      "related_to_my_research": "方法参考/背景文献：该论文研究多夹爪条件下的视觉-语言-动作模型，属于机器人操作与具身智能领域；其夹爪感知与策略路由方法可参考用于视觉-力觉融合中的多形态末端执行器适应，但与接触状态估计无直接关联。",
+      "recommended_reading": "无法从摘要确认。",
+      "reproduction_value": "Medium：摘要提供了方法框架和数据集规模，但未给出代码或详细实验配置，且需要多机器人多夹爪数据，复现成本较高。",
+      "core_candidate": "No",
+      "relevance_score": 50,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-26T04:33:32.792396+00:00",
+      "source_query_groups": [
+        "vla"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2608-24026",
+      "title": "NeurRAFT: Robot Motion Planning via Anchor-Level Flow Matching with Clearance-Aware Preference Tuning",
+      "authors": [
+        "Sibo Tian",
+        "Chang Liu",
+        "Minghui Zheng",
+        "Xiao Liang"
+      ],
+      "abstract": "Recent end-to-end neural motion planners generate trajectories from raw sensor observations, avoiding the privileged geometric models required by classical planners. However, collision-free planning in cluttered environments remains challenging. We present NeurRAFT, a generative planning framework based on anchor-level flow matching and clearance-aware preference tuning. Unlike prior neural planners that model dense waypoint sequences and spend capacity on redundant local details and smoothness, NeurRAFT operates on compact anchor waypoints. We train the planner using a Jacobian-weighted loss that accounts for the task-space impact of each anchor. At inference, the anchors are generated in two integration steps, followed by cubic-spline interpolation to recover a smooth, full-resolution trajectory. Since imitation learning from positive demonstrations cannot distinguish collision-free from near-collision trajectories, collision-prone behaviors persist at test time. Rather than relying on post-hoc corrections, we directly reshape the pretrained planner's distribution toward safer solutions without augmenting inference. Specifically, Direct Preference Optimization shifts probability mass toward trajectories with larger obstacle clearance, with the resulting improvement directly absorbed into the planner parameters. Experiments show substantial improvements over state-of-the-art planners, while real-world experiments demonstrate zero-shot transfer to a Franka robot under noisy and partially occluded depth observations. Video results available at https://neurraft.github.io/.",
+      "published_date": "2026-08-25",
+      "updated_date": "2026-08-25",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.24026",
+      "paper_url": "https://arxiv.org/abs/2608.24026",
+      "pdf_url": "https://arxiv.org/pdf/2608.24026",
+      "source": "arXiv",
+      "last_checked": "2026-08-26",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "generative-policy"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出NeurRAFT，一种基于锚点级流匹配的生成式规划框架，使用紧凑锚点路点而非密集路点序列。",
+        "设计Jacobian加权损失，考虑每个锚点在任务空间中的影响。",
+        "采用直接偏好优化（DPO）重塑预训练规划器分布，使其偏向更大障碍物间隙的轨迹，无需事后修正或增加推理负担。",
+        "在实验中与最先进规划器相比有显著改进，并在真实世界Franka机器人上实现零样本迁移。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "最近的端到端神经运动规划器从原始传感器观测生成轨迹，避免了经典规划器所需的特权几何模型。然而，在杂乱环境中进行无碰撞规划仍然具有挑战性。我们提出了NeurRAFT，一种基于锚点级流匹配和间隙感知偏好调优的生成式规划框架。与先前对密集路点序列建模并将容量花费在冗余局部细节和平滑度上的神经规划器不同，NeurRAFT在紧凑的锚点路点上操作。我们使用Jacobian加权损失训练规划器，该损失考虑每个锚点在任务空间中的影响。在推理时，锚点通过两个积分步骤生成，然后通过三次样条插值恢复平滑的全分辨率轨迹。由于来自正例演示的模仿学习无法区分无碰撞轨迹和近碰撞轨迹，碰撞倾向行为在测试时持续存在。我们不依赖事后修正，而是直接重塑预训练规划器的分布，使其朝向更安全的解决方案，且不增加推理负担。具体来说，直接偏好优化将概率质量转移到具有更大障碍物间隙的轨迹上，所得到的改进直接吸收到规划器参数中。实验表明，与最先进的规划器相比有显著改进，同时真实世界实验展示了在噪声和部分遮挡深度观测下对Franka机器人的零样本迁移。视频结果见https://neurraft.github.io/。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.24026v1/framework-crop.png",
+      "image_caption": "Fig. 2: Overview of NeurRAFT. Given a scene point cloud and clean start/goal configurations, NeurRAFT generates a compact set of trajectory anchors via flow matching, with the intermediate anchors progressively denoised while the boundary configurations remain fixed. A cubic spline then interpolates the anchors to recover smooth trajectory candidates, which are filtered and ranked against a mesh reconstructed from the observed point cloud, and the selected candidate is resampled into dense waypoints as final planning solution. During preference alignment (dashed process), the trajectories are evaluated using a privileged scene model to obtain signed obstacle clearance, and preference pairs are constructed to fine-tune NeurRAFT toward higher-clearance trajectories. This privileged information is used only during training and is not required at inference, where NeurRAFT plans directly from the scene point cloud.",
+      "summary_one_sentence": "NeurRAFT提出了一种基于锚点级流匹配和间隙感知偏好调优的生成式神经运动规划框架，通过直接偏好优化将概率质量转移到更大障碍物间隙的轨迹，从而在杂乱环境中实现无碰撞规划，并展示了到Franka机器人的零样本迁移。",
+      "research_problem": "端到端神经运动规划器在杂乱环境中生成无碰撞轨迹仍具挑战性，且模仿学习无法区分无碰撞与近碰撞轨迹，导致易碰撞行为持续存在。",
+      "method_summary": "NeurRAFT采用锚点级流匹配生成紧凑锚点路点，用Jacobian加权损失训练以考虑任务空间影响；推理时两步积分生成锚点，再经三次样条插值得到平滑轨迹；随后使用直接偏好优化（DPO）将预训练分布向更大障碍物间隙的轨迹偏移，从而减少碰撞风险。",
+      "experimental_setup": "与最先进规划器对比的实验；真实世界实验使用Franka机器人在噪声和部分遮挡深度观测下进行零样本迁移。具体实验环境、数据集和评估指标无法从摘要确认。",
+      "key_results": "与最先进规划器相比有显著改进；在Franka机器人上实现了零样本迁移，且能处理噪声和部分遮挡的深度观测。具体数值未在摘要中给出。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该工作针对端到端神经运动规划器在杂乱环境中的碰撞避免难题，提出了一种无需事后修正的生成式规划框架，通过锚点级流匹配提高效率，并通过直接偏好优化将安全性直接编码进规划器参数，同时展示了在真实机器人上的零样本迁移能力，对机器人操作和具身智能中的运动规划研究具有参考价值。",
+      "relevance_reason": "该论文属于机器人操作与具身智能中的运动规划方向，使用原始传感器观测（深度图像）进行端到端规划，可作为背景文献或方法参考；未涉及力觉融合或接触状态估计，与这些方向无直接关联。",
+      "related_to_my_research": "该论文是机器人操作/具身智能领域的运动规划方法，可作为背景文献或方法参考；与视觉-力觉融合和接触状态估计无直接关联，但其中的深度观测处理和生成式规划思路可能对多模态感知融合研究有启发。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Medium: 方法框架和核心思想清晰，但缺少网络架构、训练超参数、数据集和评估细节，直接复现需要补充信息。",
+      "core_candidate": "No",
+      "relevance_score": 45,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-26T04:34:22.720909+00:00",
+      "source_query_groups": [
+        "generative"
+      ]
+    },
     {
       "paper_id": "arxiv-2608-22800",
       "title": "Triplet2Track: A Hierarchical System with Object-Centric Representations for Reliable Long-Horizon Manipulation",
@@ -66,7 +443,7 @@
       "key_results": "在多样化的真实世界长期任务中实现74.8%的平均成功率，并支持对象级和组合泛化。",
       "limitations": "无法从摘要确认。",
       "why_it_matters": "该工作针对长期操作中分层规划的开环和幻觉问题，提出闭环系统，利用人类视频降低数据依赖，提升可解释性和可靠性，对具身智能和机器人操作研究具有重要意义。",
-      "relevance_reason": "该论文聚焦长期机器人操作中的分层模仿学习和闭环重规划，属于具身智能和机器人操作领域；与视觉-力觉融合和接触状态估计无直接关联，但可作为操作任务规划与执行的参考。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有真实机器人实验线索",
       "related_to_my_research": "该论文可作为机器人操作中分层规划与闭环执行的方法参考，尤其适用于需要长期任务可靠性的场景；与视觉-力觉融合和接触状态估计无直接交集，但可为其提供高层任务规划背景。",
       "recommended_reading": "无法从摘要确认。",
       "reproduction_value": "Medium: 方法框架描述清晰，但缺少代码和详细实验设置，复现需要较多工程细节。",
@@ -84,7 +461,8 @@
       "source_query_groups": [
         "recovery",
         "vla"
-      ]
+      ],
+      "image_caption_zh": "TTS流程。(a) 关系预测器提取逐帧三元组并构建时序图，下一三元组生成器选择下一个目标三元组。(b) 轨迹预测器将目标转换转化为连续点轨迹。(c) 动作策略将轨迹映射为动作。(d) 推理时，TTS检测当前三元组，选择可行目标，预测轨迹先验，并闭环执行动作。"
     },
     {
       "paper_id": "arxiv-2608-23138",
@@ -147,7 +525,7 @@
       "key_results": "Bridge/WidowX四任务集平均成功率72.9%（无Bridge特定微调）；OFG/接触读出迁移到NORA-1.5保持或提高成功率，控制器时间减少>20倍；类型化头比Embodied-R1文本解码快6.68--6.90倍；作为π0.5的空间指导，真实机器人成功率从52.7%提升到80.7%。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "这项工作表明类型化空间读出可以作为具身推理与机器人执行之间高效、可检查的接口，避免文本序列化的瓶颈，提升VLA操作性能与可解释性，对机器人操作和具身智能领域有重要意义。",
-      "relevance_reason": "该论文直接涉及视觉-语言-动作模型在机器人操作中的空间接地与执行，包含对象功能接地（OFG）和接触读出，与视觉-力觉融合、接触状态估计、机器人操作和具身智能研究高度相关。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索",
       "related_to_my_research": "方法参考/背景文献：论文提出的类型化空间读出和OFG/接触读出为接触状态估计和操作策略提供了新的接口思路，可作为视觉-力觉融合与操作研究的参考和潜在竞争方法。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 摘要提供了方法框架、模型名称和关键性能数据，但未给出实现细节、超参数或代码，复现需要补充信息。",
@@ -164,7 +542,8 @@
       "ai_generated_at": "2026-08-25T04:33:07.751749+00:00",
       "source_query_groups": [
         "vla"
-      ]
+      ],
+      "image_caption_zh": "Pointing-VLA架构与类型化接口：Embodied-R1隐藏状态输入点、OFG/接触热图和VTG航点头；固定的PICK/PLACE槽使用源条件OFG/Pointing，包装器将图像几何映射到机器人坐标。"
     },
     {
       "paper_id": "arxiv-2608-22983",
@@ -224,7 +603,7 @@
       "key_results": "两种实现在所有实验中均以零安全违规完成到达-避免任务；当不存在认证动作时，机器人保持、重新规划或安全停止，而不是执行未认证命令。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该工作为高自由度机械臂提供了具有形式化安全保证的规划与控制框架，弥合了高层规划和底层控制之间的鸿沟，对安全关键的机器人操作任务具有重要意义。",
-      "relevance_reason": "该论文属于机器人操作与具身智能中的安全规划与控制方向，其符号规划与反馈控制框架可作为操作任务中运动生成的背景文献或方法参考，尤其涉及高自由度机械臂在不确定性下的安全执行。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；涉及失败、恢复、重规划或纠偏；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索",
       "related_to_my_research": "该论文与机器人操作和具身智能研究直接相关，可作为安全运动规划与控制的方法参考；其处理模型不确定性和有界扰动的方式对接触状态估计中的鲁棒控制有借鉴意义，但未涉及视觉-力觉融合。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 摘要提供了清晰的方法框架和实验平台，但缺少实现细节、参数和代码，复现需要较多补充信息。",
@@ -241,7 +620,8 @@
       "ai_generated_at": "2026-08-25T04:31:03.917783+00:00",
       "source_query_groups": [
         "recovery"
-      ]
+      ],
+      "image_caption_zh": "CSymPlan概述。离线实现从采样扰动任务空间动力学的有限抽象中综合出经过认证的到达-避免策略，并通过量化-查找-扭矩管道执行。在线实现使用相同的抽象和扭矩实现接口，但在运行时调用pFaces在线模式，为当前目标和障碍集综合或刷新符号策略。"
     },
     {
       "paper_id": "arxiv-2608-23224",
@@ -303,7 +683,7 @@
       "key_results": "原始附加文本使平均成功率从92.47%降至3.00%；有意义和无意义附加文本在500个状态上均失败。TOWN-VLA在LIBERO-Plus上成功率从69.5%升至73.1%（+362回合；95% CI 1.89--5.45点），在物理PiPER上从52.7%升至78.7%（p=3.16×10^{-6}）。",
       "limitations": "无预言机的准入校准是下一个部署目标，暗示当前方法可能依赖某种预言机或需要进一步自动化校准。",
       "why_it_matters": "该工作揭示了VLA策略对提示形式的敏感性，并提出一种可执行的权限控制机制，为安全、可靠地使用检索增强VLA策略提供了重要保障，对机器人操作和具身智能有实际意义。",
-      "relevance_reason": "属于具身智能/机器人操作领域，研究VLA策略的提示注入控制，与视觉-力觉融合和接触状态估计无直接关联，但可作为机器人操作中策略鲁棒性和安全控制的背景文献。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；涉及失败、恢复、重规划或纠偏；方法包含可迁移的策略学习或多模态建模",
       "related_to_my_research": "作为背景文献，涉及VLA操作策略的鲁棒性和提示控制，可用于机器人操作研究中的基线对比或方法参考；与视觉-力觉融合和接触状态估计无直接关联。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 实验设置和结果详细，但未提供代码或完整实现细节，复现需要较多工程努力。",
@@ -320,7 +700,8 @@
       "ai_generated_at": "2026-08-25T04:32:15.917065+00:00",
       "source_query_groups": [
         "vla"
-      ]
+      ],
+      "image_caption_zh": "TOWN-VLA将调用、候选排序、提示授权与冻结控制分离。排序后的上下文经检查后，要么渲染为规范胶囊，要么被拒绝以精确恢复Base。记录的分数、标志和提示哈希使路由可审计。Task-Prior仅用于公式(9)中的oracle控制。"
     },
     {
       "paper_id": "arxiv-2608-22990",
@@ -389,7 +770,7 @@
       "key_results": "InstructMove为诊断视觉捷径提供了受控测试平台；InstructMove模拟数据能够改善真实世界指令跟随操作性能。具体量化结果无法从摘要确认。",
       "limitations": "无法从摘要确认。",
       "why_it_matters": "该工作指出了现有操作基准中指令跟随评估的缺陷，提出文本不可或缺原则，使评估更严格；InstructMove基准和模拟数据有助于推动VLA模型真正遵循语言指令，并提升真实世界操作性能。",
-      "relevance_reason": "该论文属于机器人操作与具身智能研究，聚焦VLA模型的指令跟随评估，可作为操作策略评估的基准和参考；与视觉-力觉融合和接触状态估计无直接关联，但其中关于任务设计和评估的思想可迁移到相关操作研究中。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；具有真实机器人、公开代码或可复现资源线索；有真实机器人实验线索；有公开代码或资源线索",
       "related_to_my_research": "该论文可作为机器人操作与具身智能研究中指令跟随策略的基准和背景文献；其text-indispensable评估思想可用于设计更严格的操作实验，与视觉-力觉融合/接触状态估计研究无直接冲突，但可作为操作任务设计的参考。",
       "recommended_reading": "无法从摘要确认。",
       "reproduction_value": "High: 论文提供了代码链接，并描述了基准构建原则、训练-评估协议和模拟数据，具备较高的可复现性。",
@@ -406,7 +787,8 @@
       "ai_generated_at": "2026-08-25T04:34:00.254161+00:00",
       "source_query_groups": [
         "vla"
-      ]
+      ],
+      "image_caption_zh": "InstructMove基准实例化流程概览。该基准通过三个对齐组件构建：经过验证的资产库、包含基于约束的场景/布局生成的任务模板（覆盖四个任务族），以及用于生成训练演示的专家轨迹合成。"
     },
     {
       "paper_id": "arxiv-2608-22100",
@@ -460,7 +842,7 @@
       "key_results": "单任务装配100%成功；顺序桁架装配子任务90-100%成功；接触力低于基线且更稳定。",
       "limitations": "无法从摘要确认。",
       "why_it_matters": "该工作展示了零样本仿真到现实迁移在力感知接触丰富装配中的可行性，减少真实数据收集成本，推动多阶段装配自动化，可扩展到建筑及其他接触丰富操作任务。",
-      "relevance_reason": "论文聚焦接触丰富操作中的力/力矩感知与自适应控制，与接触状态估计和机器人操作直接相关；但摘要未涉及视觉感知或视觉-力觉融合。",
+      "relevance_reason": "明确涉及视觉–力/力矩或接触反馈；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；包含六维力/力矩或wrench信号；有真实机器人实验线索；直接面向接触丰富任务",
       "related_to_my_research": "作为接触丰富操作与力觉自适应控制的背景文献，可参考其扩散策略与自适应控制结合的方法，用于对比或方法参考。",
       "recommended_reading": "无法从摘要确认。",
       "reproduction_value": "Medium：摘要提供了清晰的方法框架和实验任务，但未提供代码、详细参数或基线具体信息，复现需要补充实现细节。",
@@ -479,7 +861,8 @@
         "vision-force",
         "contact",
         "generative"
-      ]
+      ],
+      "image_caption_zh": "方法概述：我们利用机器人法兰中心位置及法兰处的力/力矩反馈，在仿真中生成合成数据（左），用于训练基于CNN的扩散策略（中）；随后开发自适应控制器，修正策略预测的动作（Δx, Δy, Δz），实现零样本策略迁移并提升真实部署性能（右）。"
     },
     {
       "paper_id": "arxiv-2608-21735",
@@ -534,7 +917,7 @@
       "key_results": "该方法在自由飞行期间避免触觉反馈，在物理交互下提供方向一致的反馈，可执行多种操纵任务；消融研究表明饱和滤波器通过防止电机饱和并告知纠正措施提高交互稳定性。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该工作解决了空中操纵遥操作中安全关键问题，通过无力传感器触觉反馈和考虑推力限制的安全滤波器，提高了交互稳定性和操作安全性，对具身智能和机器人操作有重要意义。",
-      "relevance_reason": "该论文提出视觉与无力传感器触觉反馈融合的遥操作框架，涉及接触状态估计和物理交互，与视觉-力觉融合和机器人操作研究直接相关。",
+      "relevance_reason": "明确涉及视觉–力/力矩或接触反馈；研究对象是机器人操作或接触任务；涉及失败、恢复、重规划或纠偏；方法包含可迁移的策略学习或多模态建模；包含六维力/力矩或wrench信号",
       "related_to_my_research": "该论文可作为视觉-力觉融合与接触状态估计研究的方法参考和背景文献，其安全滤波器设计对机器人操作中的交互控制具有借鉴意义。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 摘要提供了方法框架和实验验证，但缺少代码、详细参数和具体数据，复现需要较多工程细节。",
@@ -551,7 +934,8 @@
       "ai_generated_at": "2026-08-25T04:30:01.517474+00:00",
       "source_query_groups": [
         "vision-force"
-      ]
+      ],
+      "image_caption_zh": "(a) AM和(b)主设备的三维模型，包括它们对应的机体坐标系，AM上标有电机索引。"
     },
     {
       "paper_id": "arxiv-2608-21592",
@@ -605,7 +989,7 @@
       "key_results": "仿真验证了插孔插入任务中的方案有效性；分析表明识别仅限于运动激发的方向，刚性插入下工具长度不可观测，而柔顺环可部分激发；二阶导纳下柔顺证书在连续时间中无条件成立；QP公式能精确产生预测项但无法再现跟踪自适应项。",
       "limitations": "识别仅限于运动激发的方向，导致某些参数（如工具长度）在特定运动下不可观测；QP公式无法再现跟踪自适应项；目前仅在仿真中验证，缺乏真实机器人实验。",
       "why_it_matters": "该工作是分解操作学习为独立任务策略与在线自适应运动学组件的研究计划的第一步，有助于实现机器人对未知工具和手的快速适应，对接触丰富的操作任务具有重要意义。",
-      "relevance_reason": "该论文聚焦于力/力矩反馈的运动学自适应估计，属于力觉感知与接触状态估计范畴，与机器人操作中的插孔插入等接触丰富任务直接相关；未涉及视觉感知，但可作为力觉-视觉融合方法中的力觉组件参考。",
+      "relevance_reason": "明确涉及视觉–力/力矩或接触反馈；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；方法包含可迁移的策略学习或多模态建模；包含六维力/力矩或wrench信号；直接面向接触丰富任务",
       "related_to_my_research": "该论文可作为方法参考，特别是力/力矩反馈的运动学估计部分；也可作为接触状态估计的背景文献；与视觉-力觉融合研究相比，它仅使用力觉，可作为力觉通道的基线方法。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 论文提供了完整的理论推导和仿真验证，但未提供代码或详细实验配置，复现需要自行实现算法。",
@@ -622,7 +1006,8 @@
       "ai_generated_at": "2026-08-25T04:30:43.189136+00:00",
       "source_query_groups": [
         "vision-force"
-      ]
+      ],
+      "image_caption_zh": "一次仅依靠力/力矩的插入成功。销钉仅使用传感器向量 𝐬=[𝑑, 𝐅_lat, 𝐌]^𝑇 即完成就位，未测量末端位置。传感器深度跟踪正运动学深度（小偏差 𝐛），接触力和腕部力矩保持在成功限值内，稳定性裕度 λ_min(𝐽̂𝐽̂^𝑇) 全程高于 10⁻⁶ 秩门限，因此定理 1 的满行秩假设沿轨迹成立。三个成功通道在 𝑡≈5.1 s 同时闭合。"
     },
     {
       "paper_id": "arxiv-2608-21204",
