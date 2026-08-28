@@ -1,11 +1,159 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-08-27",
+  "generated_at": "2026-08-28",
   "source": "arXiv",
-  "candidate_count": 147,
-  "retained_count": 138,
+  "candidate_count": 153,
+  "retained_count": 140,
   "relevance_threshold": 45,
   "papers": [
+    {
+      "paper_id": "arxiv-2608-26645",
+      "title": "FLARE: A Failure-Aware Framework for Autonomous Correction and Recovery in Visual-Language Robotic Manipulation",
+      "authors": [
+        "Ganlong Zhao",
+        "Zijia Tang",
+        "Xingping Chen",
+        "Zhanghui Kuang",
+        "Ye Tian",
+        "Guanbin Li"
+      ],
+      "abstract": "Vision-Language-Action Models~(VLAs) have demonstrated significant promise in generalizing to complex, long-horizon robotic manipulation tasks. However, their performance remains brittle, as they are typically trained on trajectory-monotonic, failure-free demonstrations. This reliance on ``perfect\" data leaves them unable to recover from common execution errors, such as a missed grasp, a dropped object, or an unexpected collision. In this paper, we propose FLARE, a novel framework that endows VLAs with robust error recovery capabilities through a ``Retry\" and ``Reset\" paradigm. First, we introduce a ``Retry\" mechanism by injecting perturbation and bridging segments that decouple robot pose from environment state into demonstrations, enabling the policy to autonomously handle execution deviations. Second, to address critical, state-breaking (OOD) failures, we introduce a ``Reset\" pipeline. We leverage an MLLM for offline failure analysis to automatically identify OOD states from execution videos. This analysis enables the efficient, targeted collection of a small library of object-centric ``Reset\" skills, which are trained to restore the environment to a task-valid state. Our full framework integrates these learned policies. At inference, an online MLLM monitor arbitrates between task execution and ``Reset\" skills. Experiments on challenging, contact-rich manipulation tasks show our approach significantly improves task success and robustness.",
+      "published_date": "2026-08-27",
+      "updated_date": "2026-08-27",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.26645",
+      "paper_url": "https://arxiv.org/abs/2608.26645",
+      "pdf_url": "https://arxiv.org/pdf/2608.26645",
+      "source": "arXiv",
+      "last_checked": "2026-08-28",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出FLARE框架，通过“Retry”和“Reset”范式赋予VLA鲁棒的错误恢复能力。",
+        "引入“Retry”机制，通过注入扰动和桥接段解耦机器人姿态与环境状态，使策略能自主处理执行偏差。",
+        "引入“Reset”流程，利用MLLM离线失败分析自动识别OOD状态，并高效收集对象中心“Reset”技能库以恢复环境状态。",
+        "在推理时使用在线MLLM监视器仲裁任务执行与“Reset”技能，整合完整框架。",
+        "在接触丰富操作任务上验证了方法能显著提高任务成功率和鲁棒性。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "视觉-语言-动作模型（VLAs）在泛化到复杂、长时程机器人操作任务方面展现了巨大潜力。然而，它们的性能仍然脆弱，因为它们通常在轨迹单调、无失败演示上训练。这种对“完美”数据的依赖使它们无法从常见执行错误中恢复，例如抓取失败、物体掉落或意外碰撞。在本文中，我们提出FLARE，一种新颖框架，通过“重试”（Retry）和“重置”（Reset）范式赋予VLA鲁棒的错误恢复能力。首先，我们引入“Retry”机制，通过向演示中注入扰动和桥接段，将机器人姿态与环境状态解耦，使策略能够自主处理执行偏差。其次，为了解决关键的、破坏状态的（OOD）失败，我们引入“Reset”流程。我们利用MLLM进行离线失败分析，自动从执行视频中识别OOD状态。该分析能够高效、有针对性地收集一个小型对象中心“Reset”技能库，并训练这些技能将环境恢复到任务有效状态。我们的完整框架整合了这些学习策略。在推理时，在线MLLM监视器在任务执行和“Reset”技能之间进行仲裁。在具有挑战性的接触丰富操作任务上的实验表明，我们的方法显著提高了任务成功率和鲁棒性。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.26645v1/figure_2_1113.png",
+      "image_caption": "Figure 2 : The overall framework of our method. We first collect the failure data with the VLA model trained with regular demonstrations. Then we perform the failure analysis with MLLM and formulate the failures with ID/OOD taxonomy. For ID errors, we perform the perturbation &amp; bridging augmentation to enhance the robustness and “retry” ability of VLA models. For OOD errors, we collect the object-centric reset skill data. All these data are utilized to obtained a skill bank for further close-loop inference.",
+      "summary_one_sentence": "FLARE通过“Retry”和“Reset”机制赋予视觉-语言-动作模型错误恢复能力，显著提升接触丰富操作任务的成功率和鲁棒性。",
+      "research_problem": "视觉-语言-动作模型依赖无失败演示训练，无法从常见执行错误（如抓取失败、物体掉落、意外碰撞）中恢复，导致性能脆弱。",
+      "method_summary": "FLARE包含两个核心机制：Retry机制通过向演示中注入扰动和桥接段，将机器人姿态与环境状态解耦，使策略能够自主处理执行偏差；Reset流程利用MLLM离线分析执行视频，自动识别OOD状态，并针对性地收集和训练对象中心Reset技能，以将环境恢复到任务有效状态。推理时，在线MLLM监视器在任务执行与Reset技能之间进行仲裁。",
+      "experimental_setup": "在具有挑战性的接触丰富操作任务上进行实验；具体数据集、基线和指标无法从摘要确认。",
+      "key_results": "实验表明该方法显著提高了任务成功率和鲁棒性；具体数值无法从摘要确认。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该工作针对VLA在实际操作中因依赖完美演示而脆弱的问题，提出系统化的错误恢复框架，对提升具身智能在真实复杂环境中的鲁棒性和可靠性具有重要意义。",
+      "relevance_reason": "该研究聚焦接触丰富操作中的错误恢复，与机器人操作和具身智能高度相关；其Retry/Reset机制和MLLM监控可启发接触状态估计与力觉融合的鲁棒控制策略。",
+      "related_to_my_research": "该论文可作为方法参考和背景文献，尤其适用于视觉-力觉融合与接触状态估计在接触丰富任务中的错误恢复与鲁棒控制研究。",
+      "recommended_reading": "建议阅读视觉-语言-动作模型（VLA）、多模态大模型（MLLM）失败分析、机器人操作错误恢复等相关研究。",
+      "reproduction_value": "Medium: 摘要提供了框架设计思路，但缺少训练细节、网络结构、数据集和实验配置，难以直接复现。",
+      "core_candidate": "Review",
+      "relevance_score": 66,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-28T15:47:24.676214+00:00",
+      "source_query_groups": [
+        "contact"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2608-26673",
+      "title": "PredVLA: A Sub-Million-Parameter Predictive-Coding Policy for Robot Manipulation",
+      "authors": [
+        "Hiroki Sawada",
+        "Shunichi Kasahara"
+      ],
+      "abstract": "Large pretrained vision-language-action models dominate modern robot-manipulation benchmarks, but it remains unclear how much model scale is necessary for strong language-conditioned control, or whether fundamentally different control architectures can remain competitive at much smaller parameter budgets. We present PredVLA, a language-conditioned predictive-coding policy with only 0.68 million trainable network parameters and no robot-data pretraining, whose hierarchical generative recurrent dynamics predict visual features and proprioception while observations influence latent state only through online inference from the resulting sensory prediction errors. On LIBERO, PredVLA achieves an 86.9% mean success rate across the three short-horizon suites and 75.4% when the long-horizon suite is included. Under a controlled comparison using the same frozen front end, demonstrations, action decoder, and evaluation protocol, PredVLA achieves 3.7x and 7.4x mean success rates of parameter-matched Transformer and LSTM policies, respectively. The predictive-coding formulation also makes the contribution of observation-driven correction directly measurable: because observations influence the recurrent state only through prediction-error-based latent inference, disabling this inference yields an exact open-loop control condition. Together, these results show that a sub-million-parameter recurrent generative policy can achieve strong performance on modern language-conditioned manipulation benchmarks while providing an explicit mechanism for prediction-error-driven online state correction.",
+      "published_date": "2026-08-27",
+      "updated_date": "2026-08-27",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.26673",
+      "paper_url": "https://arxiv.org/abs/2608.26673",
+      "pdf_url": "https://arxiv.org/pdf/2608.26673",
+      "source": "arXiv",
+      "last_checked": "2026-08-28",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "vla-manipulation",
+        "generative-policy"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出PredVLA，一种仅0.68M可训练参数且无需机器人数据预训练的语言条件预测编码策略。",
+        "采用层次生成循环动力学预测视觉特征和本体感觉，观测仅通过预测误差的在线推理影响潜在状态。",
+        "在LIBERO基准上实现86.9%（短时程）和75.4%（含长时程）的平均成功率。",
+        "在受控比较中，平均成功率分别达到参数匹配Transformer和LSTM策略的3.7倍和7.4倍。",
+        "通过禁用预测误差推理可得到精确的开环控制条件，使观测驱动校正的贡献可直接测量。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "大型预训练视觉-语言-动作模型主导了现代机器人操作基准，但尚不清楚需要多大的模型规模才能实现强大的语言条件控制，或者根本不同的控制架构能否在更小的参数预算下保持竞争力。我们提出了PredVLA，一种语言条件的预测编码策略，仅拥有68万可训练网络参数，且没有机器人数据预训练，其层次生成循环动力学预测视觉特征和本体感觉，而观测仅通过从由此产生的感觉预测误差进行在线推理来影响潜在状态。在LIBERO上，PredVLA在三个短时程套件上实现了86.9%的平均成功率，包含长时程套件时为75.4%。在使用相同冻结前端、演示、动作解码器和评估协议的受控比较下，PredVLA的平均成功率分别是参数匹配的Transformer和LSTM策略的3.7倍和7.4倍。预测编码公式还使观测驱动的校正贡献可直接测量：因为观测仅通过基于预测误差的潜在推理影响循环状态，禁用该推理可产生精确的开环控制条件。总之，这些结果表明，一个亚百万参数的循环生成策略可以在现代语言条件操作基准上实现强性能，同时提供一种由预测误差驱动的在线状态校正的显式机制。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.26673v1/Figures/ablation_pertask.png",
+      "image_caption": "Figure 3: Task-level effects of removing the visual prediction-error term ( λ v = 0 \\lambda_{v}=0 ) or the proprioceptive prediction-error term ( λ q = 0 \\lambda_{q}=0 ) during online inference. Within each suite, tasks are sorted by the success-rate change induced by the ablation. Gray bars indicate the intact model, while colored bars indicate the change after removing the corresponding error term. Although the suite-level averages in Table 5 are similar for some suites, the task-level patterns differ substantially, especially on object , where performance is much more sensitive to the proprioceptive error term.",
+      "summary_one_sentence": "PredVLA以仅0.68M参数的无预训练预测编码策略，在LIBERO上达到86.9%平均成功率，并显著优于参数匹配的Transformer和LSTM。",
+      "research_problem": "探索是否必须依赖大规模预训练模型才能实现强语言条件机器人操作，以及更小参数预算下的替代控制架构能否保持竞争力。",
+      "method_summary": "PredVLA使用层次生成循环动力学预测视觉特征和本体感觉，观测不直接输入潜在状态，而是通过在线推理由感觉预测误差产生的信号来更新潜在状态，从而实现预测编码式的闭环校正。",
+      "experimental_setup": "在LIBERO基准上评估，包括三个短时程套件和长时程套件；与使用相同冻结前端、演示、动作解码器和评估协议的参数匹配Transformer和LSTM策略进行受控比较。",
+      "key_results": "LIBERO三个短时程套件平均成功率86.9%，含长时程套件为75.4%；在受控比较中，平均成功率是参数匹配Transformer和LSTM的3.7倍和7.4倍。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该结果表明亚百万参数循环生成策略也能在现代语言条件操作基准上取得强性能，并提供预测误差驱动的在线状态校正机制，对‘规模至上’的主流范式提出挑战，为高效具身智能策略提供了新方向。",
+      "relevance_reason": "该论文属于机器人操作与具身智能领域，提出了一种基于预测编码的轻量级操作策略，其预测误差驱动的状态校正机制与视觉-力觉融合和接触状态估计中的状态推断问题密切相关，可作为背景文献或方法参考。",
+      "related_to_my_research": "方法参考/背景文献：PredVLA的预测编码和预测误差在线推理机制可用于视觉-力觉融合中的状态估计与校正，也可作为机器人操作策略的基线对比。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Medium：摘要提供了模型参数、方法框架和主要结果，但未给出代码、网络结构细节、训练超参数或完整实验配置，复现需要较多补充信息。",
+      "core_candidate": "No",
+      "relevance_score": 45,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-28T15:48:31.000939+00:00",
+      "source_query_groups": [
+        "vla",
+        "generative"
+      ]
+    },
     {
       "paper_id": "arxiv-2608-26053",
       "title": "$R^3$: Training Robots to Reason in Natural Language via Reinforcement Learning",
@@ -68,7 +216,7 @@
       "key_results": "R^3 改善了在未见任务上的探索和泛化，并在两个基准上显著优于仅指令的模仿学习基线；分析表明自由形式的语言推理可以作为一种测试时计算机制来引导底层策略。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该工作展示了通过强化学习训练 VLM 进行自由形式语言推理，可以作为一种测试时计算机制来引导底层操作策略，为长时程机器人操作中的高层推理与底层控制结合提供了新思路，对具身智能研究具有重要意义。",
-      "relevance_reason": "本文属于具身智能中机器人操作与语言推理结合的研究，聚焦于高层语言推理如何引导底层操作策略，与视觉-力觉融合和接触状态估计无直接关联，但可作为机器人操作中高层任务规划与决策的背景文献或方法参考。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有公开代码或资源线索",
       "related_to_my_research": "本文可作为机器人操作与具身智能研究中的背景文献或方法参考，尤其涉及高层语言推理与底层策略结合、长时程任务规划与泛化，与视觉-力觉融合和接触状态估计的研究方向互补而非直接竞争。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium：摘要提供了方法框架（中期训练 + 基于规则的强化学习）和实验基准，但未给出模型架构、训练超参数、规则设计细节等关键实现信息，复现需要依赖项目页面或后续论文。",
@@ -85,7 +233,8 @@
       "ai_generated_at": "2026-08-27T14:58:55.286091+00:00",
       "source_query_groups": [
         "vla"
-      ]
+      ],
+      "image_caption_zh": "RL影响指令分布。从基础模型开始的RL广泛重写指令分布，而中期训练后的RL进行局部修改。"
     },
     {
       "paper_id": "arxiv-2608-25872",
@@ -146,7 +295,7 @@
       "key_results": "VISTA-Policy在三个任务上均优于强纯视觉基线3D Diffusion Policy和触觉基线，并展现出对未见物体尺度的分布外泛化能力和对动态扰动的鲁棒性。",
       "limitations": "无法从摘要确认。",
       "why_it_matters": "该工作提供了一种无需额外触觉/力传感器即可获得丰富接触反馈的途径，降低了硬件复杂性和部署成本，同时提升了接触丰富操作的精度和泛化能力，对通用精细操作机器人具有重要价值。",
-      "relevance_reason": "该论文通过视觉变形场推断接触状态，属于视觉-力觉融合与接触状态估计的交叉方向；其策略网络和实验任务直接面向机器人操作与具身智能，可作为方法参考和基线对比。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；方法包含可迁移的策略学习或多模态建模；有真实机器人实验线索；直接面向接触丰富任务",
       "related_to_my_research": "该论文提出基于视觉变形场的接触状态估计方法，可作为视觉-力觉融合和接触状态估计领域的方法参考；其模仿学习策略与接触丰富操作任务与机器人操作和具身智能研究直接相关。",
       "recommended_reading": "无法从摘要确认。",
       "reproduction_value": "Medium: 摘要提供了方法框架和项目网站，但未明确提供代码或完整实验细节，复现需要较多实现工作。",
@@ -164,7 +313,8 @@
       "source_query_groups": [
         "contact",
         "generative"
-      ]
+      ],
+      "image_caption_zh": "VISTA-Policy概述。通过从被动柔顺夹爪中提取视觉变形场，我们的框架提供了高维视觉-物理反馈，无需专用触觉或力传感器即可实现鲁棒的接触丰富操作。"
     },
     {
       "paper_id": "arxiv-2608-25798",
@@ -229,7 +379,7 @@
       "key_results": "模拟任务平均成功率为65%，真实任务平均成功率为69%，均优于强基线。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该工作解决了VLA模型中触觉反馈过时的问题，无需额外控制器即可实现触觉反应式操作，简化了架构并提升了接触丰富操作性能，对具身智能和机器人操作研究有重要价值。",
-      "relevance_reason": "该论文聚焦于利用执行时触觉反馈进行流式动作生成，属于接触丰富的机器人操作，与视觉-力觉融合、接触状态估计和具身智能研究高度相关。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；具有真实机器人、公开代码或可复现资源线索；有真实机器人实验线索；直接面向接触丰富任务",
       "related_to_my_research": "方法参考：其流式动作生成与执行感知触觉注意力机制可借鉴用于触觉-视觉融合策略；背景文献：涉及接触状态估计与触觉反馈在操作中的应用。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 摘要提供了方法框架和实验任务，但缺少实现细节、超参数和代码，复现需要更多信息。",
@@ -247,7 +397,8 @@
       "source_query_groups": [
         "contact",
         "vla"
-      ]
+      ],
+      "image_caption_zh": "TacForcing概览。VLM一次性编码视觉观察和语言指令，生成的任务上下文在整个流式生成过程中复用。流式动作专家根据块特定的流动时间逐步细化动作块，使连续的动作块能够依次准备好执行。每个就绪块执行后，编码触觉反馈，然后从未完成块的保留中间状态恢复生成。执行感知触觉注意力使最新触觉反馈仅调节下一个计划执行的动作块，从而减少触觉采集与动作执行之间的时间错配。"
     },
     {
       "paper_id": "arxiv-2608-25585",
@@ -303,7 +454,7 @@
       "key_results": "RA-VLA在成功率和计算效率上均优于现有方法，建立了无需训练机器人适应的鲁棒框架。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该工作为VLA模型在开放世界中的测试时适应提供了一种无需训练的解决方案，有助于提升机器人操作在新型任务分布下的鲁棒性和实用性。",
-      "relevance_reason": "该论文属于具身智能和机器人操作领域，提出检索增强VLA用于测试时适应，与视觉-力觉融合和接触状态估计无直接关联，但可作为机器人操作策略适应性的背景文献或方法参考。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；涉及失败、恢复、重规划或纠偏；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有真实机器人实验线索",
       "related_to_my_research": "该论文与机器人操作和具身智能研究直接相关，可作为背景文献或方法参考；其检索增强和测试时适应思想可能对操作策略的泛化性研究有启发，但与视觉-力觉融合和接触状态估计的具体问题关联较弱。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 摘要提供了方法框架和实验基准，但未给出代码或详细实现细节，复现需依赖论文全文。",
@@ -320,7 +471,8 @@
       "ai_generated_at": "2026-08-27T15:00:12.239042+00:00",
       "source_query_groups": [
         "vla"
-      ]
+      ],
+      "image_caption_zh": "RA-VLA 概览。我们的框架检索任务相关的专家片段作为上下文指导，促进未见任务的动作生成。该架构整合两个关键组件：一个训练用于识别行为相似片段的检索器（第4.2节），以及一个微调用于将动作生成有效建立在检索上下文上的VLA策略（第4.3节）。"
     },
     {
       "paper_id": "arxiv-2608-25659",
@@ -382,7 +534,7 @@
       "key_results": "LIBERO上达到98.6%，LIBERO-Plus上达到87.8%；在相机和布局变化下有明显提升；真实机器人平均成功率从29.2%提升到52.5%（相对于复现的π0.5），同时保持高效闭环控制。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该工作展示了在VLA策略中直接注入3D世界状态和预测令牌的有效性，以训练时监督提升3D结构感知和未来动态预测，同时保持推理时的高效性，为机器人操作中的3D世界建模提供了新思路。",
-      "relevance_reason": "该论文属于机器人操作与具身智能中的3D世界建模与预测方法，与视觉-力觉融合和接触状态估计无直接关联，但可作为操作策略中3D感知与动态预测的背景文献。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；涉及失败、恢复、重规划或纠偏；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索",
       "related_to_my_research": "该论文可作为背景文献，其世界状态/预测令牌设计可能为多模态感知（包括力觉）提供参考，但与接触状态估计无直接竞争关系。",
       "recommended_reading": "GaussianDream（论文中提及的前作）",
       "reproduction_value": "Medium: 摘要提供了方法框架和关键设计，但未给出训练细节、超参数和代码，且依赖VGGT/TGE等外部模型，复现需要较多工程实现。",
@@ -399,7 +551,8 @@
       "ai_generated_at": "2026-08-27T15:00:00.203121+00:00",
       "source_query_groups": [
         "vla"
-      ]
+      ],
+      "image_caption_zh": "GaussianDream++概览。世界状态令牌和世界预测令牌直接插入PaliGemma前缀，并与视觉和语言令牌上下文关联。生成的表示直接条件化动作专家。训练期间，轻量级世界表示头将相同的令牌表示解码为当前世界和耦合的未来预测，用于密集高斯监督。未来观测仅用于构建监督目标，从不进入策略前向传播。部署时，世界表示头、高斯渲染器和所有辅助监督分支被移除，而世界令牌保留在策略中。"
     },
     {
       "paper_id": "arxiv-2608-25757",
@@ -469,7 +622,7 @@
       "key_results": "LM-X在50个随机困难RoboTwin2.0任务上达到74.1%成功率，GR00T N1.7为55.4%；在七个真实机器人任务上达到68.6%，GR00T N1.7为50.7%。完整模型相比动作仅主干提高16.0个百分点，相比最强单头变体提高10.8个百分点。RTG跟踪语义进度和可见回归，方差在犹豫和振荡控制期间上升。",
       "limitations": "无法从摘要确认。",
       "why_it_matters": "该工作表明显式的多时间尺度预测状态可以增强控制，同时暴露可解释的内部估计，为通用机器人操作VLA策略提供了可解释性与控制性能兼得的新思路。",
-      "relevance_reason": "该论文面向通用机器人操作和具身智能，提出多尺度预测（进度、事件、不确定性），其中异方差动作流的不确定性估计与接触状态估计相关，可作为方法参考和基线对比。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；方法包含可迁移的策略学习或多模态建模",
       "related_to_my_research": "该论文与视觉-力觉融合/接触状态估计/机器人操作/具身智能研究相关，其不确定性预测和事件预测机制可借鉴到接触状态估计中，作为方法参考和潜在竞争。",
       "recommended_reading": "无法从摘要确认。",
       "reproduction_value": "Medium: 摘要提供了模型设计、训练数据规模和实验设置，但未给出代码或完整实现细节，复现需要较多工程投入。",
@@ -486,7 +639,8 @@
       "ai_generated_at": "2026-08-27T14:58:06.608155+00:00",
       "source_query_groups": [
         "vla"
-      ]
+      ],
+      "image_caption_zh": "（a）开始"
     },
     {
       "paper_id": "arxiv-2608-26076",
@@ -542,7 +696,7 @@
       "key_results": "在≤5次网络评估内生成可靠抓取，匹配最先进的扩散和流模型；推理延迟为毫秒级，最高39倍加速；真实世界抓取无需额外训练或域适应，且在观测噪声下鲁棒。",
       "limitations": "无法从摘要确认。",
       "why_it_matters": "该方法显著降低了生成式抓取模型的推理延迟，使高质量多模态抓取生成能够满足机器人实时操作需求，并展示了从仿真到真实世界的直接迁移能力，对具身智能和机器人操作有重要价值。",
-      "relevance_reason": "本文研究机器人抓取合成，属于机器人操作与具身智能的核心任务；其基于李群约束的生成模型可视为抓取姿态估计的先进方法，与接触状态估计相关但未涉及力觉信息。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有真实机器人实验线索",
       "related_to_my_research": "作为机器人操作中抓取生成的最新方法，可作为基线对比或方法参考；其快速推理特性对实时操作有参考价值，但与视觉-力觉融合无直接关联。",
       "recommended_reading": "无法从摘要确认。",
       "reproduction_value": "Medium: 摘要提供了方法框架和关键结果，但缺少实现细节、超参数和代码，复现需要补充信息。",
@@ -559,7 +713,8 @@
       "ai_generated_at": "2026-08-27T15:02:27.721358+00:00",
       "source_query_groups": [
         "generative"
-      ]
+      ],
+      "image_caption_zh": ""
     },
     {
       "paper_id": "arxiv-2608-26058",
@@ -634,7 +789,7 @@
       "key_results": "单个检查点在LIBERO上达到98.3%，在RoboTwin Easy和Hard上分别达到88.7%和89.2%，在LIBERO-Plus上零样本达到82.0%，在RoboCasa GR-1上达到62.0%。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该工作提出了一种统一动作表征范式，有望解决VLA策略跨具身迁移的核心瓶颈，推动具身智能从单一机器人向多种形态泛化，对机器人操作和具身智能研究具有重要参考价值。",
-      "relevance_reason": "该论文属于具身智能和机器人操作领域，提出以相机为中心的统一动作几何预训练方法，与视觉-动作策略密切相关；但摘要未涉及力觉或接触状态估计，因此主要作为背景文献和方法参考。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索",
       "related_to_my_research": "该论文是机器人操作与具身智能领域的背景文献和方法参考，其统一动作表征思想可启发视觉-力觉融合操作策略的设计；但未涉及接触状态估计，与力觉融合无直接关联。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 方法描述清晰且给出了数据规模与基准结果，但未提供代码和完整实验细节，且训练需要大规模数据和算力，复现门槛较高。",
@@ -651,7 +806,8 @@
       "ai_generated_at": "2026-08-27T14:54:45.593256+00:00",
       "source_query_groups": [
         "vla"
-      ]
+      ],
+      "image_caption_zh": "UCAG-P概述：用于从异构操作数据中统一学习，涵盖单臂机器人、双臂机器人、灵巧手和人手。UCAG-P将不兼容的原始动作空间映射到共享的以相机为中心的运动空间，该空间由手腕或末端执行器及抓取中心的3D相机坐标系轨迹定义。几何条件转换器将统一运动预测与相机到基座的变换、雅可比矩阵和机器人状态相结合，生成具体具身可执行动作。这一统一接口支持机器人与人类联合训练，并提升了在LIBERO、LIBERO-Plus、RoboTwin和RoboCasa GR-1上的性能。"
     },
     {
       "paper_id": "arxiv-2608-25864",
@@ -717,7 +873,7 @@
       "key_results": "在仿真和真实世界评估中，先前最先进的VLA在未见过的协作模式下大多失败，而MA-VLA持续成功。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "这项工作表明，结构化的、每臂原子动作分配为多臂具身系统中的可扩展泛化提供了一条实用途径，对多臂协作和组合泛化研究具有重要意义。",
-      "relevance_reason": "该论文涉及机器人操作中的多臂协作与组合泛化，属于具身智能和视觉-语言-动作模型的前沿研究，与视觉-力觉融合和接触状态估计相关，因为多臂协作需要感知和状态估计支持。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；具有真实机器人、公开代码或可复现资源线索；有真实机器人实验线索；有公开代码或资源线索",
       "related_to_my_research": "基于论文内容，它与视觉-力觉融合/接触状态估计/机器人操作/具身智能研究的关系为：方法参考和背景文献。MA-VLA提出了多臂协作的原子动作分配框架，可作为机器人操作中任务分解和角色分配的参考；其组合泛化思想与接触状态估计中的泛化需求相关。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "High: 摘要表明代码、模型和数据已公开，且方法（原子动作分配和Arm Shuffle）描述具体，具备复现条件。",
@@ -734,7 +890,8 @@
       "ai_generated_at": "2026-08-27T14:55:18.514832+00:00",
       "source_query_groups": [
         "vla"
-      ]
+      ],
+      "image_caption_zh": "MA-VLA流水线。高级指令首先被分解为一系列原子提示。每个手臂由一个元组表示，包含其原子提示、状态、腕部视角观察和真实动作（例如，Arm1: , Arm2: , Arm3: ）。训练期间，Arm Shuffle随机排列这些手臂元组，防止模型将行为绑定到固定的手臂身份，并促进跨不同协作模式的角色无关协调。"
     },
     {
       "paper_id": "arxiv-2608-24741",
