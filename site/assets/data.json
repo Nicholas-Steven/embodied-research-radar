@@ -1,11 +1,160 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-08-30",
+  "generated_at": "2026-08-31",
   "source": "arXiv",
-  "candidate_count": 153,
-  "retained_count": 140,
+  "candidate_count": 155,
+  "retained_count": 143,
   "relevance_threshold": 45,
   "papers": [
+    {
+      "paper_id": "arxiv-2608-28075",
+      "title": "Plan Along the Way: Event-Triggered Foundation-Model Planning for TAMP Execution in Partially Observable Manipulation",
+      "authors": [
+        "Puru Ojha",
+        "Narendhiran Vijayakumar",
+        "Nav Singhal",
+        "Girish Varma",
+        "Antony Thomas"
+      ],
+      "abstract": "Manipulation in partially observable environments requires planning under incomplete scene information. In such settings, an initially valid plan may execute successfully yet remain insufficient for task completion. Existing foundation-model-guided task and motion planning (TAMP) systems can generate useful long-horizon task decompositions, subgoals, or constraints, but they often assume having access to a fully specified scene state or invoke model-level replanning after a subgoal, refinement, or execution attempt fails. We present ROBUST TAMP, a modular LLM/VLM-guided planning framework for reactive TAMP where unseen task-relevant and non-target objects may become visible during execution. The framework restricts the foundation-model planner to the currently visible relational scene state, validates generated task-level actions against a strict executable interface, and routes the accepted actions to scene-specific execution adapters. Object discovery is treated as a distinct replanning event and, after a stable execution horizon, the system reconstructs the visible scene state and replans using completed-action history and structured replanning event context. Evaluations are performed on six RLBench/CoppeliaSim kitchen and grill variants involving hidden objects, non-target object discovery, articulated-container interaction, and temporal manipulation procedures. We compare text-only LLM and VLM planners of different sizes under the same validation, execution, monitoring, and replanning pipeline, reporting task success, partial goal completion, discovery- and failure-triggered replanning behavior, implicit non-target-object handling, and planner inference cost.",
+      "published_date": "2026-08-28",
+      "updated_date": "2026-08-28",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.28075",
+      "paper_url": "https://arxiv.org/abs/2608.28075",
+      "pdf_url": "https://arxiv.org/pdf/2608.28075",
+      "source": "arXiv",
+      "last_checked": "2026-08-31",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "failure-understanding",
+        "failure-recovery"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出ROBUST TAMP，一个模块化的LLM/VLM引导的规划框架，用于反应式TAMP。",
+        "将基础模型规划器限制在当前可见的关系场景状态，并验证任务级动作的可执行性。",
+        "将物体发现作为独立的重新规划事件，并在稳定执行周期后重建场景状态进行重规划。",
+        "在六个RLBench/CoppeliaSim变体上评估，比较不同规模的LLM和VLM规划器。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "在部分可观测环境中的操作需要在场景信息不完整的情况下进行规划。在这种设置下，初始有效的计划可能执行成功，但仍不足以完成任务。现有的基础模型引导的任务与运动规划（TAMP）系统可以生成有用的长时程任务分解、子目标或约束，但它们通常假设能够访问完全指定的场景状态，或者在子目标、细化或执行尝试失败后才调用模型级重新规划。我们提出了ROBUST TAMP，一个模块化的LLM/VLM引导的规划框架，用于反应式TAMP，其中在执行过程中可能看到与任务相关和无关的非目标物体。该框架将基础模型规划器限制在当前可见的关系场景状态，验证生成的任务级动作是否符合严格的可执行接口，并将接受的动作路由到特定场景的执行适配器。物体发现被视为一个独立的重新规划事件，在稳定的执行周期后，系统使用已完成动作历史和结构化重新规划事件上下文重建可见场景状态并重新规划。在六个RLBench/CoppeliaSim厨房和烤架变体上进行了评估，涉及隐藏物体、非目标物体发现、铰接容器交互和时间操作程序。我们在相同的验证、执行、监控和重新规划流程下比较了不同规模的纯文本LLM和VLM规划器，报告了任务成功率、部分目标完成率、发现和失败触发的重新规划行为、隐式非目标物体处理以及规划器推理成本。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.28075v1/updated_fig1-2.png",
+      "image_caption": "Fig. 1: Overview of the proposed ROBUST TAMP framework, integrating visual perception and object-region mapping with foundation-model based task planning, execution validation, symbolic action execution, motion planning and closed loop monitoring",
+      "summary_one_sentence": "提出ROBUST TAMP，一种事件触发的LLM/VLM规划框架，通过限制在可见场景状态和物体发现触发重规划，实现部分可观测环境下的反应式任务与运动规划。",
+      "research_problem": "部分可观测环境下的操作规划问题：初始计划可能执行成功但不足以完成任务，现有TAMP系统假设完全场景状态或仅在失败后重规划。",
+      "method_summary": "ROBUST TAMP框架：使用LLM/VLM规划器，仅基于当前可见的关系场景状态生成任务级动作；通过严格的可执行接口验证动作；将接受的动作路由到场景特定的执行适配器；物体发现触发重规划；在稳定执行周期后，使用已完成动作历史和结构化重规划事件上下文重建可见场景状态并重新规划。",
+      "experimental_setup": "在六个RLBench/CoppeliaSim厨房和烤架变体上进行评估，涉及隐藏物体、非目标物体发现、铰接容器交互和时间操作程序。比较了不同规模的纯文本LLM和VLM规划器，在相同的验证、执行、监控和重规划流程下。",
+      "key_results": "摘要未报告具体数值；报告了任务成功率、部分目标完成率、发现和失败触发的重规划行为、隐式非目标物体处理以及规划器推理成本。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该工作针对部分可观测环境下TAMP的实用性问题，提出事件触发的重规划机制，利用基础模型生成任务分解，同时保证可执行性，对机器人操作和具身智能中的长时程规划有重要意义。",
+      "relevance_reason": "该论文直接涉及机器人操作中的任务与运动规划，处理部分可观测性和物体发现，与视觉-力觉融合和接触状态估计相关，可作为背景文献或方法参考。",
+      "related_to_my_research": "该论文属于机器人操作与具身智能领域，其事件触发的重规划机制和可见场景状态建模可作为方法参考，与视觉-力觉融合/接触状态估计的研究方向有潜在关联，可作为背景文献或潜在竞争。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Medium: 方法描述较详细，但未提供代码和具体实验配置，复现需要较多实现工作。",
+      "core_candidate": "No",
+      "relevance_score": 50,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-31T10:12:58.030298+00:00",
+      "source_query_groups": [
+        "failure",
+        "recovery"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2608-28108",
+      "title": "DeicticVLA: Unifying Instruction Modes Based on Language and Deictic Gestures in a Single VLA",
+      "authors": [
+        "Kango Yanagida",
+        "Tatsuya Aoki",
+        "Yuichiro Yoshikawa",
+        "Takato Horii"
+      ],
+      "abstract": "Vision-Language-Action models (VLAs) allow users to specify manipulation tasks in natural language, but distinguishing a target or placement goal among objects of the same category or similar appearance requires detailed expressions that VLAs may not use reliably. We propose DeicticVLA, which canonicalizes Language Instruction (LI), Vision-Language Instruction (VLI), and Visual Instruction (VI) into a text prompt and deictic masks through text-prompt completion and deictic gesture grounding, enabling a single pretrained VLA to handle all three instruction modes. With a shared backbone, demonstrations, and matched training steps, we compare two RGB visual prompting methods, two separate-channel mask prompting methods, and three training strategies in simulation. Under two-stage training, the four prompting methods achieve high in-distribution success but differ in their ability to use deictic masks in unseen layouts. Across methods, training-strategy ablations show that two-stage training improves such use, while retaining second-stage LI data mitigates forgetting without reducing VLI and VI performance. In three real-world tasks, one policy supports all modes. VLI and VI outperform LI under unseen expressions, appearance changes, and novel objects. For unseen categories, both achieve 100% success, compared with 16.7% for jointly trained LI. These results demonstrate the unified three-mode interface and guide DeicticVLA design.",
+      "published_date": "2026-08-28",
+      "updated_date": "2026-08-28",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.28108",
+      "paper_url": "https://arxiv.org/abs/2608.28108",
+      "pdf_url": "https://arxiv.org/pdf/2608.28108",
+      "source": "arXiv",
+      "last_checked": "2026-08-31",
+      "keywords": [
+        "cs.RO",
+        "cs.CV",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "research_topics": [
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出DeicticVLA，将语言指令、视觉-语言指令和视觉指令规范化到文本提示和指示掩码中",
+        "通过文本提示补全和指示手势接地，使单个预训练VLA处理三种指令模式",
+        "在仿真中系统比较了四种提示方法和三种训练策略",
+        "在真实世界任务中验证了统一三模式接口的有效性"
+      ],
+      "research_branches": [],
+      "abstract_zh": "视觉-语言-动作模型（VLA）允许用户用自然语言指定操作任务，但在同类或相似外观物体中区分目标或放置位置需要详细表达，而VLA可能无法可靠使用这些表达。我们提出DeicticVLA，通过文本提示补全和指示手势接地，将语言指令（LI）、视觉-语言指令（VLI）和视觉指令（VI）规范化到文本提示和指示掩码中，使单个预训练VLA能够处理所有三种指令模式。在共享骨干网络、演示和匹配训练步数下，我们在仿真中比较了两种RGB视觉提示方法、两种分离通道掩码提示方法和三种训练策略。在两阶段训练下，四种提示方法在分布内取得高成功率，但在未见布局中使用指示掩码的能力不同。跨方法的训练策略消融表明，两阶段训练提高了这种使用能力，而保留第二阶段LI数据缓解了遗忘，且不降低VLI和VI性能。在三个真实世界任务中，一个策略支持所有模式。在未见表达、外观变化和新物体下，VLI和VI优于LI。对于未见类别，两者均达到100%成功率，而联合训练的LI为16.7%。这些结果展示了统一的三模式接口，并指导DeicticVLA设计。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.28108v1/deicticvla_system_overview.png",
+      "image_caption": "Fig. 1: Overview of the DeicticVLA system and the prompting methods evaluated in this work. (a) The user specifies a task through LI, VLI, or VI, which provide language only, language with a deictic gesture, or a deictic gesture only, respectively. Instruction canonicalization converts these user inputs into a canonical representation consisting of a text prompt and deictic masks through text-prompt completion and deictic gesture grounding. DeicticVLA uses this representation together with RGB observations and the robot state to generate an action chunk. (b) VP-BBox and VP-Fade construct RGB visual prompts by drawing a bounding box or fading regions outside the deictic mask on the RGB observation, respectively. MP-Early and MP-Late encode the mask separately and fuse the resulting mask prompt embeddings before and after the visual encoder, respectively.",
+      "summary_one_sentence": "提出DeicticVLA，将语言、视觉-语言和视觉指令统一为文本提示和指示掩码，使单个VLA支持三种指令模式，并在仿真和真实任务中验证其有效性。",
+      "research_problem": "VLA模型在自然语言指令下难以区分同类或相似外观物体，需要更可靠的指令表达方式；如何统一多种指令模式（语言、视觉-语言、视觉）到单个VLA中。",
+      "method_summary": "DeicticVLA通过文本提示补全和指示手势接地，将语言指令（LI）、视觉-语言指令（VLI）和视觉指令（VI）统一为文本提示和指示掩码，利用共享骨干网络和两阶段训练策略，使单个预训练VLA支持所有指令模式。",
+      "experimental_setup": "在仿真中，使用共享骨干网络、演示和匹配训练步数，比较两种RGB视觉提示方法、两种分离通道掩码提示方法和三种训练策略；并在三个真实世界任务中评估。",
+      "key_results": "两阶段训练下四种提示方法在分布内高成功率；两阶段训练提高指示掩码使用能力，保留第二阶段LI数据缓解遗忘且不降低VLI/VI性能；真实任务中VLI和VI在未见表达、外观变化和新物体下优于LI；未见类别上VLI和VI成功率100%，LI仅16.7%。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该工作首次在单个VLA中统一语言、视觉-语言和视觉三种指令模式，通过指示手势接地提升目标区分能力，为机器人操作中的多模态指令接口设计提供了新思路和实证指导。",
+      "relevance_reason": "属于具身智能和机器人操作领域，研究多模态指令（语言+指示手势）的统一，与视觉-力觉融合和接触状态估计无直接关联，但可作为多模态感知与操作策略的背景文献。",
+      "related_to_my_research": "作为背景文献，涉及机器人操作中的多模态指令融合，与视觉-力觉融合和接触状态估计无直接关系，但可启发多模态信息融合和操作策略设计。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Medium：摘要提供了方法框架、提示方法比较和训练策略消融，但未给出代码、详细超参数或模型架构细节，复现需要额外信息。",
+      "core_candidate": "No",
+      "relevance_score": 50,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-31T10:14:24.950222+00:00",
+      "source_query_groups": [
+        "vla"
+      ]
+    },
     {
       "paper_id": "arxiv-2608-26645",
       "title": "FLARE: A Failure-Aware Framework for Autonomous Correction and Recovery in Visual-Language Robotic Manipulation",
@@ -81,6 +230,84 @@
         "contact"
       ],
       "image_caption_zh": "我们首先利用常规演示训练的VLA模型收集失败数据，然后借助MLLM进行失败分析，并按ID/OOD分类法对失败进行归类。对于ID错误，我们进行扰动与桥接增强，以提升VLA模型的鲁棒性和“重试”能力；对于OOD错误，我们收集以物体为中心的复位技能数据。所有数据用于构建技能库，以支持后续的闭环推理。"
+    },
+    {
+      "paper_id": "arxiv-2608-27609",
+      "title": "PHR-VLA: Planning Horizon Reasoning for Vision-Language-Action Models",
+      "authors": [
+        "Davood Soleymanzadeh",
+        "Kaidi Zhang",
+        "Zhiyuan Zhang",
+        "Bihao Zhang",
+        "Xiao Liang",
+        "Yu She",
+        "Minghui Zheng"
+      ],
+      "abstract": "Vision-language-action models (VLAs) have shown strong promise for general-purpose robotic manipulation by mapping language instructions and vision observations directly to actions. However, most VLAs primarily condition action prediction on current observations and lack an explicit mechanism for reasoning over future task dynamics, which is particularly important for fine-grained, contact-rich manipulation. We present PHR-VLA, a framework that enables planning-horizon reasoning in VLAs through privileged latent representations of future dynamics. PHR-VLA introduces a lightweight auxiliary future head that, during training, aligns the VLA's internal representations with latent dynamics extracted from future observations. Evaluation results demonstrate that local, contact-centric, patch-level latent dynamics supervision from the wrist camera improves success rate on LIBERO from 84.1% to 88.4% and on real-world disassembly tasks from 63.3% to 82.5%. Patch-level supervision from a third-person camera also improves performance on Meta-World from 56.70% to 57.8%. These results demonstrate that privileged latent dynamics alignment provides an effective training signal for improving anticipatory reasoning in VLA policies. Project website: \\href{https://davoodsz.github.io/PHR-VLA.github.io/}{https://davoodsz.github.io/PHR-VLA.github.io/}",
+      "published_date": "2026-08-27",
+      "updated_date": "2026-08-27",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.27609",
+      "paper_url": "https://arxiv.org/abs/2608.27609",
+      "pdf_url": "https://arxiv.org/pdf/2608.27609",
+      "source": "arXiv",
+      "last_checked": "2026-08-31",
+      "keywords": [
+        "cs.RO",
+        "cs.AI",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "research_topics": [
+        "vision-force",
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出PHR-VLA框架，通过特权潜在表示实现VLA中的规划视野推理。",
+        "引入轻量级辅助未来头，在训练时将VLA内部表示与从未来观察中提取的潜在动态对齐。",
+        "实验证明局部、接触中心、补丁级潜在动态监督能提升多个模拟基准和真实任务的性能。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "视觉-语言-动作模型（VLA）通过将语言指令和视觉观察直接映射到动作，在通用机器人操作方面展现出强大潜力。然而，大多数VLA主要基于当前观察来预测动作，缺乏对未来任务动态进行推理的显式机制，而这对于细粒度、接触丰富的操作尤为重要。我们提出了PHR-VLA，一个通过未来动态的特权潜在表示实现VLA中规划视野推理的框架。PHR-VLA引入了一个轻量级的辅助未来头，在训练期间将VLA的内部表示与从未来观察中提取的潜在动态对齐。评估结果表明，来自腕部相机的局部、接触中心、补丁级潜在动态监督将LIBERO上的成功率从84.1%提高到88.4%，在真实世界拆卸任务中从63.3%提高到82.5%。来自第三人称相机的补丁级监督也将Meta-World上的性能从56.70%提高到57.8%。这些结果表明，特权潜在动态对齐为改善VLA策略的预期推理提供了有效的训练信号。项目网站：https://davoodsz.github.io/PHR-VLA.github.io/",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.27609v1/01PHRVLA.png",
+      "image_caption": "Fig. 2: PHR-VLA Framework. Privileged Finetuning: In addition to the current observation 𝐈 t \\mathbf{I}_{t} , language instruction 𝐥 t \\mathbf{l}_{t} , and proprioceptive state 𝐪 t \\mathbf{q}_{t} used by the standard VLA backbone, privileged planning horizon frames 𝐈 t + 1 : t + H \\mathbf{I}_{t+1:t+H} are passed through a frozen vision encoder to compute latent-dynamics targets. The action-token latents produced by VLM backbone feed two heads: the standard flow matching action head, supervised by ℒ VLA \\mathcal{L}_{\\mathrm{VLA}} , and the auxiliary future head which is supervised by ℒ Align \\mathcal{L}_{\\mathrm{Align}} against the latent dynamics targets. Efficient Inference: The action head runs exactly as in standard VLA backbone, so PHR-VLA adds zero latency or memory cost at deployment.",
+      "summary_one_sentence": "PHR-VLA通过引入特权潜在未来动态对齐的辅助训练头，提升了VLA在接触丰富操作任务中的规划视野推理能力，并在LIBERO、真实拆卸和Meta-World上取得性能提升。",
+      "research_problem": "大多数VLA仅基于当前观察预测动作，缺乏对未来任务动态的显式推理机制，尤其影响细粒度、接触丰富的操作任务。",
+      "method_summary": "PHR-VLA在训练时使用一个轻量级辅助未来头，将VLA的内部表示与从未来观察中提取的潜在动态（特别是来自腕部相机的局部接触中心补丁级信息）进行对齐，从而在不改变推理时输入的情况下增强模型对未来动态的推理能力。",
+      "experimental_setup": "在LIBERO、Meta-World模拟基准以及真实世界拆卸任务上进行评估；使用腕部相机和第三人称相机进行不同级别的潜在动态监督。",
+      "key_results": "LIBERO成功率从84.1%提升到88.4%；真实世界拆卸任务从63.3%提升到82.5%；Meta-World从56.70%提升到57.8%。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该工作为VLA提供了显式的未来动态推理机制，通过特权潜在对齐改善接触丰富操作的性能，对具身智能和机器人操作策略学习有重要意义。",
+      "relevance_reason": "该论文聚焦接触丰富操作中的未来动态推理，利用腕部相机局部接触信息，与视觉-力觉融合、接触状态估计和机器人操作策略学习密切相关。",
+      "related_to_my_research": "该论文属于机器人操作与具身智能领域，涉及接触丰富操作和未来动态推理，可作为方法参考或背景文献，尤其对视觉-力觉融合和接触状态估计研究有参考价值。",
+      "recommended_reading": "可进一步阅读视觉-语言-动作模型、未来潜在动态预测、接触丰富操作相关文献。",
+      "reproduction_value": "Medium: 方法描述清晰，但缺少实现细节和代码，复现需要较多工程努力。",
+      "core_candidate": "Review",
+      "relevance_score": 66,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-08-31T10:12:05.641629+00:00",
+      "source_query_groups": [
+        "contact",
+        "vla"
+      ]
     },
     {
       "paper_id": "arxiv-2608-26673",
@@ -11413,5 +11640,5 @@
     "data_source": "arXiv",
     "last_verified_note": "事实字段来自论文元数据；AI分析字段仅在配置Provider后生成。"
   },
-  "built_at": "2026-08-30"
+  "built_at": "2026-08-31"
 }
