@@ -1,11 +1,473 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-08-31",
+  "generated_at": "2026-09-01",
   "source": "arXiv",
-  "candidate_count": 155,
-  "retained_count": 143,
+  "candidate_count": 161,
+  "retained_count": 149,
   "relevance_threshold": 45,
   "papers": [
+    {
+      "paper_id": "arxiv-2608-30536",
+      "title": "Behavior-Skill: A Fine-Grained Benchmark for Evaluating Vision-Language-Action Policies in Long-Horizon Tasks",
+      "authors": [
+        "Chunyun Ma",
+        "Lun Luo",
+        "Xingjian Luo",
+        "Xiexing Feng",
+        "Hang Zhang",
+        "Wei Liu",
+        "Feng Qiao",
+        "Yaonan Wang",
+        "Huimin Lu",
+        "Xieyuanli Chen"
+      ],
+      "abstract": "Reliable execution of long-horizon mobile manipulation tasks remains challenging because overall task success depends on the successful completion of multiple constituent skills. Existing benchmarks, however, still rely primarily on full-task rollouts and aggregate task-level metrics, making intermediate failures difficult to observe and analyze. We present Behavior-Skill, a benchmark that reformulates the learning and evaluation of long-horizon tasks around executable constituent skills. It contains 235,492 skill instances from 10,000 demonstrations across 50 household tasks and 34 semantic skill categories. Each instance pairs a skill instruction with an aligned observation-action segment, and is further associated with a restorable intermediate state and a skill success condition to enable independent evaluation under valid preconditions. We further introduce trajectory-level and skill-level metrics to characterize policy capability beyond aggregate task success. Extensive experiments across representative VLA policies including pi0.5 and GR00T on the complete 50-task benchmark show that failures are highly non-uniform across skills, with contact-rich manipulation skills forming persistent bottlenecks. These results demonstrate that Behavior-Skill complements full-task evaluation by exposing intermediate capability profiles for analyzing and improving long-horizon VLA policies. Behavior-Skill is publicly available at https://github.com/nubot-nudt/Behavior-Skill.",
+      "published_date": "2026-08-31",
+      "updated_date": "2026-08-31",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.30536",
+      "paper_url": "https://arxiv.org/abs/2608.30536",
+      "pdf_url": "https://arxiv.org/pdf/2608.30536",
+      "source": "arXiv",
+      "last_checked": "2026-09-01",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "vision-force",
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出Behavior-Skill基准，围绕可执行组成技能重新构建长时程任务的学习与评估",
+        "包含235,492个技能实例，来自50个家庭任务和34个语义技能类别，每个实例配有技能指令、对齐的观察-动作片段、可恢复中间状态和技能成功条件",
+        "引入轨迹级和技能级指标，以表征策略能力超越聚合任务成功",
+        "通过实验揭示失败在技能间高度不均匀，接触丰富的操作技能是持续瓶颈"
+      ],
+      "research_branches": [],
+      "abstract_zh": "可靠执行长时程移动操作任务仍然具有挑战性，因为整体任务成功取决于多个组成技能的成功完成。然而，现有基准主要依赖完整任务回放和聚合任务级指标，使得中间失败难以观察和分析。我们提出Behavior-Skill，一个围绕可执行组成技能重新构建长时程任务学习与评估的基准。它包含来自50个家庭任务和34个语义技能类别的10,000个演示中的235,492个技能实例。每个实例将技能指令与对齐的观察-动作片段配对，并进一步关联可恢复的中间状态和技能成功条件，以便在有效前提条件下进行独立评估。我们还引入了轨迹级和技能级指标，以表征超越聚合任务成功的策略能力。在包含pi0.5和GR00T在内的代表性VLA策略上，对完整50任务基准的大量实验表明，失败在技能间高度不均匀，接触丰富的操作技能形成持续瓶颈。这些结果表明，Behavior-Skill通过暴露中间能力剖面来补充完整任务评估，用于分析和改进长时程VLA策略。Behavior-Skill公开可用：https://github.com/nubot-nudt/Behavior-Skill",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.30536v1/figure/overview.png",
+      "image_caption": "Fig. 2: Overview of Behavior-Skill. (a) Skill Dataset: we annotate each constituent skill from BEHAVIOR-1K demonstrations with multimodal context and action summaries. (b) Independent skill evaluation: each skill is executed from a restored intermediate state and verified against a skill-specific BDDL goal. (c) Evaluation metrics: TSCR summarizes skill completion at the trajectory level, while STSR captures performance across skill types.",
+      "summary_one_sentence": "本文提出了Behavior-Skill，一个基于可执行组成技能的长时程任务基准，包含大量技能实例和技能级指标，用于细粒度评估VLA策略。",
+      "research_problem": "现有长时程操作任务基准主要依赖完整任务回放和聚合任务级指标，难以观察和分析中间失败，无法定位策略在具体技能上的不足。",
+      "method_summary": "Behavior-Skill将长时程任务分解为可执行组成技能，每个技能实例包含指令、观察-动作片段、可恢复中间状态和成功条件，支持在有效前提条件下独立评估；同时提出轨迹级和技能级指标。",
+      "experimental_setup": "在包含50个任务、10,000个演示、235,492个技能实例的完整Behavior-Skill基准上，评估了pi0.5和GR00T等代表性VLA策略。",
+      "key_results": "失败在技能间高度不均匀，接触丰富的操作技能形成持续瓶颈；Behavior-Skill通过暴露中间能力剖面补充完整任务评估。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该基准提供了细粒度的技能级评估，能够暴露VLA策略在长时程任务中的中间失败模式，特别是接触丰富操作技能的瓶颈，有助于分析和改进策略。",
+      "relevance_reason": "该基准聚焦长时程移动操作任务中的技能级评估，特别关注接触丰富的操作技能，与视觉-力觉融合和接触状态估计的研究直接相关，可作为评估基准或问题定义参考。",
+      "related_to_my_research": "该论文提供了技能级评估基准，其中接触丰富操作技能被识别为瓶颈，这与视觉-力觉融合和接触状态估计的研究目标高度相关，可作为方法参考或基线对比的基准。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "High：基准公开可用，包含大量技能实例和明确评估指标，便于复现和比较。",
+      "core_candidate": "Yes",
+      "relevance_score": 81,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-01T09:01:29.206093+00:00",
+      "source_query_groups": [
+        "contact",
+        "vla"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2608-30643",
+      "title": "Temporal Forcing: 4D Representation Alignment for Vision-Language-Action Models",
+      "authors": [
+        "Xingyu Ding",
+        "Yuzhong Zhao",
+        "Chunhai Zhao",
+        "Yinghuan Shi",
+        "Chaoyang Zhao",
+        "Yifan Zhang"
+      ],
+      "abstract": "Recent vision-language-action (VLA) methods improve manipulation performance by aligning their representations with 3D scene geometry. However, these methods often struggle with long-horizon manipulation and observation aliasing between visually similar states due to a lack of temporal information: the 3D scene geometry captures only the current state, rather than how it has evolved over time. To resolve this, we present Temporal Forcing, a 4D representation alignment method for VLA models. Specifically, we first introduce a history pathway that enables a vanilla VLA model to summarize observation history into temporally aware latent representations. Then, the latent representations are aligned with the geometric features extracted by a pretrained 4D foundation model, which captures the evolving 3D world through temporally consistent geometric representations, enabling a deeper understanding of dynamic environments. Temporal Forcing reaches 98.8% on LIBERO, outperforming its base model by 2.2 points. On a physical hidden-placement task, it raises full-task success from 20.0% to 43.3%. Code will be publicly available.",
+      "published_date": "2026-08-31",
+      "updated_date": "2026-08-31",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.30643",
+      "paper_url": "https://arxiv.org/abs/2608.30643",
+      "pdf_url": "https://arxiv.org/pdf/2608.30643",
+      "source": "arXiv",
+      "last_checked": "2026-09-01",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出Temporal Forcing，一种用于VLA模型的4D表示对齐方法",
+        "引入历史路径，使VLA模型能够总结观测历史为时间感知的潜在表示",
+        "将潜在表示与预训练4D基础模型提取的几何特征对齐，以捕获动态环境",
+        "在LIBERO基准和物理隐藏放置任务上显著提升性能"
+      ],
+      "research_branches": [],
+      "abstract_zh": "最近的视觉-语言-动作（VLA）方法通过将其表示与3D场景几何对齐来提升操作性能。然而，这些方法常常因缺乏时间信息而在长程操作和视觉相似状态之间的观测混淆上遇到困难：3D场景几何仅捕获当前状态，而非其随时间如何演变。为解决这一问题，我们提出了Temporal Forcing，一种用于VLA模型的4D表示对齐方法。具体来说，我们首先引入一个历史路径，使原始VLA模型能够将观测历史总结为时间感知的潜在表示。然后，将这些潜在表示与预训练的4D基础模型提取的几何特征对齐，该模型通过时间一致的几何表示捕获不断演化的3D世界，从而实现对动态环境的更深入理解。Temporal Forcing在LIBERO上达到98.8%，比其基础模型高出2.2个百分点。在物理隐藏放置任务上，它将完整任务成功率从20.0%提升到43.3%。代码将公开提供。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.30643v1/fig2.png",
+      "image_caption": "Figure 2: Overview of Temporal Forcing. (a) The History Pathway compresses K K past frames per camera into gist tokens and summarizes them into the History Latent Representation and 16 tokens (Sec. 3.3 ). (b) 4D Representation Acquisition uses a pretrained 4D foundation model to extract Causal Geometric Features and Dense Geometric Features, visualized here as their top three PCA components (Sec. 3.2 ). (c) Temporal Alignment aligns the History Latent Representation with the Causal Geometric Features, while Current-Frame Alignment aligns current-frame image tokens with the Dense Geometric Features (Sec. 3.4 ). Gated fusion (zero-init) injects the 16 tokens without extending the backbone sequence (Sec. 3.3 ). The pretrained 4D foundation model and all alignment heads are training-only.",
+      "summary_one_sentence": "提出Temporal Forcing，通过将VLA模型的潜在表示与预训练4D基础模型的几何特征对齐，引入时间信息，从而提升长程操作性能。",
+      "research_problem": "现有VLA方法仅对齐3D场景几何，缺乏时间信息，导致在长程操作和视觉相似状态观测混淆上表现不佳。",
+      "method_summary": "Temporal Forcing首先通过历史路径让VLA模型编码观测历史，得到时间感知的潜在表示；然后利用预训练4D基础模型提取时间一致的几何特征，并将两者对齐，从而让模型理解动态环境。",
+      "experimental_setup": "在LIBERO基准上进行评估，并额外设计了一个物理隐藏放置任务；具体实验细节（如数据集划分、基线数量等）无法从摘要确认。",
+      "key_results": "LIBERO上达到98.8%，比基础模型高2.2个百分点；物理隐藏放置任务完整任务成功率从20.0%提升到43.3%。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该工作针对VLA模型缺乏时间信息的关键问题，通过4D表示对齐提升对动态环境和长程操作的理解，对机器人操作和具身智能研究有重要参考价值。",
+      "relevance_reason": "该论文聚焦VLA模型在机器人操作中的时间感知表示对齐，与具身智能和机器人操作直接相关；其4D表示方法可作为操作策略的背景文献或方法参考，尤其对涉及动态环境和长程任务的研究有参考价值。摘要未涉及力觉或接触状态估计。",
+      "related_to_my_research": "方法参考/背景文献：该论文的4D表示对齐思想可借鉴到融合时间信息的操作状态估计中，为具身智能中VLA模型的时间建模提供参考。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "High: 方法描述具体，代码将公开，并在标准基准LIBERO和物理任务上报告了明确结果，便于复现和验证。",
+      "core_candidate": "No",
+      "relevance_score": 50,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-01T09:01:47.262529+00:00",
+      "source_query_groups": [
+        "vla"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2608-29487",
+      "title": "Blind Dexterity: Whole-Body Humanoid Manipulation via Pure Proprioception",
+      "authors": [
+        "Aditya Bhatt",
+        "Oleg Kaidanov",
+        "Puze Liu",
+        "Jan Peters"
+      ],
+      "abstract": "We present blind, whole-body manipulation skills on a Unitree G1 humanoid using only onboard proprioception, without cameras, markers, force-torque, or tactile sensors. Despite this minimal sensing, the trained policies exhibit surprising capability across qualitatively different tasks: push-resilient bipedal walking without IMU feedback, active soccer ball trapping with a foot, seeking and lifting a suitcase by its handle, and mounting a randomly positioned skateboard. We argue that these capabilities arise from a key underappreciated signal: the way the joint encoder readouts evolve under purposeful compliant contact, effectively forming a whole-body tactile channel. By generating contact-rich motions, the trained policies actively probe the environment; as a result, task-relevant object state (e.g., pose) becomes increasingly decodable from short proprioceptive histories. We expose this information using compact task-specific state estimators trained alongside, but fully separately from, the policies; their prediction errors decrease rapidly after informative contact. Our results indicate that joint encoder-based proprioception, combined with compliant actuation (now widely available on commercial robots and low-cost motors) is already a strong, practical substrate for whole-body dexterous manipulation and interactive perception, and therefore a natural foundation on which richer sensing can be layered.",
+      "published_date": "2026-08-30",
+      "updated_date": "2026-08-30",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.29487",
+      "paper_url": "https://arxiv.org/abs/2608.29487",
+      "pdf_url": "https://arxiv.org/pdf/2608.29487",
+      "source": "arXiv",
+      "last_checked": "2026-09-01",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "在Unitree G1上仅使用机载本体感觉实现了多种盲操作技能，包括抗推行走、足球拦截、提箱和滑板安装。",
+        "提出关节编码器读数的演化在柔顺接触下形成全身触觉通道的观点。",
+        "通过接触丰富的运动主动探测环境，使任务相关物体状态可从短本体感觉历史中解码。",
+        "使用与策略分离训练的任务特定状态估计器揭示信息，其预测误差在信息丰富接触后迅速下降。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "我们展示了在Unitree G1人形机器人上仅使用机载本体感觉的盲操作技能，没有相机、标记、力扭矩或触觉传感器。尽管传感最少，训练策略在定性不同的任务中表现出惊人能力：无IMU反馈的抗推双足行走、用脚主动接住足球、寻找并用手柄提起手提箱、以及安装随机定位的滑板。我们认为这些能力源于一个被低估的信号：关节编码器读数在有意柔顺接触下的演化方式，有效地形成了全身触觉通道。通过产生接触丰富的运动，训练策略主动探测环境；结果，任务相关的物体状态（例如姿态）从短本体感觉历史中变得越来越可解码。我们使用紧凑的任务特定状态估计器来暴露这些信息，这些估计器与策略同时训练但完全分开；它们的预测误差在信息丰富的接触后迅速下降。我们的结果表明，基于关节编码器的本体感觉，结合柔顺驱动（现在广泛用于商业机器人和低成本电机），已经是全身灵巧操作和交互感知的强大实用基础，因此是更丰富传感可以叠加的自然基础。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.29487v1/suitcase-timing.png",
+      "image_caption": "Fig. 5: Blind Suitcase Lifting . We inspect the blind policy’s behavior over two episodes with different suitcase ( red ) sizes, positions, and table heights. The predicted suitcase pose and size ( green ) is estimated from the same proprioceptive observations that the policy receives. Until 0.43 ​ s 0.43\\mathrm{s} , the estimate is identical; it is the average of all initial suitcase poses during training. The policy first gently touches the table with the left “hand” ( 0.43 − 0.47 ​ s 0.43-0.47\\mathrm{s} ); the estimator instantly localizes the predicted suitcase vertically to lie on the true table surface. It then touches the suitcase with one or both hands from the sides, which strongly improves the complete pose estimate. Next, the robot waves its right hand near the top edge of the suitcase and searches repeatedly for the handle’s opening. Once the handle is “felt”, it commences insertion and lifting.",
+      "summary_one_sentence": "该论文展示了仅使用关节编码器本体感觉的Unitree G1人形机器人能够完成多种全身灵巧操作任务，并提出柔顺接触下关节读数演化可形成全身触觉通道的核心观点。",
+      "research_problem": "如何仅利用本体感觉（关节编码器）实现人形机器人的全身灵巧操作和交互感知，而无需视觉、力扭矩或触觉传感器。",
+      "method_summary": "训练策略产生接触丰富的运动以主动探测环境，同时训练紧凑的任务特定状态估计器，从短本体感觉历史中解码任务相关物体状态；利用柔顺驱动和关节编码器本体感觉作为感知基础。",
+      "experimental_setup": "在Unitree G1人形机器人上进行实验，仅使用机载本体感觉，无相机、标记、力扭矩或触觉传感器；任务包括无IMU反馈的抗推双足行走、用脚拦截足球、寻找并提起手提箱、以及安装随机定位的滑板。",
+      "key_results": "训练策略在多个定性不同任务中表现出惊人能力；任务特定状态估计器的预测误差在信息丰富的接触后迅速下降，表明物体状态可从短本体感觉历史中解码。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该结果表明基于关节编码器的本体感觉结合柔顺驱动已是全身灵巧操作和交互感知的实用基础，可作为更丰富传感层叠的自然基础，对具身智能和机器人操作研究具有重要意义。",
+      "relevance_reason": "该论文直接研究机器人操作中的本体感觉与接触状态估计，与视觉-力觉融合和具身智能领域高度相关，可作为背景文献或方法参考。",
+      "related_to_my_research": "该论文与视觉-力觉融合/接触状态估计/机器人操作/具身智能研究相关，它展示了纯本体感觉的全身操作，可作为接触状态估计的基线对比或方法参考，尤其对柔顺接触下的状态可观测性有启发。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Medium: 摘要提供了核心思想和定性结果，但缺少网络架构、训练细节和超参数，复现需要额外信息。",
+      "core_candidate": "No",
+      "relevance_score": 56,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-01T09:00:58.728565+00:00",
+      "source_query_groups": [
+        "vision-force"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2608-29910",
+      "title": "Matrix-Game 3.5: Enhancing Real-Time Streaming Interactive World Models with Patch Memory",
+      "authors": [
+        "Runjia Qian",
+        "Zile Wang",
+        "Jihai Zhang",
+        "Kai Zou",
+        "Wei Yu",
+        "Jiaxing Li",
+        "Zexiang Liu",
+        "Yaokun Li",
+        "Fei Kang",
+        "Kaichen Huang",
+        "Mengyin An",
+        "Haobo Zhang",
+        "Biao Jiang",
+        "Jiahua Wang",
+        "Haofeng Sun",
+        "Yang Liu",
+        "Yangguang Li"
+      ],
+      "abstract": "Interactive world models extend video generation from offline clip synthesis toward persistent simulation of interactive virtual worlds, enabling applications in games, robotics, embodied agents, and XR. Achieving stable long-horizon interactive generation, however, remains challenging, as the model must simultaneously preserve scene geometry, dynamic consistency, and camera control while supporting real-time autoregressive generation. Building upon Matrix-Game 3.0, we present Matrix-Game 3.5, as shown in Figure 1, which advances real-time interactive world generation toward geometry-aware and long-horizon consistent simulation through three key improvements. First, we propose a unified geometry-aware memory framework, whose patch-memory and tiled-PRoPE components introduce no additional learnable parameters, combining explicit 3D patch retrieval with projective camera conditioning to enable geometry-consistent camera control and faithful long-horizon scene recall. Second, we introduce a static-dynamic disentangled world representation that separately models static scene geometry and dynamic subjects, preserving both geometric consistency and subject identity throughout long-horizon generation. Third, we develop a two-stage progressive real-time distillation framework that converts a bidirectional diffusion model into a few-step causal generator through Perceptual Flow Matching and curriculum based Self-Rollout DMD, enabling minute-long real-time interactive generation. Extensive experiments demonstrate that, with a unified training corpus spanning Unreal simulation environments, open-world games, and internet videos, MatrixGame 3.5 achieves strong performance in long-horizon scene recall, precise camera control, subject consistency, prompt-driven world generation, and stable real-time open-world interaction.",
+      "published_date": "2026-08-30",
+      "updated_date": "2026-08-30",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.29910",
+      "paper_url": "https://arxiv.org/abs/2608.29910",
+      "pdf_url": "https://arxiv.org/pdf/2608.29910",
+      "source": "arXiv",
+      "last_checked": "2026-09-01",
+      "keywords": [
+        "cs.CV",
+        "cs.CV"
+      ],
+      "source_categories": [
+        "cs.CV"
+      ],
+      "research_topics": [
+        "generative-policy"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出统一的几何感知记忆框架，包含patch-memory和tiled-PRoPE，无额外可学习参数，结合显式3D patch检索与投影相机条件，实现几何一致的相机控制和长时程场景回忆。",
+        "引入静态-动态解耦的世界表示，分别建模静态场景几何和动态主体，保持几何一致性和主体身份。",
+        "开发两阶段渐进式实时蒸馏框架，通过感知流匹配和基于课程的自滚动DMD将双向扩散模型转换为少步因果生成器，支持分钟级实时交互生成。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "交互式世界模型将视频生成从离线片段合成扩展到对交互式虚拟世界的持续模拟，从而支持游戏、机器人、具身智能体和XR等应用。然而，实现稳定的长时程交互式生成仍然具有挑战性，因为模型必须同时保持场景几何、动态一致性和相机控制，同时支持实时自回归生成。在Matrix-Game 3.0的基础上，我们提出了Matrix-Game 3.5，如图1所示，它通过三项关键改进将实时交互式世界生成推向几何感知和长时程一致的模拟。首先，我们提出一个统一的几何感知记忆框架，其patch-memory和tiled-PRoPE组件不引入额外可学习参数，将显式3D patch检索与投影相机条件相结合，实现几何一致的相机控制和忠实的长时间场景回忆。其次，我们引入一种静态-动态解耦的世界表示，分别建模静态场景几何和动态主体，在长时程生成中保持几何一致性和主体身份。第三，我们开发了一个两阶段渐进式实时蒸馏框架，通过感知流匹配和基于课程的自滚动DMD将双向扩散模型转换为少步因果生成器，实现分钟级实时交互式生成。大量实验表明，凭借涵盖Unreal模拟环境、开放世界游戏和互联网视频的统一训练语料库，MatrixGame 3.5在长时程场景回忆、精确相机控制、主体一致性、提示驱动世界生成以及稳定的实时开放世界交互方面取得了强劲性能。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.29910v1/decoupled_memory.png",
+      "image_caption": "Figure 5 : Overview of the static-dynamic disentangled memory system. A motion-aware object filter separates static scene observations from dynamic subjects. Static regions are fused into the patch memory, while dynamic subjects are represented by reference-token memory. Subject-region masks are also used for context masking and an auxiliary training loss.",
+      "summary_one_sentence": "Matrix-Game 3.5通过几何感知记忆、静态-动态解耦表示和两阶段实时蒸馏，实现了长时程一致且实时交互的世界模型生成。",
+      "research_problem": "如何实现稳定、长时程、几何一致且支持实时自回归生成的交互式世界模型。",
+      "method_summary": "基于Matrix-Game 3.0，提出统一几何感知记忆框架（patch-memory + tiled-PRoPE）实现显式3D patch检索与投影相机条件；采用静态-动态解耦表示分别建模场景几何与动态主体；通过两阶段蒸馏（Perceptual Flow Matching和Curriculum Self-Rollout DMD）将双向扩散模型转化为少步因果生成器。",
+      "experimental_setup": "使用涵盖Unreal模拟环境、开放世界游戏和互联网视频的统一训练语料库进行实验。",
+      "key_results": "在长时程场景回忆、精确相机控制、主体一致性、提示驱动世界生成和稳定实时开放世界交互方面取得强劲性能。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该工作推动了实时交互式世界模型的发展，对游戏、机器人、具身智能体和XR等需要持久模拟和实时交互的应用具有重要意义。",
+      "relevance_reason": "该论文研究交互式世界模型，其生成的虚拟环境可用于具身智能体的训练与仿真，与机器人操作和具身智能研究高度相关，但未涉及视觉-力觉融合或接触状态估计。",
+      "related_to_my_research": "作为背景文献，展示了交互式世界模型在具身智能中的应用潜力，可为机器人操作仿真环境构建提供参考，但与视觉-力觉融合和接触状态估计无直接方法关联。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Low：摘要未提供代码、具体实验指标或实现细节，难以直接复现。",
+      "core_candidate": "No",
+      "relevance_score": 50,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-01T09:01:57.857619+00:00",
+      "source_query_groups": [
+        "generative"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2608-28995",
+      "title": "Hydra: A Navigation World Action Model with Discrete Latent Planning and Continuous Flow-Matching Execution",
+      "authors": [
+        "Mohammad Nazeri",
+        "Alexandyr Card",
+        "Samira Huber",
+        "Anuj Pokhrel",
+        "Yujun Wang",
+        "Ruben Hammele",
+        "Daeun Song",
+        "Sören Pirk",
+        "Xuesu Xiao"
+      ],
+      "abstract": "World models let robots imagine possible futures, but exploiting this capability for real-time control is bottlenecked by a representation misalignment: the generative model and the planner operate on decoupled manifolds, so the planner has no shared structure to search over and must instead decode every candidate back into high-dimensional pixel space to evaluate it. This decoding step is a major obstacle to real-time control on physical hardware. In this paper, we present Hydra, a discrete World Action Model that closes this gap by moving the planner, both the sampler and the evaluator, inside the model. Hydra establishes a unified latent manifold over visual states, physical poses, and control actions, then compresses this manifold through modality-specific Vector-Quantized bottlenecks into discrete vocabularies of kinodynamic intents and visual states. Because candidates are now drawn directly from this shared manifold, sampling is informed by the model's own understanding of the observation rather than proposed blind, and evaluation happens natively within the discrete space: candidates are ranked by a Kinematic-Perceptual Cost, without ever decoding to pixels. We term this Discrete Latent Planning (DLP). Because planning over discrete intents alone cannot supply the smooth, continuous commands physical actuation requires, Hydra pairs DLP with conditional Flow Matching, which maps each selected intent to a continuous trajectory for execution. Evaluated on two physical robotic platforms, Hydra outperforms state-of-the-art world models in goal-directed planning, while matching or exceeding the closed-loop execution capabilities of leading reactive foundation policies.",
+      "published_date": "2026-08-29",
+      "updated_date": "2026-08-29",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.28995",
+      "paper_url": "https://arxiv.org/abs/2608.28995",
+      "pdf_url": "https://arxiv.org/pdf/2608.28995",
+      "source": "arXiv",
+      "last_checked": "2026-09-01",
+      "keywords": [
+        "cs.RO",
+        "cs.CV",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "research_topics": [
+        "generative-policy"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出Hydra，一种离散世界动作模型，将规划器（采样器和评估器）移入模型内部，弥合生成模型与规划器之间的表示不对齐。",
+        "建立覆盖视觉状态、物理姿态和控制动作的统一潜在流形，并通过模态特定的向量量化瓶颈压缩为离散词汇表。",
+        "提出离散潜在规划（DLP），在离散空间内直接采样和评估候选，无需解码到像素。",
+        "将DLP与条件流匹配结合，将离散意图映射为平滑连续轨迹，满足物理执行需求。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "世界模型让机器人能够想象可能的未来，但利用这一能力进行实时控制受到表示不对齐的瓶颈限制：生成模型和规划器在解耦的流形上操作，因此规划器没有共享结构可供搜索，必须将每个候选解码回高维像素空间进行评估。这一解码步骤是物理硬件上实时控制的主要障碍。本文提出Hydra，一种离散世界动作模型，通过将规划器（包括采样器和评估器）移入模型内部来弥合这一差距。Hydra在视觉状态、物理姿态和控制动作上建立统一的潜在流形，然后通过模态特定的向量量化瓶颈将该流形压缩为动力学意图和视觉状态的离散词汇表。由于候选现在直接从这一共享流形中抽取，采样由模型自身对观测的理解所引导，而非盲目提出；评估也在离散空间内原生进行：候选通过运动学-感知成本排序，无需解码到像素。我们称之为离散潜在规划（DLP）。由于仅对离散意图进行规划无法提供物理执行所需的平滑连续命令，Hydra将DLP与条件流匹配相结合，将每个选定的意图映射为连续轨迹以执行。在两个物理机器人平台上的评估中，Hydra在目标导向规划上优于最先进的世界模型，同时在闭环执行能力上匹配或超过领先的反应式基础策略。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.28995v1/arch_comparison.png",
+      "image_caption": "Figure 2: Comparison of Hydra architecture with Visual Navigation Transformer (ViNT), Navigation World Model (NWM), and VertiFormer in terms of input modalities, conditioning, and the model output. Hydra builds on top of VertiFormer and discretizes the output into intents to enable the model to search the discrete latent space for a plausible path.",
+      "summary_one_sentence": "Hydra通过将规划器嵌入离散潜在空间并配合流匹配执行，解决了世界模型用于机器人实时控制时的表示不对齐问题。",
+      "research_problem": "世界模型用于机器人实时控制时，生成模型与规划器在解耦流形上操作，导致规划器必须将每个候选解码回高维像素空间进行评估，严重阻碍实时控制。",
+      "method_summary": "Hydra建立统一潜在流形，通过模态特定的VQ瓶颈得到离散的动力学意图和视觉状态词汇；规划器在共享离散空间内采样，并使用运动学-感知成本对候选排序；随后条件流匹配将选定的离散意图映射为连续轨迹用于执行。",
+      "experimental_setup": "在两个物理机器人平台上进行评估；具体平台细节无法从摘要确认。",
+      "key_results": "Hydra在目标导向规划上优于最先进的世界模型，同时在闭环执行能力上匹配或超过领先的反应式基础策略。",
+      "limitations": "无法从摘要确认。",
+      "why_it_matters": "该工作解决了世界模型用于机器人实时控制的关键瓶颈，通过离散潜在规划避免了像素级解码开销，为具身智能中的实时目标导向控制提供了新范式。",
+      "relevance_reason": "该论文提出世界动作模型用于机器人操作规划，其离散潜在规划和连续执行机制与视觉-力觉融合、接触状态估计和机器人操作研究高度相关，可作为方法参考或背景文献。",
+      "related_to_my_research": "该论文与视觉-力觉融合/接触状态估计/机器人操作/具身智能研究相关，其统一潜在流形和离散规划思想可作为方法参考，其物理平台评估结果可作为基线对比，同时属于具身智能领域的前沿背景文献。",
+      "recommended_reading": "建议阅读世界模型、向量量化变分自编码器（VQ-VAE）、流匹配（Flow Matching）以及反应式基础策略相关文献。",
+      "reproduction_value": "Medium: 方法框架描述清晰，但缺少实现细节和代码，复现需要较多工程努力。",
+      "core_candidate": "Review",
+      "relevance_score": 65,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-01T09:03:29.758462+00:00",
+      "source_query_groups": [
+        "generative"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2608-29208",
+      "title": "AdaVLA: Adaptive Step Flow Matching for Training-free Acceleration of Vision-Language-Action Models",
+      "authors": [
+        "Sunghwan Han",
+        "Youngtae Han",
+        "Youngmin Yi"
+      ],
+      "abstract": "Vision-Language-Action (VLA) models, built upon Vision-Language Models (VLMs), have significantly enhanced robotic capabilities by leveraging internet-scale knowledge and multimodal reasoning. However, the intensive computational overhead of VLAs constrains on-device deployment, hindering real-time responses to environmental changes. While various acceleration techniques have been proposed, they often rely on fine-tuning or access to training datasets, which are frequently unavailable due to privacy and proprietary concerns. Moreover, although flow-matching-based VLAs have emerged as efficient alternatives to standard diffusion models, current acceleration efforts largely target VLM inference costs, failing to address the iterative ODE solving process inherent in flow matching inference. To address these limitations, we propose AdaVLA, an online, training-free adaptive framework for fast yet accurate flow-matching-based Vision-Language-Action models. We introduce a novel metric derived from the flow matching trajectory curvature to quantify action generation confidence during inference. This metric enables the dynamic reduction of inference steps and the adaptive adjustment of MLP pruning ratios through an efficiently computed importance evaluation, requiring no access to training data. Experimental results on the LIBERO benchmark using a Jetson AGX Orin device demonstrate that our method achieves $1.87\\times$ and $2.24\\times$ speedups for $π_{0.5}$ and X-VLA, respectively, with negligible degradation in success rates. Furthermore, we validate the robustness of our approach on real-world robotic tasks using SmolVLA.",
+      "published_date": "2026-08-29",
+      "updated_date": "2026-08-29",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2608.29208",
+      "paper_url": "https://arxiv.org/abs/2608.29208",
+      "pdf_url": "https://arxiv.org/pdf/2608.29208",
+      "source": "arXiv",
+      "last_checked": "2026-09-01",
+      "keywords": [
+        "cs.RO",
+        "cs.LG",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO",
+        "cs.LG"
+      ],
+      "research_topics": [
+        "generative-policy"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出AdaVLA，一个在线、无需训练的加速框架，适用于基于流匹配的VLA模型。",
+        "引入基于流匹配轨迹曲率的新度量，用于推理时量化动作生成置信度。",
+        "通过该度量动态减少推理步骤并自适应调整MLP剪枝比率，无需训练数据。",
+        "在LIBERO基准和真实机器人任务上验证了方法的有效性和鲁棒性。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "视觉-语言-动作（VLA）模型建立在视觉-语言模型（VLM）之上，通过利用互联网规模的知识和多模态推理显著增强了机器人能力。然而，VLA的高计算开销限制了其设备端部署，阻碍了对环境变化的实时响应。尽管已经提出了各种加速技术，但它们通常依赖于微调或访问训练数据集，而这些数据往往因隐私和专有问题而不可用。此外，虽然基于流匹配的VLA已成为标准扩散模型的高效替代方案，但当前的加速工作主要针对VLM推理成本，未能解决流匹配推理中固有的迭代ODE求解过程。为了解决这些限制，我们提出了AdaVLA，一个在线、无需训练的自主适应框架，用于快速而准确的基于流匹配的视觉-语言-动作模型。我们引入了一种由流匹配轨迹曲率导出的新度量，用于在推理过程中量化动作生成置信度。该度量通过高效计算的重要性评估，实现推理步骤的动态减少和MLP剪枝比率的自适应调整，无需访问训练数据。在LIBERO基准测试中使用Jetson AGX Orin设备的实验结果表明，我们的方法对π0.5和X-VLA分别实现了1.87倍和2.24倍的加速，成功率下降可忽略不计。此外，我们使用SmolVLA在真实世界机器人任务中验证了方法的鲁棒性。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2608.29208v1/Method_overview.png",
+      "image_caption": "Fig. 2 : Overall architecture of AdaVLA , our proposed online adaptive acceleration framework.",
+      "summary_one_sentence": "AdaVLA提出一种无需训练的在线自适应框架，通过流匹配轨迹曲率度量动态减少推理步数和调整MLP剪枝，在LIBERO上实现约2倍加速且成功率几乎不变。",
+      "research_problem": "VLA模型计算开销大，设备端部署实时性差；现有加速方法依赖微调或训练数据，且未解决流匹配推理中迭代ODE求解的耗时问题。",
+      "method_summary": "AdaVLA利用流匹配轨迹曲率推导出动作生成置信度度量，在推理过程中动态减少ODE求解步数，并通过高效计算的重要性评估自适应调整MLP剪枝比率，从而在无需训练数据和微调的情况下加速VLA推理。",
+      "experimental_setup": "在LIBERO基准测试中使用Jetson AGX Orin设备评估π0.5和X-VLA，并使用SmolVLA在真实世界机器人任务上验证鲁棒性。",
+      "key_results": "在LIBERO上，π0.5和X-VLA分别获得1.87倍和2.24倍加速，成功率下降可忽略不计；真实世界任务验证了鲁棒性。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该工作针对VLA部署中的实时性瓶颈，提出无需训练数据的在线加速方法，兼顾速度与精度，有助于推动具身智能系统在边缘设备上的实际应用。",
+      "relevance_reason": "该论文聚焦VLA模型推理加速，属于机器人操作与具身智能领域中的部署优化方向，可作为实时操作系统的背景文献或方法参考；与视觉-力觉融合和接触状态估计无直接关联，但可间接支持需要低延迟反馈的操作任务。",
+      "related_to_my_research": "该论文与视觉-力觉融合/接触状态估计/机器人操作/具身智能研究相关，主要作为背景文献或方法参考，特别是VLA模型在机器人操作中的高效部署策略；它不涉及力觉或接触状态估计，但可为实时操作系统的构建提供加速思路。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Medium: 方法无需训练数据和微调，但需要复现曲率度量计算、自适应步数减少和MLP剪枝的具体实现，且依赖特定模型（π0.5、X-VLA、SmolVLA）和硬件环境（Jetson AGX Orin）。",
+      "core_candidate": "No",
+      "relevance_score": 50,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-01T09:02:48.490115+00:00",
+      "source_query_groups": [
+        "generative"
+      ]
+    },
     {
       "paper_id": "arxiv-2608-28075",
       "title": "Plan Along the Way: Event-Triggered Foundation-Model Planning for TAMP Execution in Partially Observable Manipulation",
@@ -61,7 +523,7 @@
       "key_results": "摘要未报告具体数值；报告了任务成功率、部分目标完成率、发现和失败触发的重规划行为、隐式非目标物体处理以及规划器推理成本。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该工作针对部分可观测环境下TAMP的实用性问题，提出事件触发的重规划机制，利用基础模型生成任务分解，同时保证可执行性，对机器人操作和具身智能中的长时程规划有重要意义。",
-      "relevance_reason": "该论文直接涉及机器人操作中的任务与运动规划，处理部分可观测性和物体发现，与视觉-力觉融合和接触状态估计相关，可作为背景文献或方法参考。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏",
       "related_to_my_research": "该论文属于机器人操作与具身智能领域，其事件触发的重规划机制和可见场景状态建模可作为方法参考，与视觉-力觉融合/接触状态估计的研究方向有潜在关联，可作为背景文献或潜在竞争。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 方法描述较详细，但未提供代码和具体实验配置，复现需要较多实现工作。",
@@ -79,7 +541,8 @@
       "source_query_groups": [
         "failure",
         "recovery"
-      ]
+      ],
+      "image_caption_zh": "所提出的ROBUST TAMP框架概览，集成视觉感知与物体-区域映射、基于基础模型的任务规划、执行验证、符号动作执行、运动规划和闭环监控。"
     },
     {
       "paper_id": "arxiv-2608-28108",
@@ -136,7 +599,7 @@
       "key_results": "两阶段训练下四种提示方法在分布内高成功率；两阶段训练提高指示掩码使用能力，保留第二阶段LI数据缓解遗忘且不降低VLI/VI性能；真实任务中VLI和VI在未见表达、外观变化和新物体下优于LI；未见类别上VLI和VI成功率100%，LI仅16.7%。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该工作首次在单个VLA中统一语言、视觉-语言和视觉三种指令模式，通过指示手势接地提升目标区分能力，为机器人操作中的多模态指令接口设计提供了新思路和实证指导。",
-      "relevance_reason": "属于具身智能和机器人操作领域，研究多模态指令（语言+指示手势）的统一，与视觉-力觉融合和接触状态估计无直接关联，但可作为多模态感知与操作策略的背景文献。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有真实机器人实验线索",
       "related_to_my_research": "作为背景文献，涉及机器人操作中的多模态指令融合，与视觉-力觉融合和接触状态估计无直接关系，但可启发多模态信息融合和操作策略设计。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium：摘要提供了方法框架、提示方法比较和训练策略消融，但未给出代码、详细超参数或模型架构细节，复现需要额外信息。",
@@ -153,7 +616,8 @@
       "ai_generated_at": "2026-08-31T10:14:24.950222+00:00",
       "source_query_groups": [
         "vla"
-      ]
+      ],
+      "image_caption_zh": "DeicticVLA 系统及本文评估的提示方法概述。(a) 用户通过 LI、VLI 或 VI 指定任务，分别仅提供语言、语言加指示手势、仅指示手势。指令规范化通过文本提示补全和指示手势接地，将用户输入转换为由文本提示和指示掩码组成的规范表示。DeicticVLA 结合该表示、RGB 观测和机器人状态生成动作块。(b) VP-BBox 和 VP-Fade 通过在 RGB 观测上绘制边界框或淡化指示掩码外部区域来构建 RGB 视觉提示。MP-Early 和 MP-Late 分别编码掩码并融合所得掩码提示。"
     },
     {
       "paper_id": "arxiv-2608-26645",
@@ -289,7 +753,7 @@
       "key_results": "LIBERO成功率从84.1%提升到88.4%；真实世界拆卸任务从63.3%提升到82.5%；Meta-World从56.70%提升到57.8%。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该工作为VLA提供了显式的未来动态推理机制，通过特权潜在对齐改善接触丰富操作的性能，对具身智能和机器人操作策略学习有重要意义。",
-      "relevance_reason": "该论文聚焦接触丰富操作中的未来动态推理，利用腕部相机局部接触信息，与视觉-力觉融合、接触状态估计和机器人操作策略学习密切相关。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；具有真实机器人、公开代码或可复现资源线索；有真实机器人实验线索；有公开代码或资源线索；直接面向接触丰富任务",
       "related_to_my_research": "该论文属于机器人操作与具身智能领域，涉及接触丰富操作和未来动态推理，可作为方法参考或背景文献，尤其对视觉-力觉融合和接触状态估计研究有参考价值。",
       "recommended_reading": "可进一步阅读视觉-语言-动作模型、未来潜在动态预测、接触丰富操作相关文献。",
       "reproduction_value": "Medium: 方法描述清晰，但缺少实现细节和代码，复现需要较多工程努力。",
@@ -307,7 +771,8 @@
       "source_query_groups": [
         "contact",
         "vla"
-      ]
+      ],
+      "image_caption_zh": "PHR-VLA 框架。特权微调：在标准 VLA 主干使用的当前观测 𝐈_t、语言指令 𝐥_t 和本体感觉状态 𝐪_t 之外，将特权规划时域帧 𝐈_{t+1:t+H} 送入冻结的视觉编码器，以计算隐动力学目标。VLM 主干产生的动作词元隐变量送入两个头：由 ℒ_VLA 监督的标准流匹配动作头，以及由 ℒ_Align 监督、与隐动力学目标对齐的辅助未来头。高效推理：动作头与标准 VLA 主干完全相同，因此 PHR-VLA 在部署时零延迟、零内存开销。"
     },
     {
       "paper_id": "arxiv-2608-26673",
