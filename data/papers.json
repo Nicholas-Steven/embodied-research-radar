@@ -1,11 +1,165 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-01",
+  "generated_at": "2026-09-02",
   "source": "arXiv",
-  "candidate_count": 161,
-  "retained_count": 149,
+  "candidate_count": 165,
+  "retained_count": 151,
   "relevance_threshold": 45,
   "papers": [
+    {
+      "paper_id": "arxiv-2609-01596",
+      "title": "Facet-0: A Robotic Foundation Model for Contact-Rich Precise Manipulation",
+      "authors": [
+        "Haoyuan Deng",
+        "Haichao Liu",
+        "Wenkai Guo",
+        "Yuan Ling",
+        "Zaijia Yang",
+        "Yuanjiang Xue",
+        "Haosheng Sun",
+        "Liangzi Wang",
+        "Ziwei Wang"
+      ],
+      "abstract": "Real-world robotic assembly at sub-millimeter tolerances demands spatial precision, compliant interaction, and robustness to contact failures. We present Facet-0, a robotic foundation model that predicts and values the contact consequences of its actions. Facet-0 unifies multimodal representation learning and reinforcement learning (RL) post-training around a joint action-wrench proposal: a causal wrench history is aligned with vision-language semantics and kinematic state, and flow matching generates each action chunk together with the future wrist-wrench profile it is expected to induce. Deployment rollouts train a distributional Action-Wrench Critic to distinguish motions with similar task progress but different contact outcomes, while phase-aware rewards and contact-selective credit concentrate policy improvement on decisive interactions. To accommodate part-specific dynamics, a lightweight bounded actor reuses the frozen representation for on-robot adaptation; RL remains defined over executable Cartesian actions, while an auxiliary wrench head preserves predictive, non-commanded action-contact coupling. Trained on ManuFacet-1K, a 1,000-hour force-synchronized corpus spanning three embodiments and multiple manufacturing cells, the bounded task-adapted system reaches 82% mean success on five sub-millimeter computer-assembly tasks, compared with 15% for the strongest baseline, with 0.5 mm placement accuracy and 50 ms command latency.",
+      "published_date": "2026-09-01",
+      "updated_date": "2026-09-01",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2609.01596",
+      "paper_url": "https://arxiv.org/abs/2609.01596",
+      "pdf_url": "https://arxiv.org/pdf/2609.01596",
+      "source": "arXiv",
+      "last_checked": "2026-09-02",
+      "keywords": [
+        "cs.RO",
+        "cs.LG",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO",
+        "cs.LG"
+      ],
+      "research_topics": [
+        "generative-policy"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出 Facet-0，一个预测并评估动作接触后果的机器人基础模型。",
+        "统一多模态表示学习与 RL 后训练，围绕联合动作-力矩提议进行设计。",
+        "将因果力矩历史与视觉语言语义和运动学状态对齐，并用流匹配生成动作块及未来腕部力矩轮廓。",
+        "引入分布式 Action-Wrench Critic，区分任务进展相似但接触结果不同的动作。",
+        "采用相位感知奖励和接触选择性信用分配，将策略改进集中在关键交互上。",
+        "提出轻量级有界 actor 重用冻结表示进行机器人上自适应，同时保留辅助力矩头以维持动作-接触耦合。",
+        "构建 ManuFacet-1K 力同步语料库，并在五个亚毫米装配任务上取得82%平均成功率。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "真实世界中的机器人装配需要在亚毫米公差下实现空间精度、柔顺交互以及对接触故障的鲁棒性。我们提出了Facet-0，一个预测并评估其动作接触后果的机器人基础模型。Facet-0围绕联合动作-力矩提议统一了多模态表示学习和强化学习（RL）后训练：因果力矩历史与视觉语言语义和运动学状态对齐，流匹配生成每个动作块以及该动作预期引发的未来腕部力矩轮廓。部署 rollout 训练一个分布式 Action-Wrench Critic，以区分任务进展相似但接触结果不同的动作；同时，相位感知奖励和接触选择性信用分配将策略改进集中在关键交互上。为适应零件特定动力学，一个轻量级有界 actor 重用冻结表示进行机器人上自适应；RL 仍定义在可执行的笛卡尔动作上，而辅助力矩头保留了预测性的、非命令式的动作-接触耦合。在 ManuFacet-1K（一个涵盖三种实施例和多个制造单元的1000小时力同步语料库）上训练后，有界任务自适应系统在五个亚毫米计算机装配任务上达到82%的平均成功率，而最强基线仅为15%，并实现了0.5毫米的放置精度和50毫秒的命令延迟。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.01596v1/Pipeline0828.png",
+      "image_caption": "Figure 3 : Overview of Facet-0. (a) Visual–language context, robot state, and wrench history form a shared semantic–contact representation for coarse-to-fine action–wrench decoding. (b) Structured attention shares the visual–language prefix while separating the action–wrench and causal VQA paths. (c) Phase-segmented rollouts train an Action–Wrench Critic; contact-selective credit then refines the shared action expert. (d) A bounded local actor reuses the frozen representation and policy reference; its critics evaluate executable actions, while its auxiliary wrench prediction remains non-commanded.",
+      "summary_one_sentence": "Facet-0 是一个机器人基础模型，通过联合动作-力矩预测和强化学习后训练，在亚毫米精密装配任务上显著超越现有基线。",
+      "research_problem": "真实世界机器人装配需要在亚毫米公差下同时满足空间精度、柔顺交互和对接触故障的鲁棒性，现有方法难以有效处理接触丰富的精密操作。",
+      "method_summary": "Facet-0 将多模态表示学习与强化学习后训练统一在联合动作-力矩提议框架下：因果力矩历史与视觉语言语义和运动学状态对齐，流匹配生成动作块及其预期腕部力矩轮廓；部署 rollout 训练分布式 Action-Wrench Critic 以评估接触后果，相位感知奖励和接触选择性信用分配引导策略优化；轻量级有界 actor 重用冻结表示进行机器人上自适应，RL 在可执行笛卡尔动作上定义，辅助力矩头保持预测性动作-接触耦合。",
+      "experimental_setup": "在 ManuFacet-1K 上训练，该语料库包含1000小时力同步数据，覆盖三种实施例和多个制造单元；评估在五个亚毫米计算机装配任务上进行，并与最强基线比较。",
+      "key_results": "有界任务自适应系统在五个亚毫米计算机装配任务上达到82%平均成功率，最强基线仅为15%；放置精度为0.5毫米，命令延迟为50毫秒。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该工作针对接触丰富的精密操作这一机器人操作中的关键挑战，通过显式预测和评估接触后果，显著提升了亚毫米装配性能，为机器人基础模型在精密操作中的应用提供了新范式。",
+      "relevance_reason": "论文核心涉及力觉（wrench）与视觉语言语义的融合、接触后果预测与评估，以及接触丰富的机器人操作，与视觉-力觉融合、接触状态估计和具身智能研究高度相关。",
+      "related_to_my_research": "该论文可作为视觉-力觉融合与接触状态估计领域的方法参考和基线对比；其 Action-Wrench Critic 和接触后果预测机制与接触状态估计直接相关，对机器人操作和具身智能研究具有重要参考价值。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Medium：方法描述较为详细，但依赖专有的 ManuFacet-1K 数据集和特定机器人平台，且未提供代码或数据公开信息，复现需要大量硬件和数据资源。",
+      "core_candidate": "Yes",
+      "relevance_score": 89,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-02T08:14:38.920905+00:00",
+      "source_query_groups": [
+        "generative"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2609-00908",
+      "title": "Knowing When to Stop: Adaptive Action Chunking via Internal Cross-Attention Dynamics in VLAs",
+      "authors": [
+        "Runze Xu",
+        "Xiaolong Shan",
+        "Shuang Dai",
+        "Yu Wang",
+        "Jincheng Yu"
+      ],
+      "abstract": "Action chunking is a standard execution strategy in modern Vision-Language-Action (VLA) frameworks, but fixed execution horizons impose a trade-off between efficiency and accuracy. Short chunks require frequent inference and may cause oscillatory behavior, whereas long chunks can become misaligned with newly observed states. We address this limitation with an adaptive action chunking approach based on internal cross-attention dynamics in the action expert. We observe that, as the prediction horizon extends, action-to-observation cross-attention becomes increasingly dispersed and its entropy rises toward a plateau. This pattern is associated with higher action prediction error and provides an online signal that the current observation offers limited grounding for further open-loop execution. Based on this observation, we introduce a training-free truncation mechanism that detects sustained high-entropy plateaus and dynamically selects the execution horizon during inference. The method uses attention weights already computed by the policy and introduces negligible additional overhead. Evaluations on $π_{0.5}$ and X-VLA across RoboTwin 2.0, LIBERO, and three real-world manipulation tasks show improved average task success over fixed-horizon and adaptive chunking baselines, while preserving efficient closed-loop control. These results show that cross-attention dynamics can provide a practical internal signal for adaptive action execution in VLAs.",
+      "published_date": "2026-09-01",
+      "updated_date": "2026-09-01",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2609.00908",
+      "paper_url": "https://arxiv.org/abs/2609.00908",
+      "pdf_url": "https://arxiv.org/pdf/2609.00908",
+      "source": "arXiv",
+      "last_checked": "2026-09-02",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "观察到动作到观察的交叉注意力随预测范围延长而分散，熵上升至平台，并与动作预测误差相关。",
+        "提出一种免训练的截断机制，利用已计算的注意力权重检测持续高熵平台，动态选择执行范围。",
+        "在多个VLA模型和仿真/真实任务上验证了该方法优于固定分块和自适应分块基线。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "动作分块是现代视觉-语言-动作（VLA）框架中的标准执行策略，但固定的执行范围在效率和准确性之间引入了权衡。短分块需要频繁推理，可能导致振荡行为；长分块则可能与新观察到的状态不一致。我们通过基于动作专家中内部交叉注意力动力学的自适应动作分块方法来解决这一限制。我们观察到，随着预测范围延长，动作到观察的交叉注意力变得越来越分散，其熵趋于平台期。这种模式与更高的动作预测误差相关，并提供了一个在线信号，表明当前观察对进一步开环执行提供的支撑有限。基于这一观察，我们引入了一种无需训练的截断机制，检测持续的高熵平台，并在推理过程中动态选择执行范围。该方法使用策略已经计算出的注意力权重，并引入可忽略的额外开销。在π0.5和X-VLA上，跨RoboTwin 2.0、LIBERO和三个真实世界操作任务的评估显示，与固定范围和自适应分块基线相比，平均任务成功率有所提高，同时保持了高效的闭环控制。这些结果表明，交叉注意力动力学可以为VLA中的自适应动作执行提供实用的内部信号。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.00908v1/fig1_v3.png",
+      "image_caption": "Fig. 2 : Method Overview. Our framework dynamically determines action chunk sizes by monitoring the cross-attention entropy within the action expert. Conditioned on VLM states, the action expert identifies chunk boundaries by monitoring attention focus. This enables adaptive execution across task stages.",
+      "summary_one_sentence": "本文提出一种基于内部交叉注意力熵平台检测的免训练自适应动作分块截断机制，用于在VLA推理中动态选择执行范围，提升任务成功率并保持闭环效率。",
+      "research_problem": "固定动作分块执行范围在VLA中造成效率与准确性的权衡：短分块频繁推理且可能振荡，长分块与新观察状态失配。",
+      "method_summary": "基于动作专家中交叉注意力的熵动态，检测持续高熵平台作为停止信号，在推理时动态截断动作分块长度；无需额外训练，仅利用策略已计算的注意力权重。",
+      "experimental_setup": "在π0.5和X-VLA两个VLA模型上，使用RoboTwin 2.0、LIBERO仿真基准以及三个真实世界操作任务进行评估，并与固定分块和自适应分块基线比较。",
+      "key_results": "与固定分块和自适应分块基线相比，平均任务成功率提高，同时保持高效的闭环控制。",
+      "limitations": "无法从摘要确认。",
+      "why_it_matters": "该工作揭示了VLA内部交叉注意力动态可作为自适应动作执行的在线信号，为无需训练的动态推理时延控制提供了新思路，有助于提升机器人操作系统的鲁棒性和效率。",
+      "relevance_reason": "该论文属于机器人操作与具身智能领域，聚焦VLA的动作执行策略，与接触状态估计和视觉-力觉融合不直接相关，但其自适应执行和内部信号利用思想可启发操作策略设计。",
+      "related_to_my_research": "作为背景文献和潜在方法参考：其自适应动作分块机制可应用于机器人操作中的闭环执行策略，与视觉-力觉融合/接触状态估计研究在实时决策和动态停止条件方面有交叉，但未涉及力觉信息。",
+      "recommended_reading": "建议阅读视觉-语言-动作模型、动作分块、交叉注意力机制、自适应推理与截断策略、机器人操作闭环控制相关文献。",
+      "reproduction_value": "Medium - 方法基于已有注意力权重且无需训练，但需要访问特定VLA模型（π0.5、X-VLA）和仿真/真实环境，复现成本中等。",
+      "core_candidate": "No",
+      "relevance_score": 50,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-02T08:14:22.637862+00:00",
+      "source_query_groups": [
+        "vla"
+      ]
+    },
     {
       "paper_id": "arxiv-2608-30536",
       "title": "Behavior-Skill: A Fine-Grained Benchmark for Evaluating Vision-Language-Action Policies in Long-Horizon Tasks",
@@ -66,7 +220,7 @@
       "key_results": "失败在技能间高度不均匀，接触丰富的操作技能形成持续瓶颈；Behavior-Skill通过暴露中间能力剖面补充完整任务评估。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该基准提供了细粒度的技能级评估，能够暴露VLA策略在长时程任务中的中间失败模式，特别是接触丰富操作技能的瓶颈，有助于分析和改进策略。",
-      "relevance_reason": "该基准聚焦长时程移动操作任务中的技能级评估，特别关注接触丰富的操作技能，与视觉-力觉融合和接触状态估计的研究直接相关，可作为评估基准或问题定义参考。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有公开代码或资源线索；直接面向接触丰富任务",
       "related_to_my_research": "该论文提供了技能级评估基准，其中接触丰富操作技能被识别为瓶颈，这与视觉-力觉融合和接触状态估计的研究目标高度相关，可作为方法参考或基线对比的基准。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "High：基准公开可用，包含大量技能实例和明确评估指标，便于复现和比较。",
@@ -84,7 +238,8 @@
       "source_query_groups": [
         "contact",
         "vla"
-      ]
+      ],
+      "image_caption_zh": "行为-技能概览。(a) 技能数据集：我们从BEHAVIOR-1K演示中为每个组成技能标注多模态上下文和动作摘要。(b) 独立技能评估：每个技能从恢复的中间状态执行，并对照技能特定的BDDL目标进行验证。(c) 评估指标：TSCR在轨迹层面总结技能完成情况，STSR则捕捉跨技能类型的表现。"
     },
     {
       "paper_id": "arxiv-2608-30643",
@@ -141,7 +296,7 @@
       "key_results": "LIBERO上达到98.8%，比基础模型高2.2个百分点；物理隐藏放置任务完整任务成功率从20.0%提升到43.3%。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该工作针对VLA模型缺乏时间信息的关键问题，通过4D表示对齐提升对动态环境和长程操作的理解，对机器人操作和具身智能研究有重要参考价值。",
-      "relevance_reason": "该论文聚焦VLA模型在机器人操作中的时间感知表示对齐，与具身智能和机器人操作直接相关；其4D表示方法可作为操作策略的背景文献或方法参考，尤其对涉及动态环境和长程任务的研究有参考价值。摘要未涉及力觉或接触状态估计。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；具有真实机器人、公开代码或可复现资源线索",
       "related_to_my_research": "方法参考/背景文献：该论文的4D表示对齐思想可借鉴到融合时间信息的操作状态估计中，为具身智能中VLA模型的时间建模提供参考。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "High: 方法描述具体，代码将公开，并在标准基准LIBERO和物理任务上报告了明确结果，便于复现和验证。",
@@ -158,7 +313,8 @@
       "ai_generated_at": "2026-09-01T09:01:47.262529+00:00",
       "source_query_groups": [
         "vla"
-      ]
+      ],
+      "image_caption_zh": "时间强制概述。(a) 历史路径将每台相机的K个过去帧压缩为要点令牌，并汇总为历史潜在表示和16个令牌（第3.3节）。(b) 4D表示获取使用预训练的4D基础模型提取因果几何特征和稠密几何特征，此处可视化为它们的前三个PCA分量（第3.2节）。(c) 时间对齐将历史潜在表示与因果几何特征对齐，而当前帧对齐将当前帧图像令牌与稠密几何特征对齐（第3.4节）。门控融合（零初始化）注入16个令牌而不扩展主干序列（第3.3节）。预训练的4D基础模型和所有对齐头仅用于训练。"
     },
     {
       "paper_id": "arxiv-2608-29487",
@@ -213,7 +369,7 @@
       "key_results": "训练策略在多个定性不同任务中表现出惊人能力；任务特定状态估计器的预测误差在信息丰富的接触后迅速下降，表明物体状态可从短本体感觉历史中解码。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该结果表明基于关节编码器的本体感觉结合柔顺驱动已是全身灵巧操作和交互感知的实用基础，可作为更丰富传感层叠的自然基础，对具身智能和机器人操作研究具有重要意义。",
-      "relevance_reason": "该论文直接研究机器人操作中的本体感觉与接触状态估计，与视觉-力觉融合和具身智能领域高度相关，可作为背景文献或方法参考。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；具有真实机器人、公开代码或可复现资源线索；直接面向接触丰富任务",
       "related_to_my_research": "该论文与视觉-力觉融合/接触状态估计/机器人操作/具身智能研究相关，它展示了纯本体感觉的全身操作，可作为接触状态估计的基线对比或方法参考，尤其对柔顺接触下的状态可观测性有启发。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 摘要提供了核心思想和定性结果，但缺少网络架构、训练细节和超参数，复现需要额外信息。",
@@ -230,7 +386,8 @@
       "ai_generated_at": "2026-09-01T09:00:58.728565+00:00",
       "source_query_groups": [
         "vision-force"
-      ]
+      ],
+      "image_caption_zh": "盲提行李箱。我们考察盲策略在两个回合中的行为，其中行李箱（红色）的大小、位置和桌面高度不同。预测的行李箱位姿和尺寸（绿色）由策略接收到的同一本体感觉观测估计而来。在0.43秒之前，估计值完全相同；它是训练中所有初始行李箱位姿的平均值。策略先用左手轻轻触碰桌面（0.43–0.47秒）；估计器立即将预测的行李箱垂直定位到真实桌面上。然后它从侧面用一只手或双手触碰行李箱，这大幅改善了完整位姿估计。接着，机器人在行李箱顶部边缘附近挥动右手。"
     },
     {
       "paper_id": "arxiv-2608-29910",
@@ -297,7 +454,7 @@
       "key_results": "在长时程场景回忆、精确相机控制、主体一致性、提示驱动世界生成和稳定实时开放世界交互方面取得强劲性能。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该工作推动了实时交互式世界模型的发展，对游戏、机器人、具身智能体和XR等需要持久模拟和实时交互的应用具有重要意义。",
-      "relevance_reason": "该论文研究交互式世界模型，其生成的虚拟环境可用于具身智能体的训练与仿真，与机器人操作和具身智能研究高度相关，但未涉及视觉-力觉融合或接触状态估计。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；方法包含可迁移的策略学习或多模态建模",
       "related_to_my_research": "作为背景文献，展示了交互式世界模型在具身智能中的应用潜力，可为机器人操作仿真环境构建提供参考，但与视觉-力觉融合和接触状态估计无直接方法关联。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Low：摘要未提供代码、具体实验指标或实现细节，难以直接复现。",
@@ -314,7 +471,8 @@
       "ai_generated_at": "2026-09-01T09:01:57.857619+00:00",
       "source_query_groups": [
         "generative"
-      ]
+      ],
+      "image_caption_zh": "静态-动态解耦记忆系统概览。运动感知过滤器分离静态场景观测与动态主体。静态区域融入补丁记忆，动态主体用参考令牌记忆表示。主体区域掩码还用于上下文掩码和辅助训练损失。"
     },
     {
       "paper_id": "arxiv-2608-28995",
@@ -376,7 +534,7 @@
       "key_results": "Hydra在目标导向规划上优于最先进的世界模型，同时在闭环执行能力上匹配或超过领先的反应式基础策略。",
       "limitations": "无法从摘要确认。",
       "why_it_matters": "该工作解决了世界模型用于机器人实时控制的关键瓶颈，通过离散潜在规划避免了像素级解码开销，为具身智能中的实时目标导向控制提供了新范式。",
-      "relevance_reason": "该论文提出世界动作模型用于机器人操作规划，其离散潜在规划和连续执行机制与视觉-力觉融合、接触状态估计和机器人操作研究高度相关，可作为方法参考或背景文献。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有真实机器人实验线索",
       "related_to_my_research": "该论文与视觉-力觉融合/接触状态估计/机器人操作/具身智能研究相关，其统一潜在流形和离散规划思想可作为方法参考，其物理平台评估结果可作为基线对比，同时属于具身智能领域的前沿背景文献。",
       "recommended_reading": "建议阅读世界模型、向量量化变分自编码器（VQ-VAE）、流匹配（Flow Matching）以及反应式基础策略相关文献。",
       "reproduction_value": "Medium: 方法框架描述清晰，但缺少实现细节和代码，复现需要较多工程努力。",
@@ -393,7 +551,8 @@
       "ai_generated_at": "2026-09-01T09:03:29.758462+00:00",
       "source_query_groups": [
         "generative"
-      ]
+      ],
+      "image_caption_zh": "Hydra架构与视觉导航Transformer（ViNT）、导航世界模型（NWM）和VertiFormer在输入模态、条件设定和模型输出方面的比较。Hydra基于VertiFormer构建，将输出离散化为意图，使模型能够在离散潜在空间中搜索可行路径。"
     },
     {
       "paper_id": "arxiv-2608-29208",
@@ -449,7 +608,7 @@
       "key_results": "在LIBERO上，π0.5和X-VLA分别获得1.87倍和2.24倍加速，成功率下降可忽略不计；真实世界任务验证了鲁棒性。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该工作针对VLA部署中的实时性瓶颈，提出无需训练数据的在线加速方法，兼顾速度与精度，有助于推动具身智能系统在边缘设备上的实际应用。",
-      "relevance_reason": "该论文聚焦VLA模型推理加速，属于机器人操作与具身智能领域中的部署优化方向，可作为实时操作系统的背景文献或方法参考；与视觉-力觉融合和接触状态估计无直接关联，但可间接支持需要低延迟反馈的操作任务。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有真实机器人实验线索",
       "related_to_my_research": "该论文与视觉-力觉融合/接触状态估计/机器人操作/具身智能研究相关，主要作为背景文献或方法参考，特别是VLA模型在机器人操作中的高效部署策略；它不涉及力觉或接触状态估计，但可为实时操作系统的构建提供加速思路。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "Medium: 方法无需训练数据和微调，但需要复现曲率度量计算、自适应步数减少和MLP剪枝的具体实现，且依赖特定模型（π0.5、X-VLA、SmolVLA）和硬件环境（Jetson AGX Orin）。",
@@ -466,7 +625,8 @@
       "ai_generated_at": "2026-09-01T09:02:48.490115+00:00",
       "source_query_groups": [
         "generative"
-      ]
+      ],
+      "image_caption_zh": "AdaVLA的总体架构，我们提出的在线自适应加速框架。"
     },
     {
       "paper_id": "arxiv-2608-28075",
