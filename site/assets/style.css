@@ -152,7 +152,7 @@ a { color:inherit; text-decoration:none; }
 .spotlight-item{height:82px;flex-shrink:0;overflow:hidden}
 /* ── 详情页图片点击放大(lightbox) ── */
 .lightbox{position:fixed;inset:0;z-index:1000;background:rgba(4,12,20,.94);display:flex;align-items:center;justify-content:center;padding:24px;animation:lightbox-fade .18s ease}
-.lightbox-img{max-width:92vw;max-height:86vh;object-fit:contain;border-radius:10px;box-shadow:0 20px 70px rgba(0,0,0,.55);cursor:zoom-out}
+.lightbox-img{max-width:92vw;max-height:86vh;object-fit:contain;border-radius:10px;box-shadow:0 20px 70px rgba(0,0,0,.55);cursor:zoom-out;transform-origin:center center;transition:transform .12s ease-out}
 .lightbox-close{position:absolute;top:16px;right:20px;width:38px;height:38px;border:none;border-radius:50%;background:rgba(255,255,255,.12);color:var(--text);font-size:20px;line-height:1;cursor:pointer;transition:background .15s ease}
 .lightbox-close:hover{background:rgba(255,255,255,.24)}
 @keyframes lightbox-fade{from{opacity:0}to{opacity:1}}
