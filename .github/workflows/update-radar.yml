@@ -1,0 +1,79 @@
+# Update the main paper radar with new arXiv papers.
+#
+# This workflow fetches new papers from arXiv, scores them, and commits
+# the updated data/papers.json.  It does NOT commit site/ — the deploy
+# workflow rebuilds the static site from committed source data.
+#
+# Schedule: Daily at 04:00 UTC = 12:00 Beijing / 13:00 Japan
+# (matches the original deploy.yml schedule that previously handled this).
+#
+# After this workflow pushes, deploy.yml is triggered once to rebuild
+# and deploy the updated site.
+
+name: Update Radar
+
+on:
+  schedule:
+    - cron: "0 4 * * *"   # Daily 04:00 UTC = 12:00 Beijing
+  workflow_dispatch:
+    inputs:
+      limit_per_query:
+        description: "arXiv candidates per query"
+        required: false
+        default: "5"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: radar-data-mutation
+  cancel-in-progress: false
+
+env:
+  PYTHONUNBUFFERED: "1"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Fetch, score and enrich radar
+        run: |
+          LIMIT="${{ inputs.limit_per_query || '5' }}"
+          python scripts/update_radar.py --fetch --limit-per-query "$LIMIT" --threshold 45
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL || 'https://api.openai.com/v1' }}
+          LLM_MODEL: ${{ vars.LLM_MODEL || 'gpt-4o-mini' }}
+          ARXIV_USER_AGENT: "EmbodiedResearchRadar/0.1 (GitHub Actions; owner=Nicholas-Steven)"
+          ARXIV_DELAY_SECONDS: "10"
+          ARXIV_MAX_RETRIES: "5"
+          ARXIV_BACKOFF_BASE_SECONDS: "30"
+          ARXIV_BACKOFF_MAX_SECONDS: "300"
+
+      - name: Rebuild landscape
+        run: python scripts/build_landscape.py
+
+      - name: Validate
+        run: |
+          python -m unittest discover -s tests -v
+          python -m py_compile scripts/radar/*.py scripts/*.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/papers.json data/research_landscape.json
+          if git diff --cached --quiet; then
+            echo "No new papers to commit"
+          else
+            git commit -m "chore(data): update research radar"
+            git push
+          fi
