@@ -1,0 +1,81 @@
+# Refresh Research Gap external evidence on a schedule.
+#
+# This workflow searches OpenAlex, Semantic Scholar, and arXiv for papers
+# related to each identified Research Gap, then rebuilds the landscape and
+# static site.  It does NOT modify data/papers.json — external evidence is
+# stored separately in data/gap_search_results.json.
+#
+# Schedule: Weekly (every Monday at 02:00 UTC = 10:00 Beijing / 11:00 Japan)
+#
+# Search failure never clears existing cache.  If all providers fail the
+# workflow skips the commit step, preserving the last known good results.
+#
+# Trigger: schedule + manual dispatch
+
+name: Refresh Research Gap Evidence
+
+on:
+  schedule:
+    - cron: "0 2 * * 1"   # Monday 02:00 UTC = Monday 10:00 Beijing
+  workflow_dispatch:
+    inputs:
+      gap:
+        description: "Search a specific gap ID (leave empty for all)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: evidence-refresh
+  cancel-in-progress: false
+
+env:
+  PYTHONUNBUFFERED: "1"
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Search external evidence
+        id: search
+        run: |
+          GAP="${{ inputs.gap }}"
+          if [ -n "$GAP" ]; then
+            python scripts/radar/gap_search.py --gap "$GAP" --refresh --source manual-workflow
+          else
+            python scripts/radar/gap_search.py --all --refresh --source scheduled
+          fi
+        continue-on-error: true
+
+      - name: Rebuild landscape
+        run: python scripts/build_landscape.py
+
+      - name: Build static site
+        run: python scripts/build_site.py
+
+      - name: Validate
+        run: |
+          python -m unittest discover -s tests -v
+          python -m py_compile scripts/radar/*.py scripts/*.py
+
+      - name: Commit refreshed evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/gap_search_results.json data/research_landscape.json
+          if git diff --cached --quiet; then
+            echo "No evidence changes to commit"
+          else
+            git commit -m "chore(data): refresh research gap evidence"
+            git push
+          fi

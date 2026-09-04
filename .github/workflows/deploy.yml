@@ -1,20 +1,15 @@
-name: Radar update and GitHub Pages deploy
+name: Build and deploy GitHub Pages
 
 on:
   push:
     branches: [main, master]
   schedule:
-    # 12:00 Asia/Shanghai / 13:00 Asia/Tokyo is intentionally close to the requested daily window.
+    # Daily rebuild at 04:00 UTC = 12:00 Beijing / 13:00 Japan
     - cron: "0 4 * * *"
   workflow_dispatch:
-    inputs:
-      limit_per_query:
-        description: "arXiv candidates per query during this run"
-        required: false
-        default: "5"
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -43,35 +38,11 @@ jobs:
           python -m unittest discover -s tests -v
           python -m py_compile scripts/radar/*.py scripts/*.py
 
-      - name: Fetch, score and enrich radar
-        run: |
-          LIMIT="${{ inputs.limit_per_query || '5' }}"
-          python scripts/update_radar.py --fetch --limit-per-query "$LIMIT" --threshold 45
-        env:
-          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-          LLM_BASE_URL: ${{ vars.LLM_BASE_URL || 'https://api.openai.com/v1' }}
-          LLM_MODEL: ${{ vars.LLM_MODEL || 'gpt-4o-mini' }}
-          ARXIV_USER_AGENT: "EmbodiedResearchRadar/0.1 (GitHub Actions; owner=Nicholas-Steven)"
-          # arXiv's export API aggressively 429s shared runner IPs; keep well under its rate limit.
-          ARXIV_DELAY_SECONDS: "10"
-          ARXIV_MAX_RETRIES: "5"
-          ARXIV_BACKOFF_BASE_SECONDS: "30"
-          ARXIV_BACKOFF_MAX_SECONDS: "300"
+      - name: Build research landscape
+        run: python scripts/build_landscape.py
 
       - name: Build static site
         run: python scripts/build_site.py
-
-      - name: Commit refreshed data
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/papers.json site
-          if git diff --cached --quiet; then
-            echo "No generated changes to commit"
-          else
-            git commit -m "chore: update research radar [skip ci]"
-            git push
-          fi
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

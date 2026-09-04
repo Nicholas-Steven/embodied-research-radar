@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 WEB = ROOT / "web"
 SITE = ROOT / "site"
 DATA = ROOT / "data/papers.json"
+LANDSCAPE = ROOT / "data/research_landscape.json"
 TOPICS = ROOT / "config/topics.json"
 SITE_CONFIG = ROOT / "config/site.json"
 
@@ -38,6 +39,8 @@ def build() -> Path:
     data["literature_categories"] = topics.get("literature_categories", [])
     data["site"] = site_config
     data["built_at"] = date.today().isoformat()
+    landscape = read_json(LANDSCAPE, None)
+    data["landscape"] = landscape
     assets = SITE / "assets"
     assets.mkdir(parents=True, exist_ok=True)
     (assets / "data.json").write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")

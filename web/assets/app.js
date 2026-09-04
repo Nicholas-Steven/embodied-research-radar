@@ -16,12 +16,12 @@ async function init(){
 function syncFromUrl(){ const params = new URLSearchParams(location.search); state.topic = params.get('topic') || 'all'; state.view = params.get('view') || (params.get('paper') ? 'detail' : 'home'); state.query = params.get('q') || ''; state.year = params.get('year') || 'all'; state.score = params.get('score') || 'all'; $('#search-input').value = state.query; $('#topic-filter').value = state.topic; $('#year-filter').value = state.year; $('#score-filter').value = state.score; }
 function updateUrl(extra={}){ const params = new URLSearchParams(); const merged = {...extra}; if(merged.topic && merged.topic !== 'all') params.set('topic',merged.topic); if(merged.view && merged.view !== 'home') params.set('view',merged.view); if(merged.paper) params.set('paper',merged.paper); if(merged.q) params.set('q',merged.q); if(merged.year && merged.year !== 'all') params.set('year',merged.year); if(merged.score && merged.score !== 'all') params.set('score',merged.score); const url = `${location.pathname}${params.toString() ? `?${params}` : ''}`; history.pushState({},'',url); syncFromUrl(); render(); }
 function populateFilters(){ const topics = uniq(state.papers.flatMap(p=>p.research_topics)).sort(); $('#topic-filter').innerHTML = `<option value="all">全部方向</option>` + topics.map(id=>`<option value="${esc(id)}">${esc(topicLabel(id))}</option>`).join(''); const years=uniq(state.papers.map(p=>p.year)).sort((a,b)=>b-a); $('#year-filter').innerHTML = '<option value="all">全部</option>' + years.map(year=>`<option value="${year}">${year}</option>`).join(''); }
-function bind(){ $('#search-input').addEventListener('input',(event)=>{state.query=event.target.value.trim(); renderList();}); $('#topic-filter').addEventListener('change',(event)=>{state.topic=event.target.value; updateUrl({topic:state.topic,view:'home'});}); $('#year-filter').addEventListener('change',(event)=>{state.year=event.target.value; updateUrl({topic:state.topic,year:state.year,view:'home'});}); $('#score-filter').addEventListener('change',(event)=>{state.score=event.target.value; updateUrl({topic:state.topic,score:state.score,view:'home'});}); $('#code-filter').addEventListener('click',()=>{state.codeOnly=!state.codeOnly; $('#code-filter').setAttribute('aria-pressed',state.codeOnly); renderList();}); $('#reset-filter').addEventListener('click',clearFilters); $('#empty-reset').addEventListener('click',clearFilters); $('#mobile-menu').addEventListener('click',()=>$('#sidebar').classList.toggle('open')); $('#theme-toggle').addEventListener('click',toggleTheme); window.addEventListener('popstate',()=>{syncFromUrl();render();}); document.addEventListener('click',(event)=>{ const card=event.target.closest('[data-paper-id]'); if(card) openPaper(card.dataset.paperId); const action=event.target.closest('[data-action]'); if(action && action.dataset.action==='topic') updateUrl({topic:action.dataset.value,view:'home'}); const nav=event.target.closest('.nav-item'); if(nav){ event.preventDefault(); const url=new URL(nav.getAttribute('href'),location.href); const topic=url.searchParams.get('topic'); const view=url.searchParams.get('view'); if(view==='map'){updateUrl({view:'map'});} else if(view==='core'){updateUrl({view:'core',topic:'all'});} else if(topic){updateUrl({topic,view:'home'});} else {history.pushState({},'',location.pathname);state.topic='all';state.view='home';render();} $('#sidebar').classList.remove('open'); } }); }
+function bind(){ $('#search-input').addEventListener('input',(event)=>{state.query=event.target.value.trim(); renderList();}); $('#topic-filter').addEventListener('change',(event)=>{state.topic=event.target.value; updateUrl({topic:state.topic,view:'home'});}); $('#year-filter').addEventListener('change',(event)=>{state.year=event.target.value; updateUrl({topic:state.topic,year:state.year,view:'home'});}); $('#score-filter').addEventListener('change',(event)=>{state.score=event.target.value; updateUrl({topic:state.topic,score:state.score,view:'home'});}); $('#code-filter').addEventListener('click',()=>{state.codeOnly=!state.codeOnly; $('#code-filter').setAttribute('aria-pressed',state.codeOnly); renderList();}); $('#reset-filter').addEventListener('click',clearFilters); $('#empty-reset').addEventListener('click',clearFilters); $('#mobile-menu').addEventListener('click',()=>$('#sidebar').classList.toggle('open')); $('#theme-toggle').addEventListener('click',toggleTheme); window.addEventListener('popstate',()=>{syncFromUrl();render();}); document.addEventListener('click',(event)=>{ const card=event.target.closest('[data-paper-id]'); if(card) openPaper(card.dataset.paperId); const action=event.target.closest('[data-action]'); if(action && action.dataset.action==='topic') updateUrl({topic:action.dataset.value,view:'home'}); const nav=event.target.closest('.nav-item'); if(nav){ event.preventDefault(); const url=new URL(nav.getAttribute('href'),location.href); const topic=url.searchParams.get('topic'); const view=url.searchParams.get('view'); if(view==='map'){updateUrl({view:'map'});} else if(view==='core'){updateUrl({view:'core',topic:'all'});} else if(view==='landscape'){updateUrl({view:'landscape',topic:'all'});} else if(topic){updateUrl({topic,view:'home'});} else {history.pushState({},'',location.pathname);state.topic='all';state.view='home';render();} $('#sidebar').classList.remove('open'); } }); }
 function clearFilters(){ state.query='';state.topic='all';state.year='all';state.score='all';state.codeOnly=false; $('#search-input').value='';$('#code-filter').setAttribute('aria-pressed','false'); updateUrl({view:'home'}); }
 function syncThemeUI(){ const btn=$('#theme-toggle'); if(btn) btn.innerHTML=state.dark?'◑ 浅色':'◐ 暗色'; const meta=document.querySelector('meta[name="theme-color"]'); if(meta) meta.setAttribute('content',state.dark?'#07121f':'#f6f8fa'); } function toggleTheme(){ state.dark=!state.dark; document.documentElement.classList.toggle('dark',state.dark); localStorage.setItem('radar-theme',state.dark?'dark':'light'); syncThemeUI(); }
-function render(){ if(localStorage.getItem('radar-theme')==='dark'&&!state.dark){state.dark=true;document.documentElement.classList.add('dark');} syncThemeUI(); renderChrome(); if(state.view==='detail'){renderDetail(new URLSearchParams(location.search).get('paper'));return;} if(state.view==='map'){renderHome(true);$('#explore-section').classList.add('hidden');$('#map-section').classList.remove('hidden');$('#branch-section').classList.add('hidden');return;} renderHome(true); }
+function render(){ if(localStorage.getItem('radar-theme')==='dark'&&!state.dark){state.dark=true;document.documentElement.classList.add('dark');} syncThemeUI(); renderChrome(); if(state.view==='detail'){renderDetail(new URLSearchParams(location.search).get('paper'));return;} if(state.view==='map'){renderHome(true);$('#explore-section').classList.add('hidden');$('#map-section').classList.remove('hidden');$('#branch-section').classList.add('hidden');$('#landscape-section').classList.add('hidden');return;} if(state.view==='landscape'){renderLandscape();return;} renderHome(true); }
 function renderChrome(){ document.querySelectorAll('[data-topic]').forEach(item=>item.classList.toggle('active',item.dataset.topic===state.topic)); document.querySelectorAll('[data-view]').forEach(item=>item.classList.toggle('active',item.dataset.view===state.view)); document.querySelector('[data-route="home"]')?.classList.toggle('active',state.view==='home'&&state.topic==='all'); const date=state.data.generated_at || '—'; $('#sidebar-date').textContent=dateLabel(date); $('#hero-date').textContent=dateLabel(date); $('#hero-count').textContent=state.data.retained_count ?? state.papers.length; $('#hero-threshold').textContent=`relevance ≥ ${state.data.relevance_threshold ?? '—'}`; $('[data-nav-count="all"]').textContent=state.papers.length; $('[data-nav-count="core"]').textContent=state.papers.filter(p=>p.core_candidate==='Yes').length; (state.data?.topics||[]).forEach(topic=>{ if(topic.id==='core-papers')return; const el=document.querySelector(`[data-nav-count="${topic.id}"]`); if(!el)return; const count=state.papers.filter(p=>(p.research_branches||[]).includes(topic.id)||(p.research_topics||[]).includes(topic.id)).length; if(count>0){ el.textContent=count; el.closest('.nav-item')?.classList.remove('muted-link'); } else { el.textContent=topic.status==='coming-soon'?'soon':'0'; } }); }
-function renderHome(showRadar){ $('#hero-section').classList.toggle('hidden',!showRadar); $('#quick-stats').classList.toggle('hidden',!showRadar); $('#spotlight-grid').classList.toggle('hidden',!showRadar); $('#map-section').classList.add('hidden'); $('#branch-section').classList.add('hidden'); const cfg=branchConfig[state.view==='map'?'research-map':(state.view==='core'?'core':(state.topic||'all'))]||branchConfig.all; const he=$('#hero-eyebrow'),ht=$('#hero-title'),hd=$('#hero-desc'),sl=$('#stat-label-1'); if(he)he.textContent=cfg.eyebrow; if(ht)ht.innerHTML=cfg.title; if(hd)hd.textContent=cfg.desc; if(sl)sl.textContent=cfg.stat; if(showRadar){ renderStats();renderSpotlight();renderInsight(); } const btn=document.querySelector('[data-action="topic"]'); if(btn) btn.dataset.value=state.topic==='all'?'vision-force':state.topic; $('#explore-section').classList.remove('hidden'); $('#list-title').textContent=state.view==='core'?'核心论文 · 收藏集':(state.topic==='all'?'最近加入雷达':`${topicLabel(state.topic)} · 最近加入`); renderList(); $('#breadcrumb-current').textContent=state.view==='core'?'CORE':(state.topic==='all'?'TODAY':String(state.topic).toUpperCase()); }
+function renderHome(showRadar){ $('#hero-section').classList.toggle('hidden',!showRadar); $('#quick-stats').classList.toggle('hidden',!showRadar); $('#spotlight-grid').classList.toggle('hidden',!showRadar); $('#map-section').classList.add('hidden'); $('#branch-section').classList.add('hidden'); $('#landscape-section').classList.add('hidden'); const cfg=branchConfig[state.view==='map'?'research-map':(state.view==='core'?'core':(state.topic||'all'))]||branchConfig.all; const he=$('#hero-eyebrow'),ht=$('#hero-title'),hd=$('#hero-desc'),sl=$('#stat-label-1'); if(he)he.textContent=cfg.eyebrow; if(ht)ht.innerHTML=cfg.title; if(hd)hd.textContent=cfg.desc; if(sl)sl.textContent=cfg.stat; if(showRadar){ renderStats();renderSpotlight();renderInsight(); } const btn=document.querySelector('[data-action="topic"]'); if(btn) btn.dataset.value=state.topic==='all'?'vision-force':state.topic; $('#explore-section').classList.remove('hidden'); $('#list-title').textContent=state.view==='core'?'核心论文 · 收藏集':(state.topic==='all'?'最近加入雷达':`${topicLabel(state.topic)} · 最近加入`); renderList(); $('#breadcrumb-current').textContent=state.view==='core'?'CORE':(state.topic==='all'?'TODAY':String(state.topic).toUpperCase()); }
 function renderStats(){ const ps=branchPapers(); $('#stat-papers').textContent=ps.length;$('#stat-high').textContent=ps.filter(p=>p.relevance_score>=80).length;$('#stat-code').textContent=ps.filter(p=>p.code_url).length;$('#stat-2026').textContent=ps.filter(p=>p.year===2026).length; }
 let spStart=0,spAnimActive=false,spAnimId=0,spCommitted=0,spAccum=0,spPending=0,spIdleTimer=null,spLastDiscrete=0,spLastInput=0,spSmoothed=0,spCurDur=220;
 const SP_DISCRETE_MIN=28,SP_TRACKPAD_THRESHOLD=32,SP_MAX_PENDING=2,SP_IDLE_RESET=100,SP_TAIL_WINDOW=30,SP_SLOW_INT=280,SP_FAST_INT=60,SP_SLOW_DUR=220,SP_FAST_DUR=115,SP_EMA_OLD=0.65,SP_MAX_DUR_CHANGE=35,SP_VELOCITY_IDLE=320;
@@ -69,3 +69,366 @@ readerMarkup = (p) => {
   add('reproduction','复现价值','REPRODUCTION VALUE',p.reproduction_value);
   return `<article class="reader"><header class="reader-header"><div class="reader-header-left"><span class="reader-kicker">论文阅读 / PAPER READER</span><h1 class="reader-header-title">${esc(p.title)}</h1></div><div class="reader-header-actions">${link('原文',p.paper_url)}${link('PDF',p.pdf_url)}${link('Code',p.code_url,'code-link')}<button class="reader-close" id="reader-close" type="button" aria-label="关闭">×</button></div></header><div class="reader-layout"><div class="reader-main">${hero}${cards.join('')}</div><aside class="reader-toc"><span class="section-kicker">阅读目录</span>${toc.join('')||'<span class="toc-empty">—</span>'}</aside></div></article>`;
 };
+
+// ── Research Landscape ──────────────────────────────────────────────
+function renderLandscape(){
+  const ls = state.data?.landscape;
+  // Hide home/explore sections
+  $('#hero-section').classList.add('hidden');
+  $('#quick-stats').classList.add('hidden');
+  $('#spotlight-grid').classList.add('hidden');
+  $('#explore-section').classList.add('hidden');
+  $('#map-section').classList.add('hidden');
+  $('#branch-section').classList.add('hidden');
+  $('#landscape-section').classList.remove('hidden');
+  $('#breadcrumb-current').textContent = 'LANDSCAPE';
+  if(!ls){
+    $('#ls-overview').innerHTML = '<div class="empty-state"><div class="empty-icon">!</div><h3>Landscape 数据尚未生成</h3><p>请先运行 <code>python scripts/build_landscape.py</code> 再执行 <code>python scripts/build_site.py</code>。</p></div>';
+    return;
+  }
+  // Header
+  $('#ls-eyebrow').textContent = ls.topic || 'RESEARCH LANDSCAPE';
+  $('#ls-date').textContent = dateLabel(ls.generated_at);
+  $('#ls-desc').textContent = ls.topic_zh || ls.topic;
+  $('#ls-disclaimer').textContent = ls.disclaimer || '';
+  renderLandscapeStats(ls);
+  renderLandscapePipeline(ls);
+  renderLandscapeMaturity(ls);
+  renderLandscapeGaps(ls);
+  renderLandscapeDirections(ls);
+  renderLandscapeMethodology(ls);
+}
+
+function renderLandscapeStats(ls){
+  const s = ls.statistics || {};
+  const tc = s.topic_counts || {};
+  const ct = s.cross_topic_counts || {};
+  const et = s.evidence_tiers || {};
+  $('#ls-stats').innerHTML = [
+    statCard('雷达论文总量', s.total_papers||0, 'RADAR TOTAL', 'accent-cyan'),
+    statCard('分析样本', s.analysis_sample_size||0, 'ANALYSIS SAMPLE', 'accent-amber'),
+    statCard('视觉力觉融合', tc['vision-force']||0, 'VISION-FORCE', 'accent-cyan'),
+    statCard('失败理解', tc['failure-understanding']||0, 'FAILURE-UNDERSTANDING', 'accent-amber'),
+    statCard('失败恢复', tc['failure-recovery']||0, 'FAILURE-RECOVERY', 'accent-rose'),
+  ].join('');
+  const cross = [
+    {label:'视觉力觉 ∩ 失败理解', sub:'VF ∩ Failure-Understanding', value: ct['vision-force_and_failure-understanding']||0},
+    {label:'视觉力觉 ∩ 失败恢复', sub:'VF ∩ Failure-Recovery', value: ct['vision-force_and_failure-recovery']||0},
+    {label:'三方向交集', sub:'VF ∩ FU ∩ FR', value: ct['vision-force_and_failure-understanding_and_failure-recovery']||0},
+  ];
+  const tiers = [
+    {label:'直接证据', sub:'Direct Evidence', value:et.direct||0, cls:'ls-tier-direct', desc:'论文内容中存在较直接的视觉/力觉与失败理解或失败恢复证据'},
+    {label:'相关证据', sub:'Related Evidence', value:et.related||0, cls:'ls-tier-related', desc:'与失败问题和力觉/接触相关，但未满足直接证据标准'},
+    {label:'背景证据', sub:'Background Evidence', value:et.background||0, cls:'ls-tier-bg', desc:'为视觉力觉融合、接触状态理解等提供背景支撑，但并非直接研究失败恢复'},
+  ];
+  $('#ls-cross-stats').innerHTML =
+    '<p class="ls-overview-kicker">主题交叉 / Cross-topic Coverage</p>' +
+    '<p class="ls-overview-note">统计同时被标记为多个研究 Topic 的论文数量</p>' +
+    `<div class="ls-cross-row">${cross.map(c=>`<div class="ls-cross-item"><span class="ls-cross-label">${esc(c.label)}</span><span class="ls-cross-sub">${esc(c.sub)}</span><strong class="ls-cross-value">${c.value}</strong></div>`).join('')}</div>` +
+    '<p class="ls-overview-kicker">证据层级 / Evidence Tiers</p>' +
+    '<p class="ls-overview-note">依据论文内容、传感器及失败相关证据进一步分类</p>' +
+    `<div class="ls-cross-row">${tiers.map(c=>`<div class="ls-cross-item"><span class="ls-cross-label">${esc(c.label)}</span><span class="ls-cross-sub">${esc(c.sub)}</span><strong class="ls-cross-value ${c.cls}">${c.value}</strong><p class="ls-cross-desc">${esc(c.desc)}</p></div>`).join('')}</div>` +
+    '<p class="ls-overview-footnote">Topic 交集依据论文 Topic 标签统计；Evidence Tier 依据论文内容、传感器及失败相关证据进一步分类。两者统计口径不同，例如 VF ∩ Failure-Recovery = 0 而直接证据 > 0 并不矛盾。</p>';
+}
+
+function statCard(label,value,sub,accent){
+  return `<div class="stat-card ${accent}"><span class="stat-label">${esc(label)}</span><strong>${value}</strong><small>${esc(sub)}</small></div>`;
+}
+
+function renderLandscapePipeline(ls){
+  const flow = ls.pipeline || [];
+  $('#ls-pipeline-flow').innerHTML = flow.map((s,i)=>{
+    const pct = Math.min(100, Math.round((s.paper_count / Math.max(1,ls.statistics?.total_papers||1))*100));
+    return `<div class="pipeline-stage${s.paper_count===0?' pipeline-empty':''}" data-stage="${esc(s.id)}" tabindex="0"><div class="pipeline-num">${String(i+1).padStart(2,'0')}</div><div class="pipeline-body"><div class="pipeline-label">${esc(s.label_zh)}</div><div class="pipeline-en">${esc(s.label)}</div><div class="pipeline-bar"><div class="pipeline-fill" style="width:${pct}%"></div></div><div class="pipeline-count">${s.paper_count} 篇</div><div class="pipeline-desc">${esc(s.description)}</div>${s.paper_count>0?`<button class="pipeline-expand" data-action="stage-papers" data-stage-id="${esc(s.id)}">查看论文 →</button>`:''}</div>${i<flow.length-1?'<div class="pipeline-arrow" data-action="stage-detail" data-stage-id="${esc(s.id)}" title="查看详情">→</div>':''}</div>`;
+  }).join('');
+  // Bind card click → open Stage Detail
+  document.querySelectorAll('.pipeline-stage[data-stage]').forEach(card=>{
+    if(card.classList.contains('pipeline-empty')) return;
+    card.addEventListener('click',(e)=>{
+      // Don't trigger if clicking 查看论文 button
+      if(e.target.closest('[data-action="stage-papers"]')) return;
+      const stageId = card.dataset.stage;
+      const stage = flow.find(s=>s.id===stageId);
+      if(stage) showStageDetail(stage, ls);
+    });
+  });
+  // Bind 查看论文 buttons (stopPropagation to prevent card click)
+  document.querySelectorAll('[data-action="stage-papers"]').forEach(btn=>{
+    btn.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      const stageId = btn.dataset.stageId;
+      const stage = flow.find(s=>s.id===stageId);
+      if(!stage)return;
+      showStagePapers(stage, ls);
+    });
+  });
+  // Bind arrow clicks → open Stage Detail
+  document.querySelectorAll('.pipeline-arrow[data-action="stage-detail"]').forEach(arrow=>{
+    arrow.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      const stageId = arrow.dataset.stageId;
+      const stage = flow.find(s=>s.id===stageId);
+      if(stage) showStageDetail(stage, ls);
+    });
+  });
+}
+
+function showStageDetail(stage, ls){
+  const ids = new Set(stage.paper_ids||[]);
+  const papers = state.papers.filter(p=>ids.has(p.paper_id));
+  const maturity = ls.maturity?.find(m=>m.id===stage.id);
+  const total = ls.statistics?.total_papers||1;
+  const pct = Math.round((stage.paper_count/Math.max(1,total))*100);
+  // Find prev/next stages
+  const pipeline = ls.pipeline||[];
+  const idx = pipeline.findIndex(s=>s.id===stage.id);
+  const prev = idx>0?pipeline[idx-1]:null;
+  const next = idx<pipeline.length-1?pipeline[idx+1]:null;
+  const topPapers = papers.sort((a,b)=>(b.relevance_score||0)-(a.relevance_score||0)).slice(0,5);
+  const overlay = document.createElement('div');
+  overlay.className = 'ls-overlay';
+  overlay.innerHTML = `<div class="ls-overlay-inner">
+    <div class="ls-overlay-header"><h3>${String(idx+1).padStart(2,'0')} · ${esc(stage.label_zh)} · ${esc(stage.label)}</h3><button class="ls-overlay-close" type="button">×</button></div>
+    <div class="stage-detail-body">
+      <p class="ls-overlay-desc">${esc(stage.description)}</p>
+      <div class="stage-detail-stats">
+        <div class="stage-detail-stat"><span>论文数量</span><strong>${stage.paper_count} 篇 (${pct}%)</strong></div>
+        ${maturity?`<div class="stage-detail-stat"><span>成熟度</span><strong>${esc(maturity.level)}</strong></div>`:''}
+      </div>
+      <div class="stage-detail-relation">
+        ${prev?`<div class="stage-rel-item"><span>← 上一阶段</span><strong>${esc(prev.label_zh)}</strong></div>`:''}
+        ${next?`<div class="stage-rel-item"><span>下一阶段 →</span><strong>${esc(next.label_zh)}</strong></div>`:''}
+      </div>
+      ${topPapers.length?`<div class="stage-detail-papers"><span class="section-kicker">代表论文 / REPRESENTATIVE PAPERS</span>${topPapers.map(p=>`<div class="gap-paper-mini" data-paper-id="${esc(p.paper_id)}"><span class="score-pill">${p.relevance_score}</span><span>${esc(p.title)}</span></div>`).join('')}</div>`:''}
+      ${papers.length>5?`<button class="outline-button" data-action="stage-papers-from-detail" data-stage-id="${esc(stage.id)}">查看全部 ${papers.length} 篇论文</button>`:''}
+    </div>
+  </div>`;
+  overlay.querySelector('.ls-overlay-close').onclick = ()=>overlay.remove();
+  overlay.addEventListener('click',e=>{if(e.target===overlay)overlay.remove();});
+  overlay.querySelectorAll('.gap-paper-mini[data-paper-id]').forEach(el=>{
+    el.style.cursor='pointer';
+    el.addEventListener('click',()=>{overlay.remove();openPaper(el.dataset.paperId);});
+  });
+  const allBtn = overlay.querySelector('[data-action="stage-papers-from-detail"]');
+  if(allBtn) allBtn.addEventListener('click',()=>{overlay.remove();showStagePapers(stage,ls);});
+  document.body.appendChild(overlay);
+}
+
+function showStagePapers(stage, ls){
+  const ids = new Set(stage.paper_ids||[]);
+  const papers = state.papers.filter(p=>ids.has(p.paper_id));
+  const overlay = document.createElement('div');
+  overlay.className = 'ls-overlay';
+  overlay.innerHTML = `<div class="ls-overlay-inner"><div class="ls-overlay-header"><h3>${esc(stage.label_zh)} · ${esc(stage.label)}</h3><button class="ls-overlay-close" type="button">×</button></div><p class="ls-overlay-desc">${esc(stage.description)}</p><div class="ls-overlay-grid">${papers.map(p=>renderCard(p)).join('')}</div></div>`;
+  overlay.querySelector('.ls-overlay-close').onclick = ()=>overlay.remove();
+  overlay.addEventListener('click',e=>{if(e.target===overlay)overlay.remove();});
+  overlay.querySelectorAll('[data-paper-id]').forEach(el=>{
+    el.addEventListener('click',()=>{overlay.remove();openPaper(el.dataset.paperId);});
+  });
+  document.body.appendChild(overlay);
+}
+
+function renderLandscapeMaturity(ls){
+  const maturity = ls.maturity || [];
+  const levelClass = {'Emerging':'maturity-emerging','Developing':'maturity-developing','Moderate':'maturity-moderate','Relatively Mature':'maturity-mature'};
+  $('#ls-maturity-grid').innerHTML = maturity.map(m=>{
+    const cls = levelClass[m.level]||'maturity-emerging';
+    return `<div class="maturity-cell ${cls}"><div class="maturity-label">${esc(m.label)}</div><div class="maturity-en">${esc(m.label_en)}</div><div class="maturity-level">${esc(m.level)}</div><div class="maturity-count">${m.paper_count} 篇</div></div>`;
+  }).join('');
+}
+
+function renderLandscapeGaps(ls){
+  const gaps = ls.gaps || [];
+  if(gaps.length===0){
+    $('#ls-gap-list').innerHTML = '<div class="empty-state"><p>当前数据中未识别到足够的 Research Gap。</p></div>';
+    return;
+  }
+  const majorGaps = gaps.filter(g => (g.gap_status||g.group) !== 'dataset-limited');
+  const minorGaps = gaps.filter(g => (g.gap_status||g.group) === 'dataset-limited');
+  function renderGapCards(gapList){
+    return gapList.map(g=>{
+    const confClass = {'high':'gap-conf-high','medium':'gap-conf-medium','low':'gap-conf-low','insufficient':'gap-conf-insufficient','dataset-limited':'gap-conf-low'}[g.confidence]||'gap-conf-low';
+    const typeBadge = {'fact':'gap-type-fact','evidence-based-inference':'gap-type-inference','open-hypothesis':'gap-type-hypothesis','dataset-limited':'gap-type-dataset'}[g.claim_type]||'gap-type-inference';
+    const confLabel = {'high':'较高 · High','medium':'中等 · Medium','low':'较低 · Low','insufficient':'不足 · Insufficient','dataset-limited':'数据不足 · Dataset-limited'}[g.confidence]||g.confidence;
+    const typeLabel = {'fact':'事实 · Fact','evidence-based-inference':'证据推断 · Evidence-based','open-hypothesis':'开放假设 · Open hypothesis','dataset-limited':'数据不足 · Dataset-limited'}[g.claim_type]||g.claim_type;
+    const gapStatus = g.gap_status || g.group || 'evidence-supported';
+    const supPapers = (g.supporting_paper_ids||[]).map(pid=>state.papers.find(p=>p.paper_id===pid)).filter(Boolean);
+    const cntPapers = (g.counter_paper_ids||[]).map(pid=>state.papers.find(p=>p.paper_id===pid)).filter(Boolean);
+    const extInfo = ls.external_evidence?.[g.id];
+    const isPA = gapStatus === 'partially-addressed';
+    return `<div class="gap-card" data-gap-id="${esc(g.id)}" data-gap-group="${esc(gapStatus)}">
+      <div class="gap-header">
+        <h3 class="gap-title-zh">${esc(g.title_zh)}</h3>
+        <span class="gap-en">${esc(g.title)}</span>
+        <div class="gap-badges">${isPA?'<span class="gap-badge gap-type-pa">已有进展 · PA</span>':''}<span class="gap-badge ${confClass}">${esc(confLabel)}</span></div>
+      </div>
+      <p class="gap-question">${esc(g.question)}</p>
+      <div class="gap-expanded hidden">
+      ${isPA && g.what_has_been_addressed ? `<div class="gap-section gap-pa-addressed"><span class="section-kicker"><span class="kicker-zh">已有进展</span><span class="kicker-en">WHAT HAS BEEN ADDRESSED</span></span><p>${esc(g.what_has_been_addressed)}</p></div>` : ''}
+      ${isPA && g.what_remains_open ? `<div class="gap-section gap-pa-open"><span class="section-kicker"><span class="kicker-zh">仍然开放的问题</span><span class="kicker-en">WHAT REMAINS OPEN</span></span><p>${esc(g.what_remains_open)}</p></div>` : ''}
+      <div class="gap-section"><span class="section-kicker"><span class="kicker-zh">当前进展</span><span class="kicker-en">CURRENT PROGRESS</span></span><p>${esc(g.current_progress)}</p></div>
+        <div class="gap-section"><span class="section-kicker"><span class="kicker-zh">缺失环节</span><span class="kicker-en">MISSING PIECE</span></span><p>${esc(g.missing_piece)}</p></div>
+        <div class="gap-section"><span class="section-kicker"><span class="kicker-zh">为什么重要</span><span class="kicker-en">WHY IT MATTERS</span></span><p>${esc(g.why_it_matters)}</p></div>
+        <div class="gap-evidence">
+          <div class="gap-evidence-col"><span class="section-kicker">SUPPORTING EVIDENCE (${supPapers.length})</span>${supPapers.length?supPapers.map(p=>`<div class="gap-paper-mini" data-paper-id="${esc(p.paper_id)}"><span class="score-pill">${p.relevance_score}</span><span>${esc(p.title)}</span></div>`).join(''):'<p class="gap-empty">当前 Radar 中未找到直接支持论文</p>'}</div>
+          <div class="gap-evidence-col"><span class="section-kicker">COUNTER EVIDENCE (${cntPapers.length})</span>${cntPapers.length?cntPapers.map(p=>`<div class="gap-paper-mini" data-paper-id="${esc(p.paper_id)}"><span class="score-pill">${p.relevance_score}</span><span>${esc(p.title)}</span></div>`).join(''):'<p class="gap-empty">当前 Radar 中未找到直接反例</p>'}</div>
+        </div>
+        <div class="gap-section"><span class="section-kicker"><span class="kicker-zh">研究机会</span><span class="kicker-en">RESEARCH OPPORTUNITY</span></span><p>${esc(g.research_opportunity)}</p></div>
+        <div class="gap-section gap-external">
+          <span class="section-kicker"><span class="kicker-zh">外部证据</span><span class="kicker-en">EXTERNAL EVIDENCE</span></span>
+          ${extInfo ? `<div class="gap-ext-stats">
+            <span>检索结果: <strong>${extInfo.unique_after_dedup||0}</strong></span>
+            <span>支持缺口: <strong class="ls-tier-direct">${extInfo.supporting_count||0}</strong> <small>SUPPORTING</small></span>
+            <span>已有解决: <strong class="ls-tier-related">${extInfo.counter_count||0}</strong> <small>COUNTER</small></span>
+            <span>来源: OpenAlex ${extInfo.sources?.openalex||0} · S2 ${extInfo.sources?.semantic_scholar||0} · arXiv ${extInfo.sources?.arxiv||0}</span>
+          </div>
+          ${extInfo.evidence_stale ? '<div class="gap-ext-stale"><span>⚠ 问题已更新，证据需要重新检索 / Evidence refresh required after claim update</span></div>' : '<div class="gap-ext-aligned"><span>✓ 证据与当前问题一致 / Evidence aligned with current claim</span></div>'}
+          <div class="gap-ext-note"><span>支持缺口：说明该问题仍存在或只解决了一部分。</span><span>已有解决/反例：表示已有论文部分或直接解决该问题，会降低 Gap 判断置信度。</span></div>
+          <div class="gap-ext-freshness">${extInfo.searched_at?`<span>最近检索 / Last searched: <strong>${esc(extInfo.searched_at)}</strong></span>`:''}</div>` : '<p class="gap-ext-na">尚未检索 / Not searched</p>'}
+          <button class="gap-refresh-btn" data-action="refresh-evidence" data-gap-id="${esc(g.id)}" type="button">更新文献证据 <small>Refresh Evidence</small></button>
+          <span class="gap-refresh-hint">需要本地运行检索 / Local refresh required</span>
+          <div class="gap-scheduled-status"><span class="gap-scheduled-label">自动证据更新 / Scheduled Refresh</span><span class="gap-scheduled-state">尚未启用 / Not enabled yet</span><span class="gap-scheduled-note">发布并启用 GitHub Actions 后，Radar 将每周自动更新文献证据。</span></div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  }
+  const majorHtml = renderGapCards(majorGaps);
+  const minorHtml = renderGapCards(minorGaps);
+  let output = '';
+  if(majorGaps.length > 0){
+    output += `<div class="gap-section-group"><div class="section-heading"><div><span class="section-kicker">MAJOR RESEARCH QUESTIONS</span><h3>主要研究问题</h3></div><span class="result-count">${majorGaps.length} 个</span></div><p class="gap-section-desc">基于当前证据，值得优先关注的问题</p><div class="gap-cards">${majorHtml}</div></div>`;
+  }
+  if(minorGaps.length > 0){
+    output += `<div class="gap-section-group"><div class="section-heading"><div><span class="section-kicker">NEEDS MORE EVIDENCE</span><h3>待验证问题</h3></div><span class="result-count">${minorGaps.length} 个</span></div><p class="gap-section-desc">当前证据覆盖不足，暂不宜作为强结论</p><div class="gap-cards">${minorHtml}</div></div>`;
+  }
+  $('#ls-gap-list').innerHTML = output;
+  // Bind whole-card click → toggle expanded
+  document.querySelectorAll('.gap-card[data-gap-id]').forEach(card=>{
+    card.addEventListener('click',(e)=>{
+      // Don't toggle if clicking a button or interactive element inside
+      if(e.target.closest('[data-action="refresh-evidence"]')) return;
+      if(e.target.closest('.gap-refresh-btn')) return;
+      if(e.target.closest('.gap-paper-mini')) return;
+      if(e.target.closest('[data-action]')) return;
+      if(e.target.closest('a[href]')) return;
+      if(e.target.closest('.ls-overlay')) return;
+      const expanded = card.querySelector('.gap-expanded');
+      if(expanded){
+        expanded.classList.toggle('hidden');
+        card.classList.toggle('gap-expanded-active', !expanded.classList.contains('hidden'));
+      }
+    });
+  });
+  // Bind paper clicks
+  document.querySelectorAll('.gap-paper-mini[data-paper-id]').forEach(el=>{
+    el.style.cursor='pointer';
+    el.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      openPaper(el.dataset.paperId);
+    });
+  });
+  // Bind gap group filters
+  document.querySelectorAll('[data-gap-filter]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('[data-gap-filter]').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.gapFilter;
+      document.querySelectorAll('.gap-card[data-gap-group]').forEach(card=>{
+        if(filter==='all'){card.style.display='';}
+        else{card.style.display=card.dataset.gapGroup===filter?'':'none';}
+      });
+    });
+  });
+  // Bind refresh evidence buttons
+  document.querySelectorAll('[data-action="refresh-evidence"]').forEach(btn=>{
+    btn.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      const gapId = btn.dataset.gapId;
+      const extInfo = ls.external_evidence?.[gapId];
+      openRefreshPanel(gapId, extInfo);
+    });
+  });
+}
+
+function openRefreshPanel(gapId, extInfo){
+  if(document.querySelector('.refresh-panel-overlay')) return;
+  const gap = (state.data?.landscape?.gaps||[]).find(g=>g.id===gapId);
+  const gapTitle = gap ? gap.title_zh + ' / ' + gap.title : gapId;
+  const cmd = `python scripts/search_gap_evidence.py --gap ${gapId} --refresh`;
+  const searchedAt = extInfo?.searched_at || '';
+  const sources = extInfo?.sources || {};
+  const overlay = document.createElement('div');
+  overlay.className = 'refresh-panel-overlay';
+  overlay.innerHTML = `<div class="refresh-panel">
+    <div class="refresh-panel-header"><h3>更新文献证据 / Refresh Evidence</h3><button class="refresh-panel-close" type="button">×</button></div>
+    <div class="refresh-panel-body">
+      <div class="refresh-field"><span>Gap</span><strong>${esc(gapTitle)}</strong></div>
+      ${searchedAt?`<div class="refresh-field"><span>最近检索 / Last searched</span><strong>${esc(searchedAt)}</strong></div>`:'<div class="refresh-field"><span>状态 / Status</span><strong>尚未检索 / Not searched</strong></div>'}
+      <div class="refresh-field"><span>已搜索数据源 / Sources</span><strong>OpenAlex ${sources.openalex||0} · Semantic Scholar ${sources.semantic_scholar||0} · arXiv ${sources.arxiv||0}</strong></div>
+      <div class="refresh-cmd-block">
+        <span class="refresh-cmd-label">本地刷新命令 / Local refresh command</span>
+        <code class="refresh-cmd">${esc(cmd)}</code>
+        <button class="refresh-copy-btn" data-action="copy-cmd" type="button">复制刷新命令 / Copy Refresh Command</button>
+      </div>
+      <div class="refresh-steps">
+        <p><strong>步骤 1</strong> — 复制并在项目目录中运行上方命令。</p>
+        <p><strong>步骤 2</strong> — 外部证据检索完成后运行：<code>python scripts/build_site.py</code></p>
+        <p><strong>步骤 3</strong> — 刷新当前网页查看最新证据。</p>
+      </div>
+    </div>
+  </div>`;
+  overlay.querySelector('.refresh-panel-close').onclick = ()=>overlay.remove();
+  overlay.addEventListener('click',e=>{if(e.target===overlay)overlay.remove();});
+  overlay.querySelector('[data-action="copy-cmd"]').addEventListener('click',(e)=>{
+    navigator.clipboard.writeText(cmd).then(()=>{
+      e.target.textContent = '已复制 / Copied';
+      setTimeout(()=>{e.target.textContent = '复制刷新命令 / Copy Refresh Command';},2000);
+    }).catch(()=>{});
+  });
+  document.body.appendChild(overlay);
+}
+
+function renderLandscapeDirections(ls){
+  const dirs = ls.directions || [];
+  $('#ls-direction-list').innerHTML = dirs.map(d=>{
+    return `<div class="direction-card">
+      <h3>${esc(d.title_zh)}</h3><span class="direction-en">${esc(d.title)}</span>
+      <p class="direction-question">${esc(d.research_question)}</p>
+      <div class="direction-grid">
+        <div class="direction-field"><span>为什么值得研究</span><p>${esc(d.why_worthworth||d.why_worthwhile||'')}</p></div>
+        <div class="direction-field"><span>当前状态</span><p>${esc(d.current_state)}</p></div>
+        <div class="direction-field"><span>缺失环节</span><p>${esc(d.missing)}</p></div>
+        <div class="direction-field"><span>潜在实验方式</span><p>${esc(d.potential_experiment)}</p></div>
+      </div>
+      <div class="direction-meta"><span class="gap-badge gap-type-hypothesis">${esc(d.type)}</span><span class="direction-evidence">证据充分度: ${esc(d.evidence_strength)}</span></div>
+    </div>`;
+  }).join('');
+}
+
+function renderLandscapeMethodology(ls){
+  $('#ls-methodology-body').innerHTML = `
+    <div class="methodology-content">
+      <h4>证据分类规则</h4>
+      <div class="methodology-tiers">
+        <div class="tier-card tier-direct"><strong>Direct Evidence</strong><p>论文同时被标记为 vision-force topic 和 failure-understanding/recovery topic，且文本中包含力觉/触觉/接触信号。</p></div>
+        <div class="tier-card tier-related"><strong>Related Evidence</strong><p>论文属于 failure-understanding/recovery topic，且包含力觉/接触信号，但未被标记为 vision-force topic。</p></div>
+        <div class="tier-card tier-background"><strong>Background Evidence</strong><p>论文属于 vision-force topic，且包含失败检测/恢复相关信号，但未被标记为 failure topic。</p></div>
+      </div>
+      <h4>成熟度定义</h4>
+      <div class="methodology-maturity-def">
+        <span class="maturity-tag maturity-emerging">Emerging</span> ≤2 篇论文
+        <span class="maturity-tag maturity-developing">Developing</span> 3–5 篇
+        <span class="maturity-tag maturity-moderate">Moderate</span> 6–12 篇
+        <span class="maturity-tag maturity-mature">Relatively Mature</span> &gt;12 篇
+      </div>
+      <h4>研究缺口声明类型</h4>
+      <ul>
+        <li><strong>FACT</strong> — 论文 metadata 或 abstract 明确支持</li>
+        <li><strong>EVIDENCE-BASED INFERENCE</strong> — 多篇论文归纳所得</li>
+        <li><strong>OPEN HYPOTHESIS</strong> — 值得进一步验证</li>
+      </ul>
+      <h4>免责声明</h4>
+      <p>${esc(ls.disclaimer||'当前分析基于 Embodied Research Radar 已收录论文及其标题、摘要、结构化字段和辅助分析，不等同于系统综述或 Meta-analysis。')}</p>
+    </div>`;
+}
