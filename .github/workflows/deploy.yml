@@ -3,9 +3,6 @@ name: Build and deploy GitHub Pages
 on:
   push:
     branches: [main, master]
-  schedule:
-    # Daily rebuild at 04:00 UTC = 12:00 Beijing / 13:00 Japan
-    - cron: "0 4 * * *"
   workflow_dispatch:
 
 permissions:

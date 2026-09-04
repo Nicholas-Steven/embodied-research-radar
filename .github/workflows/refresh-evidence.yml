@@ -28,7 +28,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: evidence-refresh
+  group: radar-data-mutation
   cancel-in-progress: false
 
 env:
