@@ -27,6 +27,8 @@
         <a class="nav-item muted-link" href="?topic=failure-recovery" data-topic="failure-recovery"><span class="nav-dot rose"></span><span>失败恢复</span><small data-nav-count="failure-recovery">—</small></a>
         <a class="nav-item muted-link" href="?topic=vla-manipulation" data-topic="vla-manipulation"><span class="nav-dot violet"></span><span>VLA与操作</span><small data-nav-count="vla-manipulation">—</small></a>
         <a class="nav-item muted-link" href="?topic=generative-policy" data-topic="generative-policy"><span class="nav-dot blue"></span><span>生成式策略</span><small data-nav-count="generative-policy">—</small></a>
+        <div class="nav-label nav-label-spaced">ANALYSIS</div>
+        <a class="nav-item" href="?view=landscape" data-view="landscape"><span class="nav-icon">◈</span><span>研究进展与缺口</span></a>
         <div class="nav-label nav-label-spaced">COLLECTIONS</div>
         <a class="nav-item" href="?view=core" data-view="core"><span class="nav-icon">✦</span><span>核心论文</span><small data-nav-count="core">—</small></a>
         <a class="nav-item" href="?view=map" data-view="map"><span class="nav-icon">⌁</span><span>Research Map</span></a>
@@ -87,6 +89,53 @@
           <div class="active-filters" id="active-filters"></div>
           <div class="paper-grid" id="paper-grid"></div>
           <div class="empty-state hidden" id="empty-state"><div class="empty-icon">∅</div><h3>没有匹配的论文</h3><p>尝试放宽筛选条件，或等待下一次雷达更新。</p><button class="outline-button" id="empty-reset">清除筛选</button></div>
+        </section>
+
+        <section class="landscape-section hidden" id="landscape-section">
+          <div class="landscape-header">
+            <div class="eyebrow"><span class="pulse"></span> <span id="ls-eyebrow">RESEARCH LANDSCAPE</span> · <span id="ls-date">—</span></div>
+            <h1 id="ls-title">研究进展与缺口</h1>
+            <p id="ls-desc">视觉力觉融合在机器人操作失败理解与恢复中的研究进展、成熟度、证据与 Research Gaps。</p>
+            <p class="landscape-disclaimer" id="ls-disclaimer"></p>
+          </div>
+
+          <section class="ls-overview" id="ls-overview">
+            <div class="section-heading"><div><span class="section-kicker">LANDSCAPE OVERVIEW</span><h2>数据总览</h2></div></div>
+            <div class="quick-stats" id="ls-stats"></div>
+            <div class="ls-cross-stats" id="ls-cross-stats"></div>
+          </section>
+
+          <section class="ls-pipeline" id="ls-pipeline">
+            <div class="section-heading"><div><span class="section-kicker">RESEARCH PIPELINE</span><h2>能力链路</h2></div></div>
+            <div class="pipeline-flow" id="ls-pipeline-flow"></div>
+          </section>
+
+          <section class="ls-maturity" id="ls-maturity">
+            <div class="section-heading"><div><span class="section-kicker">MATURITY MATRIX</span><h2>研究成熟度</h2></div></div>
+            <div class="maturity-grid" id="ls-maturity-grid"></div>
+          </section>
+
+          <section class="ls-gaps" id="ls-gaps">
+            <div class="section-heading"><div><span class="section-kicker">RESEARCH GAPS</span><h2>主要研究缺口</h2></div></div>
+            <div class="ls-gap-filters" id="ls-gap-filters">
+              <button class="filter-button gap-filter-btn active" data-gap-filter="all" type="button">全部</button>
+              <button class="filter-button gap-filter-btn" data-gap-filter="evidence-supported" type="button">有证据支持</button>
+              <button class="filter-button gap-filter-btn" data-gap-filter="partially-addressed" type="button">已有进展</button>
+              <button class="filter-button gap-filter-btn" data-gap-filter="open-hypotheses" type="button">开放假设</button>
+              <button class="filter-button gap-filter-btn" data-gap-filter="dataset-limited" type="button">数据不足</button>
+            </div>
+            <div class="gap-list" id="ls-gap-list"></div>
+          </section>
+
+          <section class="ls-directions" id="ls-directions">
+            <div class="section-heading"><div><span class="section-kicker">POSSIBLE RESEARCH DIRECTIONS</span><h2>可能的研究方向</h2></div><span class="landscape-badge">research opportunity / hypothesis</span></div>
+            <div class="direction-list" id="ls-direction-list"></div>
+          </section>
+
+          <section class="ls-methodology" id="ls-methodology">
+            <div class="section-heading"><div><span class="section-kicker">EVIDENCE &amp; METHODOLOGY</span><h2>证据与方法说明</h2></div></div>
+            <div class="methodology-body" id="ls-methodology-body"></div>
+          </section>
         </section>
 
         <section class="map-section hidden" id="map-section">
