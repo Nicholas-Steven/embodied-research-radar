@@ -216,7 +216,8 @@ bumped. External evidence carries its own `claim_version`; mismatch →
 ## 9. Workflow Architecture
 
 ### deploy.yml — Build and Deploy Pages
-- **Triggers**: `push` to main/master, `workflow_dispatch`
+- **Triggers**: `push` to main/master, `workflow_dispatch`, `workflow_run` (on completion of Update Radar or Refresh Research Gap Evidence)
+- **Condition**: When triggered by `workflow_run`, only proceeds if upstream concluded with `success`
 - **Does**: checkout → validate → build_landscape → build_site → upload artifact → deploy
 - **Does NOT**: commit, push, mutate repository data
 - **Permissions**: `contents: read`, `pages: write`, `id-token: write`
@@ -242,18 +243,18 @@ Both data workflows push to main, which triggers deploy.yml once.
 
 | Workflow | Purpose | Schedule UTC | Beijing | Japan | Mutates Data | Triggers Deploy |
 |---|---|---|---|---|---|---|
-| update-radar.yml | Fetch new arXiv papers | Daily 04:00 | 12:00 | 13:00 | Yes | Yes (via push) |
-| refresh-evidence.yml | Search external evidence | Mon 02:00 | Mon 10:00 | Mon 11:00 | Yes | Yes (via push) |
-| deploy.yml | Build + deploy Pages | On push only | — | — | No | N/A (is deploy) |
+| update-radar.yml | Fetch new arXiv papers | Daily 04:00 | 12:00 | 13:00 | Yes | Yes (via workflow_run) |
+| refresh-evidence.yml | Search external evidence | Mon 02:00 | Mon 10:00 | Mon 11:00 | Yes | Yes (via workflow_run) |
+| deploy.yml | Build + deploy Pages | On push / workflow_run | — | — | No | N/A (is deploy) |
 
 ## 11. Current Dataset Snapshot
 
-*Snapshot as of 2026-09-04. These values change automatically over time.*
+*Snapshot as of 2026-09-08. These values change automatically over time.*
 
-- Total papers: 155
-- Vision-Force: 69
-- Failure Understanding: 12
-- Failure Recovery: 16
+- Total papers: 167
+- Vision-Force: 73
+- Failure Understanding: 13
+- Failure Recovery: 18
 - Major Research Questions: 6
 - Needs More Evidence: 6
 

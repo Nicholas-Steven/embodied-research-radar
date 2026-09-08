@@ -8,11 +8,69 @@
 
 ## Current Stable Release
 
-- **Commit:** e1d69ef
-- **Date:** 2026-09-04
-- **Paper Count at Release:** 155
+- **Commit:** (pending — this fix)
+- **Date:** 2026-09-08
+- **Paper Count at Release:** 167
 - **Production URL:** https://nicholas-steven.github.io/embodied-research-radar/
-- **Workflows:** deploy.yml (push), update-radar.yml (daily), refresh-evidence.yml (weekly)
+- **Workflows:** deploy.yml (push / workflow_run), update-radar.yml (daily), refresh-evidence.yml (weekly)
+
+---
+
+## 2026-09-08 — Fix Automated Deploy Trigger
+
+### Goal
+Fix broken deploy trigger: data workflows (Update Radar, Refresh Evidence) use
+GITHUB_TOKEN to push, which does not trigger push-based deploy.yml. Resulted in
+production site stuck at Sept 3 data despite daily successful data updates.
+
+### Root Cause
+GitHub Actions GITHUB_TOKEN push does not trigger other workflows (anti-loop
+design). update-radar.yml pushed daily but deploy.yml was never triggered by
+those pushes. Last push-triggered deploy was 2026-09-04 08:50 UTC (from a
+human merge commit, not a bot push).
+
+### User-visible Changes
+Production site will now automatically rebuild after each successful data
+pipeline run (Update Radar daily, Refresh Evidence weekly).
+
+### Technical Changes
+- deploy.yml: added `workflow_run` trigger listening for "Update Radar" and
+  "Refresh Research Gap Evidence" completion events
+- deploy.yml: added `if` condition to build job — when triggered by
+  `workflow_run`, only proceeds if `conclusion == 'success'`
+
+### Files Changed
+- `Modified` `.github/workflows/deploy.yml`
+- `Modified` `docs/PROJECT_CONTEXT.md`
+- `Modified` `docs/ITERATION_LOG.md`
+
+### Data / Schema Changes
+None.
+
+### Research Logic Changes
+None.
+
+### Workflow Changes
+- deploy.yml triggers: `push` + `workflow_dispatch` + `workflow_run` (new)
+- deploy.yml build job: added `if` condition for workflow_run success check
+- No PAT introduced, no new secrets, no schedule restored
+
+### Bugs Fixed
+- Deploy trigger gap: data workflows could not trigger site rebuild
+
+### Validation
+- unit tests: 97/97 OK
+- py_compile: OK
+- Remote paper IDs preserved: 167/167
+- Force push: No
+
+### Data Safety
+- Papers: 167 (160 existing + 7 new from 2026-09-04, all from remote)
+- Remote IDs preserved: 167/167
+- Missing IDs: []
+
+### Diagnostic Report
+Full diagnostic preserved at `docs/DIAGNOSTIC_REPORT_2026-09-08.md`.
 
 ---
 
