@@ -1,11 +1,241 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-09",
+  "generated_at": "2026-09-10",
   "source": "arXiv",
-  "candidate_count": 190,
-  "retained_count": 176,
+  "candidate_count": 194,
+  "retained_count": 179,
   "relevance_threshold": 45,
   "papers": [
+    {
+      "paper_id": "arxiv-2609-09925",
+      "title": "Time-Frequency Geometric Cross-Attention for Chunked Vision-Language-Action Models",
+      "authors": [
+        "Shengye Dong",
+        "Haochen Niu",
+        "Hao Liu",
+        "Peiwen Lin",
+        "Chuang Wang",
+        "Shanmin Pang"
+      ],
+      "abstract": "Modern vision-language-action (VLA) policies predict a whole chunk of actions: one to two seconds of coordinated motion emitted in a single forward pass. Yet an action chunk is essentially a short multivariate trajectory, but inside these models it is a sequence of generic per-timestep hidden tokens decoded by a linear head. This under-serves two motion structures. First, frequency: a chunk superimposes a smooth global trend and fine corrective motion across time scales, and a single token entangles them. Second, cross-phase geometry: motions of different phases (reach, contact, grasp adjustment, settling) unfold along very different, near-orthogonal directions in representation space, yet are tightly related for the task and arise across the time axis. Dot-product attention scores alignment by an inner product, so it favors aligned tokens and is least sensitive near orthogonality, leaving such relationships for the network to recover through a detour. We introduce Time-Frequency Geometric Cross-Attention (TFGCA), a drop-in module repairing both blind spots. TFGCA uses a per-dimension learnable stationary wavelet transform to decompose the action chunk into time-frequency tokens, and each time token retrieves information from them via a cross-attention that fuses the dot product (similarity) with the wedge-product magnitude (sensitive to near-orthogonality) through a learnable weight. A zero-initialized residual reproduces the base behavior at initialization, so it can be dropped onto a pretrained VLA and fine-tuned jointly. Relative to the same-source base, TFGCA improves in-distribution LIBERO by +1.5 on average, the OOD LIBERO-Plus by +6.3, the randomized average under RoboTwin domain randomization by +28.5, and the overall success rate on three real-robot AgiBot A2 tasks by +11.67 points, with larger gains out of distribution.",
+      "published_date": "2026-09-09",
+      "updated_date": "2026-09-09",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2609.09925",
+      "paper_url": "https://arxiv.org/abs/2609.09925",
+      "pdf_url": "https://arxiv.org/pdf/2609.09925",
+      "source": "arXiv",
+      "last_checked": "2026-09-10",
+      "keywords": [
+        "cs.AI",
+        "cs.RO",
+        "cs.AI"
+      ],
+      "source_categories": [
+        "cs.AI",
+        "cs.RO"
+      ],
+      "research_topics": [
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出TFGCA，一种即插即用模块，可修复VLA模型中频率纠缠和跨阶段几何关系的两个盲点。",
+        "使用逐维可学习平稳小波变换将动作块分解为时频token，使每个时间token通过交叉注意力检索多尺度频率信息。",
+        "在交叉注意力中融合点积（相似性）与楔积幅度（对近正交性敏感），并通过可学习权重平衡二者。",
+        "采用零初始化残差连接，使模块可在预训练VLA上直接微调，保持初始化时行为不变。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "现代视觉-语言-动作（VLA）策略预测一整块动作：在一次前向传播中发出的一到两秒的协调运动。然而，一个动作块本质上是一条短的多变量轨迹，但在这些模型中，它是由线性头解码的逐时间步通用隐藏token序列。这未能充分利用两种运动结构。第一，频率：一个动作块叠加了跨时间尺度的平滑全局趋势和精细修正运动，而单个token将它们纠缠在一起。第二，跨阶段几何：不同阶段（到达、接触、抓取调整、稳定）的运动在表示空间中沿非常不同、近乎正交的方向展开，但它们在任务上紧密相关并在时间轴上出现。点积注意力通过内积进行对齐，因此它偏向于对齐的token，并且在正交附近最不敏感，这使得网络需要通过绕道来恢复这种关系。我们提出了时间-频率几何交叉注意力（TFGCA），这是一种即插即用的模块，修复了这两个盲点。TFGCA使用逐维可学习平稳小波变换将动作块分解为时频token，每个时间token通过交叉注意力从这些token中检索信息，该交叉注意力通过可学习的权重融合了点积（相似性）和楔积幅度（对近正交性敏感）。零初始化的残差在初始化时重现基础行为，因此它可以被放置到预训练的VLA上并联合微调。相对于同源基线，TFGCA在分布内LIBERO上平均提升+1.5，在OOD LIBERO-Plus上提升+6.3，在RoboTwin域随机化下的随机平均提升+28.5，在三个真实机器人AgiBot A2任务上的总体成功率为+11.67个百分点，且在分布外提升更大。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.09925v1/fig2_architecture.png",
+      "image_caption": "Figure 1: TFGCA architecture: a drop-in module between the VLA transformer output and the action head. The frequency branch (action-space projection → \\to per-dimension SWT → \\to frequency tokens) supplies the keys/values for the geometric cross-attention, whose queries are the time tokens; its output is written back residually and passed through the action head to give the velocity v θ v_{\\theta} . (Blue: data tensors; amber: new modules; gray: backbone.)",
+      "summary_one_sentence": "提出TFGCA模块，通过时频分解和几何交叉注意力修复VLA模型中动作块的频率纠缠和跨阶段几何关系盲点，显著提升分布内外操作成功率。",
+      "research_problem": "现有视觉-语言-动作模型将动作块视为逐时间步的通用隐藏token序列，未充分利用动作块的频率结构（全局趋势与精细修正纠缠）和跨阶段几何结构（不同运动阶段在表示空间中近正交却紧密相关），导致点积注意力对正交关系的敏感性不足。",
+      "method_summary": "TFGCA模块首先通过逐维可学习平稳小波变换将动作块分解为时频token，然后每个时间token通过融合点积和楔积幅度的交叉注意力从时频token中检索信息，最后通过零初始化的残差连接保持初始行为，以便在预训练VLA上联合微调。",
+      "experimental_setup": "基于同源基线模型，在仿真环境LIBERO（分布内和OOD LIBERO-Plus）、RoboTwin（域随机化）以及真实机器人AgiBOT A2的三种任务上评估，对比有无TFGCA的性能。",
+      "key_results": "TFGCA在LIBERO平均提升+1.5，OOD LIBERO-Plus提升+6.3，RoboTwin域随机化下平均提升+28.5，真实机器人三个任务总体成功率提升+11.67个百分点，且分布外增益更大。",
+      "limitations": "无法从摘要确认。",
+      "why_it_matters": "该工作揭示了当前VLA模型中动作块表示的局限，通过引入时频分解和几何敏感的注意力机制，显著提升了操作策略的分布外泛化能力，为机器人操作中的动作生成提供了新思路。",
+      "relevance_reason": "论文聚焦于机器人操作中的动作生成，涉及接触阶段（到达、接触、抓取调整、稳定）的几何关系，与视觉-力觉融合和接触状态估计在操作场景中相关，可作为背景文献或方法参考。",
+      "related_to_my_research": "该论文的方法和思想可作为背景文献和潜在竞争，特别是其关于跨阶段几何关系的关注与接触状态估计中不同操作阶段的变化特征类似，可为视觉-力觉融合提供启发。",
+      "recommended_reading": "建议阅读小波变换、点积注意力与楔积在几何注意力中的应用，以及VLA模型（如RT-2、Octo等）相关文献。",
+      "reproduction_value": "Medium — 方法描述清晰，模块设计可复现，但需要预训练VLA权重和特定仿真/真实环境，且依赖库（小波变换）需配置，有一定门槛。",
+      "core_candidate": "Review",
+      "relevance_score": 70,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-10T08:38:10.706570+00:00",
+      "source_query_groups": [
+        "vla"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2609-10243",
+      "title": "FolDeX: A Physical-World Benchmark for Long-Horizon Robotic Manipulation of Deformable Objects",
+      "authors": [
+        "Chenhuan Liu",
+        "Yi Xu",
+        "Feng Wu",
+        "Hanyang Wang",
+        "Wenxiao Kuai",
+        "Weihao Ding",
+        "Shan Wang",
+        "Yang Liu",
+        "Shuyong Gao",
+        "Wenqiang Zhang"
+      ],
+      "abstract": "Embodied AI, including vision-language-action and world-action models, must operate reliably in the physical world. Yet methods that perform well in simulation can degrade substantially on real robots, especially in long-horizon deformable-object manipulation, where policies must track changing states and execute reliable multi-stage bimanual interactions. Existing real-robot benchmarks mainly focus on short-horizon rigid-object tasks and offer limited coverage of long-horizon deformable manipulation. We introduce FolDeX, a physical-world benchmark built entirely from real-robot data, with garment folding as its primary task. Since real-robot data collection is costly, FolDeX studies how heterogeneous physical experience can be reused efficiently. The benchmark is organized around four research axes: leveraging human intervention and recovery data collected during deployment; transferring data across tasks, including across garment categories and from rigid to deformable-object manipulation; reusing data across scenes with changes in lighting, background, and layout; and transferring data across robotic embodiments. FolDeX provides 2,000+ hours of real-robot data spanning 20+ tasks and 10+ embodiments. We also establish a fair real-robot evaluation platform for externally submitted policies, with standardized tasks, held-out physical objects, controlled initializations, and a unified execution protocol. The platform is publicly accessible at https://ai.midea.com/#/fold-challenge. We hope FolDeX will serve as a unified testbed for heterogeneous real-robot data reuse and reliable long-horizon deformable manipulation.",
+      "published_date": "2026-09-09",
+      "updated_date": "2026-09-09",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2609.10243",
+      "paper_url": "https://arxiv.org/abs/2609.10243",
+      "pdf_url": "https://arxiv.org/pdf/2609.10243",
+      "source": "arXiv",
+      "last_checked": "2026-09-10",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "引入了FolDeX，一个完全基于真实机器人数据的物理世界基准，以衣物折叠为主要任务，涵盖长时程可变形物体操作。",
+        "提供了2000+小时的真实机器人数据，覆盖20+任务和10+机器人本体，研究异构物理经验的复用。",
+        "建立了公平的真实机器人评估平台，具有标准化任务、保留物体、受控初始化和统一执行协议。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "具身智能（包括视觉-语言-动作模型和世界-动作模型）必须在物理世界中可靠运行。然而，在模拟中表现良好的方法在真实机器人上可能会显著退化，尤其是在长时程可变形物体操作中，策略必须跟踪变化的状态并执行可靠的多阶段双臂交互。现有真实机器人基准主要关注短时程刚性物体任务，对长时程可变形操作的覆盖有限。我们提出了FolDeX，一个完全基于真实机器人数据构建的物理世界基准，以衣物折叠为主要任务。由于真实机器人数据收集成本高昂，FolDeX研究如何高效复用异构物理经验。该基准围绕四个研究轴组织：利用部署期间收集的人类干预和恢复数据；跨任务转移数据，包括跨衣物类别以及从刚性到可变形物体操作；在光照、背景和布局变化的场景中复用数据；以及跨机器人本体转移数据。FolDeX提供了2000多小时的真实机器人数据，涵盖20多个任务和10多种机器人本体。我们还为外部提交的策略建立了一个公平的真实机器人评估平台，具有标准化任务、保留的物理对象、受控初始化条件和统一的执行协议。该平台公开可访问：https://ai.midea.com/#/fold-challenge。我们希望FolDeX能作为异构真实机器人数据复用和可靠长时程可变形操作统一测试平台。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.10243v1/fig1.png",
+      "image_caption": "Figure 1: FolDeX and the FoldChallenge. FolDeX organizes real-robot data along recovery augmentation, task, scene, and embodiment axes. These diagnostic tracks standardize how future methods can study robustness and data reuse by holding the target evaluation protocol fixed while varying either the available training data or the test distribution. FoldChallenge executes externally submitted policies under a standardized physical protocol and reports component-wise metrics with auditable rollout videos.",
+      "summary_one_sentence": "FolDeX是一个完全基于真实机器人数据构建的物理世界基准，专注于长时程可变形物体操作（以衣物折叠为主），提供2000多小时数据和10多种机器人本体的数据，并建立了公平的评估平台，旨在研究如何高效复用异构物理经验。",
+      "research_problem": "现有真实机器人基准主要覆盖短时程刚性物体任务，缺乏对长时程可变形物体操作的物理世界基准，且模拟到真实的迁移在长时程可变形操作中显著退化。",
+      "method_summary": "FolDeX作为基准，围绕四个研究轴（人类干预数据利用、跨任务数据转移、跨场景数据复用、跨本体数据转移）组织数据和评估，并提供公开评估平台。",
+      "experimental_setup": "无法从摘要确认具体实验设置；摘要仅提及评估平台包括标准化任务、持有物理对象、受控初始化和统一执行协议。",
+      "key_results": "无法从摘要确认具体实验结果；摘要未报告数值结果。",
+      "limitations": "无法从摘要确认局限性；摘要未明确讨论限制。",
+      "why_it_matters": "该基准填补了长时程可变形物体操作在真实机器人评估方面的空白，为具身智能和机器人操作研究提供了异构真实数据复用的测试平台，有助于推动模型在物理世界的可靠部署。",
+      "relevance_reason": "该基准直接涉及机器人操作和具身智能，特别是可变形物体（衣物）的长时程操作，与视觉-力觉融合和接触状态估计有潜在关联（衣物操作需要感知接触状态），可作为方法评估和基线对比的参考。",
+      "related_to_my_research": "属于背景文献和潜在基准对比：该基准关注可变形物体操作和真实机器人数据复用，与视觉-力觉融合和接触状态估计相关，可作为测试我们方法在长时程可变形操作中的参考。",
+      "recommended_reading": "建议阅读论文中关于数据收集、任务设计和评估协议的部分，以了解基准的详细构成和使用方式。",
+      "reproduction_value": "Medium：基准公开且提供数据和评估平台，但需要真实机器人和物理设备，复现成本较高；摘要未给出具体复现步骤，因此中等。",
+      "core_candidate": "No",
+      "relevance_score": 50,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-10T08:36:22.800467+00:00",
+      "source_query_groups": [
+        "vla"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2609-10464",
+      "title": "Semigroup-JEPA: Latent Dynamics Consistency for Zero-Shot Physics Generalization",
+      "authors": [
+        "Andy Zeyi Liu",
+        "Haoran Sun",
+        "Lucas Baker",
+        "Randall Balestriero",
+        "John Sous"
+      ],
+      "abstract": "Joint-Embedding Predictive Architecture (JEPA) world models learn a compact latent representation of the world that supports prediction and planning, but their capability to learn physics and generate physically realistic dynamics remains hitherto untested. In this work, we introduce SemiGroup-JEPA (SG-JEPA), which extends the LeWorldModel framework by supplying the parameter governing the physics to the temporal model via action-conditioning and jointly training an encoder and predictor through an autoregressive latent rollout. To evaluate the model's ability to generalize out of distribution, we design dynamical tasks under different gravitational fields that, despite obeying the same physical law, exhibit qualitatively different dynamics, ranging from floating motion in weak gravitational fields to rapid bouncing in strong ones. In contrast to DINO-WM, SG-JEPA reduces open-loop prediction error by up to 2 times on two-dimensional datasets, and increases control success rate up to 2.5 times for three-dimensional robotic datasets, for which we train independent diffusion policies. To explain this advantage, we develop a linear feature model that separates local law-conditioned error from its recursive amplification under rollout. Guided by this model, we find that back-propagating the multi-step rollout loss into the representation trains the encoder to keep the features that the predictor can carry forward, and that those are the features the dynamics depend on, so most of the gain comes from the encoder learning better features rather than from the predictor learning better dynamics. See project page at https://sg-jepa.github.io.",
+      "published_date": "2026-09-09",
+      "updated_date": "2026-09-09",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2609.10464",
+      "paper_url": "https://arxiv.org/abs/2609.10464",
+      "pdf_url": "https://arxiv.org/pdf/2609.10464",
+      "source": "arXiv",
+      "last_checked": "2026-09-10",
+      "keywords": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "source_categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CV"
+      ],
+      "research_topics": [
+        "generative-policy"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出了SG-JEPA框架，通过动作条件化将物理参数提供给时间模型，并联合训练编码器和预测器",
+        "设计了不同引力场下的动态任务，用于评估模型在分布外物理泛化能力",
+        "开发了线性特征模型，分离局部定律条件误差与递归放大，解释性能提升的来源",
+        "实验证明SG-JEPA在预测误差和控制成功率上显著优于DINO-WM"
+      ],
+      "research_branches": [],
+      "abstract_zh": "联合嵌入预测架构（JEPA）世界模型学习世界的紧凑潜在表示，以支持预测和规划，但其学习物理并生成物理上真实动态的能力迄今尚未得到测试。在这项工作中，我们引入了SemiGroup-JEPA（SG-JEPA），它通过动作条件化将控制物理的参数提供给时间模型，并通过自回归潜在展开联合训练编码器和预测器，从而扩展了LeWorldModel框架。为了评估模型在分布外泛化的能力，我们设计了不同引力场下的动态任务，这些任务尽管遵循相同的物理定律，却表现出定性不同的动态，从弱引力场中的漂浮运动到强引力场中的快速弹跳。与DINO-WM相比，SG-JEPA在二维数据集上将开环预测误差降低了最多2倍，并在三维机器人数据集上将控制成功率提高了最多2.5倍，为此我们训练了独立的扩散策略。为了解释这一优势，我们开发了一个线性特征模型，将局部定律条件误差与其在展开下的递归放大分开。在该模型的指导下，我们发现将多步展开损失反向传播到表示中，训练编码器保留预测器可以前向传播的特征，而这些正是动态所依赖的特征，因此大部分增益来自编码器学习到更好的特征，而非预测器学习到更好的动态。参见项目页面：https://sg-jepa.github.io。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.10464v1/figures/dataset_overview.png",
+      "image_caption": "Figure 2 : Evaluation environments. (a) Planar shapes: each object is given an impulse at t = 0 t=0 and then fall and collide freely after inside the box. (b) Approach Ball: projectile flight from the far end of the scene. (c) Arm Catcher Ball: a robotic arm catches a ball with a catcher. (d) Arm Paddle Ball: the same arm sustaining bounces with a tilting paddle. (e) Franka Paddle-to-Basket: a Panda arm strikes an incoming ball into a basket. Orange arrows sketch the motion.",
+      "summary_one_sentence": "SG-JEPA通过动作条件化和多步展开损失训练，提高了JEPA世界模型在零样本物理泛化中的预测与控制性能，其增益主要来自编码器学习到更好的动态相关特征。",
+      "research_problem": "JEPA世界模型在零样本物理泛化中的能力未经验证，需要改进其学习物理规律并生成物理上真实动态的能力。",
+      "method_summary": "SG-JEPA扩展LeWorldModel，通过动作条件化将物理参数输入时间模型，并使用自回归潜在展开联合训练编码器和预测器；同时提出线性特征模型分析误差传播，指导多步展开损失反向传播以改进编码器特征。",
+      "experimental_setup": "在二维数据集和三维机器人数据集上，设计不同引力场下的动态任务（从弱引力漂浮到强引力弹跳），训练独立扩散策略，并与DINO-WM基线对比。",
+      "key_results": "在二维数据集上开环预测误差降低最多2倍，在三维机器人数据集上控制成功率提高最多2.5倍；增益主要来自编码器学习到更好的特征而非预测器。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "这项工作首次系统验证了JEPA世界模型在零样本物理泛化中的能力，并提出了有效的改进方法，有助于推动世界模型在机器人操作和具身智能中的物理感知与预测应用。",
+      "relevance_reason": "该研究关注世界模型在物理动态预测中的泛化能力，与机器人操作中的接触状态估计和具身智能中的物理建模相关，属于方法参考和潜在竞争。",
+      "related_to_my_research": "背景文献：该工作涉及物理动态预测和零样本泛化，与视觉-力觉融合和接触状态估计有间接关联，可参考其编码器-预测器设计思路。",
+      "recommended_reading": "建议阅读LeWorldModel框架和DINO-WM基线，以理解SG-JEPA的改进基础。",
+      "reproduction_value": "Low：论文尚未正式发表，且未提供详细实验设置和代码细节，复现需要依赖项目页面和补充材料。",
+      "core_candidate": "No",
+      "relevance_score": 50,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-10T08:38:19.648615+00:00",
+      "source_query_groups": [
+        "generative"
+      ]
+    },
     {
       "paper_id": "arxiv-2609-09119",
       "title": "DeCAL: Towards Physically-Grounded Dexterous Vision-Language-Action Models via Contact-Aware Latent Co-Imagination",
@@ -65,7 +295,7 @@
       "key_results": "DeCAL在所有任务上达到最先进性能，平均成功率为71%，进展成功率为83.4%，并展现出对未见场景的强泛化能力。",
       "limitations": "无法从摘要确认。",
       "why_it_matters": "该工作为灵巧操作中的VLA模型提供了物理基础，通过自适应触觉融合和潜在协同想象有效应对视觉遮挡和接触动力学问题，推动了多模态感知与动作生成在具身智能中的融合。",
-      "relevance_reason": "该论文直接研究视觉-触觉融合与接触状态估计在灵巧操作中的应用，属于机器人操作和具身智能领域的前沿工作，其方法与我的研究高度相关。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有公开代码或资源线索；直接面向接触丰富任务",
       "related_to_my_research": "该方法与视觉-力觉融合和接触状态估计方向直接相关，可作为方法参考和基线对比，尤其是其自适应门控融合和潜在协同想象策略。",
       "recommended_reading": "建议关注混合变换器架构、自适应视觉-触觉融合和潜在协同想象的具体实现，以及其与现有触觉增强VLA方法的对比。",
       "reproduction_value": "Medium - 方法细节（如门控策略、MoT架构）需要从论文或网站获取，但核心思想清晰，具备一定可复现性。",
@@ -82,7 +312,8 @@
       "ai_generated_at": "2026-09-09T08:37:34.435671+00:00",
       "source_query_groups": [
         "vla"
-      ]
+      ],
+      "image_caption_zh": "DeCAL基于MoT架构，统一了场景理解、视觉-触觉动力学预判与动作生成。动作专家采用因子化流匹配解耦手臂与手部运动，实现更优协调与灵巧操作。"
     },
     {
       "paper_id": "arxiv-2609-08636",
@@ -140,7 +371,7 @@
       "key_results": "在所有三个领域上，HIGFlow在位置和姿态预测上均一致优于代表性基线，消融实验确认了各组件的有效性。具体数值未在摘要中给出。",
       "limitations": "无法从摘要确认。",
       "why_it_matters": "这项工作为辅助机器人和人机交互提供了同时预测交互位置和人体运动的能力，通过统一的连续4D预测范式解决了以往分离建模的不足，并贡献了大规模数据集和新的框架，推动了该方向的研究。",
-      "relevance_reason": "该论文涉及从第一人称视频预测交互位置和人体运动，与机器人操作中的接触状态估计和运动规划相关，可作为视觉-力觉融合与具身智能中预测性操作的参考方法。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；涉及失败、恢复、重规划或纠偏；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有公开代码或资源线索",
       "related_to_my_research": "方法参考：其级联的\"何处到如何\"预测框架和位置条件化的运动生成方式可用于机器人操作的接触预测和运动生成；同时该任务涉及接触位置预测，与接触状态估计有间接关联。",
       "recommended_reading": "建议阅读论文全文和项目页面，特别是关于Coherent4D数据集构建和HIGFlow残差流匹配的细节。",
       "reproduction_value": "Medium: 方法细节和数据集可以复现，但需要访问项目页面和可能的代码，且实验数值未在摘要中给出，复现难度中等。",
@@ -157,7 +388,8 @@
       "ai_generated_at": "2026-09-09T08:38:12.709976+00:00",
       "source_query_groups": [
         "generative"
-      ]
+      ],
+      "image_caption_zh": "Coherent4D数据构建流程概览。我们(1)用语义标签和3D边界框标注场景物体，(2)将场景、位置和身体标注转换到共享的样本局部坐标系，(3)构建按时间排序的3D交互位置序列，(4)附加时间对齐的SMPL状态，(5)将其组织为包含位置-姿态历史、未来目标和相对时间戳的预测样本。"
     },
     {
       "paper_id": "arxiv-2609-07534",
@@ -214,7 +446,7 @@
       "key_results": "PACE平均真实世界成功率为93.3%，仿真到现实落差仅2.7个百分点，且对使基线显著退化的扰动保持鲁棒。",
       "limitations": "无法从摘要确认。",
       "why_it_matters": "该工作展示了如何通过本体感觉锚定的跨模态预训练实现零样本仿真到现实的迁移，解决了接触丰富装配中的域差异问题，为机器人操作中的力觉和视觉融合提供了新思路。",
-      "relevance_reason": "该论文直接涉及机器人操作中的接触状态估计与力觉-视觉融合，提出基于本体感觉锚定的跨模态预训练方法，与视觉-力觉融合和接触丰富的装配任务高度相关。",
+      "relevance_reason": "明确涉及视觉–力/力矩或接触反馈；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；包含六维力/力矩或wrench信号；有真实机器人实验线索；直接面向接触丰富任务",
       "related_to_my_research": "方法参考：提出了一种新的跨模态融合策略（本体感觉锚定），可借鉴用于视觉-力觉融合和接触状态估计；同时是背景文献，展示了零样本仿真到现实的可行路径。",
       "recommended_reading": "建议阅读与仿真到现实迁移、跨模态学习、力觉/触觉感知以及接触丰富的机器人装配相关的文献，如领域自适应、域随机化、本体感觉在机器人学习中的作用。",
       "reproduction_value": "Medium - 方法基于公开的仿真和硬件装配任务，但未提供代码或详细实验配置，复现需要自行实现PACE架构并搭建硬件平台，存在一定难度。",
@@ -231,7 +463,8 @@
       "ai_generated_at": "2026-09-09T08:35:24.971708+00:00",
       "source_query_groups": [
         "vision-force"
-      ]
+      ],
+      "image_caption_zh": "PACE编码器架构。冻结的视觉骨干网络后接注意力池化，提取每帧视觉特征；力/力矩多层感知器（MLP）提取每帧力特征。各流专用的时间核将前T帧特征聚合为前向运动编码𝜶ᵗᵛ⁺和𝜶ᵗᶠ⁺；取反输入则生成后向编码𝜶ᵗᵛ⁻和𝜶ᵗᶠ⁻。每条流将其当前特征、运动编码与本体感觉pₜ组合，生成潜表征。"
     },
     {
       "paper_id": "arxiv-2609-07002",
@@ -288,7 +521,7 @@
       "key_results": "WSM上下文改善了多物体旋转性能，提供了未见物体、扰动恢复和模拟到现实迁移的定量和定性证据。消融表明预测性世界建模、干净深度监督和触觉接触线索对学习状态有贡献。",
       "limitations": "无法从摘要确认。",
       "why_it_matters": "这项工作通过利用世界模型作为上下文而非潜在想象，结合去噪深度和触觉线索，显著增强了灵巧手内操作在真实世界中的泛化性和鲁棒性，为机器人的实际部署提供了可行方案。",
-      "relevance_reason": "该研究直接涉及触觉感知、深度感知与机器人操作的结合，特别是世界模型用于状态估计和策略学习，与视觉-力觉融合和接触状态估计高度相关。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；方法包含可迁移的策略学习或多模态建模；包含RGB-D/深度视觉",
       "related_to_my_research": "方法参考：该框架展示了如何将触觉和深度信息融合到世界模型中，并用于策略学习，可为本研究的接触状态估计或融合方法提供借鉴。",
       "recommended_reading": "建议阅读关于触觉和视觉-触觉强化学习方法、世界模型在机器人操作中的应用，以及灵巧手内操作的相关文献。",
       "reproduction_value": "Medium - 摘要提供了方法框架和实验设计，但缺少具体实现细节（如网络结构、训练超参数）和数值结果，复现需要依赖作者公开代码或进一步细节。",
@@ -305,7 +538,8 @@
       "ai_generated_at": "2026-09-09T08:35:47.094663+00:00",
       "source_query_groups": [
         "vision-tactile"
-      ]
+      ],
+      "image_caption_zh": "WM-Craftnet概览。一种Dreamer风格的循环状态空间模型（RSSM）从多模态观测中学习去噪的循环状态，并将其作为操作策略的预测上下文。"
     },
     {
       "paper_id": "arxiv-2609-07859",
@@ -362,7 +596,7 @@
       "key_results": "力跟踪误差从4.132 N降至0.346 N，接触丢失从每试验2.46次降至0.02次，触觉变形误差降低65%；用户研究验证了可靠性和可用性；扩散策略实验表明联合触觉和力感知有价值。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "该工作填补了遥操作框架在多模态感知与全身协调结合方面的空白，为接触丰富移动操作提供了高效的数据采集工具，对机器人学习和具身智能具有重要意义。",
-      "relevance_reason": "该论文涉及机器人操作中的接触丰富任务、柔顺控制和多模态感知（包括触觉和力觉），与视觉-力觉融合和接触状态估计直接相关，可作为方法参考和基线对比。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；方法包含可迁移的策略学习或多模态建模；直接面向接触丰富任务",
       "related_to_my_research": "方法参考：其多模态感知融合和柔顺控制策略可借鉴用于接触状态估计；同时提供触觉和力觉联合采集的框架，与视觉-力觉融合研究高度相关。",
       "recommended_reading": "建议阅读关于柔顺控制、全身运动规划、多模态感知融合以及遥操作数据采集的相关文献。",
       "reproduction_value": "Medium：摘要提供了明确的性能改进数据和系统组成，但缺少算法细节和代码，难以直接复现，需结合原论文更多信息。",
@@ -379,7 +613,8 @@
       "ai_generated_at": "2026-09-09T08:38:03.006529+00:00",
       "source_query_groups": [
         "generative"
-      ]
+      ],
+      "image_caption_zh": "M3-Tele概述。M3是一种交互感知控制框架，强调柔顺力全身控制与闭环触觉自适应夹爪控制。M3-Tele是基于该控制框架的多模态遥操作数据采集系统，可在任务执行过程中提供触觉反馈。"
     },
     {
       "paper_id": "arxiv-2609-07049",
@@ -442,7 +677,7 @@
       "key_results": "LDiP在自动驾驶中持续优于强离散和连续基线，在机器人操作中超过或匹配连续生成策略（具体数字无法从摘要确认）。",
       "limitations": "无法从摘要确认（摘要未明确给出限制）。",
       "why_it_matters": "该工作证明离散策略配合有效评分机制可成为连续生成模型的可行替代，兼具表现力、合理性和可解释性，为行为建模提供了新思路，尤其对机器人操作和具身智能中的策略学习具有参考价值。",
-      "relevance_reason": "该论文直接针对机器人操作和具身智能中的行为策略建模，提出离散策略与评分机制，与视觉-力觉融合和接触状态估计虽无直接关联，但可视为行为生成和策略学习领域的重要基线或参考方法。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；方法包含可迁移的策略学习或多模态建模",
       "related_to_my_research": "作为方法参考——LDiP提供了一种离散策略框架，可用于对比或替代连续生成策略，在操作任务中与接触状态估计相结合时可能提升决策可解释性和合理性。",
       "recommended_reading": "建议进一步阅读论文原文及附录，特别是关于随机迭代评分机制的细节和实验设置部分。",
       "reproduction_value": "Medium - 方法框架清晰，但需要实现离散候选生成和随机评分机制，具体细节和调参可能依赖原始代码，摘要未提供完整实验配置。",
@@ -459,7 +694,8 @@
       "ai_generated_at": "2026-09-09T08:38:20.248641+00:00",
       "source_query_groups": [
         "generative"
-      ]
+      ],
+      "image_caption_zh": "行为建模策略的范式。(a) 迭代去噪策略通过随机迭代细化生成动作，表达能力强，但生成过程隐式且可解释性较差。(b) 一次性离散策略从固定动作词汇中显式选择，但受限于单次评分。(c) 我们的方法结合两种范式优势，在离散动作词汇上进行随机迭代评分，实现表达力强、合理且可解释的行为生成。"
     },
     {
       "paper_id": "arxiv-2609-07581",
@@ -516,7 +752,7 @@
       "key_results": "ICI-VLA在LIBERO上平均成功率97.7%，在RoboTwin 2.0上60.4%，在四个物理任务上83.2%。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "这项工作展示了固定VLA策略可以通过时空对齐的上下文演示在测试时自适应，无需梯度更新，为机器人快速部署和少样本泛化提供了新思路。",
-      "relevance_reason": "该论文涉及机器人操作中的视觉-语言-动作模型，提出通过上下文演示和时空对齐提升策略适应能力，与视觉-力觉融合、接触状态估计等具身智能研究方向相关，可作为背景文献或方法参考。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索",
       "related_to_my_research": "方法参考：该论文的上下文模仿和检索机制可用于机器人操作中的演示学习，与视觉-力觉融合中的状态感知和动作生成有潜在交叉；作为背景文献，其测试时自适应思想对接触状态估计的快速适应具有启发意义。",
       "recommended_reading": "无法从摘要确认",
       "reproduction_value": "High，摘要提供了方法细节、关键模块（RD-Encoder、DTW、目标动作掩码）以及明确基准上的量化结果，复现条件相对清晰。",
@@ -533,7 +769,8 @@
       "ai_generated_at": "2026-09-09T08:37:43.498914+00:00",
       "source_query_groups": [
         "vla"
-      ]
+      ],
+      "image_caption_zh": "ICI-VLA总览。(一)库构建：将长视野轨迹分解为固定视野的微型演示。(二)检索对齐：语义过滤和基于DTW的排序挖掘对比三元组；推理时，冻结的RD编码器从可观测输入中检索，无需目标动作。(三)策略训练与推理：对Qwen3-VL-4B进行微调而不设置动作专用头，目标动作掩码降低了对精确数值连续性的依赖。推理时策略和检索器均保持固定，通过检索到的上下文实现自适应。"
     },
     {
       "paper_id": "arxiv-2609-06852",
@@ -593,7 +830,7 @@
       "key_results": "ContextFlow在LIBERO上相比ICRT平均成功率提升35个百分点，未微调时匹敌任务特定微调π₀的性能；真实机器人上新开笔帽配置成功率为40%。",
       "limitations": "无法从摘要确认。",
       "why_it_matters": "该工作首次在流匹配框架内实现上下文模仿学习，解决了自回归方法中动作离散化和误差累积问题，显著提升了机器人操作在未见任务配置上的泛化能力，展示了无需微调即可适应新任务的潜力。",
-      "relevance_reason": "论文聚焦于机器人操作中的上下文模仿学习，涉及连续动作生成和多模态演示压缩，与视觉-力觉融合、接触状态估计等领域相关，可作为方法参考和基线对比。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有真实机器人实验线索；有公开代码或资源线索",
       "related_to_my_research": "方法参考：其流匹配策略和上下文压缩器设计可借鉴用于融合视觉与力觉信息；背景文献：提供了机器人操作中模仿学习的最新进展。",
       "recommended_reading": "无法从摘要确认。",
       "reproduction_value": "Medium：摘要提供了清晰的方法框架和实验比较（LIBERO上相对ICRT提升35个百分点），但未给出模型架构细节、训练超参数和代码实现，复现需要补充信息。",
@@ -611,7 +848,8 @@
       "source_query_groups": [
         "vla",
         "generative"
-      ]
+      ],
+      "image_caption_zh": "自回归（a）与流匹配（b）在上下文模仿学习中的动作解码与复合误差对比。上下文模仿学习指在不更新模型参数的情况下，基于上下文演示执行任务。（a）上下文自回归模型逐步生成离散动作，导致复合误差，尤其在任务分布偏移下更为严重。（b）我们提出的上下文流匹配框架直接预测连续动作块，减轻误差累积并提升泛化能力。（c）在已见任务配置下，自回归与流匹配方法的复合误差对比。（d）在未见任务配置下的复合误差对比。"
     },
     {
       "paper_id": "arxiv-2609-05832",
@@ -671,7 +909,7 @@
       "key_results": "CC-VLA在力感知任务中显著提高了成功率，增强了力控制精度，并在部分OOD位姿偏移下提供了多层次安全性和鲁棒性。",
       "limitations": "无法从摘要确认（未明确提及局限性，但提到测试仅覆盖部分OOD位姿偏移设置）。",
       "why_it_matters": "该工作解决了力感知VLA模型在接触丰富操作中实时力控制不足的问题，将力觉融入VLA并设计柔顺控制器，对提升机器人操作安全性和精度具有重要意义。",
-      "relevance_reason": "该论文直接涉及视觉-力觉融合、接触状态估计（通过力/力矩感知）以及机器人操作中的柔顺控制，与具身智能中的VLA模型和模仿学习紧密相关。",
+      "relevance_reason": "明确涉及视觉–力/力矩或接触反馈；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；包含六维力/力矩或wrench信号；有真实机器人实验线索；直接面向接触丰富任务",
       "related_to_my_research": "背景文献：该论文是视觉-力觉融合在接触丰富操作中的最新方法，可作为背景和基线对比，其多模态MoE和自适应柔顺控制策略对接触状态估计和力控策略设计有参考价值。",
       "recommended_reading": "建议阅读关于VLA模型、力/力矩感知、柔顺控制、模仿学习以及多模态专家混合的相关文献，特别是涉及接触丰富操作和遥操作数据采集的研究。",
       "reproduction_value": "Medium：摘要提供了清晰的框架和训练策略，但未给出模型细节、超参数、实验具体数值和代码，复现需补充较多信息。",
@@ -689,7 +927,8 @@
       "source_query_groups": [
         "vision-force",
         "vla"
-      ]
+      ],
+      "image_caption_zh": "CC-VLA框架概述：VLA模型（慢策略）集成视觉、语言、力序列和本体感觉状态来推断动作块。同时，VLA引导的柔顺控制器（VG-ACC）确保有效跟踪前馈力和期望位姿。"
     },
     {
       "paper_id": "arxiv-2609-05266",
