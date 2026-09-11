@@ -1,11 +1,382 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-10",
+  "generated_at": "2026-09-11",
   "source": "arXiv",
-  "candidate_count": 194,
-  "retained_count": 179,
+  "candidate_count": 199,
+  "retained_count": 185,
   "relevance_threshold": 45,
   "papers": [
+    {
+      "paper_id": "arxiv-2609-11661",
+      "title": "Contact-Aware Incremental Model Predictive Control for an Underactuated Aerial Manipulator",
+      "authors": [
+        "Darwin Liu",
+        "Tamas Keviczky",
+        "Sihao Sun"
+      ],
+      "abstract": "We present a robust contact-aware control framework for aerial writing on an underactuated platform. The framework combines nonlinear model predictive control (NMPC) for accurate end-effector position and normal-force tracking at small reference penetration depths, with consistent performance across controller tunings, with whole-body incremental nonlinear dynamic inversion (INDI) for robustness to frictional and aerodynamic disturbances during contact. The proposed controllers are validated on a quadrotor-based aerial manipulator with a rigid, single-link, one-degree-of-freedom (DoF) arm in simulation and real-world experiments. The aerial writing experiments span vertical and inclined surfaces, multiple reference forces, different friction conditions, and wind disturbances. The results demonstrate that robust simultaneous five-DoF end-effector pose and contact-force tracking is achievable on a standard underactuated quadrotor with a simple, rigid, single-link arm, without requiring a fully actuated platform, a complex arm, or dedicated force/torque sensing.",
+      "published_date": "2026-09-10",
+      "updated_date": "2026-09-10",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2609.11661",
+      "paper_url": "https://arxiv.org/abs/2609.11661",
+      "pdf_url": "https://arxiv.org/pdf/2609.11661",
+      "source": "arXiv",
+      "last_checked": "2026-09-11",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出结合NMPC与INDI的接触感知控制框架，实现小穿透深度下精确的力/位跟踪和鲁棒扰动抑制",
+        "在基于四旋翼的欠驱动空中机械臂上验证了无需全驱动平台、复杂机械臂或专用力/力矩传感即可实现五自由度位姿与接触力同步跟踪",
+        "通过覆盖垂直/倾斜表面、多种参考力、不同摩擦条件和风力扰动的仿真与实验验证了框架的鲁棒性和一致性"
+      ],
+      "research_branches": [],
+      "abstract_zh": "我们提出了一种用于欠驱动平台空中书写的鲁棒接触感知控制框架。该框架结合非线性模型预测控制（NMPC）以实现小参考穿透深度下精确的末端执行器位置和法向力跟踪，且在不同控制器调参下性能一致，并结合全身增量非线性动态逆（INDI）以增强对接触过程中摩擦力和气动扰动的鲁棒性。所提出的控制器在基于四旋翼的空中机械臂（带有刚性单连杆一自由度臂）上进行了仿真和实际实验验证。空中书写实验涵盖垂直和倾斜表面、多种参考力、不同摩擦条件以及风力扰动。结果表明，在标准欠驱动四旋翼上配备简单刚性单连杆臂，无需全驱动平台、复杂机械臂或专用力/力矩传感，即可实现鲁棒的五自由度末端执行器位姿和接触力同步跟踪。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.11661v1/images/Cascaded_control-3D.png",
+      "image_caption": "Fig. 3 : Schematic overview of the proposed CA-NMPC-CINDI controller.",
+      "summary_one_sentence": "该论文提出一种结合NMPC与INDI的接触感知控制框架，在欠驱动四旋翼空中机械臂上实现了鲁棒的五自由度位姿与接触力同步跟踪。",
+      "research_problem": "如何在欠驱动四旋翼平台上实现空中书写任务中精确的末端执行器位姿和接触力跟踪，同时抵抗摩擦和气动扰动。",
+      "method_summary": "框架由两层构成：外层NMPC负责小参考穿透深度下的末端执行器位置和法向力跟踪，提供准确的参考轨迹；内层INDI进行全身增量控制，对接触过程中的摩擦力和气动扰动提供鲁棒性。",
+      "experimental_setup": "在基于四旋翼的欠驱动空中机械臂（带刚性单连杆一自由度臂）上进行仿真和真实世界实验，实验包括垂直和倾斜表面、多种参考力、不同摩擦条件及风力扰动。",
+      "key_results": "实现了欠驱动四旋翼上五自由度末端执行器位姿和接触力的鲁棒同步跟踪，且性能在不同控制器调参下保持一致。",
+      "limitations": "无法从摘要确认。",
+      "why_it_matters": "该工作展示了在简单欠驱动平台上实现接触感知控制的可能性，降低了空中操控对全驱动平台和复杂感知硬件的依赖，对空中机器人操作和具身智能应用有实际意义。",
+      "relevance_reason": "该论文涉及机器人操作中的接触感知与力控制，与视觉-力觉融合和接触状态估计相关，可作为接触控制方法参考或基线对比。",
+      "related_to_my_research": "与视觉-力觉融合、接触状态估计和机器人操作研究直接相关，其NMPC+INDI控制框架可作方法参考，其力跟踪实验设置可作为对比基线。",
+      "recommended_reading": "无法从摘要确认。",
+      "reproduction_value": "Medium：摘要提供了控制框架结构和验证场景，但缺少具体参数、算法细节和实验数据，复现需参考原文或补充信息。",
+      "core_candidate": "Yes",
+      "relevance_score": 100,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": true,
+      "competition_reason": "主题、传感器或闭环恢复机制与当前视觉–力觉研究规划存在明显交集；需要逐篇核对任务、平台和实验范围。",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-11T08:32:00.445918+00:00",
+      "source_query_groups": [
+        "vision-force"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2609-10918",
+      "title": "ObstaDiff: Generalizable Diffusion Policy Learning via Obstacle-aware Representations",
+      "authors": [
+        "Jiawen Wang",
+        "Kevin Yao",
+        "Khalid Jawed"
+      ],
+      "abstract": "Imitation learning has achieved impressive results in robotic manipulation, yet most existing approaches assume clean backgrounds and lack explicit mechanisms for obstacle-aware motion generation. Extending such policies to cluttered, real-world scenes with unstructured obstacles remains a key generalization challenge. We present ObstaDiff, a decomposed diffusion-policy framework with a lightweight obstacle-aware visual encoder. ObstaDiff extracts a structured target-obstacle-background representation, enabling the downstream alignment policy to generate end-effector trajectories toward a target-centered bottleneck pose while reasoning about surrounding obstacles. We evaluate ObstaDiff on 61 real-robot greenhouse trials per method (366 executions in total). ObstaDiff achieves 75.41% average task success and 8.20% average obstacle collision rate, outperforming representative imitation-learning baselines and improving generalization in cluttered agricultural scenes.",
+      "published_date": "2026-09-10",
+      "updated_date": "2026-09-10",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2609.10918",
+      "paper_url": "https://arxiv.org/abs/2609.10918",
+      "pdf_url": "https://arxiv.org/pdf/2609.10918",
+      "source": "arXiv",
+      "last_checked": "2026-09-11",
+      "keywords": [
+        "cs.RO",
+        "cs.LG",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO",
+        "cs.LG"
+      ],
+      "research_topics": [
+        "vla-manipulation",
+        "generative-policy"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出ObstaDiff，一种分解的扩散策略框架，显式处理障碍物感知运动生成",
+        "设计轻量级障碍物感知视觉编码器，提取目标-障碍物-背景结构化表示",
+        "在真实机器人温室试验中验证了方法，优于多个模仿学习基线"
+      ],
+      "research_branches": [],
+      "abstract_zh": "模仿学习在机器人操作中取得了令人瞩目的成果，但大多数现有方法假设背景干净且缺乏障碍物感知运动生成的显式机制。将这些策略扩展到杂乱、具有非结构化障碍物的真实场景仍然是一个关键泛化挑战。我们提出ObstaDiff，一种分解的扩散策略框架，配备轻量级障碍物感知视觉编码器。ObstaDiff提取结构化的目标-障碍物-背景表示，使下游对齐策略能够生成朝向以目标为中心的瓶颈姿态的末端执行器轨迹，同时推理周围障碍物。我们在每个方法61次真实机器人温室试验（共366次执行）上评估ObstaDiff。ObstaDiff实现了75.41%的平均任务成功率和8.20%的平均障碍物碰撞率，优于代表性模仿学习基线，并改善了杂乱农业场景中的泛化能力。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.10918v1/framework.png",
+      "image_caption": "Figure 2: Overview of ObstaDiff. Eye-in-hand RGB-D observations are converted into a structured target–obstacle–background (TOB) representation and encoded with robot state into a 103-D conditioning vector for a diffusion policy. The policy performs obstacle-aware alignment to a target-centered bottleneck pose, after which replayed actions execute close-range interaction.",
+      "summary_one_sentence": "ObstaDiff提出一种带有障碍物感知视觉编码器的分解扩散策略框架，在真实温室杂乱场景中实现了高于基线的任务成功率和更低的碰撞率。",
+      "research_problem": "现有模仿学习策略缺乏障碍物感知机制，难以泛化到具有非结构化障碍物的杂乱真实场景。",
+      "method_summary": "ObstaDiff采用分解的扩散策略框架，包含一个轻量级障碍物感知视觉编码器，提取目标-障碍物-背景表示，并利用下游对齐策略生成朝向目标中心瓶颈姿态的末端轨迹，同时考虑周围障碍物。",
+      "experimental_setup": "在真实机器人温室环境中进行实验，每个方法61次试验，共366次执行，比较多个模仿学习基线。",
+      "key_results": "ObstaDiff实现75.41%平均任务成功率，8.20%平均障碍物碰撞率，优于代表性模仿学习基线并改善泛化。",
+      "limitations": "无法从摘要确认。",
+      "why_it_matters": "该工作针对杂乱场景中机器人操作的泛化问题，提出障碍物感知的扩散策略，对现实应用（如农业）具有重要价值，推动了模仿学习在非结构化环境中的实用性。",
+      "relevance_reason": "该论文聚焦机器人操作中的视觉感知和障碍物规避运动生成，属于具身智能和模仿学习范畴，与视觉-力觉融合和接触状态估计研究在障碍物交互和操作策略方面有间接关联。",
+      "related_to_my_research": "背景文献/潜在竞争：该工作可作为复杂环境下机器人操作策略的参考，其障碍物感知表示与轨迹生成方法可能与我们研究的力觉融合策略形成对比或互补。",
+      "recommended_reading": "无法从摘要确认。",
+      "reproduction_value": "Medium - 摘要提供了实验规模、成功率和碰撞率等关键指标，但未提供代码、模型架构细节和完整训练设置，部分复现需要推测。",
+      "core_candidate": "Review",
+      "relevance_score": 65,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-11T08:33:25.903676+00:00",
+      "source_query_groups": [
+        "vla",
+        "generative"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2609-11270",
+      "title": "Beyond Noise Steering: Dual-Latent Space Reinforcement Learning for Generative Robot Policy",
+      "authors": [
+        "Pengfei Zhang",
+        "Teng Sun",
+        "Xianchao Xiu"
+      ],
+      "abstract": "Pretrained generative robot policies learn expressive action priors from demonstrations. However, existing reinforcement learning methods only steer the noisy space but fail to modulate intermediate action representations during the generation process, resulting in performance degradation and inefficiency. To address this limitation, we propose a novel Dual-Latent Space Reinforcement Learning (DLSRL) framework, which complements initial-noise steering with representation-level control inside the frozen generator. Specifically, our actor network predicts two distinct latent variables: an initial-noise latent variable that steers behavior generation, and an action-representation latent variable for intermediate feature modulation. Moreover, this representation latent variable is mapped to adapter features and ingeniously injected into the hidden states of intermediate action tokens via residual connections. Our dual-control design enables direct adjustment of action representations without updating the base policy. Experiments across generative policy architectures and robotic manipulation tasks show that DLSRL effectively accelerates online robot policy adaptation and achieves competitive performance. Our code is available at \\href{https://github.com/xianchaoxiu/DLSRL}{https://github.com/xianchaoxiu/DLSRL}.",
+      "published_date": "2026-09-10",
+      "updated_date": "2026-09-10",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2609.11270",
+      "paper_url": "https://arxiv.org/abs/2609.11270",
+      "pdf_url": "https://arxiv.org/pdf/2609.11270",
+      "source": "arXiv",
+      "last_checked": "2026-09-11",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "generative-policy"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出双潜在空间强化学习（DLSRL）框架，补充初始噪声控制与表示级控制",
+        "设计两个不同的潜在变量：初始噪声潜在变量和动作表示潜在变量",
+        "通过残差连接将表示潜在变量映射为适配器特征注入中间动作令牌的隐藏状态",
+        "在不更新基础策略的情况下直接调整动作表示，加速在线策略适应"
+      ],
+      "research_branches": [],
+      "abstract_zh": "预训练生成式机器人策略从演示中学习表达性动作先验。然而，现有的强化学习方法仅操纵噪声空间，无法在生成过程中调节中间动作表示，导致性能下降和效率低下。为解决这一局限，我们提出了一种新颖的双潜在空间强化学习（DLSRL）框架，在冻结生成器内部补充初始噪声控制与表示级控制。具体而言，我们的演员网络预测两个不同的潜在变量：一个初始噪声潜在变量用于引导行为生成，一个动作表示潜在变量用于中间特征调制。此外，该表示潜在变量被映射为适配器特征，并通过残差连接巧妙地注入到中间动作令牌的隐藏状态中。我们的双控制设计能够在不更新基础策略的情况下直接调整动作表示。在生成式策略架构和机器人操作任务上的实验表明，DLSRL有效加速了在线机器人策略适应并取得了有竞争力的性能。我们的代码可在https://github.com/xianchaoxiu/DLSRL获取。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.11270v1/compare.png",
+      "image_caption": "Fig. 1: Comparison of our DLSRL and existing DSRL, where (a) DSRL learns an observation-conditioned initial-noise latent variable 𝐳 t \\mathbf{z}_{t} to steer action generation. (b) DLSRL produces the initial-noise latent variable 𝐳 t \\mathbf{z}_{t} and an action-representation latent variable 𝐮 t \\mathbf{u}_{t} , and the adapter feature mapper 𝒜 ω \\mathcal{A}_{\\omega} transforms 𝐮 t \\mathbf{u}_{t} into an adapter feature 𝐟 t \\mathbf{f}_{t} that modulates the intermediate action-token hidden states.",
+      "summary_one_sentence": "提出一种双潜在空间强化学习（DLSRL）框架，通过同时控制初始噪声和中间动作表示来加速生成式机器人策略的在线适应，无需更新基础策略。",
+      "research_problem": "现有强化学习方法仅能操纵预训练生成式机器人策略的噪声空间，无法调节生成过程中的中间动作表示，导致性能下降和效率低下。",
+      "method_summary": "DLSRL框架在冻结的生成式策略中，演员网络预测两个潜在变量：一个用于引导行为生成的初始噪声潜在变量，另一个用于中间特征调制的动作表示潜在变量。动作表示潜在变量被映射为适配器特征，并通过残差连接注入到中间动作令牌的隐藏状态，实现双控制。",
+      "experimental_setup": "跨多种生成式策略架构和机器人操作任务进行实验，具体设置细节无法从摘要确认。",
+      "key_results": "DLSRL有效加速了在线机器人策略适应并取得了有竞争力的性能。",
+      "limitations": "无法从摘要确认。",
+      "why_it_matters": "该方法填补了生成式机器人策略在强化学习中对中间表示进行控制的空白，为提升预训练策略的可微调性和适应效率提供了新思路。",
+      "relevance_reason": "该论文涉及机器人操作中的生成式策略与强化学习结合，属于机器人操作和具身智能领域，与视觉-力觉融合和接触状态估计的研究背景相关，可作为方法参考或背景文献。",
+      "related_to_my_research": "作为背景文献和方法参考，该研究关注机器人操作策略的生成与适应，与视觉-力觉融合和接触状态估计在机器人操作领域有交叉，但其核心并未涉及力觉或接触，因此主要是背景参考。",
+      "recommended_reading": "建议阅读生成式机器人策略、扩散策略/动作先验建模以及潜在空间强化学习的相关文献。",
+      "reproduction_value": "Medium - 摘要提供了框架设计和代码链接，但缺少实验详细设置和对比基线，复现需要补充更多实现细节。",
+      "core_candidate": "Review",
+      "relevance_score": 60,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-11T08:34:40.079849+00:00",
+      "source_query_groups": [
+        "generative"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2609-11310",
+      "title": "Your Model Already Knows Don't Teach It, Learn to Ask It: Soft Prompting for Few-Shot Adaptation of Vision-Language Models",
+      "authors": [
+        "Gautam Rajendrakumar Gare",
+        "Siyi Li",
+        "Hewei Wang",
+        "Cesar Daniel Hernandez",
+        "Wei Zhao",
+        "Wolfgang M. Pauli",
+        "John Galeotti",
+        "Deva Ramanan"
+      ],
+      "abstract": "We address few-shot object detection with vision-language models (VLMs) in out-of-domain settings such as aerial, industrial, and medical imagery, using only ten annotated images for supervision. Existing adaptation methods are discrete prompt optimization and LoRA fine-tuning. We revisit a third option: soft prompting, where a small number of continuous prompt tokens are optimized while the pretrained backbone remains frozen. We identify two key design choices. First, placing prompt tokens at the cross-modal boundary between visual and text tokens outperforms other placements (10.0 vs. 8.4 mAP). Second, initializing prompts from the empty space token outperforms semantic and random initialization. With these choices, one to three learned tokens (7,168 parameters on average) match the best LoRA configuration on Roboflow20-VL (14.2 mAP, 10-shot) while training over 20,000x fewer parameters. Soft prompting remains harder to optimize, exhibiting higher variance across random seeds. Unlike LoRA, however, it causes no forgetting: the LoRA rank matching our accuracy reduces NaturalBench VQA accuracy by 35% relative, rising to 56% at the largest rank, whereas soft prompting leaves pretrained performance unchanged. The learned tokens behave like prompts rather than weights. They transfer to a newer model without retraining (+0.8 mAP on Qwen3.5-9B) and can be verbalized into readable prompts competitive with prompt-search methods (matching DetPO and outperforming GEPA). The approach also extends beyond detection. On RoboCasa manipulation tasks, the frozen $π_{0.5}$ vision-language-action policy benefits from soft prompting, matching the LoRA baseline on two of three tasks when tokens are placed at the gradient bottleneck. These results suggest modern VLMs already encode much of what is needed for specialized domains; the challenge is learning how to ask.",
+      "published_date": "2026-09-10",
+      "updated_date": "2026-09-10",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2609.11310",
+      "paper_url": "https://arxiv.org/abs/2609.11310",
+      "pdf_url": "https://arxiv.org/pdf/2609.11310",
+      "source": "arXiv",
+      "last_checked": "2026-09-11",
+      "keywords": [
+        "cs.CV",
+        "cs.AI",
+        "cs.LG",
+        "eess.IV",
+        "stat.ML",
+        "cs.CV"
+      ],
+      "source_categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.LG",
+        "eess.IV",
+        "stat.ML"
+      ],
+      "research_topics": [
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "识别软提示的两个关键设计选择：提示位置（跨模态边界）和初始化（空标记初始化）。",
+        "证明软提示仅用7,168个参数即可匹配LoRA在Roboflow20-VL上的14.2 mAP，训练参数减少20,000倍以上。",
+        "软提示不导致遗忘，而LoRA在匹配准确率时使VQA准确率相对降低35%，最大等级时降低56%。",
+        "学习到的提示可迁移至更新的模型，无需重训练（+0.8 mAP），并可转换为可读提示，性能优于GEPA。",
+        "软提示扩展到机器人操作任务，在RoboCasa上匹配LoRA基线（三个任务中的两个）。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "我们针对视觉-语言模型（VLM）在域外场景（如航空、工业和医学图像）中的少样本目标检测问题，仅使用十张标注图像进行监督。现有适应方法包括离散提示优化和LoRA微调。我们重新审视了第三种选择：软提示（soft prompting），即优化少量连续提示标记，同时保持预训练骨干网络冻结。我们确定了两个关键设计选择。第一，将提示标记放置在视觉与文本标记之间的跨模态边界优于其他位置（10.0 vs 8.4 mAP）。第二，从空白空间标记初始化提示优于语义和随机初始化。基于这些选择，一到三个学习到的标记（平均7,168个参数）在Roboflow20-VL上匹配最佳LoRA配置（14.2 mAP，10-shot），同时训练参数减少20,000倍以上。软提示仍然较难优化，在不同随机种子下表现出更高方差。然而，与LoRA不同，软提示不会导致遗忘：与我们准确率匹配的LoRA等级使NaturalBench VQA准确率相对降低35%，在最大等级时升至56%，而软提示保持预训练性能不变。学习到的标记行为类似于提示而非权重。它们无需重新训练即可迁移到更新的模型（在Qwen3.5-9B上+0.8 mAP），并且可以转化为可读的提示，与提示搜索方法相当（匹配DetPO并优于GEPA）。该方法还扩展到检测之外。在RoboCasa操作任务中，冻结的π₀.₅视觉-语言-动作策略受益于软提示，当标记放置在梯度瓶颈处时，在三个任务中的两个上匹配LoRA基线。这些结果表明，现代VLM已经编码了专业领域所需的大部分知识；挑战在于学会如何提问。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.11310v1/figures/AccuracyForgettingVsParams_fair.png",
+      "image_caption": "Figure 1: SoftPrompt matches LoRA with zero forgetting at over 20,000 × 20{,}000\\times fewer trainable parameters. All methods use the default class-name evaluation protocol (§ 4.1 ). Top: all-domain mAP@50:95 on Roboflow20-VL (10-shot) vs. trainable parameters (log scale). Sweeping LoRA rank → 128 4\\!\\to\\!128 peaks at 14.2 14.2 mAP at r = 64 r{=}64 ( 174.6 174.6 M parameters) and then declines; SoftPrompt (IST, per-domain L L , 7,168 7{,}168 parameters on average, backbone frozen) reaches the same 14.2 14.2 . Bottom: the hidden cost. Relative drop in NaturalBench VQA group accuracy vs. the unadapted backbone: LoRA ’s forgetting grows with rank, 35 % 35\\% at the accuracy-matching r = 64 r{=}64 and 56 % 56\\% at r = 128 r{=}128 , while SoftPrompt and the training-free prompt baselines sit at exactly 0 % 0\\% because no backbone weight changes. The two panels move in opposite directions: the ranks that help detection most damage the generalist most. The instruction-augmented LoRA variant is reported in Appendix F (see § 4.2 ). Beyond efficiency, the learnt soft prompts keep the virtues of text prompts: they transfer across models (§ 6.3 ) and can be distilled into editable natural language (§ 6.2 ).",
+      "summary_one_sentence": "本文提出在冻结的视觉-语言模型中采用软提示（soft prompting）进行少样本适应，通过优化位于跨模态边界的少数连续标记，在目标检测、VQA和机器人操作任务上以极少的参数训练达到或超过LoRA性能，且不产生灾难性遗忘。",
+      "research_problem": "如何利用视觉-语言模型进行少样本域外适应（如航空、工业、医学图像），仅使用少量标注图像，同时避免灾难性遗忘并保持参数效率。",
+      "method_summary": "冻结预训练VLM的骨干，仅优化少量连续提示标记（软提示）。提示标记放置在视觉与文本嵌入之间的交叉模态边界处，并从空洞空间标记初始化。通过梯度下降优化，仅更新提示参数（平均7,168个参数）。提示标记可迁移到新模型，并可转化为可读提示。",
+      "experimental_setup": "在Roboflow20-VL目标检测基准上评估（10-shot设置），并扩展到NaturalBench VQA和RoboCasa操作任务（使用π₀.₅策略）。对比基线包括离散提示优化、LoRA微调、DetPO和GEPA。",
+      "key_results": "软提示（1-3个标记）在Roboflow20-VL上达到14.2 mAP，与最佳LoRA配置匹配；训练参数减少20,000倍；软提示不降低NaturalBench VQA准确率，而LoRA降低35-56%；软提示可迁移到Qwen3.5-9B（+0.8 mAP），与DetPO匹配并优于GEPA；在RoboCasa上，软提示在三个任务中两个匹配LoRA基线。",
+      "limitations": "软提示较难优化，在不同随机种子下方差较高；在机器人操作任务中未能完全匹配LoRA（三个任务中仅两个匹配）。",
+      "why_it_matters": "该研究挑战了“必须微调”的假设，表明现代VLM已编码大量领域知识，仅通过向模型“提问”（软提示）即可适应专业域，同时避免灾难性遗忘，并大幅降低参数开销。对具身智能和机器人操作具有实际意义。",
+      "relevance_reason": "论文直接涉及视觉-语言-动作模型在机器人操作中的应用（RoboCasa），并讨论软提示在操作任务中的效果，与机器人操作和具身智能紧密相关；同时，其提出的跨模态提示方法可能用于接触状态估计等任务的适应。",
+      "related_to_my_research": "该方法可视为机器人操作中视觉-语言模型的适应策略，与视觉-力觉融合中的跨模态信息交互有潜在关联，可作基线对比或方法参考。",
+      "recommended_reading": "建议阅读软提示（soft prompting）的相关文献，以及VLM少样本适应、LoRA微调、提示搜索方法（如DetPO、GEPA）和视觉-语言-动作模型（如π₀.₅）的论文。",
+      "reproduction_value": "High: 方法简单，仅需优化少量连续提示，且实验细节（提示位置、初始化）清晰；适用于多种任务，可复现性较高。",
+      "core_candidate": "No",
+      "relevance_score": 45,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-11T08:32:40.233935+00:00",
+      "source_query_groups": [
+        "vla"
+      ]
+    },
+    {
+      "paper_id": "arxiv-2609-11043",
+      "title": "LTLDiff: Finite Linear Temporal Logic-Guided Data Generation and Diffusion Policies for Multi-agent Robotic Manipulation",
+      "authors": [
+        "Chuhan Meng",
+        "Haiyan Yin"
+      ],
+      "abstract": "Multi-agent robotic manipulation tasks require coordination among agents to satisfy task-level temporal, logical, and safety constraints. Recently, diffusion policies have been used to perform the task. However, they still suffer from desynchronization, incorrect action ordering, and coordination failures in tasks that require simultaneous or sequential multi-agent interaction. Therefore, LTLDiff is proposed as a framework that combines Finite Linear Temporal Logic (LTLf) specification learning for both the generation of demonstrations and learning via diffusion policies. Each task has a specific LTLf formula that is learned from a set of natural language instructions using a large-scale language model. To enable a fixed-dimensional vector embedding of the learned specification from the language model, LTLf uses an abstract syntax tree representation scheme. This embedding of logic serves as a condition for (i) logic-guided data collection and (ii) diffusion-based policy training, encouraging trajectories that are consistent with the desired ordering and coordination requirements. Experiments on multi-agent LTLDiff manipulation tasks demonstrate improved task success rates compared to the baseline. Together, these contributions demonstrate the effectiveness of LTLDiff for coordinated multi-agent manipulation.",
+      "published_date": "2026-09-10",
+      "updated_date": "2026-09-10",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2609.11043",
+      "paper_url": "https://arxiv.org/abs/2609.11043",
+      "pdf_url": "https://arxiv.org/pdf/2609.11043",
+      "source": "arXiv",
+      "last_checked": "2026-09-11",
+      "keywords": [
+        "cs.RO",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO"
+      ],
+      "research_topics": [
+        "generative-policy"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出LTLDiff框架，结合LTLf规范学习与扩散策略。",
+        "使用大语言模型从自然语言指令中学习任务级LTLf公式。",
+        "采用抽象语法树表示实现固定维度逻辑嵌入。",
+        "逻辑嵌入同时用于数据收集和策略训练，鼓励符合顺序与协调要求的轨迹。",
+        "在多智能体操作任务上验证了相比基线更高的任务成功率。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "多智能体机器人操作任务需要智能体之间协调，以满足任务级的时间、逻辑和安全约束。最近，扩散策略已被用于执行此类任务。然而，在需要同时或顺序多智能体交互的任务中，它们仍然存在不同步、动作顺序错误和协调失败的问题。因此，提出了LTLDiff框架，结合有限线性时序逻辑（LTLf）规范学习来生成演示和通过扩散策略进行学习。每个任务都有一个特定的LTLf公式，该公式使用大规模语言模型从一组自然语言指令中学习。为了使从语言模型学到的规范能够进行固定维度的向量嵌入，LTLf使用抽象语法树表示方案。这种逻辑嵌入作为（i）逻辑引导的数据收集和（ii）基于扩散的策略训练的条件，鼓励轨迹符合所需的顺序和协调要求。在多智能体LTLDiff操作任务上的实验表明，与基线相比，任务成功率有所提高。这些贡献共同证明了LTLDiff在协调多智能体操作中的有效性。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.11043v1/SimpleOverflow.jpg",
+      "image_caption": "Figure 1: LTLDiff Pipeline. The task descriptions and conditions are transformed into atomic propositions and an LTL f formula by an LTL f generator. The encoded logic and compositional constraints [ 6 ] are used in offline data generation, whereas multi-agent observations and the LTL f embedding are utilized by LTLMAG for coordinated trajectory generation.",
+      "summary_one_sentence": "LTLDiff框架利用有限线性时序逻辑规范引导数据生成和扩散策略训练，以提高多智能体机器人操作的协调性和任务成功率。",
+      "research_problem": "多智能体机器人操作任务中扩散策略存在不同步、动作顺序错误和协调失败的问题。",
+      "method_summary": "LTLDiff首先利用大语言模型从自然语言指令中学习每个任务的LTLf公式，并通过抽象语法树将公式嵌入为固定维度向量。该逻辑嵌入作为条件，一方面指导数据生成（逻辑引导的数据收集），另一方面输入到扩散策略中进行条件生成，从而鼓励生成轨迹满足时序、逻辑和安全约束。",
+      "experimental_setup": "无法从摘要确认。摘要仅提及在多智能体LTLDiff操作任务上进行实验，并与基线比较任务成功率，但未给出具体环境、任务数量或基线细节。",
+      "key_results": "与基线相比，LTLDiff在多智能体操作任务上取得了更高的任务成功率。",
+      "limitations": "无法从摘要确认。摘要未提及现有限制或未来工作。",
+      "why_it_matters": "该研究将形式化时序逻辑（LTLf）与扩散策略结合，为多智能体操作中的协调和顺序控制提供了新思路，具有提升复杂任务可靠性的潜力。",
+      "relevance_reason": "该论文涉及多智能体机器人操作、时序逻辑约束和扩散策略，与机器人操作和具身智能研究直接相关，可为接触状态估计中的动作时序和协调提供逻辑约束方法参考。",
+      "related_to_my_research": "方法参考：该论文将时序逻辑嵌入作为条件引导扩散策略生成，可用于视觉-力觉融合感知下的操作顺序控制；逻辑约束的数据生成方式也可借鉴到接触状态估计数据集构建中。",
+      "recommended_reading": "建议阅读关于扩散策略在机器人操作中的应用、有限线性时序逻辑（LTLf）在规划中的使用，以及语言模型驱动的任务规范生成的相关文献。",
+      "reproduction_value": "Medium：虽然方法涉及逻辑嵌入和扩散策略，但摘要未提供详细实现细节，复现需要补充算法、网络结构和实验配置。",
+      "core_candidate": "No",
+      "relevance_score": 45,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-11T08:34:03.945460+00:00",
+      "source_query_groups": [
+        "generative"
+      ]
+    },
     {
       "paper_id": "arxiv-2609-09925",
       "title": "Time-Frequency Geometric Cross-Attention for Chunked Vision-Language-Action Models",
@@ -63,7 +434,7 @@
       "key_results": "TFGCA在LIBERO平均提升+1.5，OOD LIBERO-Plus提升+6.3，RoboTwin域随机化下平均提升+28.5，真实机器人三个任务总体成功率提升+11.67个百分点，且分布外增益更大。",
       "limitations": "无法从摘要确认。",
       "why_it_matters": "该工作揭示了当前VLA模型中动作块表示的局限，通过引入时频分解和几何敏感的注意力机制，显著提升了操作策略的分布外泛化能力，为机器人操作中的动作生成提供了新思路。",
-      "relevance_reason": "论文聚焦于机器人操作中的动作生成，涉及接触阶段（到达、接触、抓取调整、稳定）的几何关系，与视觉-力觉融合和接触状态估计在操作场景中相关，可作为背景文献或方法参考。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索",
       "related_to_my_research": "该论文的方法和思想可作为背景文献和潜在竞争，特别是其关于跨阶段几何关系的关注与接触状态估计中不同操作阶段的变化特征类似，可为视觉-力觉融合提供启发。",
       "recommended_reading": "建议阅读小波变换、点积注意力与楔积在几何注意力中的应用，以及VLA模型（如RT-2、Octo等）相关文献。",
       "reproduction_value": "Medium — 方法描述清晰，模块设计可复现，但需要预训练VLA权重和特定仿真/真实环境，且依赖库（小波变换）需配置，有一定门槛。",
@@ -78,6 +449,86 @@
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
       "ai_generated_at": "2026-09-10T08:38:10.706570+00:00",
+      "source_query_groups": [
+        "vla"
+      ],
+      "image_caption_zh": "TFGCA架构：一个即插即用模块，位于VLA变压器输出与动作头之间。频率分支（动作空间投影 → 逐维度SWT → 频率令牌）为几何交叉注意力提供键/值，其查询为时间令牌；输出以残差方式写回，并通过动作头得到速度vθ。（蓝色：数据张量；琥珀色：新模块；灰色：骨干网络。）"
+    },
+    {
+      "paper_id": "arxiv-2609-10706",
+      "title": "HuRo: Robotizing Human Videos for Scalable VLA Pretraining",
+      "authors": [
+        "Jinho Jeong",
+        "Se June Joo",
+        "Jaehyun Kang",
+        "Dongyun Kim",
+        "Yena Kim",
+        "Hanjung Kim",
+        "Seon Joo Kim"
+      ],
+      "abstract": "Human video datasets have emerged as a compelling alternative to expensive real-robot data, offering rich diversity at scale. To bridge the human-to-robot embodiment gap, existing approaches either robotize videos in task-matched settings or address observation and action alignment separately at scale. In this work, we systematically examine whether robotized human videos can provide effective and scalable supervision for pretraining vision-language-action (VLA) policies. To this end, we develop a robotization pipeline that converts heterogeneous human videos into robot-aligned observations and action trajectories while inferring missing intermediate signals across annotation levels. Using this pipeline, we construct the HuRo dataset, comprising about 630K robotized episodes and 142M processed frames from five human-video sources. Across four real-world manipulation tasks, increasing robotized pretraining scale improves overall completion from 51.5% to 80.3% and OOD completion under spatial and visual shifts from 34.9% to 72.2%. Ablations further show that visual robotization improves OOD robustness and that end-to-end pretraining with retargeted actions outperforms visual-only transfer. Code and data are released on our website: https://3587jjh.github.io/HuRo.",
+      "published_date": "2026-09-09",
+      "updated_date": "2026-09-09",
+      "year": 2026,
+      "venue": "Preprint / arXiv",
+      "arxiv_id": "2609.10706",
+      "paper_url": "https://arxiv.org/abs/2609.10706",
+      "pdf_url": "https://arxiv.org/pdf/2609.10706",
+      "source": "arXiv",
+      "last_checked": "2026-09-11",
+      "keywords": [
+        "cs.RO",
+        "cs.CV",
+        "cs.LG",
+        "cs.RO"
+      ],
+      "source_categories": [
+        "cs.RO",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "research_topics": [
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "系统性地检验机器人化人类视频对VLA预训练的有效性和可扩展性。",
+        "开发了一个机器人化流水线，将异构人类视频转换为机器人对齐的观察和动作轨迹，并推断缺失的中间信号。",
+        "构建了HuRo数据集，包含约63万个机器人化片段和1.42亿处理帧，来自五个人类视频源。",
+        "通过真实世界实验证明，增加机器人化预训练规模可显著提升整体完成率和OOD鲁棒性。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "人类视频数据集作为昂贵的真实机器人数据的替代方案，具有规模化的丰富多样性。为了弥合人类到机器人的具身差距，现有方法或在任务匹配的设置中机器人化视频，或在大规模下分别处理观察和动作对齐。在本工作中，我们系统性地检验机器人化的人类视频能否为预训练视觉-语言-动作（VLA）策略提供有效且可扩展的监督。为此，我们开发了一个机器人化流水线，将异构的人类视频转换为机器人对齐的观察和动作轨迹，同时跨注释级别推断缺失的中间信号。利用该流水线，我们构建了HuRo数据集，包含来自五个人类视频源的约63万个机器人化片段和1.42亿处理帧。在四个真实世界操作任务中，增加机器人化预训练规模将整体完成率从51.5%提升至80.3%，在空间和视觉变化下的OOD完成率从34.9%提升至72.2%。消融实验进一步表明，视觉机器人化提高了OOD鲁棒性，且使用重定向动作的端到端预训练优于仅视觉迁移。代码和数据已发布在我们的网站上：https://3587jjh.github.io/HuRo。",
+      "doi": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.10706v1/Fig2.10.png",
+      "image_caption": "Figure 2: Overview of HuRo dataset construction pipeline. Human videos are annotated, retargeted into robot actions, and visually converted into robotized observations to form HuRo episodes.",
+      "summary_one_sentence": "本文提出HuRo流水线，将人类视频机器人化为机器人对齐的观察和动作轨迹，构建大规模预训练数据集，显著提升VLA策略在真实世界操作任务中的整体和OOD完成率。",
+      "research_problem": "如何利用人类视频数据为视觉-语言-动作（VLA）策略提供有效且可扩展的预训练监督，以弥合人类到机器人的具身差距。",
+      "method_summary": "提出一个机器人化流水线，将人类视频转换为机器人对齐的观察和动作轨迹，包括视觉对齐和动作重定向，并推断缺失的中间信号；然后用该数据对VLA策略进行端到端预训练。",
+      "experimental_setup": "在四个真实世界操作任务上评估，比较不同预训练规模的效果，并进行消融实验（视觉机器人化与端到端预训练对比）。数据来自五个人类视频源。",
+      "key_results": "增加机器人化预训练规模将整体完成率从51.5%提升至80.3%，OOD完成率从34.9%提升至72.2%；视觉机器人化提高OOD鲁棒性；端到端预训练优于仅视觉迁移。",
+      "limitations": "无法从摘要确认。",
+      "why_it_matters": "该工作提供了一种低成本、可扩展的机器人数据生成途径，利用海量人类视频预训练VLA策略，显著提升真实世界操作性能，对具身智能领域的规模化训练具有重要价值。",
+      "relevance_reason": "该论文涉及机器人操作中从人类视频到机器人数据的转换，涉及观察和动作对齐，与视觉-力觉融合和接触状态估计相关（尽管未直接涉及力觉），属于机器人操作和具身智能领域的预训练方法，可作为背景文献或方法参考。",
+      "related_to_my_research": "方法参考：该论文的机器人化流水线中可能涉及观察对齐和动作重定向，与视觉-力觉融合和接触状态估计有一定关联；其大规模人类视频预训练策略可作为操作学习的基础方法参考。",
+      "recommended_reading": "建议阅读与人类视频机器人化、VLA预训练、动作重定向相关的文献，以及文中提到的五个人类视频源和消融实验细节。",
+      "reproduction_value": "Medium：摘要提供了完整的数据规模、性能提升和实验设置，但具体实现细节（如网络架构、训练超参数）未在摘要中给出，需要参考论文正文。",
+      "core_candidate": "Review",
+      "relevance_score": 60,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-11T08:33:04.665969+00:00",
       "source_query_groups": [
         "vla"
       ]
@@ -140,7 +591,7 @@
       "key_results": "无法从摘要确认具体实验结果；摘要未报告数值结果。",
       "limitations": "无法从摘要确认局限性；摘要未明确讨论限制。",
       "why_it_matters": "该基准填补了长时程可变形物体操作在真实机器人评估方面的空白，为具身智能和机器人操作研究提供了异构真实数据复用的测试平台，有助于推动模型在物理世界的可靠部署。",
-      "relevance_reason": "该基准直接涉及机器人操作和具身智能，特别是可变形物体（衣物）的长时程操作，与视觉-力觉融合和接触状态估计有潜在关联（衣物操作需要感知接触状态），可作为方法评估和基线对比的参考。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；涉及失败、恢复、重规划或纠偏；具有真实机器人、公开代码或可复现资源线索；有真实机器人实验线索",
       "related_to_my_research": "属于背景文献和潜在基准对比：该基准关注可变形物体操作和真实机器人数据复用，与视觉-力觉融合和接触状态估计相关，可作为测试我们方法在长时程可变形操作中的参考。",
       "recommended_reading": "建议阅读论文中关于数据收集、任务设计和评估协议的部分，以了解基准的详细构成和使用方式。",
       "reproduction_value": "Medium：基准公开且提供数据和评估平台，但需要真实机器人和物理设备，复现成本较高；摘要未给出具体复现步骤，因此中等。",
@@ -157,7 +608,8 @@
       "ai_generated_at": "2026-09-10T08:36:22.800467+00:00",
       "source_query_groups": [
         "vla"
-      ]
+      ],
+      "image_caption_zh": "FolDeX与FoldChallenge。FolDeX将真实机器人数据按恢复增强、任务、场景和具身维度进行组织。这些诊断轨道通过固定目标评估协议，同时改变可用训练数据或测试分布，标准化了未来方法研究鲁棒性和数据复用的方式。FoldChallenge在标准化物理协议下执行外部提交的策略，并报告组件级指标及可审计的回放视频。"
     },
     {
       "paper_id": "arxiv-2609-10464",
@@ -217,7 +669,7 @@
       "key_results": "在二维数据集上开环预测误差降低最多2倍，在三维机器人数据集上控制成功率提高最多2.5倍；增益主要来自编码器学习到更好的特征而非预测器。",
       "limitations": "无法从摘要确认",
       "why_it_matters": "这项工作首次系统验证了JEPA世界模型在零样本物理泛化中的能力，并提出了有效的改进方法，有助于推动世界模型在机器人操作和具身智能中的物理感知与预测应用。",
-      "relevance_reason": "该研究关注世界模型在物理动态预测中的泛化能力，与机器人操作中的接触状态估计和具身智能中的物理建模相关，属于方法参考和潜在竞争。",
+      "relevance_reason": "研究对象是机器人操作或接触任务；方法包含可迁移的策略学习或多模态建模；具有真实机器人、公开代码或可复现资源线索；有公开代码或资源线索",
       "related_to_my_research": "背景文献：该工作涉及物理动态预测和零样本泛化，与视觉-力觉融合和接触状态估计有间接关联，可参考其编码器-预测器设计思路。",
       "recommended_reading": "建议阅读LeWorldModel框架和DINO-WM基线，以理解SG-JEPA的改进基础。",
       "reproduction_value": "Low：论文尚未正式发表，且未提供详细实验设置和代码细节，复现需要依赖项目页面和补充材料。",
@@ -234,7 +686,8 @@
       "ai_generated_at": "2026-09-10T08:38:19.648615+00:00",
       "source_query_groups": [
         "generative"
-      ]
+      ],
+      "image_caption_zh": "评估环境。（a）平面形状：每个物体在t=0时受到冲量，然后在箱内自由下落和碰撞。（b）接近球：球从场景远端飞行而来。（c）机械臂接球：机械臂用接球器接住球。（d）机械臂拍球：同一机械臂用倾斜拍板持续弹球。（e）Franka拍球入篮：Panda机械臂将来球击入篮中。橙色箭头示意运动方向。"
     },
     {
       "paper_id": "arxiv-2609-09119",
