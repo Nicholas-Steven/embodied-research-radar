@@ -4,6 +4,74 @@
 
 在线目标地址：`https://nicholas-steven.github.io/embodied-research-radar/`
 
+## 研究工作台（Research Workspace）
+
+V2 新增独立入口 **研究工作台**（侧边栏，`?view=workspace`），把网站从论文发现工具升级为研究决策辅助系统：Paper → Evidence → Collision → Gap → Research Question → Experiment → Decision。界面以中文为主；论文标题、作者、venue、DOI 与算法缩写保留原文。
+
+### 功能模块
+
+| 模块 | 说明 |
+|---|---|
+| 工作台总览 | 当前研究主线、核心科学问题、高风险撞题论文、当前研究缺口、当前实验、最近研究决策、前沿窗口提醒、规则化"下一步建议" |
+| 我的研究主线 | 研究主线节点图（含主动诊断决策门），节点信息卡（科学问题 / 输入 / 输出 / 候选方法 / 高风险撞题论文 / 当前状态 / 判断可信度），可编辑并导出 Markdown |
+| 撞题雷达 | 规则化可解释撞题风险评分（0–100，六维加权）、风险五级、重合原因 / 尚未覆盖的部分、对当前课题的影响与文献核验状态、本周新增 / 风险上升监控 |
+| 创新性红队审查 | 对研究主张做敌意审查：最接近的已有理论、语义重合关系、最强反例、仍可保留的创新表述、建议修改表述、保留 / 收缩 / 改名 / 删除结论 |
+| 失败假设实验室 | 操作任务 / 失败假设 / 主动探测动作管理、可编辑假设矩阵、假设判别分析、净信息价值（NetVOI，启发式）主动探测决策 |
+| 实验设计器 | 14 个实验对比方法模板、6 类评价指标、实验矩阵生成与 Markdown 导出 |
+| 研究决策日志 | 研究方向保留 / 放弃的长期记录 |
+| 研究缺口可信度 | 在 Research Gap 上增加证据强度 / 撞题风险 / 当前判断 |
+| 方法角色图谱 | 按"角色"分类算法，标注"能够解决 / 不能直接解决"，防止热门算法=创新 |
+| 视觉力觉融合架构 | 多模态融合架构对比 + 当前推荐方案 |
+| 硕士博士研究扩展 | 硕士核心 → 博士扩展方向（D1–D9） |
+
+### 如何本地启动
+
+```bash
+python scripts/build_landscape.py     # 生成 landscape（若 data 已有可跳过）
+python scripts/build_site.py          # 构建 site/
+python -m http.server 8010 --directory site --bind 127.0.0.1
+# 打开 http://127.0.0.1:8010/?view=workspace
+```
+
+### 如何修改 research profile
+
+当前研究主线全部是数据，不是硬编码：编辑 `web/assets/v2/v2-data.js` 顶部的
+`researchProfile`（课题名、传感器、失败假设、future extensions）与 `researchNodes`
+（研究节点、角色、候选方法）。换课题不需要改前端源码。
+
+### 如何添加 collision paper
+
+Collision Radar 的评分完全由规则计算：在 `web/assets/v2/v2-data.js` 的
+`collisionConfig` 中调整维度正则与权重（权重必须保持总和 100）。单篇论文的
+Impact / Verification / Closest Node 在页面卡片上直接标注（保存在浏览器 localStorage）。
+
+### 如何添加 research claim
+
+在 `web/assets/v2/v2-data.js` 的 `researchClaims` 数组中追加：title、atomicClaims
+（原子拆解）、closestConcepts（关联 `researchConcepts` 字典中的概念 id）、红队评估
+（existingTheory / strongestCounterexample / suggestedRewrite）与结论
+（noveltyScore / collisionRisk / recommendation）。示例：Evidence Sufficiency 被判定
+RENAME / NARROW 的用例已内置。
+
+### 如何使用 hypothesis lab
+
+打开 Failure Hypothesis Lab：矩阵单元格可直接编辑（保存在 localStorage）；
+选择两个假设对比探测动作的判别性（人工评分，允许“未评分”）；NetVOI 表给出
+Probe Recommended / Abstain / Safe Recovery 推荐——所有数值是启发式估计，
+页面有明确标注。
+
+### 如何生成 experiment matrix
+
+Experiment Builder 中勾选启用的 baseline → 查看实验矩阵（E1–E5 默认已关联
+claims）→ 点击 **Export to Markdown** 导出，可直接用于开题报告与论文规划。
+Thesis / Red Team / Failure Lab / Decision Log 均支持同名导出。
+
+### 重要约定
+
+- 所有评分（Collision / NetVOI / Novelty / Gap Confidence）是**启发式研究决策辅助**，页面均有免责标注。
+- “Radar 没找到” ≠ “没人研究”；AI 输出必须标注 “Requires verification”。
+- 术语统一定义见 `docs/RESEARCH_METHOD_SEMANTICS.md`；架构决策见 `docs/V2_ARCHITECTURE_DECISIONS.md`。
+
 ## 这是什么
 
 这是一个静态、可长期维护的科研工具：Python数据管线从arXiv Atom API召回候选论文，经过主类目/排除词过滤、标题与摘要相关性评分、去重和可选AI分析后生成`data/papers.json`；前端只读取构建后的JSON，不把论文硬编码到HTML。GitHub Actions负责每日更新和GitHub Pages部署。

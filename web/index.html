@@ -29,6 +29,8 @@
         <a class="nav-item muted-link" href="?topic=generative-policy" data-topic="generative-policy"><span class="nav-dot blue"></span><span>生成式策略</span><small data-nav-count="generative-policy">—</small></a>
         <div class="nav-label nav-label-spaced">ANALYSIS</div>
         <a class="nav-item" href="?view=landscape" data-view="landscape"><span class="nav-icon">◈</span><span>研究进展与缺口</span></a>
+        <div class="nav-label nav-label-spaced">研究工作台</div>
+        <a class="nav-item" href="?view=workspace" data-view="workspace"><span class="nav-icon">⌘</span><span>研究工作台</span></a>
         <div class="nav-label nav-label-spaced">COLLECTIONS</div>
         <a class="nav-item" href="?view=core" data-view="core"><span class="nav-icon">✦</span><span>核心论文</span><small data-nav-count="core">—</small></a>
         <a class="nav-item" href="?view=map" data-view="map"><span class="nav-icon">⌁</span><span>Research Map</span></a>
@@ -144,6 +146,8 @@
           <div class="research-map" id="research-map"></div>
         </section>
 
+        <section class="workspace-section hidden" id="workspace-section"></section>
+
         <section class="branch-section hidden" id="branch-section">
           <div class="branch-hero"><span class="section-kicker">RESEARCH BRANCH</span><h2 id="branch-title">—</h2><p id="branch-description">—</p><span class="coming-badge">V1 · STRUCTURE READY</span></div>
           <div class="branch-columns"><div><span class="section-kicker">OPEN QUESTIONS</span><div id="branch-questions" class="question-list"></div></div><div class="branch-note"><span class="section-kicker">STATUS</span><h3>Coming Soon</h3><p>导航、配置和数据Schema已经为此分支预留。未来增加查询组和解析模块即可接入，不需要重做站点。</p></div></div>
@@ -155,5 +159,6 @@
   </div>
   <div class="toast" id="toast" role="status"></div>
   <script src="assets/app.js" type="module"></script>
+  <script src="assets/v2/workspace.js" type="module"></script>
 </body>
 </html>

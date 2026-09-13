@@ -3,11 +3,27 @@
 > **IMPORTANT:** If this document conflicts with the current repository, the repository
 > is authoritative. Update this document after resolving the difference.
 
-**Last Updated:** 2026-09-04
-**Current Commit:** e1d69ef
+**Last Updated:** 2026-09-13
+**Current Commit:** b48848a (V2 uncommitted local work — pending human review)
 **Default Branch:** main
 **Repository:** https://github.com/Nicholas-Steven/embodied-research-radar
 **Production Site:** https://nicholas-steven.github.io/embodied-research-radar/
+
+---
+
+## 0. V2 Research Workspace (2026-09-13, LOCAL ONLY — NOT DEPLOYED)
+
+V2 adds a Research Decision system at `?view=workspace` (sidebar WORKSPACE group).
+Modules: Dashboard, Research Thesis, Collision Radar, Novelty Red Team,
+Failure Hypothesis Lab, Experiment Builder, Decision Log, Gap Confidence,
+Method Role Map, Fusion Explorer, Expansion (Master→PhD).
+
+- New source: `web/assets/v2/v2-data.js` (all research config data), `web/assets/v2/workspace.js` (router + 11 views + localStorage layer + Markdown export)
+- User V2 data (collision history, node status, decisions, hypothesis edits) lives in **localStorage** (`radar-v2-*` keys) — papers.json remains pipeline output, untouched
+- Collision scoring is rule-based; weights centralized in `v2-data.js collisionConfig` (sum must = 100)
+- New tests: `tests/test_v2_logic.py` + `tests/v2_logic_harness.mjs` (node-based, 24 assertions)
+- Docs: `docs/V2_EXISTING_SYSTEM_AUDIT.md`, `docs/V2_PROGRESS.md`, `docs/V2_ARCHITECTURE_DECISIONS.md`, `docs/RESEARCH_METHOD_SEMANTICS.md`, `docs/V2_FINAL_REPORT.md`
+- **Deployment hold**: V2 must be human-accepted before any push/deploy
 
 ---
 
