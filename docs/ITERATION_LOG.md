@@ -6,6 +6,29 @@
 
 ---
 
+## 2026-09-13 — 方法知识库 V2：解释重写 + KaTeX 公式 + 核验代表论文（已上线）
+
+### User-visible Changes
+- 方法角色图谱全部 26 个方法详情升级：新增「30 秒理解」「一个直观例子」「输入/输出」「在机器人里怎么跑」「与相近方法的区别（13 组指定对比全覆盖）」「当前课题接入层」「推荐程度原因」
+- 数学公式从 `<pre>` 纯文本改为 KaTeX 标准排版（32 个公式块，逐项解释；KaTeX 0.16.11 本地 vendor，无 CDN；渲染失败降级原文不白屏；dark/light 主题色继承）
+- Modal 重排为 19 段学习顺序（先直观后数学再科研），中文标题醒目、英文辅助小字
+- 代表论文三分类（经典基础 / 机器人应用 / 与当前课题最近）：38 篇唯一文献全部检索核验（含 relevanceNote、publication status、verification level badge），无文献的类别显示「暂无已核验文献」不硬凑
+
+### Technical Changes
+- 新增 `web/assets/vendor/katex/`（CSS/JS + 9 字体）、`web/assets/v2/method-knowledge.js`（26 方法知识库）
+- `web/assets/v2/workspace.js`：renderMathIn 安全渲染、paperGroups 渲染、Modal 内容函数重构；`web/index.html` KaTeX 引入；`web/assets/style.css` 全主题变量样式
+- `tests/method_knowledge_harness.mjs` 新增（24 项断言）；v2_logic/ws_render harness 补拷 method-knowledge.js
+
+### Data Safety
+- 未修改 papers.json（方法文献独立绑定，无虚构论文；重复 URL 均为同一文献跨方法复用）
+- 代表论文全部 METADATA/ABSTRACT_VERIFIED，不标 FULLTEXT；核对日志见 docs/METHOD_REFERENCE_AUDIT.md
+
+### Validation
+- method_knowledge 24/24、V2 logic 24/24、ws_render（M1–M10 等）全部 PASS、regression 82/82 OK、build PASS、本地+线上冒烟全 200
+- commit d83f050 push main，GitHub Pages workflow 34789711081 success
+
+---
+
 ## 2026-09-13 — V2-UI-FIX-3 实验对比方法语义修正 + 默认启用状态调整（本地完成）
 
 ### User-visible Changes
