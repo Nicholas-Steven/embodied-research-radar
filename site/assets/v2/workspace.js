@@ -10,6 +10,7 @@ import {
   expansionTree,
 } from './v2-data.js';
 import { methodDetails } from './method-details.js';
+import { methodKnowledge } from './method-knowledge.js';
 import {
   tabLabels, roleLabels, statusLabels, riskLabels, dimensionLabels,
   impactLabels, cardVerificationLabels, verificationLevelLabels,
@@ -222,21 +223,94 @@ const methodDetailById = (id) => methodDetails.find((m) => m.id === id);
 // 方法角色图谱卡片（methodRoles[].methods[].name，英文）→ methodDetails id
 const methodIdByName = Object.fromEntries(methodDetails.map((m) => [m.name, m.id]));
 
+// KaTeX 安全渲染：latex 来自项目数据（非用户输入），仍统一走 katex.render +
+// throwOnError:false；单个公式失败降级为原始 LaTeX 文本，绝不影响 Modal 整体。
+function renderMathIn(el) {
+  if (!el) return;
+  const blocks = el.querySelectorAll('script[type="math/tex"]');
+  blocks.forEach((s) => {
+    const tex = s.textContent || '';
+    const holder = document.createElement('div');
+    holder.className = 'ws-katex-block';
+    try {
+      if (globalThis.katex?.render) katex.render(tex, holder, { throwOnError: false, displayMode: true, strict: false });
+      else throw new Error('katex unavailable');
+    } catch {
+      holder.classList.add('ws-katex-fallback');
+      holder.textContent = tex;
+    }
+    s.replaceWith(holder);
+  });
+  const inline = el.querySelectorAll('script[type="math/tex-inline"]');
+  inline.forEach((s) => {
+    const tex = s.textContent || '';
+    const span = document.createElement('span');
+    try {
+      if (globalThis.katex?.render) katex.render(tex, span, { throwOnError: false, displayMode: false, strict: false });
+      else throw new Error('katex unavailable');
+    } catch {
+      span.classList.add('ws-katex-fallback');
+      span.textContent = tex;
+    }
+    s.replaceWith(span);
+  });
+}
+// Modal 数据 → HTML 的公式占位（deferred rendering；无需 eval，无注入面）
+const texBlock = (tex) => `<script type="math/tex">${tex}</script>`;
+const texInline = (tex) => `<script type="math/tex-inline">${tex}</script>`;
+
+// 方法详情代表论文：三分类（经典基础 / 机器人应用 / 与当前课题最近），全部为检索核验文献
+const PAPER_GROUP_META = [
+  ['foundation', '经典基础 · WHERE IT CAME FROM', '回答：这个方法从哪里来？'],
+  ['robotics', '机器人 / 接触操作应用 · ROBOTICS APPLICATIONS', '回答：机器人里怎么用？'],
+  ['closest', '与当前课题最相关 · CLOSEST TO THIS THESIS', '回答：与视觉力觉主动失败诊断的直接关系？'],
+];
+const paperStatusLabels = { PUBLISHED: '已发表', ACCEPTED: '已录用', PREPRINT: '预印本', UNVERIFIED: '未核验' };
+function paperGroupCard(paper) {
+  const status = paperStatusLabels[paper.status] || paper.status || '未核验';
+  const ver = verificationLevelLabels[paper.verification] || paper.verification || '未核验';
+  const open = paper.paperId
+    ? `?paper=${encodeURIComponent(paper.paperId)}`
+    : (paper.url || '#');
+  return `<article class="ws-ref-card">
+    <h5><a href="${esc(open)}" ${paper.paperId ? 'data-ws-paper' : 'target="_blank" rel="noopener"'}>${esc(paper.title)}</a></h5>
+    <p class="ws-ref-meta">${esc(paper.authors || '—')} · ${esc(String(paper.year || '—'))} · ${esc(paper.venue || '—')}</p>
+    <p class="ws-ref-badges"><span class="ws-tag-soft">${esc(status)}</span><span class="ws-tag-soft">${esc(ver)}</span></p>
+    ${paper.relevanceNote ? `<p class="ws-ref-note"><b>为什么推荐这篇：</b>${esc(paper.relevanceNote)}</p>` : ''}
+  </article>`;
+}
 function methodPapersSection(detail) {
+  const groups = detail.paperGroups;
+  if (!groups) return methodPapersSectionLegacy(detail);
+  const html = PAPER_GROUP_META.map(([key, label, hint]) => {
+    const papers = groups[key] || [];
+    const body = papers.length
+      ? papers.map(paperGroupCard).join('')
+      : `<p class="ws-muted">暂无已核验文献——不硬凑数量。</p>`;
+    return `<div class="ws-paper-group"><h4>${esc(label)}</h4><p class="ws-muted">${esc(hint)}</p>${body}</div>`;
+  }).join('');
+  return `<section><span class="section-kicker">代表论文 · REPRESENTATIVE PAPERS</span>${html}</section>`;
+}
+// 旧字段 representativePapers（paper_id 列表）兼容渲染
+function methodPapersSectionLegacy(detail) {
   const all = papersData?.papers || [];
   const rows = (detail.representativePapers || [])
     .map((pid) => all.find((p) => p.paper_id === pid))
     .filter(Boolean);
   if (!rows.length) {
-    return `<section><span class="section-kicker">代表性论文 · REPRESENTATIVE PAPERS</span>
+    return `<section><span class="section-kicker">代表论文 · REPRESENTATIVE PAPERS</span>
       <p class="ws-muted">暂无已核验代表论文。方法出处与经典文献见参考条目${detail.canonicalRefs ? `（${esc(detail.canonicalRefs)}）` : ''}。</p></section>`;
   }
-  return `<section><span class="section-kicker">代表性论文 · REPRESENTATIVE PAPERS</span>
+  return `<section><span class="section-kicker">代表论文 · REPRESENTATIVE PAPERS</span>
     <ul class="ws-claims-list">${rows.map((p) => `<li class="dash-item"><b><a href="${esc(p.paper_url || '#')}" target="_blank" rel="noopener">${esc(p.title)}</a></b>
       <small class="ws-muted">${esc(p.year || p.published_date?.slice(0, 4) || '—')} · ${esc(p.venue || '—')} · ${esc(verificationLevelLabels[p.verification_level] || p.verification_level || 'DISCOVERED')}</small></li>`).join('')}</ul></section>`;
 }
 
+// 醒目中文 section 标题（英文只做辅助小字）
+const mSection = (zh, en) => `<span class="ws-msection"><b>${esc(zh)}</b><small>${esc(en)}</small></span>`;
+
 function methodModalContent(detail) {
+  const k = methodKnowledge[detail.id] || {};
   const bullets = (items, empty = ui.noData) => (items && items.length
     ? `<ul>${items.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : `<p class="ws-muted">${empty}</p>`);
   const cat = METHOD_CATEGORY_LABELS[detail.category] || detail.category || '—';
@@ -244,6 +318,12 @@ function methodModalContent(detail) {
     const r = methodDetailById(rid);
     return r ? `<button class="ws-chip ws-related-method" type="button" data-method="${esc(rid)}" title="${esc(r.chineseName || r.name)}">${esc(r.chineseName ? `${r.chineseName}` : r.name)}<small>${esc(r.name)}</small></button>` : '';
   }).filter(Boolean).join('');
+  const mathBlocks = (k.mathBlocks || []).map((b, i) => `
+    <div class="ws-math-block">
+      <h5>${esc(b.title || `公式 ${i + 1}`)}</h5>
+      ${texBlock(b.latex || '')}
+      ${b.explanation?.length ? `<ul class="ws-math-exp">${b.explanation.map((e) => `<li>${esc(e)}</li>`).join('')}</ul>` : ''}
+    </div>`).join('');
   return `
     <header class="ws-modal-head">
       <div>
@@ -260,24 +340,35 @@ function methodModalContent(detail) {
       <span role="listitem"><small>是否核心创新</small><b>${detail.isCoreInnovation ? '是' : '否'}</b></span>
     </div>
     <div class="ws-modal-body">
-      ${detail.shortDescription ? `<section><span class="section-kicker">一句话解释 · IN SHORT</span><p>${esc(detail.shortDescription)}</p></section>` : ''}
-      ${detail.coreIdea ? `<section><span class="section-kicker">核心思想 · CORE IDEA</span><p>${esc(detail.coreIdea)}</p></section>` : ''}
-      ${detail.mathematicalForm ? `<section><span class="section-kicker">基本数学形式 · MATH FORM</span><pre class="ws-math">${esc(detail.mathematicalForm)}</pre></section>` : ''}
-      <section><span class="section-kicker">能够解决 · SOLVES</span>${bullets(detail.solves)}</section>
-      <section><span class="section-kicker">不能直接解决 · DOES NOT SOLVE</span>${bullets(detail.cannotSolve)}</section>
-      <section><span class="section-kicker">优点与局限 · STRENGTHS & LIMITATIONS</span>
+      ${k.plainExplanation ? `<section>${mSection('30 秒理解', 'PLAIN-LANGUAGE SUMMARY')}<p>${esc(k.plainExplanation)}</p></section>` : ''}
+      ${k.robotExample ? `<section class="ws-note">${mSection('一个直观例子', 'A CONCRETE ROBOT EXAMPLE')}<p>${esc(k.robotExample)}</p></section>` : ''}
+      ${(k.inputs || k.outputs) ? `<section>${mSection('输入 / 输出', 'INPUTS & OUTPUTS')}
+        ${k.inputs ? `<p><b>输入是什么：</b>${esc(k.inputs)}</p>` : ''}
+        ${k.outputs ? `<p><b>输出是什么：</b>${esc(k.outputs)}</p>` : ''}</section>` : ''}
+      ${detail.coreIdea ? `<section>${mSection('核心思想', 'CORE IDEA')}<p>${esc(detail.coreIdea)}</p></section>` : ''}
+      ${mathBlocks ? `<section>${mSection('标准数学表达与逐项解释', 'MATH, TERM BY TERM')}<p class="ws-muted">公式为帮助理解的最核心表达；完整推导请见代表论文。</p>${mathBlocks}</section>` : (detail.mathematicalForm ? `<section>${mSection('基本数学形式', 'MATH FORM')}<pre class="ws-math">${esc(detail.mathematicalForm)}</pre></section>` : '')}
+      ${k.robotWorkflow?.length ? `<section>${mSection('在机器人里怎么跑', 'HOW IT RUNS ON A ROBOT')}<ol>${k.robotWorkflow.map((s) => `<li>${esc(s)}</li>`).join('')}</ol></section>` : ''}
+      <section>${mSection('能解决 / 不能直接解决', 'SOLVES / DOES NOT SOLVE')}
+        ${detail.solves?.length ? `<p class="section-kicker">能解决</p>${bullets(detail.solves)}` : ''}
+        ${detail.cannotSolve?.length ? `<p class="section-kicker">不能直接解决</p>${bullets(detail.cannotSolve)}` : ''}
+        ${!detail.solves?.length && !detail.cannotSolve?.length ? `<p class="ws-muted">${ui.noData}</p>` : ''}</section>
+      <section>${mSection('优点与局限', 'STRENGTHS & LIMITATIONS')}
         ${detail.strengths?.length ? `<p class="section-kicker">优点</p>${bullets(detail.strengths)}` : ''}
         ${detail.limitations?.length ? `<p class="section-kicker">局限</p>${bullets(detail.limitations)}` : ''}
-        ${!detail.strengths?.length && !detail.limitations?.length ? `<p class="ws-muted">${ui.noData}</p>` : ''}
-      </section>
-      <section><span class="section-kicker">适合场景 · SUITABLE</span>${bullets(detail.suitableScenarios)}</section>
-      <section><span class="section-kicker">不适合场景 · UNSUITABLE</span>${bullets(detail.unsuitableScenarios)}</section>
-      ${detail.roleInCurrentResearch ? `<section class="ws-note"><span class="section-kicker">当前课题中的作用 · ROLE IN CURRENT RESEARCH</span><p>${esc(detail.roleInCurrentResearch)}</p></section>` : ''}
-      ${detail.recommendedUsage ? `<section><span class="section-kicker">推荐组合与用法 · RECOMMENDED USAGE</span><p>${esc(detail.recommendedUsage)}</p></section>` : ''}
-      ${related ? `<section><span class="section-kicker">相关方法（点击切换详情） · RELATED METHODS</span><div class="ws-chip-row">${related}</div></section>` : ''}
-      ${detail.difficulty ? `<section><span class="section-kicker">实现难度 · DIFFICULTY</span><p>${esc(detail.difficulty)}${detail.implementationNotes ? ` — ${esc(detail.implementationNotes)}` : ''}</p></section>` : ''}
-      ${detail.recommendation ? `<section><span class="section-kicker">推荐程度 · RECOMMENDATION</span><p><b>${esc(detail.recommendation)}</b>${detail.isCoreInnovation ? '' : '（不建议作为核心创新表述）'}</p>
-        <p class="ws-disclaimer">推荐程度仅针对当前视觉力觉主动失败诊断研究主线，不是普适排名。</p></section>` : ''}
+        ${!detail.strengths?.length && !detail.limitations?.length ? `<p class="ws-muted">${ui.noData}</p>` : ''}</section>
+      ${k.comparisonNotes ? `<section>${mSection('与相近方法的区别', 'HOW IT DIFFERS FROM NEIGHBORS')}<p>${esc(k.comparisonNotes)}</p></section>` : ''}
+      ${detail.suitableScenarios?.length ? `<section>${mSection('适合场景', 'SUITABLE')} ${bullets(detail.suitableScenarios)}</section>` : ''}
+      ${detail.unsuitableScenarios?.length ? `<section>${mSection('不适合场景', 'UNSUITABLE')} ${bullets(detail.unsuitableScenarios)}</section>` : ''}
+      ${k.layerPosition || detail.roleInCurrentResearch ? `<section class="ws-note">${mSection('当前视觉力觉课题中怎么用', 'ROLE IN THIS THESIS')}
+        ${k.layerPosition ? `<p><b>接入哪一层：</b>${esc(k.layerPosition)}</p>` : ''}
+        ${detail.roleInCurrentResearch ? `<p>${esc(detail.roleInCurrentResearch)}</p>` : ''}</section>` : ''}
+      ${detail.recommendedUsage ? `<section>${mSection('推荐组合', 'RECOMMENDED COMBINATION')}<p>${esc(detail.recommendedUsage)}</p></section>` : ''}
+      ${detail.difficulty ? `<section>${mSection('实现难度', 'DIFFICULTY')}<p>${esc(detail.difficulty)}${detail.implementationNotes ? ` — ${esc(detail.implementationNotes)}` : ''}</p></section>` : ''}
+      ${detail.recommendation ? `<section>${mSection('是否适合作为核心创新', 'RECOMMENDATION')}
+        <p><b>${esc(detail.recommendation)}</b>${detail.isCoreInnovation ? '' : '（不建议作为核心创新表述）'}</p>
+        ${k.recommendationReason ? `<p>${esc(k.recommendationReason)}</p>` : ''}
+        <p class="ws-disclaimer">推荐程度仅针对当前视觉力觉主动失败诊断研究主线，不是普适排名；评分为启发式研究决策辅助，不构成正式文献计量或统计证明。</p></section>` : ''}
+      ${related ? `<section>${mSection('相关方法（点击切换详情）', 'RELATED METHODS')}<div class="ws-chip-row">${related}</div></section>` : ''}
       ${methodPapersSection(detail)}
     </div>`;
 }
@@ -298,16 +389,17 @@ function openMethodModal(methodId, sourceEl) {
   const onKey = (e) => { if (e.key === 'Escape') closeModal(); };
 
   // related method click → switch content in place (no close/reopen)
+  const openWith = (box, html) => {
+    box.innerHTML = html;
+    renderMathIn(box); // KaTeX 渲染；单个公式失败仅降级为原文，不影响 Modal
+    box.querySelector('.ws-modal-close')?.focus();
+    box.scrollTop = 0;
+  };
   overlay.addEventListener('click', (e) => {
     const rel = e.target.closest('.ws-related-method');
     if (rel) {
       const next = methodDetailById(rel.dataset.method);
-      if (next) {
-        const box = overlay.querySelector('.ws-method-modal');
-        box.innerHTML = methodModalContent(next);
-        box.querySelector('.ws-modal-close').focus();
-        box.scrollTop = 0;
-      }
+      if (next) openWith(overlay.querySelector('.ws-method-modal'), methodModalContent(next));
       return;
     }
     if (e.target === overlay || e.target.classList.contains('ws-modal-close')) closeModal();
@@ -317,6 +409,7 @@ function openMethodModal(methodId, sourceEl) {
   document.body.style.setProperty('overflow', 'hidden'); // lock background scroll
   document.body.appendChild(overlay);
   const modal = overlay.querySelector('.ws-method-modal');
+  renderMathIn(modal); // 首次渲染同样走 KaTeX（失败降级）
   if (modal) modal.scrollTop = 0;
   overlay.querySelector('.ws-modal-close')?.focus();
 }

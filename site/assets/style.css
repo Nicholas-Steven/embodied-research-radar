@@ -518,6 +518,35 @@ a { color:inherit; text-decoration:none; }
 .ws-modal-quick-tags b{font-size:11px;color:var(--cyan)}
 /* 数学形式：<pre> 文本即可，不引入公式库 */
 pre.ws-math{font:11px var(--mono);white-space:pre-wrap;overflow-wrap:anywhere;background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:10px 12px;line-height:1.7;color:var(--muted);margin:0}
+/* ── 方法详情 Modal V2：醒目中文标题 + KaTeX 公式 + 论文三分类 ────── */
+/* 醒目中文 section 标题（英文仅辅助小字） */
+.ws-msection{display:flex;align-items:baseline;gap:8px;margin-bottom:8px}
+.ws-msection b{font-size:13px;color:var(--ink);letter-spacing:.02em}
+.ws-msection small{font:9px var(--mono);color:var(--faint);letter-spacing:.1em}
+/* KaTeX 公式块：居中、继承主题色（dark/light 自适应）、超宽横向滚动 */
+.ws-katex-block{margin:10px 0;padding:12px 10px;background:var(--surface-2);border:1px solid var(--line);border-radius:8px;overflow-x:auto;overflow-y:hidden;color:var(--ink)}
+.ws-katex-block .katex{font-size:1.05em;color:inherit}
+.ws-katex-block .katex-display{margin:0;text-align:center}
+.ws-katex-block .katex-display>.katex{white-space:nowrap}
+/* KaTeX 渲染失败降级：显示原始 LaTeX 文本，不白屏 */
+.ws-katex-fallback{font:11px var(--mono);color:var(--muted);white-space:pre-wrap;overflow-wrap:anywhere}
+.ws-katex-fallback-inline{font:11px var(--mono);color:var(--muted)}
+/* 公式逐项解释 */
+.ws-math-block{margin:14px 0}
+.ws-math-block h5{margin:0 0 4px;font-size:12px;color:var(--cyan)}
+.ws-math-exp{margin:6px 0 0;padding-left:18px}
+.ws-math-exp li{margin:3px 0;line-height:1.7;overflow-wrap:anywhere}
+/* 代表论文三分类 */
+.ws-paper-group{margin:14px 0 18px}
+.ws-paper-group h4{margin:0 0 2px;font-size:12px;color:var(--ink)}
+.ws-paper-group .ws-muted{margin:0 0 8px;font-size:10px}
+.ws-ref-card{border:1px solid var(--line);border-radius:10px;background:var(--surface-2);padding:10px 14px;margin:8px 0}
+.ws-ref-card h5{margin:0 0 4px;font-size:12.5px;line-height:1.5}
+.ws-ref-card h5 a{color:var(--cyan);text-decoration:none;overflow-wrap:anywhere}
+.ws-ref-card h5 a:hover{text-decoration:underline}
+.ws-ref-meta{margin:0 0 6px;font-size:10.5px;color:var(--muted);overflow-wrap:anywhere}
+.ws-ref-badges{margin:0 0 6px;display:flex;gap:6px;flex-wrap:wrap}
+.ws-ref-note{margin:0;font-size:11px;line-height:1.7;color:var(--muted);overflow-wrap:anywhere}
 /* 相关方法 chip：可点击切换 */
 .ws-related-method{cursor:pointer;border:1px solid var(--line);background:var(--surface-2);border-radius:999px;padding:4px 12px;display:inline-flex;align-items:baseline;gap:6px;color:var(--muted);transition:border-color .15s,color .15s}
 .ws-related-method:hover{border-color:var(--cyan);color:var(--cyan)}

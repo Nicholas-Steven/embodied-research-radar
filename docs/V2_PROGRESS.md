@@ -4,6 +4,17 @@
 
 ---
 
+## V2-METHOD-KB — 方法知识库升级：解释/KaTeX 公式/代表论文三分类（代码+测试完成）
+
+- **Status**: ✅ 代码+测试完成，待全量验证
+- **Feature**: 26 方法全部新增 30 秒理解、直观机器人示例、输入/输出、KaTeX 标准公式（32 个公式块逐项解释）、机器人运行流程、相近方法区别（13 组指定对比全覆盖）、当前课题接入层、推荐程度原因；代表论文三分类（经典基础 / 机器人应用 / 与课题最近，38 篇唯一文献全部检索核验，含 relevanceNote / publication status / verification level）；Modal 重排为 19 段学习顺序，中文标题醒目英文辅助；KaTeX 0.16.11 本地 vendor（无 CDN），渲染失败降级原文不白屏，dark/light 主题色继承；旧字段保留兼容
+- **Files Changed**: `web/assets/vendor/katex/`（新增）、`web/assets/v2/method-knowledge.js`（新增）、`web/assets/v2/workspace.js`（renderMathIn / paperGroups 渲染 / Modal 重构）、`web/assets/style.css`、`web/index.html`、`tests/method_knowledge_harness.mjs`（新增）、`docs/METHOD_REFERENCE_AUDIT.md`（新增）、`README.md`
+- **Tests**: method_knowledge_harness 24/24 PASS
+- **Known Issues**: 文献均为 ABSTRACT_VERIFIED；部分方法机器人应用类留空（宁缺毋滥）；未向 papers.json 新增条目
+- **Next Step**: 全量测试 + build + 冒烟 + diff 自审
+
+---
+
 ## V2-METHOD-MODAL — 方法详情悬浮窗口（本地完成，待部署）
 
 - **Status**: ✅ 完成（本地测试通过）

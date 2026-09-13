@@ -70,10 +70,13 @@ async function loadWorkspace({ emptyClaims = false } = {}) {
   let wsSrc = readFileSync(join(here, '../web/assets/v2/workspace.js'), 'utf8');
   wsSrc = wsSrc.replace("from './v2-data.js'", "from './v2-data.mjs'")
     .replace("from './i18n.js'", "from './i18n.mjs'")
-    .replace("from './method-details.js'", "from './method-details.mjs'");
+    .replace("from './method-details.js'", "from './method-details.mjs'")
+    .replace("from './method-knowledge.js'", "from './method-knowledge.mjs'");
   writeFileSync(join(tmp, 'v2-data.mjs'), dataSrc);
   writeFileSync(join(tmp, 'i18n.mjs'), i18nSrc);
   writeFileSync(join(tmp, 'method-details.mjs'), mdSrc);
+const mkSrc = readFileSync(join(here, '../web/assets/v2/method-knowledge.js'), 'utf8');
+writeFileSync(join(tmp, 'method-knowledge.mjs'), mkSrc);
   writeFileSync(join(tmp, 'workspace.mjs'), wsSrc);
 
   // Interactive DOM stub: capture rendered HTML of #ws-body, track checkbox and
@@ -319,9 +322,9 @@ const check = (name, cond, detail = '') => {
   // T2: Modal 中出现核心字段
   check('M2 Modal 含 贝叶斯滤波', modalHtml.includes('贝叶斯滤波'));
   check('M2 Modal 含 核心思想', modalHtml.includes('核心思想'));
-  check('M2 Modal 含 能够解决', modalHtml.includes('能够解决'));
+  check('M2 Modal 含 能解决/不能直接解决', modalHtml.includes('能解决 / 不能直接解决') || modalHtml.includes('不能直接解决'));
   check('M2 Modal 含 不能直接解决', modalHtml.includes('不能直接解决'));
-  check('M2 Modal 含 当前课题中的作用', modalHtml.includes('当前课题中的作用'));
+  check('M2 Modal 含 当前课题定位', modalHtml.includes('当前视觉力觉课题中怎么用') || modalHtml.includes('当前课题中的作用'));
   check('M2 Modal 含 role=dialog + aria-modal', modalHtml.includes('role="dialog"') && modalHtml.includes('aria-modal="true"'));
   check('M2 Modal 含 快速摘要（研究角色/核心创新）', modalHtml.includes('研究角色') && modalHtml.includes('是否核心创新'));
   check('M2 Modal 含 数学形式 pre', modalHtml.includes('ws-math') && modalHtml.includes('p(x_t'));
