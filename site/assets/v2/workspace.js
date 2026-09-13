@@ -9,6 +9,7 @@ import {
   fusionArchitectures, recommendedArchitecture, methodRoles,
   expansionTree,
 } from './v2-data.js';
+import { methodDetails } from './method-details.js';
 import {
   tabLabels, roleLabels, statusLabels, riskLabels, dimensionLabels,
   impactLabels, cardVerificationLabels, verificationLevelLabels,
@@ -203,7 +204,124 @@ function openNodeModal(node) {
   document.body.appendChild(overlay);
 }
 
-// Map a research node to collision papers whose matched dimensions overlap the node's role
+// ===========================================================================
+// Method Detail Modal (方法角色图谱 → 方法详情悬浮窗口)
+// Data-driven from method-details.js; all fields optional, missing → 淡显示。
+// Close: × / overlay click / Esc. Body scroll locked during modal, restored on
+// close; focus moves into modal on open and returns to the source card.
+// Related methods switch content in place (no close/reopen).
+// ===========================================================================
+const METHOD_CATEGORY_LABELS = {
+  'state-estimation': '状态 / 信念估计',
+  'active-diagnosis': '主动诊断',
+  'recovery-optimization': '恢复优化',
+  'interaction-control': '交互控制',
+  safety: '安全',
+};
+const methodDetailById = (id) => methodDetails.find((m) => m.id === id);
+// 方法角色图谱卡片（methodRoles[].methods[].name，英文）→ methodDetails id
+const methodIdByName = Object.fromEntries(methodDetails.map((m) => [m.name, m.id]));
+
+function methodPapersSection(detail) {
+  const all = papersData?.papers || [];
+  const rows = (detail.representativePapers || [])
+    .map((pid) => all.find((p) => p.paper_id === pid))
+    .filter(Boolean);
+  if (!rows.length) {
+    return `<section><span class="section-kicker">代表性论文 · REPRESENTATIVE PAPERS</span>
+      <p class="ws-muted">暂无已核验代表论文。方法出处与经典文献见参考条目${detail.canonicalRefs ? `（${esc(detail.canonicalRefs)}）` : ''}。</p></section>`;
+  }
+  return `<section><span class="section-kicker">代表性论文 · REPRESENTATIVE PAPERS</span>
+    <ul class="ws-claims-list">${rows.map((p) => `<li class="dash-item"><b><a href="${esc(p.paper_url || '#')}" target="_blank" rel="noopener">${esc(p.title)}</a></b>
+      <small class="ws-muted">${esc(p.year || p.published_date?.slice(0, 4) || '—')} · ${esc(p.venue || '—')} · ${esc(verificationLevelLabels[p.verification_level] || p.verification_level || 'DISCOVERED')}</small></li>`).join('')}</ul></section>`;
+}
+
+function methodModalContent(detail) {
+  const bullets = (items, empty = ui.noData) => (items && items.length
+    ? `<ul>${items.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : `<p class="ws-muted">${empty}</p>`);
+  const cat = METHOD_CATEGORY_LABELS[detail.category] || detail.category || '—';
+  const related = (detail.relatedMethods || []).map((rid) => {
+    const r = methodDetailById(rid);
+    return r ? `<button class="ws-chip ws-related-method" type="button" data-method="${esc(rid)}" title="${esc(r.chineseName || r.name)}">${esc(r.chineseName ? `${r.chineseName}` : r.name)}<small>${esc(r.name)}</small></button>` : '';
+  }).filter(Boolean).join('');
+  return `
+    <header class="ws-modal-head">
+      <div>
+        <span class="ws-role-badge" data-method-category>${esc(cat)}</span>
+        <h3 id="method-modal-title">${esc(detail.chineseName || detail.name)}</h3>
+        <p class="ws-muted">${esc(detail.name)}</p>
+      </div>
+      <button class="ws-modal-close" type="button" aria-label="${ui.close}">×</button>
+    </header>
+    <div class="ws-modal-quick-tags" role="list" aria-label="快速摘要">
+      <span role="listitem"><small>研究角色</small><b>${esc(detail.researchRole || '—')}</b></span>
+      <span role="listitem"><small>当前推荐</small><b>${esc(detail.recommendation || '—')}</b></span>
+      <span role="listitem"><small>实现难度</small><b>${esc(detail.difficulty || '—')}</b></span>
+      <span role="listitem"><small>是否核心创新</small><b>${detail.isCoreInnovation ? '是' : '否'}</b></span>
+    </div>
+    <div class="ws-modal-body">
+      ${detail.shortDescription ? `<section><span class="section-kicker">一句话解释 · IN SHORT</span><p>${esc(detail.shortDescription)}</p></section>` : ''}
+      ${detail.coreIdea ? `<section><span class="section-kicker">核心思想 · CORE IDEA</span><p>${esc(detail.coreIdea)}</p></section>` : ''}
+      ${detail.mathematicalForm ? `<section><span class="section-kicker">基本数学形式 · MATH FORM</span><pre class="ws-math">${esc(detail.mathematicalForm)}</pre></section>` : ''}
+      <section><span class="section-kicker">能够解决 · SOLVES</span>${bullets(detail.solves)}</section>
+      <section><span class="section-kicker">不能直接解决 · DOES NOT SOLVE</span>${bullets(detail.cannotSolve)}</section>
+      <section><span class="section-kicker">优点与局限 · STRENGTHS & LIMITATIONS</span>
+        ${detail.strengths?.length ? `<p class="section-kicker">优点</p>${bullets(detail.strengths)}` : ''}
+        ${detail.limitations?.length ? `<p class="section-kicker">局限</p>${bullets(detail.limitations)}` : ''}
+        ${!detail.strengths?.length && !detail.limitations?.length ? `<p class="ws-muted">${ui.noData}</p>` : ''}
+      </section>
+      <section><span class="section-kicker">适合场景 · SUITABLE</span>${bullets(detail.suitableScenarios)}</section>
+      <section><span class="section-kicker">不适合场景 · UNSUITABLE</span>${bullets(detail.unsuitableScenarios)}</section>
+      ${detail.roleInCurrentResearch ? `<section class="ws-note"><span class="section-kicker">当前课题中的作用 · ROLE IN CURRENT RESEARCH</span><p>${esc(detail.roleInCurrentResearch)}</p></section>` : ''}
+      ${detail.recommendedUsage ? `<section><span class="section-kicker">推荐组合与用法 · RECOMMENDED USAGE</span><p>${esc(detail.recommendedUsage)}</p></section>` : ''}
+      ${related ? `<section><span class="section-kicker">相关方法（点击切换详情） · RELATED METHODS</span><div class="ws-chip-row">${related}</div></section>` : ''}
+      ${detail.difficulty ? `<section><span class="section-kicker">实现难度 · DIFFICULTY</span><p>${esc(detail.difficulty)}${detail.implementationNotes ? ` — ${esc(detail.implementationNotes)}` : ''}</p></section>` : ''}
+      ${detail.recommendation ? `<section><span class="section-kicker">推荐程度 · RECOMMENDATION</span><p><b>${esc(detail.recommendation)}</b>${detail.isCoreInnovation ? '' : '（不建议作为核心创新表述）'}</p>
+        <p class="ws-disclaimer">推荐程度仅针对当前视觉力觉主动失败诊断研究主线，不是普适排名。</p></section>` : ''}
+      ${methodPapersSection(detail)}
+    </div>`;
+}
+
+function openMethodModal(methodId, sourceEl) {
+  const detail = methodDetailById(methodId);
+  if (!detail) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'ws-modal-overlay ws-method-modal-overlay';
+  overlay.innerHTML = `<div class="ws-modal ws-method-modal" role="dialog" aria-modal="true" aria-labelledby="method-modal-title">${methodModalContent(detail)}</div>`;
+
+  const closeModal = () => {
+    document.removeEventListener('keydown', onKey);
+    document.body.style.removeProperty('overflow');
+    overlay.remove();
+    if (sourceEl && document.contains(sourceEl)) sourceEl.focus();
+  };
+  const onKey = (e) => { if (e.key === 'Escape') closeModal(); };
+
+  // related method click → switch content in place (no close/reopen)
+  overlay.addEventListener('click', (e) => {
+    const rel = e.target.closest('.ws-related-method');
+    if (rel) {
+      const next = methodDetailById(rel.dataset.method);
+      if (next) {
+        const box = overlay.querySelector('.ws-method-modal');
+        box.innerHTML = methodModalContent(next);
+        box.querySelector('.ws-modal-close').focus();
+        box.scrollTop = 0;
+      }
+      return;
+    }
+    if (e.target === overlay || e.target.classList.contains('ws-modal-close')) closeModal();
+  });
+
+  document.addEventListener('keydown', onKey);
+  document.body.style.setProperty('overflow', 'hidden'); // lock background scroll
+  document.body.appendChild(overlay);
+  const modal = overlay.querySelector('.ws-method-modal');
+  if (modal) modal.scrollTop = 0;
+  overlay.querySelector('.ws-modal-close')?.focus();
+}
+
+
 const nodeCollisionMap = {
   'visual-temporal': ['sensorOverlap'], 'force-temporal': ['sensorOverlap'],
   'failure-belief': ['problemOverlap', 'stateOverlap'], 'diagnosability': ['theoryOverlap'],
@@ -1034,21 +1152,32 @@ registerView('methods', {
   async render(body) {
     const groups = methodRoles.map((g) => `<section class="method-role-group">
       <h4>${esc(methodRoleGroupLabels[g.role] || g.role)}</h4>
-      <div class="method-cards">${g.methods.map((m) => `<div class="method-card">
+      <div class="method-cards">${g.methods.map((m) => {
+        const id = methodIdByName[m.name];
+        return `<div class="method-card" ${id ? `data-method="${esc(id)}" role="button" tabindex="0" aria-haspopup="dialog"` : ''}>
         <strong>${esc(m.name)}</strong>
         <p class="method-solves"><span class="section-kicker">能够解决</span>${esc(m.solves)}</p>
         <p class="method-not"><span class="section-kicker">不能直接解决</span>${esc(m.doesNotSolve)}</p>
         ${m.note ? `<p class="ws-muted"><em>当前定位：${esc(m.note)}</em></p>` : ''}
-      </div>`).join('')}</div>
+        ${id ? `<span class="method-card-hint">点击查看详情</span>` : ''}
+      </div>`;
+      }).join('')}</div>
     </section>`).join('');
     body.innerHTML = `
       <div class="ws-page-head">
         <div class="eyebrow"><span class="pulse"></span> 方法角色图谱 · METHOD ROLE MAP</div>
         <h2>方法角色图谱</h2>
-        <p>一个算法负责解决什么，而不是是不是热门。按<b>角色</b>而非先进程度组织算法，每个方法明确标注"能够解决 / 不能直接解决"，防止"热门算法 = 创新"的误判。</p>
+        <p>一个算法负责解决什么，而不是是不是热门。按<b>角色</b>而非先进程度组织算法，每个方法明确标注"能够解决 / 不能直接解决"，防止"热门算法 = 创新"的误判。点击卡片查看方法详细解释。</p>
       </div>
       ${groups}
       <p class="ws-disclaimer">角色描述为启发式研究决策摘要，不是穷尽式文献综述。</p>`;
+
+    body.querySelectorAll('[data-method]').forEach((card) => {
+      card.addEventListener('click', () => openMethodModal(card.dataset.method, card));
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openMethodModal(card.dataset.method, card); }
+      });
+    });
   },
 });
 

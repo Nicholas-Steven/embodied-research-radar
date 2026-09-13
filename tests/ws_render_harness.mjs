@@ -17,17 +17,36 @@ const mkEl = () => ({
   setAttribute: noop, getAttribute: () => null, querySelector: () => mkEl(),
   querySelectorAll: () => [], closest: () => null, click: noop,
 });
+// Tracked element: captures listeners per type, caches querySelector results,
+// flags removal — enough to simulate modal open/close/switch in tests.
+const makeTrackedEl = () => {
+  const el = mkEl();
+  el._listeners = {};
+  el._removed = false;
+  el.addEventListener = (t, fn) => { (el._listeners[t] ??= []).push(fn); };
+  el.fire = (t, ev = {}) => (el._listeners[t] || []).forEach((fn) => fn(ev));
+  el.remove = () => { el._removed = true; };
+  el.focus = noop;
+  el._qs = {};
+  el.querySelector = (sel) => { el._qs[sel] ??= makeTrackedEl(); return el._qs[sel]; };
+  return el;
+};
 
 function installStubs() {
-  globalThis.window = { addEventListener: noop, WorkspaceView: null };
+  const appended = [];   // document.body.appendChild targets (modals)
+  const keyHandlers = {}; // document.addEventListener('keydown', fn)
+  globalThis.window = { addEventListener: noop, WorkspaceView: null, scrollTo: noop };
   globalThis.localStorage = {
     _s: {},
     getItem(k) { return this._s[k] ?? null; },
     setItem(k, v) { this._s[k] = String(v); },
   };
   globalThis.document = {
-    querySelector: () => null, querySelectorAll: () => [], createElement: mkEl,
-    addEventListener: noop, getElementById: () => null, body: { appendChild: noop, style: {} },
+    querySelector: () => null, querySelectorAll: () => [], createElement: makeTrackedEl,
+    addEventListener: (t, fn) => { (keyHandlers[t] ??= []).push(fn); },
+    removeEventListener: (t, fn) => { keyHandlers[t] = (keyHandlers[t] || []).filter((f) => f !== fn); },
+    contains: () => false, getElementById: () => null,
+    body: { appendChild: (el) => appended.push(el), style: { setProperty: noop, removeProperty: noop } },
   };
   globalThis.fetch = async () => ({ json: async () => ({ papers: [] }) });
   globalThis.CustomEvent = class { constructor(type, opts) { this.type = type; Object.assign(this, opts); } };
@@ -35,10 +54,11 @@ function installStubs() {
   // For exportMarkdown: capture blob content
   globalThis.Blob = class { constructor(parts) { globalThis.__lastBlob = parts.join(''); } };
   globalThis.URL = { createObjectURL: () => 'blob:stub', revokeObjectURL: noop };
+  return { appended, keyHandlers };
 }
 
 async function loadWorkspace({ emptyClaims = false } = {}) {
-  installStubs();
+  const stubs = installStubs();
   const tmp = mkdtempSync(join(tmpdir(), 'wsrender-'));
   let dataSrc = readFileSync(join(here, '../web/assets/v2/v2-data.js'), 'utf8');
   if (emptyClaims) {
@@ -46,21 +66,25 @@ async function loadWorkspace({ emptyClaims = false } = {}) {
       dataSrc.replace('export const researchClaims = [', 'export const researchClaims = globalThis.__CLAIMS_SEED__ ?? [');
   }
   const i18nSrc = readFileSync(join(here, '../web/assets/v2/i18n.js'), 'utf8');
+  const mdSrc = readFileSync(join(here, '../web/assets/v2/method-details.js'), 'utf8');
   let wsSrc = readFileSync(join(here, '../web/assets/v2/workspace.js'), 'utf8');
   wsSrc = wsSrc.replace("from './v2-data.js'", "from './v2-data.mjs'")
-    .replace("from './i18n.js'", "from './i18n.mjs'");
+    .replace("from './i18n.js'", "from './i18n.mjs'")
+    .replace("from './method-details.js'", "from './method-details.mjs'");
   writeFileSync(join(tmp, 'v2-data.mjs'), dataSrc);
   writeFileSync(join(tmp, 'i18n.mjs'), i18nSrc);
+  writeFileSync(join(tmp, 'method-details.mjs'), mdSrc);
   writeFileSync(join(tmp, 'workspace.mjs'), wsSrc);
 
   // Interactive DOM stub: capture rendered HTML of #ws-body, track checkbox and
   // click listeners so tests can simulate user interaction.
   let renderedHTML = '';
   let cbCache = null; // checkbox stubs for the CURRENT render (shared between view binding and tests)
+  let methodCardCache = null; // method card stubs for the CURRENT render
   const clickHandlers = {}; // selector -> captured click listener
   const body = mkEl();
   Object.defineProperty(body, 'innerHTML', {
-    set(v) { renderedHTML = v; cbCache = null; }, get() { return renderedHTML; },
+    set(v) { renderedHTML = v; cbCache = null; methodCardCache = null; }, get() { return renderedHTML; },
   });
   body.querySelector = (sel) => {
     const el = mkEl();
@@ -70,22 +94,36 @@ async function loadWorkspace({ emptyClaims = false } = {}) {
   // Build checkbox stubs ONCE per render; the view's listener binding and the
   // test's ws.cb() MUST share the same objects, otherwise listeners are lost.
   body.querySelectorAll = (sel) => {
-    if (sel !== '[data-baseline]') return [];
-    if (cbCache) return cbCache;
-    cbCache = [];
-    const re = /<input type="checkbox" data-baseline="([^"]+)"\s*(checked)?\s*>/g;
-    let m;
-    while ((m = re.exec(renderedHTML)) !== null) {
-      const cb = mkEl();
-      cb.dataset.baseline = m[1];
-      cb.checked = Boolean(m[2]);
-      let changeFn = null;
-      cb.addEventListener = (type, fn) => { if (type === 'change') changeFn = fn; };
-      // render() is async — flush microtasks/timers so re-render completes before asserts
-      cb.fire = async () => { if (changeFn) { changeFn(); await new Promise((r) => setTimeout(r, 0)); } };
-      cbCache.push(cb);
+    if (sel === '[data-baseline]') {
+      if (cbCache) return cbCache;
+      cbCache = [];
+      const re = /<input type="checkbox" data-baseline="([^"]+)"\s*(checked)?\s*>/g;
+      let m;
+      while ((m = re.exec(renderedHTML)) !== null) {
+        const cb = mkEl();
+        cb.dataset.baseline = m[1];
+        cb.checked = Boolean(m[2]);
+        let changeFn = null;
+        cb.addEventListener = (type, fn) => { if (type === 'change') changeFn = fn; };
+        // render() is async — flush microtasks/timers so re-render completes before asserts
+        cb.fire = async () => { if (changeFn) { changeFn(); await new Promise((r) => setTimeout(r, 0)); } };
+        cbCache.push(cb);
+      }
+      return cbCache;
     }
-    return cbCache;
+    if (sel === '[data-method]') {
+      if (methodCardCache) return methodCardCache;
+      methodCardCache = [];
+      const re = /<div class="method-card" data-method="([^"]+)"[^>]*>/g;
+      let m;
+      while ((m = re.exec(renderedHTML)) !== null) {
+        const card = makeTrackedEl();
+        card.dataset.method = m[1];
+        methodCardCache.push(card);
+      }
+      return methodCardCache;
+    }
+    return [];
   };
   const sectionEl = mkEl();
   sectionEl.querySelector = (sel) => (sel === '#ws-body' ? body : mkEl());
@@ -93,6 +131,7 @@ async function loadWorkspace({ emptyClaims = false } = {}) {
 
   await import(pathToFileURL(join(tmp, 'workspace.mjs')).href);
   return {
+    ...stubs,
     clickHandlers,
     get html() { return renderedHTML; },
     renderExperiments: async () => {
@@ -101,6 +140,15 @@ async function loadWorkspace({ emptyClaims = false } = {}) {
       await globalThis.window.WorkspaceView.render();
       return renderedHTML;
     },
+    renderMethods: async () => {
+      globalThis.location = { search: '?view=workspace&ws=methods', pathname: '/', href: 'http://127.0.0.1:8010/?view=workspace&ws=methods' };
+      renderedHTML = '';
+      await globalThis.window.WorkspaceView.render();
+      return renderedHTML;
+    },
+    // Method cards share the per-render cache with the view's listener binding,
+    // so firing click on a test-held card invokes the real openMethodModal.
+    methodCards: () => body.querySelectorAll('[data-method]'),
     cb: (id) => body.querySelectorAll('[data-baseline]').find((c) => c.dataset.baseline === id),
     // Row HTML for one experiment (no nested <tr>, safe to slice)
     row: (eid) => {
@@ -249,6 +297,83 @@ const check = (name, cond, detail = '') => {
   check('B9 老用户历史选择生效（暂缓判断启用）', /data-baseline="abstain" checked>/.test(html2));
   check('B9 老用户历史选择生效（仅视觉保持取消）', !/data-baseline="vision-only" checked>/.test(html2));
   check('B9 老用户历史选择生效（置信度阈值保持取消）', !/data-baseline="conf-threshold" checked>/.test(html2));
+}
+
+// --- Method Detail Modal tests (M1–M10, spec §十三 T1–T10) ---
+{
+  const ws = await loadWorkspace();
+  let html = await ws.renderMethods();
+
+  // T10: 现有卡片仍显示 能解决 / 不能直接解决 + 点击查看详情提示
+  check('M10 卡片保留 能够解决/不能直接解决', html.includes('能够解决') && html.includes('不能直接解决'));
+  check('M10 卡片含 点击查看详情 提示', html.includes('点击查看详情'));
+  check('M10 卡片可点击（data-method + role=button）', html.includes('data-method="bayesian-filter"') && html.includes('role="button"'));
+
+  // T1: 点击 Bayesian Filter 卡片 → Modal 打开（appendChild 到 body）
+  const bfCard = ws.methodCards().find((c) => c.dataset.method === 'bayesian-filter');
+  bfCard.fire('click');
+  const modal = ws.appended[ws.appended.length - 1];
+  const modalHtml = modal.innerHTML || '';
+  check('M1 点击卡片后 Modal 打开', ws.appended.length > 0 && modalHtml.length > 500);
+
+  // T2: Modal 中出现核心字段
+  check('M2 Modal 含 贝叶斯滤波', modalHtml.includes('贝叶斯滤波'));
+  check('M2 Modal 含 核心思想', modalHtml.includes('核心思想'));
+  check('M2 Modal 含 能够解决', modalHtml.includes('能够解决'));
+  check('M2 Modal 含 不能直接解决', modalHtml.includes('不能直接解决'));
+  check('M2 Modal 含 当前课题中的作用', modalHtml.includes('当前课题中的作用'));
+  check('M2 Modal 含 role=dialog + aria-modal', modalHtml.includes('role="dialog"') && modalHtml.includes('aria-modal="true"'));
+  check('M2 Modal 含 快速摘要（研究角色/核心创新）', modalHtml.includes('研究角色') && modalHtml.includes('是否核心创新'));
+  check('M2 Modal 含 数学形式 pre', modalHtml.includes('ws-math') && modalHtml.includes('p(x_t'));
+
+  // T3: 点击 × → Modal 关闭（remove + 焦点返回）。监听器在 overlay 上，
+  // 模拟冒泡：target 必须自带 classList.contains('ws-modal-close') === true
+  //（真实 DOM 中 × 按钮的 classList 即如此）。
+  modal.fire('click', { target: { classList: { contains: (c) => c === 'ws-modal-close' }, closest: () => null } });
+  check('M3 点击 × 后 Modal 关闭', modal._removed === true);
+
+  // T4: Esc → 关闭
+  const modal2 = (ws.appended.length, (() => { bfCard.fire('click'); return ws.appended[ws.appended.length - 1]; })());
+  (ws.keyHandlers['keydown'] || []).at(-1)({ key: 'Escape' });
+  check('M4 Esc 关闭 Modal', modal2._removed === true);
+
+  // T5: 点击遮罩 → 关闭
+  const modal3 = (() => { bfCard.fire('click'); return ws.appended[ws.appended.length - 1]; })();
+  modal3.fire('click', { target: modal3 });
+  check('M5 点击遮罩关闭 Modal', modal3._removed === true);
+
+  // T6: MPPI → 显示「不建议作为论文核心创新」
+  const mppiCard = ws.methodCards().find((c) => c.dataset.method === 'mppi');
+  mppiCard.fire('click');
+  const mppiModal = ws.appended[ws.appended.length - 1];
+  check('M6 MPPI 显示 不建议作为核心创新', (mppiModal.innerHTML || '').includes('不建议作为核心创新'));
+  mppiModal.querySelector('.ws-modal-close').fire('click');
+
+  // T7: VOI → 显示风险/时间/损伤成本相关说明
+  const voiCard = ws.methodCards().find((c) => c.dataset.method === 'voi');
+  voiCard.fire('click');
+  const voiModal = ws.appended[ws.appended.length - 1];
+  check('M7 VOI 显示风险/时间/损伤成本说明', (voiModal.innerHTML || '').includes('风险') && (voiModal.innerHTML || '').includes('损伤') && (voiModal.innerHTML || '').includes('时间'));
+  voiModal.querySelector('.ws-modal-close').fire('click');
+
+  // T8: related method 点击 → 直接切换详情（不关闭 Modal）
+  bfCard.fire('click');
+  const bfModal = ws.appended[ws.appended.length - 1];
+  const relChip = bfModal.querySelector('.ws-related-method');
+  relChip.fire('click', { target: relChip, closest: () => relChip });
+  check('M8 相关方法切换后 Modal 未关闭', bfModal._removed === false);
+  check('M8 切换后显示目标方法内容', (bfModal.innerHTML || '').includes(relChip.dataset.method === 'particle-filter' ? '粒子滤波' : '交互多模型'));
+  bfModal.querySelector('.ws-modal-close').fire('click');
+
+  // T9: 主题变量——CSS 不写死 Modal 背景色
+  const css = readFileSync(join(here, '../web/assets/style.css'), 'utf8');
+  const modalCss = css.split('方法详情 Modal')[1] || '';
+  check('M9 Modal CSS 使用主题变量（无写死 hex 背景色）', !/background:\s*#[0-9a-f]{3,6}/i.test(modalCss), modalCss.match(/background:\s*[^;]+/g)?.join(' ') || '');
+  check('M9 Modal 宽高约束存在（85vh / 920px）', /\.ws-method-modal\{[^}]*max-width:920px[^}]*max-height:85vh/.test(css));
+
+  // 数据完整性：26 个方法都有详情（含下方分组全部接入）
+  const cardIds = [...html.matchAll(/data-method="([^"]+)"/g)].map((m) => m[1]);
+  check('M10 所有方法卡片均已接入详情', cardIds.length >= 26, `count=${cardIds.length}`);
 }
 
 if (failures > 0) { console.error(`${failures} failures`); process.exit(1); }

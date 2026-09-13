@@ -502,6 +502,30 @@ a { color:inherit; text-decoration:none; }
 .disc-low{color:var(--rose)}
 .probe-not-applicable{opacity:.45}
 .ws-risk-flag{color:var(--rose)}
+/* ── 方法详情 Modal（方法角色图谱）────────────────────────────────── */
+/* 卡片可点击：cursor + 轻微 hover 高亮上浮，弱提示行 */
+.method-card[data-method]{cursor:pointer;transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease}
+.method-card[data-method]:hover,.method-card[data-method]:focus-visible{border-color:var(--cyan);transform:translateY(-2px);box-shadow:0 6px 18px var(--shadow)}
+.method-card[data-method]:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.method-card-hint{display:block;margin-top:8px;font-size:10px;color:var(--muted);opacity:.7}
+.method-card[data-method]:hover .method-card-hint{opacity:1;color:var(--cyan)}
+/* Modal 尺寸：桌面 800–1000px，最大高 ~85vh，内容自滚；移动端近全宽 */
+.ws-method-modal{max-width:920px;width:100%;max-height:85vh;overflow-y:auto;overscroll-behavior:contain}
+/* 顶部快速摘要标签 */
+.ws-modal-quick-tags{display:flex;flex-wrap:wrap;gap:8px;padding:12px 26px 0}
+.ws-modal-quick-tags span{display:flex;flex-direction:column;gap:2px;padding:6px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface-2)}
+.ws-modal-quick-tags small{font-size:9px;color:var(--muted)}
+.ws-modal-quick-tags b{font-size:11px;color:var(--cyan)}
+/* 数学形式：<pre> 文本即可，不引入公式库 */
+pre.ws-math{font:11px var(--mono);white-space:pre-wrap;overflow-wrap:anywhere;background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:10px 12px;line-height:1.7;color:var(--muted);margin:0}
+/* 相关方法 chip：可点击切换 */
+.ws-related-method{cursor:pointer;border:1px solid var(--line);background:var(--surface-2);border-radius:999px;padding:4px 12px;display:inline-flex;align-items:baseline;gap:6px;color:var(--muted);transition:border-color .15s,color .15s}
+.ws-related-method:hover{border-color:var(--cyan);color:var(--cyan)}
+.ws-related-method small{font-size:9px;opacity:.7}
+@media (max-width:640px){
+  .ws-method-modal{max-width:100%;max-height:92vh}
+  .ws-modal-overlay{padding:16px 10px}
+}
 /* ── 实验设计器：长文本自然换行（完整显示 > 紧凑单行）────────────── */
 /* 实验矩阵：列宽优化（实验列收窄、验证主张列加宽），单元格自然换行 */
 .exp-matrix{table-layout:fixed;width:100%;min-width:0}

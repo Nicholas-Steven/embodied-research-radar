@@ -4,6 +4,15 @@
 
 ---
 
+## V2-METHOD-MODAL — 方法详情悬浮窗口（本地完成，待部署）
+
+- **Status**: ✅ 完成（本地测试通过）
+- **Feature**: 方法角色图谱全部 26 个方法卡片可点击，打开 Modal 详情（原理/数学形式/能解决/不能直接解决/优缺点/适用场景/当前课题作用/推荐组合/难度/推荐程度/代表论文）；顶部快速摘要标签（研究角色/当前推荐/实现难度/是否核心创新）；× / 遮罩 / Esc 三种关闭方式；背景滚动锁定、关闭恢复焦点；related methods 点击就地切换；公式用 `<pre>` 文本不引入公式库；数据全部来自 `method-details.js`，无硬编码，字段缺失优雅降级；代表论文仅引用已核验 paper id，无则显示「暂无已核验代表论文」
+- **Files Changed**: `web/assets/v2/method-details.js`（新增，26 个方法）、`web/assets/v2/workspace.js`（openMethodModal + methods 视图卡片接入）、`web/assets/style.css`（卡片 hover/cursor/Modal 尺寸/摘要标签/数学 pre/相关方法 chip，全用主题变量）
+- **Tests**: 渲染 harness 新增 M1–M10（Modal 打开/内容/三种关闭/MPPI 定位/VOI 代价说明/相关方法切换/主题变量/卡片原信息保留），全过
+- **Known Issues**: 代表论文关联留空（需人工核验后填写 paper_id）；公式为纯文本形式（不引入 KaTeX/MathJax）
+- **Next Step**: 全量测试 + build + 部署
+
 ## V2-CN — 界面与研究术语中文化（本地完成，未部署）
 
 - **Status**: ✅ 完成（等待人工验收）

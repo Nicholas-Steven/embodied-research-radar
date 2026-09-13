@@ -17,12 +17,15 @@ globalThis.document = { querySelector() { return null; }, querySelectorAll() { r
 const tmp = mkdtempSync(join(tmpdir(), 'v2logic-'));
 const dataSrc = readFileSync(join(here, '../web/assets/v2/v2-data.js'), 'utf8');
 const i18nSrc = readFileSync(join(here, '../web/assets/v2/i18n.js'), 'utf8');
+const mdSrc = readFileSync(join(here, '../web/assets/v2/method-details.js'), 'utf8');
 let wsSrc = readFileSync(join(here, '../web/assets/v2/workspace.js'), 'utf8');
 // workspace.js fetches data.json at render time only; tests never render views.
 wsSrc = wsSrc.replace("from './v2-data.js'", "from './v2-data.mjs'")
-  .replace("from './i18n.js'", "from './i18n.mjs'");
+  .replace("from './i18n.js'", "from './i18n.mjs'")
+  .replace("from './method-details.js'", "from './method-details.mjs'");
 writeFileSync(join(tmp, 'v2-data.mjs'), dataSrc);
 writeFileSync(join(tmp, 'i18n.mjs'), i18nSrc);
+writeFileSync(join(tmp, 'method-details.mjs'), mdSrc);
 writeFileSync(join(tmp, 'workspace.mjs'), wsSrc);
 
 const mod = await import(pathToFileURL(join(tmp, 'workspace.mjs')).href);
