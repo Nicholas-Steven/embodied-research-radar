@@ -1,14 +1,14 @@
 # Update the main paper radar with new arXiv papers.
 #
-# This workflow fetches new papers from arXiv, scores them, and commits
-# the updated data/papers.json.  It does NOT commit site/ — the deploy
-# workflow rebuilds the static site from committed source data.
-#
-# Schedule: Daily at 04:00 UTC = 12:00 Beijing / 13:00 Japan
-# (matches the original deploy.yml schedule that previously handled this).
-#
-# After this workflow pushes, deploy.yml is triggered once to rebuild
-# and deploy the updated site.
+# Ingestion (hardened 2026-09-15):
+# - Primary source: arXiv OAI-PMH (one ListRecords per category set, 7-day
+#   rolling window). Fallback: one broad Search API submittedDate query.
+# - scripts/update_radar.py exits non-zero when the source is unhealthy
+#   (all requests 429-exhausted / partial harvest), so this workflow FAILS
+#   instead of producing a green "empty day".
+# - papers.json is only rewritten when the dataset actually changed, so the
+#   commit step naturally stays silent on healthy zero-new runs.
+# - Health counters are written to GITHUB_STEP_SUMMARY by the pipeline.
 
 name: Update Radar
 
@@ -17,10 +17,10 @@ on:
     - cron: "0 4 * * *"   # Daily 04:00 UTC = 12:00 Beijing
   workflow_dispatch:
     inputs:
-      limit_per_query:
-        description: "arXiv candidates per query"
+      lookback_days:
+        description: "Rolling harvest window in days (backfill-safe)"
         required: false
-        default: "5"
+        default: "7"
 
 permissions:
   contents: write
@@ -31,6 +31,7 @@ concurrency:
 
 env:
   PYTHONUNBUFFERED: "1"
+  RADAR_LOOKBACK_DAYS: "7"
 
 jobs:
   update:
@@ -45,15 +46,15 @@ jobs:
           python-version: "3.12"
 
       - name: Fetch, score and enrich radar
+        id: radar
         run: |
-          LIMIT="${{ inputs.limit_per_query || '5' }}"
-          python scripts/update_radar.py --fetch --limit-per-query "$LIMIT" --threshold 45
+          export RADAR_LOOKBACK_DAYS="${{ inputs.lookback_days || '7' }}"
+          python scripts/update_radar.py --fetch --threshold 45
         env:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           LLM_BASE_URL: ${{ vars.LLM_BASE_URL || 'https://api.openai.com/v1' }}
           LLM_MODEL: ${{ vars.LLM_MODEL || 'gpt-4o-mini' }}
-          ARXIV_USER_AGENT: "EmbodiedResearchRadar/0.1 (GitHub Actions; owner=Nicholas-Steven)"
-          ARXIV_DELAY_SECONDS: "10"
+          ARXIV_USER_AGENT: "EmbodiedResearchRadar/1.0 (GitHub Actions; https://github.com/Nicholas-Steven/embodied-research-radar)"
           ARXIV_MAX_RETRIES: "5"
           ARXIV_BACKOFF_BASE_SECONDS: "30"
           ARXIV_BACKOFF_MAX_SECONDS: "300"
@@ -72,7 +73,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/papers.json data/research_landscape.json
           if git diff --cached --quiet; then
-            echo "No new papers to commit"
+            echo "No dataset change (healthy run, zero new papers) — nothing to commit"
           else
             git commit -m "chore(data): update research radar"
             git push

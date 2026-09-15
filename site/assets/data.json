@@ -1,11 +1,903 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-13",
+  "generated_at": "2026-09-15",
   "source": "arXiv",
-  "candidate_count": 185,
-  "retained_count": 185,
+  "candidate_count": 4771,
+  "retained_count": 208,
   "relevance_threshold": 45,
   "papers": [
+    {
+      "arxiv_id": "2609.15726",
+      "paper_id": "arxiv-2609-15726",
+      "title": "Bench2Dex: Benchmarking Visuo-Tactile Bimanual Dexterous Manipulation Across Dexterous Hands",
+      "abstract": "Tactile sensing provides contact information that can be difficult to infer from vision alone, but tactile hardware for dexterous hands has not converged to a common design. Dexterous hands differ in finger structure, contact surfaces, and sensor layouts, while simulated tactile signals still differ from measurements produced by physical sensors. These factors make it difficult to study visuo-tactile manipulation across diverse dexterous hands within a consistent experimental setting. We present Bench2Dex, a simulation benchmark for visuo-tactile bimanual manipulation across 12 dexterous hands. We adapt existing robot models with a shared simulated tactile interface that converts local contact geometry into image-like tactile observations. The interface provides a consistent observation format across different hand morphologies without attempting to reproduce the output of a specific physical tactile sensor. Bench2Dex includes 26 bimanual manipulation tasks that involve tool use, articulated-object interaction, and multi-stage manipulation, together with about 1.3K human-teleoperated demonstrations. The benchmark provides synchronized visual, tactile, proprioceptive, action, and object-state observations, together with executable task metrics. For robustness, we group seven perturbation types into invariance axis, where the correct action does not change, and equivariance axis, where the correct action changes together with the perturbation. We evaluate ACT, Diffusion Policy, pi0.5, and GR00T N1.5 on Bench2Dex and report their performance and failure modes. Bench2Dex is meant as a platform for studying visuo-tactile learning across dexterous hands. It does not assume that simulated tactile observations can replace real tactile sensing; it offers a shared setting for algorithm development while tactile hardware and simulation models are still evolving.",
+      "authors": [],
+      "published_date": "2026-09-14",
+      "updated_date": "2026-09-15",
+      "oai_datestamp": "2026-09-15",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO",
+        "cs.AI",
+        "cs.CV"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.CV"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO",
+        "cs:cs:AI",
+        "cs:cs:CV"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.15726",
+      "pdf_url": "https://arxiv.org/pdf/2609.15726",
+      "research_topics": [
+        "generative-policy"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "涉及触觉/力觉感知；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；生成式策略方法；有真实机器人实验线索；提供数据集或基准",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "Review",
+      "last_checked": "2026-09-15",
+      "relevance_score": 68,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
+    },
+    {
+      "arxiv_id": "2609.15198",
+      "paper_id": "arxiv-2609-15198",
+      "title": "PredTac: Learning Contact-Rich Manipulation with Predicted Touch",
+      "abstract": "Contact-rich manipulation benefits from tactile feedback, yet physical tactile sensors introduce hardware, calibration, synchronization, and maintenance costs that complicate policy learning and deployment. We formulate predicted touch as an alternative to measured tactile input and present PredTac, a framework that learns to infer tactile states from causal visual observations and robot states and uses the predicted touch as an explicit interface for policy learning and execution. A tactile predictor is first trained with tactile supervision and then used to provide contact information without requiring measured tactile input during downstream policy training or execution. We evaluate PredTac across three contact-rich manipulation tasks in simulation and on a real robot, and further examine how policy performance depends on the predicted contact content. In simulation goal-offset evaluations, predicted-touch policies achieve 27.0%, 52.0%, and 44.7% success on USB, Barbed-spike, and Valve, respectively, improving over the visual baseline by 8.0-13.7 percentage points. On the real robot, predicted-touch ACT achieves 70.0%, 50.0%, and 90.0% success on USB insertion, Barbed extraction, and Valve rotation, respectively, with a three-task mean of 70.0%, approaching measured-touch ACT at 72.2% and substantially outperforming visual ACT at 21.1%. Fixed-policy interventions further show that performance is sensitive to the spatial structure of predicted contact, with spatial rearrangement at fixed value distributions reducing Valve success by 10.7 percentage points. These results demonstrate that predicted touch can provide useful contact information for contact-rich manipulation without requiring tactile sensing as a policy input.",
+      "authors": [],
+      "published_date": "2026-09-14",
+      "updated_date": "2026-09-15",
+      "oai_datestamp": "2026-09-15",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.15198",
+      "pdf_url": "https://arxiv.org/pdf/2609.15198",
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "涉及触觉/力觉感知；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；策略学习方法（RL/模仿/BC）；直接面向接触丰富任务；有真实机器人实验线索",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "Review",
+      "last_checked": "2026-09-15",
+      "relevance_score": 60,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
+    },
+    {
+      "arxiv_id": "2609.15921",
+      "paper_id": "arxiv-2609-15921",
+      "title": "Touch2Trace: Tactile-Driven Imitation Learning for Dexterous Cable Tracing",
+      "abstract": "Dexterous manipulation of deformable objects demands continuous fingertip-level regulation of pressure, friction, and incipient slip. We study one of the most challenging cases: dexterous cable tracing, feeding a cable through the hand with repeated pinch-and-curl motions of the thumb and index finger. We introduce Touch2Trace, a tactile-driven imitation-learning system for this task, and provide, to our knowledge, the first systematic real-world characterization of how encoder pretraining, control rate, temporal context, and spatial resolution each shape policy performance. The winning learning recipe combines a tactile encoder pretrained for a custom 32 x 32 piezoresistive sensor (TacV5) via self-supervised learning with a lightweight transformer policy trained on teleoperated demonstrations via behavior cloning, deployed at 60 Hz on a Tesollo DG-5F hand. Tactile feedback without vision or explicit cable-state estimation significantly improves tracing performance versus a proprioception-only baseline: from 0.2 cm to 20.1 cm mean distance and 0% to 93% success rate, with zero-shot transfer to unseen cables and routing conditions. The results quantify the influence of key parameters in tactile-driven systems for reliable dexterous deformable object manipulation.",
+      "authors": [],
+      "published_date": "2026-09-14",
+      "updated_date": "2026-09-15",
+      "oai_datestamp": "2026-09-15",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.15921",
+      "pdf_url": "https://arxiv.org/pdf/2609.15921",
+      "research_topics": [
+        "core-papers"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "涉及触觉/力觉感知；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；策略学习方法（RL/模仿/BC）；有真实机器人实验线索",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "No",
+      "last_checked": "2026-09-15",
+      "relevance_score": 56,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
+    },
+    {
+      "arxiv_id": "2609.15910",
+      "paper_id": "arxiv-2609-15910",
+      "title": "SlipSense: Multimodal Tactile Learning for Low-Latency and Generalized Slip Detection",
+      "abstract": "Slip detection is fundamental to dexterous manipulation, yet existing systems often lack precise characterization of detection latency and cross-platform generalization. We present SlipSense, a multimodal tactile slip-detection framework built on TacV5, a compact sensor integrating a $32 \\times 32$ piezoresistive array operating at 240 Hz and a 3-axis MEMS accelerometer operating at 8 kHz. The piezoresistive array captures spatial pressure distributions, while the accelerometer captures friction-induced vibrations, providing complementary slip cues. The framework performs modality-specific encoding, intra-sensor fusion, and cross-modal attention with causal temporal prediction at 240 Hz. Experiments on a dataset of 1.4 million frames spanning 37 objects demonstrate the complementarity of the two modalities. SlipSense achieves 96.7% Macro F1 with a false-positive rate below 1.6%, detecting 76% of slip events within 23.1 ms. When trained solely on UMI data, SlipSense generalizes zero-shot to a Tesollo dexterous hand, transferring across unseen objects, distinct sensor units, and robotic platforms without retraining.",
+      "authors": [],
+      "published_date": "2026-09-14",
+      "updated_date": "2026-09-15",
+      "oai_datestamp": "2026-09-15",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO",
+        "cs:cs:AI",
+        "cs:cs:LG"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.15910",
+      "pdf_url": "https://arxiv.org/pdf/2609.15910",
+      "research_topics": [
+        "core-papers"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "涉及触觉/力觉感知；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；提供数据集或基准",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "No",
+      "last_checked": "2026-09-15",
+      "relevance_score": 47,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
+    },
+    {
+      "arxiv_id": "2609.14783",
+      "paper_id": "arxiv-2609-14783",
+      "title": "Language-Guided Representation Learning for Robust Cross-Sensor Material Recognition",
+      "abstract": "Robots need touch to manipulate objects safely and reliably, as many properties, such as softness, texture, and contact stability, are hard to infer from vision alone. However, vision-based tactile sensors yield different observations of the same material due to variations in optics, elastomer properties, and illumination, leading to poor generalization when trained on a single or multiple sensors. We propose a language-guided distillation framework for learning sensor-robust tactile representations. Language encodes high-level semantic properties of touch (e.g., rough, soft, slippery) that remain invariant across sensing hardware, providing a natural sensor-agnostic supervisory signal. We construct a 39K-sample touch-language dataset with human-annotated material labels and train a tactile encoder to align sensor-specific tactile images with language embeddings in a shared semantic space. We evaluate our approach for few-shot learning and cross-sensor transfer and benchmark it on six existing tactile datasets. Our method achieves 95% accuracy in the 100-shot setting, improves cross-sensor transfer by an average of 13.3% accuracy, and yields up to 19% accuracy gains across six existing tactile datasets. These results demonstrate that language-guided distillation enables scalable and hardware-agnostic tactile representation learning. Code and dataset are available at https://mashood3624.github.io/Language_Tactile/",
+      "authors": [],
+      "published_date": "2026-09-13",
+      "updated_date": "2026-09-15",
+      "oai_datestamp": "2026-09-15",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO",
+        "cs.CL",
+        "cs.CV"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO",
+        "cs.CV",
+        "cs.CL"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO",
+        "cs:cs:CL",
+        "cs:cs:CV"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.14783",
+      "pdf_url": "https://arxiv.org/pdf/2609.14783",
+      "research_topics": [
+        "core-papers"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "涉及触觉/力觉感知；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；有真实机器人实验线索；有公开代码线索；提供数据集或基准",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "No",
+      "last_checked": "2026-09-15",
+      "relevance_score": 52,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
+    },
+    {
+      "arxiv_id": "2609.13779",
+      "paper_id": "arxiv-2609-13779",
+      "title": "Force-Aware Reinforcement Learning with Hybrid Sensorless Force Estimation for Wheeled-Legged Loco-Manipulation",
+      "abstract": "Force-controlled loco-manipulation requires a whole-body policy to coordinate locomotion and arm motion while regulating end-effector interaction forces. This is challenging under floating-base dynamics and changing support contacts, particularly when end-effector force/torque sensing is unavailable for control. This paper presents a force-aware reinforcement learning approach with hybrid sensorless force estimation for wheeled-legged loco-manipulation. The proposed method provides a structured estimate of the end-effector force as an explicit policy observation, enabling force-guided contact behavior without using an end-effector force/torque sensor for control. The force estimate is obtained by combining generalized momentum observation, contact-constrained wrench projection, and temporal residual learning: the model-based components extract the physically structured part of the whole-body disturbance, while the residual network compensates the remaining motion-dependent bias. The estimated force is integrated into a mode-conditioned whole-body policy with an axis-wise force/position selector, allowing free-space motion, pure force regulation, and hybrid force/position control within one controller. Simulation results demonstrate improved sensorless force estimation and force-control performance. Hardware experiments further validate the proposed controller through quantitative valve-rotation and hybrid wiping evaluations, together with force-guided door opening and zero-force human-guided motion on a real wheeled-legged platform.",
+      "authors": [],
+      "published_date": "2026-09-12",
+      "updated_date": "2026-09-15",
+      "oai_datestamp": "2026-09-15",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.13779",
+      "pdf_url": "https://arxiv.org/pdf/2609.13779",
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "明确涉及视觉–力/力矩或力觉传感；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；策略学习方法（RL/模仿/BC）；包含六维力/力矩或wrench信号；有真实机器人实验线索",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "Yes",
+      "last_checked": "2026-09-15",
+      "relevance_score": 87,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": true,
+      "competition_reason": "主题、传感器或闭环恢复机制与当前视觉–力觉研究规划存在明显交集；需要逐篇核对任务、平台和实验范围。",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
+    },
+    {
+      "arxiv_id": "2609.14173",
+      "paper_id": "arxiv-2609-14173",
+      "title": "GIFT: Glove-Inferred Force Transfer: Force-Aware Human-to-Robot Skill Transfer from a Wearable Sensing Glove to a Robot Hand Without Tactile Sensors",
+      "abstract": "Human-to-robot skill transfer from sensing gloves has so far relied on shared hardware: the same tactile glove worn by the demonstrator and the robot, or a learned alignment between two tactile sensors. We present GIFT (Glove-Inferred Force Transfer), a pipeline in which the interface between human and robot is a physical unit rather than a shared sensor: fingertip force is measured in newtons on the human side and estimated in newtons on the robot side. A wearable glove records finger flexion, calibrated fingertip force, and wrist orientation, while a head-mounted camera records the demonstration; no robot is present. At deployment, the robot estimates force from actuator-current residuals relative to a free-space baseline, through a calibrated mapping to newtons, so any position-controlled hand that reports motor current can serve as the deployment platform. The policy uses a glove-space state and predicts finger-position targets; the robot enters only through two calibrated adapters, a retargeting decoder and a force estimator. We evaluate GIFT on a cup grasp-and-hold task with two action-chunking policies trained on the same demonstrations, with fingertip-force inputs retained in one and zeroed in the other. In a 50-rollout evaluation with sample size and metrics fixed before scoring, both policies succeeded in all 25 rollouts. The median of the per-rollout hold-phase grip-force estimates was 53% lower with force inputs: 1.20 N versus 2.55 N (one-sided Mann-Whitney U, p<0.0001). In an observation ablation, a vision-only policy achieved 0/15 grasps, policies given hand-command state acquired the grasp, and the force inputs determined how hard the policy held. A force channel measured on the human hand thus transfers to a robot hand with no tactile hardware, through a retargeting map from five glove channels to seven robot actuators, with no sensor shared between the two.",
+      "authors": [],
+      "published_date": "2026-09-12",
+      "updated_date": "2026-09-15",
+      "oai_datestamp": "2026-09-15",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.14173",
+      "pdf_url": "https://arxiv.org/pdf/2609.14173",
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "明确涉及视觉–力/力矩或力觉传感；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；有真实机器人实验线索",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "Review",
+      "last_checked": "2026-09-15",
+      "relevance_score": 73,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
+    },
+    {
+      "arxiv_id": "2609.14133",
+      "paper_id": "arxiv-2609-14133",
+      "title": "Vision-Force Admittance Learning for Peg Insertion into a Movable Hole",
+      "abstract": "Precise manipulation in dynamic environments, whether induced by a mobile robot base or a target with unknown motion, remains a major challenge in robotics. Manipulation in dynamic environments introduces substantial uncertainty, which fundamentally conflicts with the tight precision requirement of precise tasks such as peg-in-the-hole. We propose a Vision-Force Admittance Learning (VFAL) framework that fuses asynchronous visual feedback with a high-frequency force-based model, using visual pose estimations as a regularization term. VFAL adapts insertion strategies online to dynamic motion while maintaining millimeter-level precision. To obtain robust, low-frequency pose information, we employ state-of-the-art vision foundation models for visual pose estimation. Additionally, we incorporate failure recovery mechanisms to enhance overall robustness. We validate our approach in real-world experiments, demonstrating high success rates and strong adaptability to various pegs and dynamic environments.",
+      "authors": [],
+      "published_date": "2026-09-12",
+      "updated_date": "2026-09-15",
+      "oai_datestamp": "2026-09-15",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.14133",
+      "pdf_url": "https://arxiv.org/pdf/2609.14133",
+      "research_topics": [
+        "vision-force",
+        "failure-recovery"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "明确涉及视觉–力/力矩或力觉传感；研究对象是机器人操作或接触任务；涉及失败、恢复、重规划或纠偏；有真实机器人实验线索",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "Review",
+      "last_checked": "2026-09-15",
+      "relevance_score": 63,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
+    },
+    {
+      "arxiv_id": "2609.14156",
+      "paper_id": "arxiv-2609-14156",
+      "title": "Visible Touch: Rendering Contact for Visuomotor Policies",
+      "abstract": "Integrating contact information into visuomotor policies remains an open problem. Touch is essential to robust manipulation, yet most modern policies, including pretrained vision-language-action (VLA) models, operate from vision and proprioception alone. Existing approaches to closing this gap require specialized tactile hardware, add separate tactile encoders, or commit to non-image policy backbones, all incompatible with the modern paradigm of image-conditioned policies built on pretrained 2D visual representations. Our key insight is that the bottleneck is not the contact information itself, but how it is delivered: when contact signals are exposed in the same spatial frame as the scene the policy already attends to, they become directly usable by any image-conditioned policy without architectural changes. We operationalize this insight in Visible Touch, paired with a custom low-cost magnetic contact sensor that is open-sourced and fabricated from off-the-shelf parts via a parametric CAD-to-mold pipeline. Across the LIBERO benchmark, Visible Touch improves BC-Transformer success by 15.7 percentage points on average in the 2-view setting, with similar gains in the 1-view setting; controlled comparisons show that the contact-integration strategy strongly affects how effectively tactile information is used. The pattern holds when fine-tuning pretrained VLAs: miniVLA on LIBERO gains 25 percentage points on average, and $π_{0.5}$ on four real-world contact-rich tasks gains 30 percentage points with our custom sensor.",
+      "authors": [],
+      "published_date": "2026-09-12",
+      "updated_date": "2026-09-15",
+      "oai_datestamp": "2026-09-15",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.14156",
+      "pdf_url": "https://arxiv.org/pdf/2609.14156",
+      "research_topics": [
+        "vision-force",
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "涉及触觉/力觉感知；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；直接面向接触丰富任务；有真实机器人实验线索；有公开代码线索；提供数据集或基准",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "No",
+      "last_checked": "2026-09-15",
+      "relevance_score": 56,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
+    },
+    {
+      "arxiv_id": "2609.13845",
+      "paper_id": "arxiv-2609-13845",
+      "title": "LePlanner: An Iterative Amortized Controller For World Models",
+      "abstract": "World models trained with joint-embedding predictive architectures learn compact, structured latent representations from physical interaction, yet planning in these latent spaces typically relies on one of two costly approaches. Search-based planners such as CEM, MPPI, and iCEM optimize action sequences through many predictor rollouts, achieving strong performance at the cost of high per-decision compute and latency. Policy-based methods amortize inference into a single forward pass but can degrade on contact-rich tasks where the demonstration distribution is multimodal. We propose LePlanner, an amortized iterative controller that learns to construct and refine latent action sequences through a frozen world-model predictor. LePlanner is trained with an arrival-and-hold objective that encourages the controller to reach the goal at the earliest feasible horizon and remain there. This addresses horizon-reset procrastination, a failure mode in which repeated receding-horizon replanning continually postpones goal arrival. An additional action-Gaussian loss keeps generated actions near the support of the offline dataset. Across navigation, contact-rich manipulation, and continuous-control environments, LePlanner matches or exceeds search-based planners while requiring an order of magnitude fewer predictor evaluations and 3-49x lower wall-clock time per decision. It achieves success rates of 98% on PushT, 100% on Reacher, 100% on TwoRooms, and 92% on the OGBench Cube task. These results show that much of the structure discovered through online search can be amortized into a lightweight iterative policy, enabling fast, horizon-aware, nonlinear physical control without online optimization.",
+      "authors": [],
+      "published_date": "2026-09-12",
+      "updated_date": "2026-09-15",
+      "oai_datestamp": "2026-09-15",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO",
+        "cs:cs:AI"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.13845",
+      "pdf_url": "https://arxiv.org/pdf/2609.13845",
+      "research_topics": [
+        "vision-force",
+        "failure-recovery"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；直接面向接触丰富任务；提供数据集或基准",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "No",
+      "last_checked": "2026-09-15",
+      "relevance_score": 46,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
+    },
+    {
+      "arxiv_id": "2609.12737",
+      "paper_id": "arxiv-2609-12737",
+      "title": "Control Architecture for Safe Grasping of Fragile Objects Using a Coarse Position-Controlled Gripper",
+      "abstract": "Robots are increasingly used in unstructured environments. The need for them to safely grasp unknown objects without damaging them becomes crucial. Humans achieve this by sensing and quickly responding by adjusting their grasping force. Similarly, effective grasp acquisition in robots requires compliant interaction strategies that can adapt to uncertain object properties and adjust to any instabilities during manipulation. We present a geometry-aware force/torque-based contact estimation method for a coarse position-controlled gripper, combined with an adaptive admittance controller for safe grasp acquisition. The desired contact forces are estimated online to keep stable contact with objects of unknown properties. This enables compliant and stable grasps while avoiding excessive forces. Experiments with objects of different sizes, shapes, stiffnesses, and weights show that the proposed algorithm not only prevents slippage but also applies minimal force to safely grasp an object without causing excessive deformation.",
+      "authors": [],
+      "published_date": "2026-09-11",
+      "updated_date": "2026-09-14",
+      "oai_datestamp": "2026-09-14",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.12737",
+      "pdf_url": "https://arxiv.org/pdf/2609.12737",
+      "research_topics": [
+        "core-papers"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "明确涉及视觉–力/力矩或力觉传感；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；包含六维力/力矩或wrench信号",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "Review",
+      "last_checked": "2026-09-15",
+      "relevance_score": 66,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
+    },
+    {
+      "arxiv_id": "2609.13516",
+      "paper_id": "arxiv-2609-13516",
+      "title": "Constraint-Grounded Reinforcement Learning for Variable Impedance Control in Contact-Rich Robotic Insertion",
+      "abstract": "In robotic insertion under uncertain contact, the axial force limit and the appropriate controller gain vary across tasks. As a result, a single fixed gain is unlikely to remain suitable across different task conditions, making conventional impedance controllers reliant on manual retuning. To eliminate manual retuning, we propose Constraint-Grounded Reinforcement Learning (CG-RL), a variable impedance framework for online gain adaptation. Conditioned on the force limit and contact feedback, the policy outputs a residual motion, an insertion rate, and a requested gain. The controller projects this gain into the admissible range without exposing the range itself to the policy. This separation allows a single policy to operate under different force limits without retraining or manual retuning. We evaluate CG-RL on simulated oblique insertion across five training seeds. CG-RL achieves an $85.8\\pm7.7\\%$ (mean $\\pm$ SD) success rate of insertions without violating the force limit, while keeping the applied gain within the admissible range. As a comparison, a fixed-gain baseline using the midpoint gain achieves a success rate of $50.1\\%$. The policy adapts its insertion rate continuously to the specified force limit and further generalizes to more permissive force limits above the training range. In contrast, the same actor without force-limit input does not exhibit this adaptation. The applied gain is guaranteed to remain within the admissible range, while force-limit satisfaction is validated empirically rather than guaranteed formally.",
+      "authors": [],
+      "published_date": "2026-09-11",
+      "updated_date": "2026-09-15",
+      "oai_datestamp": "2026-09-15",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.13516",
+      "pdf_url": "https://arxiv.org/pdf/2609.13516",
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；策略学习方法（RL/模仿/BC）；直接面向接触丰富任务",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "No",
+      "last_checked": "2026-09-15",
+      "relevance_score": 52,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
+    },
+    {
+      "arxiv_id": "2609.12677",
+      "paper_id": "arxiv-2609-12677",
+      "title": "Size Doesn't Matter: Material-State Reinforcement Learning for Excavator Transferable Soil Manipulation",
+      "abstract": "Earthmoving tasks such as excavation, backfilling, or embankment construction require deliberate repositioning of deformable soil. For these tasks, human operators use all shovel faces, while autonomous systems so far are limited to excavation and dumping. Current methods often rely on heuristic models but do not incorporate soil mechanics. We address this shortcoming by using Reinforcement Learning in a GPU-parallelized Material Point Method particle simulation. Our controllers are conditioned on material state such as shape and compactness, enabling skills that use multiple contact faces of the tool and displace material both inside and outside of the shovel. To use the same learned weights across machines, our policies operate in a normalized end-effector space and are deployed through a calibrated machine interface. We evaluate this calibrated transfer on an 11.5t hydraulic excavator and a 500g tabletop robot. We validate performance through autonomous construction of a 42m long, 2.1m high embankment in 45min, executing 201 individual policy strokes without failure, retry, or operator intervention. In a direct comparison, the autonomous controller matches an expert operator's progression speed and produces a higher, more consistent embankment. Additional qualitative backfilling and compaction experiments demonstrate the material-state awareness and calibrated transfer across machines.",
+      "authors": [],
+      "published_date": "2026-09-11",
+      "updated_date": "2026-09-14",
+      "oai_datestamp": "2026-09-14",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.12677",
+      "pdf_url": "https://arxiv.org/pdf/2609.12677",
+      "research_topics": [
+        "failure-recovery"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；策略学习方法（RL/模仿/BC）",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "No",
+      "last_checked": "2026-09-15",
+      "relevance_score": 48,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
+    },
+    {
+      "arxiv_id": "2609.12634",
+      "paper_id": "arxiv-2609-12634",
+      "title": "Online Material Estimation for Conditioned Diffusion Policy in Shaping Deformable Linear Objects",
+      "abstract": "Shape control of deformable linear objects (DLOs) is challenging for imitation learning because deformation behavior varies with material properties such as stiffness and elasticity, so a single policy must generate different action sequences for different objects even when the goal shape is identical. We propose a diffusion policy conditioned on material labels that are estimated online during manipulation. A recurrent estimation network predicts the material label of the grasped object from the time series of multi-view images and robot joint states, and the predicted label conditions the diffusion policy at every inference step. We collected 480 real-robot demonstrations covering four DLO materials and three groove-placement tasks, and compared per-material specialist policies, a task-conditioned policy without material labels, a policy conditioned on ground-truth material labels, and the proposed policy. Conditioning on ground-truth material labels improved the average success rate from 45.8% to 60.0% over the task-only policy, and the proposed policy reached 60.8% without any prior material information, matching the policy given ground-truth labels. A post-hoc analysis shows that the estimator extracts material-related information from the manipulation observations and that the diffusion policy responds to the resulting conditioning signal, while the one pronounced failure case is associated with persistent confusion between two similar materials.",
+      "authors": [],
+      "published_date": "2026-09-11",
+      "updated_date": "2026-09-14",
+      "oai_datestamp": "2026-09-14",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.12634",
+      "pdf_url": "https://arxiv.org/pdf/2609.12634",
+      "research_topics": [
+        "generative-policy"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "研究对象是机器人操作或接触任务；涉及失败、恢复、重规划或纠偏；策略学习方法（RL/模仿/BC）；生成式策略方法",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "No",
+      "last_checked": "2026-09-15",
+      "relevance_score": 46,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
+    },
     {
       "paper_id": "arxiv-2609-11661",
       "title": "Contact-Aware Incremental Model Predictive Control for an Underactuated Aerial Manipulator",
@@ -223,6 +1115,139 @@
         "generative"
       ],
       "image_caption_zh": "我们的DLSRL与现有DSRL的对比，其中(a) DSRL学习观测条件化的初始噪声潜变量𝐳\\_t来引导动作生成。(b) DLSRL生成初始噪声潜变量𝐳\\_t和动作表征潜变量𝐮\\_t，适配器特征映射器𝒜\\_ω将𝐮\\_t转换为适配器特征𝐟\\_t，用于调制中间动作词元的隐藏状态。"
+    },
+    {
+      "arxiv_id": "2609.05927",
+      "paper_id": "arxiv-2609-05927",
+      "title": "GIF: Agentic Generation of Interactive and Functional Object Compositions for Robot Learning",
+      "abstract": "Robot manipulation foundation models require scalable evaluation and data generation across diverse scenarios, with simulation providing an environment for both. Automated scene generation offers a promising path, yet prior work has largely emphasized coarse-grained scene layouts rather than fine-grained functional object compositions. Motivated by this gap, we present GIF, an agentic Generation framework for Interactive and Functional object compositions. In this framework, we recast this problem as disentangled reconstruction followed by relative pose recovery. CoGen produces instance-disentangled meshes with coarse initial poses leveraging complementary strengths of 2D and 3D generative models. GPRM refines the relative pose under joint geometric and physical guidance, and a VLM verifier selects the candidate that best matches the structured specification. We further construct a benchmark spanning eight representative contact-geometry classes and compare with state-of-the-art generators; GIF improves both asset quality and relation matching, while reducing collision rate to below 1%. Finally, we synthesize data for policy learning, revealing diversity scaling in both simulation and real-world deployment.",
+      "authors": [],
+      "published_date": "2026-09-10",
+      "updated_date": "2026-09-11",
+      "oai_datestamp": "2026-09-11",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.05927",
+      "pdf_url": "https://arxiv.org/pdf/2609.05927",
+      "research_topics": [
+        "core-papers"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；策略学习方法（RL/模仿/BC）；有真实机器人实验线索；提供数据集或基准",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "No",
+      "last_checked": "2026-09-15",
+      "relevance_score": 53,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
+    },
+    {
+      "arxiv_id": "2608.30237",
+      "paper_id": "arxiv-2608-30237",
+      "title": "Motus2: A Self-Evolving General World Model for Dexterous Manipulation",
+      "abstract": "General embodied agents should perceive, predict, act, evaluate, and improve within a unified system. World models have shown great promise in building such agents, yet existing models typically append an action output head to a world simulator, without coupling them into a closed decision-and-learning loop for policy improvement. We present Motus2, a self-evolving general world model for dexterous manipulation. Motus2 advances world modeling through model scaling and data scaling. For model scaling, a single model with shared weights exposes three control interfaces: a policy (world-action model), a simulator (action-conditioned world model), and an evaluator (value model). The policy proposes candidate action chunks, the simulator predicts their visual consequences, and the evaluator assesses the predicted outcomes. Their coupling forms a closed decision-and-learning loop for policy improvement. This formulation uses curated expert demonstrations for action learning, while failed and suboptimal interactions provide valuable evidence for dynamics modeling and value learning. For data scaling, Motus2 progresses from large-scale monocular egocentric data to synchronized stereo egocentric data, followed by robot-domain adaptation with robot trajectories and supplementary human-robot alignment data. Motus2 further studies global-autoregressive and hybrid-memory extensions of its sliding-window context, adds tactile feedback for contact-aware control, and is instantiated on a fully biomimetic platform with stereo vision, dual arms, dual dexterous hands, and tactile sensing. Together, egocentric data scaling and closed-loop general world model scaling provide a general path toward self-evolving dexterous manipulation.",
+      "authors": [],
+      "published_date": "2026-09-10",
+      "updated_date": "2026-09-11",
+      "oai_datestamp": "2026-09-11",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO",
+        "cs.AI",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG",
+        "cs.CV"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO",
+        "cs:cs:AI",
+        "cs:cs:CV",
+        "cs:cs:LG"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2608.30237",
+      "pdf_url": "https://arxiv.org/pdf/2608.30237",
+      "research_topics": [
+        "core-papers"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "涉及触觉/力觉感知；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；直接面向接触丰富任务",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "No",
+      "last_checked": "2026-09-15",
+      "relevance_score": 49,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
     },
     {
       "paper_id": "arxiv-2609-11310",
@@ -458,6 +1483,68 @@
         "vla"
       ],
       "image_caption_zh": "TFGCA架构：一个即插即用模块，位于VLA变压器输出与动作头之间。频率分支（动作空间投影 → 逐维度SWT → 频率令牌）为几何交叉注意力提供键/值，其查询为时间令牌；输出以残差方式写回，并通过动作头得到速度vθ。（蓝色：数据张量；琥珀色：新模块；灰色：骨干网络。）"
+    },
+    {
+      "arxiv_id": "2609.07747",
+      "paper_id": "arxiv-2609-07747",
+      "title": "Dex-X: Learning Visual-Tactile Dexterous Manipulation From Human Videos with Simulated Interaction",
+      "abstract": "Human videos are an abundant source of dexterous manipulation behaviors, but they lack tactile information that is crucial for contact-rich interaction. This raises a fundamental question: can robots learn deployable visual-tactile dexterous manipulation policies from human video demonstrations without robot-side data collection? We present DEX-X, a framework for learning visual-tactile dexterous manipulation from human videos through simulation. Our key insight is that simulation can serve as a tactile completion engine. Given monocular human demonstrations, DEX-X reconstructs hand-object interactions in simulation, where physically grounded contact dynamics provide tactile supervision unavailable in the original videos. Leveraging this recovered tactile information, we train visual-tactile dexterous manipulation policies and distill them into deployable policies operating on point-cloud observations and tactile sensing. We demonstrate zero-shot sim-to-real transfer on a dexterous hand-arm platform across diverse grasping and contact-rich tool-use tasks. The teacher policy achieves 65.9% average success across six task categories in simulation, while the distilled visual-tactile policy achieves 93% success on real-world cube picking and 53% on the challenging table-cleaning task. Zero-shot generalization to unseen object geometries is also observed on object-picking tasks. Our results suggest that simulated interaction is a key bridge between human videos and deployable dexterous manipulation policies, providing the missing physical supervision needed for scalable robot skill learning from Internet-scale human video data.",
+      "authors": [],
+      "published_date": "2026-09-09",
+      "updated_date": "2026-09-10",
+      "oai_datestamp": "2026-09-10",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.07747",
+      "pdf_url": "https://arxiv.org/pdf/2609.07747",
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "涉及触觉/力觉感知；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；直接面向接触丰富任务；有真实机器人实验线索",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "Review",
+      "last_checked": "2026-09-15",
+      "relevance_score": 62,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
     },
     {
       "paper_id": "arxiv-2609-10706",
@@ -696,6 +1783,136 @@
       "image_caption_zh": "评估环境。（a）平面形状：每个物体在t=0时受到冲量，然后在箱内自由下落和碰撞。（b）接近球：球从场景远端飞行而来。（c）机械臂接球：机械臂用接球器接住球。（d）机械臂拍球：同一机械臂用倾斜拍板持续弹球。（e）Franka拍球入篮：Panda机械臂将来球击入篮中。橙色箭头示意运动方向。"
     },
     {
+      "arxiv_id": "2601.19275",
+      "paper_id": "arxiv-2601-19275",
+      "title": "Tactile Memory with Soft Robot: Robust Object Insertion via Masked Encoding and Soft Wrist",
+      "abstract": "Tactile memory, the ability to store and retrieve touch-based experience, is critical for contact-rich tasks such as key insertion under uncertainty. To replicate this capability, we introduce Tactile Memory with Soft Robot (TaMeSo-bot), a system that integrates a soft wrist with tactile retrieval-based control to enable safe and robust manipulation. The soft wrist allows safe contact exploration during data collection, while tactile memory reuses past demonstrations via retrieval for flexible adaptation to unseen scenarios. The core of this system is the Masked Tactile Trajectory Transformer (MAT$^\\text{3}$), which jointly models spatiotemporal interactions between robot actions, distributed tactile cues, force-torque measurements, and proprioceptive signals. Through masked token prediction, MAT$^\\text{3}$ learns rich spatiotemporal representations by inferring missing sensory information from context, autonomously extracting task-relevant features without explicit subtask segmentation. We validate our approach on peg-in-hole tasks with diverse pegs and conditions in real-robot experiments. Our extensive evaluation demonstrates that MAT$^\\text{3}$ achieves higher success rates than the baselines over all conditions and shows remarkable capability to adapt to unseen pegs and conditions.",
+      "authors": [],
+      "published_date": "2026-09-09",
+      "updated_date": "2026-09-10",
+      "oai_datestamp": "2026-09-10",
+      "venue": "Preprint / arXiv",
+      "doi": "10.1109/LRA.2026.3692097",
+      "keywords": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO",
+        "cs:cs:AI",
+        "cs:cs:LG"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2601.19275",
+      "pdf_url": "https://arxiv.org/pdf/2601.19275",
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "涉及触觉/力觉感知；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；直接面向接触丰富任务",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "No",
+      "last_checked": "2026-09-15",
+      "relevance_score": 49,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
+    },
+    {
+      "arxiv_id": "2512.21043",
+      "paper_id": "arxiv-2512-21043",
+      "title": "Tracing Energy Flow: Learning Tactile-based Grasping Force Control to Reduce Slippage in Dynamic Object Interaction",
+      "abstract": "Regulating grasping force to reduce slippage during dynamic object interaction remains a fundamental challenge in robotic manipulation, especially when objects are manipulated by multiple rolling contacts, have unknown properties (such as mass or surface conditions), and when external sensing is unreliable. In contrast, humans can quickly regulate grasping force by touch, even without visual cues. Inspired by this ability, we aim to enable robotic hands to rapidly explore objects and learn tactile-driven grasping force control under motion and limited sensing. We propose a physics-informed energy abstraction that models the object as a virtual energy container. The inconsistency between the fingers' applied power and the object's retained energy provides a physically grounded signal for inferring slip-aware stability. Building on this abstraction, we employ model-based learning and planning to efficiently model energy dynamics from tactile sensing and perform real-time grasping force optimization. Experiments in both simulation and hardware demonstrate that our method can learn grasping force control from scratch within minutes, effectively reduce slippage, and extend grasp duration across diverse motion-object pairs, all without relying on external sensing or prior object knowledge. (Video: https://youtu.be/l3TJV29Mo6w)",
+      "authors": [],
+      "published_date": "2026-09-09",
+      "updated_date": "2026-09-10",
+      "oai_datestamp": "2026-09-10",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2512.21043",
+      "pdf_url": "https://arxiv.org/pdf/2512.21043",
+      "research_topics": [
+        "core-papers"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "涉及触觉/力觉感知；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；有真实机器人实验线索",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "No",
+      "last_checked": "2026-09-15",
+      "relevance_score": 48,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
+    },
+    {
       "paper_id": "arxiv-2609-09119",
       "title": "DeCAL: Towards Physically-Grounded Dexterous Vision-Language-Action Models via Contact-Aware Latent Co-Imagination",
       "authors": [
@@ -849,6 +2066,139 @@
         "generative"
       ],
       "image_caption_zh": "Coherent4D数据构建流程概览。我们(1)用语义标签和3D边界框标注场景物体，(2)将场景、位置和身体标注转换到共享的样本局部坐标系，(3)构建按时间排序的3D交互位置序列，(4)附加时间对齐的SMPL状态，(5)将其组织为包含位置-姿态历史、未来目标和相对时间戳的预测样本。"
+    },
+    {
+      "arxiv_id": "2505.20498",
+      "paper_id": "arxiv-2505-20498",
+      "title": "ControlTac: Scaling Tactile Data with Physically Controlled Tactile Image Generation",
+      "abstract": "Vision-based tactile sensing is widely used in perception, reconstruction, and robotic manipulation, yet collecting large-scale tactile data remains costly due to diverse sensor-object interactions and inconsistencies across sensor instances. Existing approaches to scaling tactile data---simulation and free-form tactile generation---often yield unrealistically rendered signals with poor transfer to highly dynamic real-world tasks. We propose \\name, a two-stage controllable tactile image generation framework that generates realistic tactile images conditioned on a single reference tactile image, contact force, and contact pose. By grounding generation in these important physical priors, \\name synthesizes realistic samples across different sensors while effectively capturing task-relevant variations. Across a series of downstream tasks and real-world experiments, such as object insertion, imitation learning, and object weighting, the augmented datasets using our approach consistently improve performance and demonstrate practical utility in dynamic real-world settings. Project page: https://dongyuluo.github.io/controltac.",
+      "authors": [],
+      "published_date": "2026-09-08",
+      "updated_date": "2026-09-09",
+      "oai_datestamp": "2026-09-09",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.CV",
+        "cs.LG",
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO",
+        "cs.LG",
+        "cs.CV"
+      ],
+      "oai_set_specs": [
+        "cs:cs:CV",
+        "cs:cs:LG",
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2505.20498",
+      "pdf_url": "https://arxiv.org/pdf/2505.20498",
+      "research_topics": [
+        "core-papers"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "涉及触觉/力觉感知；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；策略学习方法（RL/模仿/BC）；有真实机器人实验线索；有公开代码线索",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "No",
+      "last_checked": "2026-09-15",
+      "relevance_score": 58,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
+    },
+    {
+      "arxiv_id": "2609.08673",
+      "paper_id": "arxiv-2609-08673",
+      "title": "BIFTA: Brain-Inspired Few-Shot Tactile Adaptation for Unknown Sensors",
+      "abstract": "Advances in tactile sensing have made contact-rich perception possible, accelerating progress in robotic manipulation, material understanding, and embodied interaction. However, because optical design, elastomer mechanics, and imaging geometry differ substantially across tactile sensors, models trained on known sensor types can suffer an abrupt performance collapse on unknown sensors. To address this problem, we propose the Brain-Inspired Few-Shot Tactile Adaptation (BIFTA) framework; it draws on the brain's rapid sensory adaptation mechanism to adapt a frozen encoder to an unknown tactile sensor from a small labeled support set. BIFTA preserves pretrained representations through dual-view statistical memory, constructs support-conditioned spectral graphs to repair sensor-dependent feature neighborhoods, and applies uncertainty-gated recurrent propagation to strengthen reliable cross-query evidence. Extensive benchmarks across three tactile datasets show that BIFTA substantially improves adaptation to unknown sensors: with only 10\\% labeled target data on SITR, it raises mean Sparsh accuracy from 6.86\\% for the frozen source classifier to 87.09\\%, exceeding the strongest implemented prior comparison by 47.22 percentage points, and these gains generalize across datasets, pretrained backbones, and tactile tasks. These results validate BIFTA for data-efficient adaptation to unknown tactile sensors and offer a promising route toward tactile models that transfer across heterogeneous hardware.",
+      "authors": [],
+      "published_date": "2026-09-08",
+      "updated_date": "2026-09-09",
+      "oai_datestamp": "2026-09-09",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO",
+        "cs:cs:AI"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.08673",
+      "pdf_url": "https://arxiv.org/pdf/2609.08673",
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "涉及触觉/力觉感知；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；直接面向接触丰富任务；有真实机器人实验线索",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "No",
+      "last_checked": "2026-09-15",
+      "relevance_score": 52,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
     },
     {
       "paper_id": "arxiv-2609-07534",
@@ -1076,6 +2426,68 @@
       "image_caption_zh": "M3-Tele概述。M3是一种交互感知控制框架，强调柔顺力全身控制与闭环触觉自适应夹爪控制。M3-Tele是基于该控制框架的多模态遥操作数据采集系统，可在任务执行过程中提供触觉反馈。"
     },
     {
+      "arxiv_id": "2609.07211",
+      "paper_id": "arxiv-2609-07211",
+      "title": "Phase-and-First-Arrival VLM Feedback for Sparse-Reward Reinforcement Learning in Surgical Manipulation",
+      "abstract": "Sparse outcome feedback limits what robots can learn from unsuccessful attempts at complex manipulation. Failed multi-stage surgical attempts can contain grasps, lifts, or transfers worth reusing. In sparse-reward reinforcement learning, terminal rewards collapse such attempts to the same outcome, while scalar vision-language model (VLM) ratings reveal neither what progress merits credit nor when it occurred. We introduce phase-and-first-arrival feedback: one VLM query per recorded episode identifies the furthest visually verified task phase and when that phase is first reached, allowing the learner to reuse partial behavior and localize credit. We instantiate it in SurgPhaseBench, a phase-structured suite spanning rigid and deformable tasks, and evaluate it in simulation and hardware. Across five simulated tasks, our method reaches 75.2% mean success, compared with 52.1% for a reward based on Contrastive Language-Image Pre-training (CLIP) using the same visual input; the advantage persists when only the feedback representation changes. On hardware, the same record supports autonomous block picking and slip recovery. Together, these results show that trajectory-level visual supervision can preserve partial progress while providing the temporal credit needed for sparse-reward control.",
+      "authors": [],
+      "published_date": "2026-09-07",
+      "updated_date": "2026-09-09",
+      "oai_datestamp": "2026-09-09",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.07211",
+      "pdf_url": "https://arxiv.org/pdf/2609.07211",
+      "research_topics": [
+        "core-papers"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号；涉及失败、恢复、重规划或纠偏；策略学习方法（RL/模仿/BC）；有真实机器人实验线索",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "No",
+      "last_checked": "2026-09-15",
+      "relevance_score": 51,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
+    },
+    {
       "paper_id": "arxiv-2609-07049",
       "title": "Large Discrete Policy: Advancing Explicit Behavior Modeling with Stochastic Iterative Scoring",
       "authors": [
@@ -1230,6 +2642,68 @@
         "vla"
       ],
       "image_caption_zh": "ICI-VLA总览。(一)库构建：将长视野轨迹分解为固定视野的微型演示。(二)检索对齐：语义过滤和基于DTW的排序挖掘对比三元组；推理时，冻结的RD编码器从可观测输入中检索，无需目标动作。(三)策略训练与推理：对Qwen3-VL-4B进行微调而不设置动作专用头，目标动作掩码降低了对精确数值连续性的依赖。推理时策略和检索器均保持固定，通过检索到的上下文实现自适应。"
+    },
+    {
+      "arxiv_id": "2505.14486",
+      "paper_id": "arxiv-2505-14486",
+      "title": "Robust Immersive Bilateral Teleoperation of Beyond-Human-Scale Systems with Enhanced Transparency and Sense of Embodiment",
+      "abstract": "This paper presents an immersive bilateral teleoperation framework for beyond-human-scale manipulators, combining motion/force transparency with enhanced operator embodiment through virtual reality (VR) and distributed haptic feedback. The platform integrates a full-scale industrial hydraulic manipulator, a 7-DoF haptic exoskeleton, and head-tracked visual feedback to reinforce operator agency and self-location. A force-sensorless adaptive controller incorporates an augmented human-robot dynamic model to address master-surrogate asymmetries, input nonlinearities, model uncertainties, and communication delays. Rigorous analysis establishes semi-global uniform ultimate boundedness of the closed-loop system. Extensive full-scale experiments demonstrate precise motion and force tracking with scaling up to 1:13 and 1:1000, respectively, and fixed or time-varying delays up to 150 ms. Coordinated 6-DoF pick-and-place and multi-axis contact tasks further validate system performance. A ten-participant user study supports system usability and indicates approximately 50% higher normalized embodiment scores with VR than with monitor-based feedback. These results advance intuitive, force-reflected remote manipulation at industrial scale.",
+      "authors": [],
+      "published_date": "2026-09-07",
+      "updated_date": "2026-09-09",
+      "oai_datestamp": "2026-09-09",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2505.14486",
+      "pdf_url": "https://arxiv.org/pdf/2505.14486",
+      "research_topics": [
+        "core-papers"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [],
+      "research_branches": [],
+      "abstract_zh": "",
+      "code_url": "",
+      "project_url": "",
+      "image": "",
+      "image_caption": "",
+      "summary_one_sentence": "",
+      "research_problem": "",
+      "method_summary": "",
+      "experimental_setup": "",
+      "key_results": "",
+      "limitations": "",
+      "why_it_matters": "",
+      "relevance_reason": "涉及触觉/力觉感知；研究对象是机器人操作或接触任务；包含接触、滑移、状态或成功判断信号",
+      "related_to_my_research": "",
+      "recommended_reading": "",
+      "reproduction_value": "",
+      "core_candidate": "No",
+      "last_checked": "2026-09-15",
+      "relevance_score": 45,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "pending",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "",
+      "ai_generated_at": ""
     },
     {
       "paper_id": "arxiv-2609-06852",
@@ -14899,31 +16373,31 @@
     "data_source": "arXiv",
     "last_verified_note": "事实字段来自论文元数据；AI分析字段仅在配置Provider后生成。"
   },
-  "built_at": "2026-09-14",
+  "built_at": "2026-09-15",
   "landscape": {
     "schema_version": "1.0.0",
-    "generated_at": "2026-09-13",
+    "generated_at": "2026-09-15",
     "topic": "Vision-Force Fusion in Failure Understanding & Recovery",
     "topic_zh": "视觉力觉融合在机器人操作失败理解与恢复中的研究进展",
     "disclaimer": "当前分析基于 Embodied Research Radar 已收录论文及其标题、摘要、结构化字段和辅助分析，不等同于系统综述或 Meta-analysis。Research Gap 表示当前收录证据中尚未被充分覆盖的问题，不表示学术界绝对无人研究。",
     "disclaimer_zh": "当前分析基于 Embodied Research Radar 已收录论文及其标题、摘要、结构化字段和辅助分析，不等同于系统综述或 Meta-analysis。Research Gap 表示当前收录证据中尚未被充分覆盖的问题，不表示学术界绝对无人研究。",
     "statistics": {
-      "total_papers": 185,
-      "analysis_sample_size": 185,
+      "total_papers": 208,
+      "analysis_sample_size": 208,
       "topic_counts": {
-        "vision-force": 75,
+        "vision-force": 85,
         "failure-understanding": 12,
-        "failure-recovery": 17
+        "failure-recovery": 20
       },
       "cross_topic_counts": {
         "vision-force_and_failure-understanding": 1,
-        "vision-force_and_failure-recovery": 1,
+        "vision-force_and_failure-recovery": 3,
         "vision-force_and_failure-understanding_and_failure-recovery": 0
       },
       "evidence_tiers": {
-        "direct": 5,
+        "direct": 7,
         "related": 0,
-        "background": 23
+        "background": 24
       }
     },
     "pipeline": [
@@ -14932,28 +16406,28 @@
         "label": "Multimodal Perception",
         "label_zh": "多模态感知",
         "description": "视觉、力觉、触觉等传感器信号的获取与初步处理",
-        "paper_count": 146,
+        "paper_count": 162,
         "paper_ids": [
+          "arxiv-2609-15726",
+          "arxiv-2609-15198",
+          "arxiv-2609-15921",
+          "arxiv-2609-15910",
+          "arxiv-2609-14783",
+          "arxiv-2609-14173",
+          "arxiv-2609-14133",
+          "arxiv-2609-14156",
           "arxiv-2609-11661",
           "arxiv-2609-10918",
+          "arxiv-2608-30237",
           "arxiv-2609-11310",
           "arxiv-2609-09925",
+          "arxiv-2609-07747",
           "arxiv-2609-10706",
           "arxiv-2609-10243",
+          "arxiv-2601-19275",
+          "arxiv-2512-21043",
           "arxiv-2609-09119",
-          "arxiv-2609-08636",
-          "arxiv-2609-07534",
-          "arxiv-2609-07002",
-          "arxiv-2609-07859",
-          "arxiv-2609-07049",
-          "arxiv-2609-07581",
-          "arxiv-2609-06852",
-          "arxiv-2609-05832",
-          "arxiv-2609-05266",
-          "arxiv-2609-05369",
-          "arxiv-2609-05324",
-          "arxiv-2609-05178",
-          "arxiv-2609-04893"
+          "arxiv-2609-08636"
         ]
       },
       {
@@ -14961,14 +16435,20 @@
         "label": "Multimodal Representation",
         "label_zh": "多模态表示",
         "description": "将多源传感器数据编码为可用于决策的特征表示",
-        "paper_count": 66,
+        "paper_count": 72,
         "paper_ids": [
+          "arxiv-2609-15921",
+          "arxiv-2609-15910",
+          "arxiv-2609-14783",
+          "arxiv-2609-14156",
+          "arxiv-2609-13845",
           "arxiv-2609-10918",
           "arxiv-2609-11270",
           "arxiv-2609-11310",
           "arxiv-2609-11043",
           "arxiv-2609-10464",
           "arxiv-2609-09119",
+          "arxiv-2609-08673",
           "arxiv-2609-07534",
           "arxiv-2609-07002",
           "arxiv-2609-07581",
@@ -14976,13 +16456,7 @@
           "arxiv-2609-05832",
           "arxiv-2609-05369",
           "arxiv-2609-04893",
-          "arxiv-2609-03889",
-          "arxiv-2609-03927",
-          "arxiv-2609-02634",
-          "arxiv-2609-03067",
-          "arxiv-2609-01596",
-          "arxiv-2608-30643",
-          "arxiv-2608-29487"
+          "arxiv-2609-03889"
         ]
       },
       {
@@ -14990,28 +16464,28 @@
         "label": "Physical / Contact State",
         "label_zh": "物理/接触状态",
         "description": "估计接触发生时机、接触力分布、滑移和对齐状态",
-        "paper_count": 77,
+        "paper_count": 90,
         "paper_ids": [
+          "arxiv-2609-15198",
+          "arxiv-2609-15910",
+          "arxiv-2609-13779",
+          "arxiv-2609-14173",
+          "arxiv-2609-14133",
+          "arxiv-2609-14156",
+          "arxiv-2609-13845",
+          "arxiv-2609-13516",
           "arxiv-2609-10918",
+          "arxiv-2608-30237",
           "arxiv-2609-09925",
+          "arxiv-2609-07747",
           "arxiv-2609-10706",
+          "arxiv-2601-19275",
           "arxiv-2609-09119",
+          "arxiv-2505-20498",
+          "arxiv-2609-08673",
           "arxiv-2609-07534",
           "arxiv-2609-07859",
-          "arxiv-2609-05832",
-          "arxiv-2609-05266",
-          "arxiv-2609-04893",
-          "arxiv-2609-03889",
-          "arxiv-2609-04193",
-          "arxiv-2609-01596",
-          "arxiv-2608-30536",
-          "arxiv-2608-30643",
-          "arxiv-2608-29487",
-          "arxiv-2608-28995",
-          "arxiv-2608-26645",
-          "arxiv-2608-27609",
-          "arxiv-2608-25872",
-          "arxiv-2608-25798"
+          "arxiv-2609-05832"
         ]
       },
       {
@@ -15019,10 +16493,11 @@
         "label": "Outcome Verification",
         "label_zh": "结果验证",
         "description": "判断任务步骤是否成功完成",
-        "paper_count": 28,
+        "paper_count": 29,
         "paper_ids": [
           "arxiv-2609-10918",
           "arxiv-2609-11043",
+          "arxiv-2609-07747",
           "arxiv-2609-10706",
           "arxiv-2609-05369",
           "arxiv-2609-05324",
@@ -15039,8 +16514,7 @@
           "arxiv-2608-15938",
           "arxiv-2608-11769",
           "arxiv-2608-09138",
-          "arxiv-2608-09410",
-          "arxiv-2608-09303"
+          "arxiv-2608-09410"
         ]
       },
       {
@@ -15063,8 +16537,10 @@
         "label": "Failure Diagnosis",
         "label_zh": "失败诊断",
         "description": "分析失败原因、模式和类型",
-        "paper_count": 8,
+        "paper_count": 10,
         "paper_ids": [
+          "arxiv-2609-15726",
+          "arxiv-2609-13845",
           "arxiv-2609-05324",
           "arxiv-2609-05376",
           "arxiv-2608-22800",
@@ -15080,8 +16556,11 @@
         "label": "Recovery Selection",
         "label_zh": "恢复策略选择",
         "description": "根据失败类型选择合适的恢复策略",
-        "paper_count": 25,
+        "paper_count": 28,
         "paper_ids": [
+          "arxiv-2609-13779",
+          "arxiv-2609-13845",
+          "arxiv-2609-05927",
           "arxiv-2609-07049",
           "arxiv-2609-05369",
           "arxiv-2609-05376",
@@ -15098,10 +16577,7 @@
           "arxiv-2608-13678",
           "arxiv-2608-11769",
           "arxiv-2608-11204",
-          "arxiv-2608-09125",
-          "arxiv-2608-03483",
-          "arxiv-2608-03103",
-          "arxiv-2608-02197"
+          "arxiv-2608-09125"
         ]
       },
       {
@@ -15109,12 +16585,19 @@
         "label": "Recovery Action",
         "label_zh": "恢复动作",
         "description": "执行恢复动作，包括重试、纠偏和重规划",
-        "paper_count": 64,
+        "paper_count": 71,
         "paper_ids": [
+          "arxiv-2609-15726",
+          "arxiv-2609-14133",
+          "arxiv-2609-13845",
+          "arxiv-2609-12677",
+          "arxiv-2609-05927",
           "arxiv-2609-11043",
           "arxiv-2609-09925",
+          "arxiv-2609-07747",
           "arxiv-2609-10243",
           "arxiv-2609-07002",
+          "arxiv-2609-07211",
           "arxiv-2609-05266",
           "arxiv-2609-05369",
           "arxiv-2609-05178",
@@ -15123,14 +16606,7 @@
           "arxiv-2609-03715",
           "arxiv-2609-03067",
           "arxiv-2608-29487",
-          "arxiv-2608-28075",
-          "arxiv-2608-26645",
-          "arxiv-2608-26673",
-          "arxiv-2608-26053",
-          "arxiv-2608-25872",
-          "arxiv-2608-25798",
-          "arxiv-2608-24026",
-          "arxiv-2608-22800"
+          "arxiv-2608-28075"
         ]
       },
       {
@@ -15138,9 +16614,11 @@
         "label": "Re-verification",
         "label_zh": "恢复后验证",
         "description": "恢复动作后验证任务是否真正成功",
-        "paper_count": 19,
+        "paper_count": 21,
         "paper_ids": [
+          "arxiv-2608-30237",
           "arxiv-2609-07049",
+          "arxiv-2505-14486",
           "arxiv-2609-00908",
           "arxiv-2608-28995",
           "arxiv-2608-25872",
@@ -15157,8 +16635,7 @@
           "arxiv-2608-01824",
           "arxiv-2607-14842",
           "arxiv-2607-01804",
-          "arxiv-2606-11743",
-          "arxiv-2303-10865"
+          "arxiv-2606-11743"
         ]
       }
     ],
@@ -15168,18 +16645,18 @@
         "label": "视觉力觉融合",
         "label_en": "Vision-Force Fusion",
         "level": "Relatively Mature",
-        "paper_count": 71,
+        "paper_count": 81,
         "paper_ids": [
+          "arxiv-2609-15198",
+          "arxiv-2609-13779",
+          "arxiv-2609-14173",
+          "arxiv-2609-14133",
+          "arxiv-2609-14156",
+          "arxiv-2609-13845",
+          "arxiv-2609-13516",
           "arxiv-2609-11661",
-          "arxiv-2609-07534",
-          "arxiv-2609-07002",
-          "arxiv-2609-05832",
-          "arxiv-2609-05266",
-          "arxiv-2609-03889",
-          "arxiv-2609-02020",
-          "arxiv-2608-30536",
-          "arxiv-2608-29487",
-          "arxiv-2608-26645"
+          "arxiv-2609-07747",
+          "arxiv-2601-19275"
         ]
       },
       {
@@ -15187,18 +16664,18 @@
         "label": "接触状态估计",
         "label_en": "Contact State Estimation",
         "level": "Relatively Mature",
-        "paper_count": 61,
+        "paper_count": 70,
         "paper_ids": [
+          "arxiv-2609-15198",
+          "arxiv-2609-14173",
+          "arxiv-2609-14133",
+          "arxiv-2609-14156",
+          "arxiv-2609-13845",
+          "arxiv-2609-13516",
           "arxiv-2609-11661",
-          "arxiv-2609-07534",
-          "arxiv-2609-05832",
-          "arxiv-2609-05266",
-          "arxiv-2609-03889",
-          "arxiv-2608-30536",
-          "arxiv-2608-29487",
-          "arxiv-2608-26645",
-          "arxiv-2608-27609",
-          "arxiv-2608-25872"
+          "arxiv-2609-07747",
+          "arxiv-2601-19275",
+          "arxiv-2609-08673"
         ]
       },
       {
@@ -15249,8 +16726,9 @@
         "label": "失败原因诊断",
         "label_en": "Failure Diagnosis",
         "level": "Developing",
-        "paper_count": 4,
+        "paper_count": 5,
         "paper_ids": [
+          "arxiv-2609-13845",
           "arxiv-2608-22800",
           "arxiv-2606-07723",
           "arxiv-2512-02787",
@@ -15276,8 +16754,9 @@
         "label": "恢复动作生成",
         "label_en": "Recovery Action Generation",
         "level": "Relatively Mature",
-        "paper_count": 13,
+        "paper_count": 14,
         "paper_ids": [
+          "arxiv-2609-14133",
           "arxiv-2608-19574",
           "arxiv-2608-16978",
           "arxiv-2608-15440",
@@ -15286,17 +16765,18 @@
           "arxiv-2606-07723",
           "arxiv-2606-01478",
           "arxiv-2605-01201",
-          "arxiv-2604-07395",
-          "arxiv-2512-02787"
+          "arxiv-2604-07395"
         ]
       },
       {
         "id": "closed_loop",
         "label": "闭环恢复",
         "label_en": "Closed-loop Recovery",
-        "level": "Developing",
-        "paper_count": 4,
+        "level": "Moderate",
+        "paper_count": 6,
         "paper_ids": [
+          "arxiv-2609-14133",
+          "arxiv-2609-07211",
           "arxiv-2608-17717",
           "arxiv-2608-17323",
           "arxiv-2608-16978",
@@ -15319,18 +16799,18 @@
         "label": "不确定性估计",
         "label_en": "Uncertainty Estimation",
         "level": "Relatively Mature",
-        "paper_count": 24,
+        "paper_count": 30,
         "paper_ids": [
+          "arxiv-2609-15198",
+          "arxiv-2609-14173",
+          "arxiv-2609-14133",
+          "arxiv-2609-12677",
+          "arxiv-2601-19275",
+          "arxiv-2609-08673",
           "arxiv-2609-07534",
           "arxiv-2609-03927",
           "arxiv-2609-03067",
-          "arxiv-2608-25872",
-          "arxiv-2608-25757",
-          "arxiv-2608-23983",
-          "arxiv-2608-22983",
-          "arxiv-2608-23224",
-          "arxiv-2608-18701",
-          "arxiv-2608-17717"
+          "arxiv-2608-25872"
         ]
       },
       {
@@ -15354,18 +16834,18 @@
         "label": "真实机器人跨任务泛化",
         "label_en": "Cross-task Generalization (Real Robot)",
         "level": "Relatively Mature",
-        "paper_count": 118,
+        "paper_count": 138,
         "paper_ids": [
-          "arxiv-2609-11661",
-          "arxiv-2609-10918",
-          "arxiv-2609-11310",
-          "arxiv-2609-09925",
-          "arxiv-2609-10706",
-          "arxiv-2609-10243",
-          "arxiv-2609-10464",
-          "arxiv-2609-09119",
-          "arxiv-2609-07534",
-          "arxiv-2609-07002"
+          "arxiv-2609-15726",
+          "arxiv-2609-15198",
+          "arxiv-2609-15921",
+          "arxiv-2609-15910",
+          "arxiv-2609-14783",
+          "arxiv-2609-13779",
+          "arxiv-2609-14173",
+          "arxiv-2609-14133",
+          "arxiv-2609-14156",
+          "arxiv-2609-13516"
         ]
       }
     ],
@@ -15412,22 +16892,22 @@
         "what_has_been_addressed": "",
         "what_remains_open": "",
         "status_reason": "",
-        "current_progress": "涉及失败-恢复映射的论文 11 篇；VoLo 和 Continue or Replan? 在做初步映射",
+        "current_progress": "涉及失败-恢复映射的论文 12 篇；VoLo 和 Continue or Replan? 在做初步映射",
         "missing_piece": "多数恢复方法使用统一策略，缺乏根据失败类型选择不同恢复方案的机制",
         "why_it_matters": "不同的失败模式可能需要根本不同的恢复策略",
         "supporting_paper_ids": [
+          "arxiv-2609-13779",
           "arxiv-2609-07049",
           "arxiv-2609-05369",
           "arxiv-2609-05376",
-          "arxiv-2609-03715",
-          "arxiv-2609-00908"
+          "arxiv-2609-03715"
         ],
         "counter_paper_ids": [
+          "arxiv-2609-15198",
+          "arxiv-2609-14173",
+          "arxiv-2609-13516",
           "arxiv-2609-11043",
-          "arxiv-2609-07581",
-          "arxiv-2609-00908",
-          "arxiv-2608-18701",
-          "arxiv-2608-16978"
+          "arxiv-2609-07581"
         ],
         "confidence": "medium",
         "research_opportunity": "研究 failure taxonomy → recovery policy 的层级决策框架",
@@ -15444,18 +16924,18 @@
         "what_has_been_addressed": "若干工作已在恢复动作后执行任务完成检测或闭环状态观察，包括自适应重规划后的终止条件判断和闭环执行监控",
         "what_remains_open": "这些方法是否能够形成跨任务、可复用、显式且具有不确定性感知的 Post-Recovery Re-verification 框架仍需验证",
         "status_reason": "外部搜索发现26篇论文已涉及恢复后验证机制，原始'恢复后缺少重新验证'表述过宽；问题缩窄为跨任务、显式且不确定性感知的恢复后验证",
-        "current_progress": "涉及恢复的论文 64 篇，涉及恢复后验证的 2 篇；外部搜索发现26篇 counter evidence，说明已有工作在做恢复后验证",
+        "current_progress": "涉及恢复的论文 71 篇，涉及恢复后验证的 2 篇；外部搜索发现26篇 counter evidence，说明已有工作在做恢复后验证",
         "missing_piece": "多数恢复研究的验证机制嵌入在特定任务流程中，尚未形成独立、可复用的验证框架",
         "why_it_matters": "未经验证的恢复可能导致系统在未察觉的失败状态上继续执行",
         "supporting_paper_ids": [
+          "arxiv-2609-15726",
+          "arxiv-2609-14133",
+          "arxiv-2609-13845",
+          "arxiv-2609-12677",
+          "arxiv-2609-05927",
           "arxiv-2609-11043",
           "arxiv-2609-09925",
-          "arxiv-2609-10243",
-          "arxiv-2609-07002",
-          "arxiv-2609-05266",
-          "arxiv-2609-05369",
-          "arxiv-2609-05376",
-          "arxiv-2609-03889"
+          "arxiv-2609-07747"
         ],
         "counter_paper_ids": [
           "arxiv-2609-05178",
@@ -15476,15 +16956,15 @@
         "what_has_been_addressed": "ManipForce 等工作已在做 RGB + 时序 F/T 联合编码，Frequency-Aware Transformer 能够处理异步多模态信号",
         "what_remains_open": "时序 F/T 是否被明确用于 physical state verification、outcome verification、failure-state verification 和 false-success reduction 仍需验证",
         "status_reason": "外部搜索发现 ManipForce 等工作已在做 RGB+时序 F/T 联合建模，原始'没人研究时序 F/T'不成立；问题缩窄为时序 F/T 是否真正改善失败状态验证",
-        "current_progress": "VF 论文中涉及时序力觉的 21 篇，RGB-D+F/T 联合 4 篇。ManipForce 已在做 RGB+时序 F/T 联合编码，但其是否被用于失败状态验证和 False Success 降低仍需验证",
+        "current_progress": "VF 论文中涉及时序力觉的 24 篇，RGB-D+F/T 联合 4 篇。ManipForce 已在做 RGB+时序 F/T 联合编码，但其是否被用于失败状态验证和 False Success 降低仍需验证",
         "missing_piece": "重点从'有没有 Temporal F/T'转移到'Temporal F/T 是否真正改善失败状态验证和 False Success'",
         "why_it_matters": "时序力觉信号可能包含关键的接触状态变化信息，但当前缺乏将其与失败验证直接关联的研究",
         "supporting_paper_ids": [
+          "arxiv-2609-13779",
+          "arxiv-2609-14133",
           "arxiv-2609-11661",
-          "arxiv-2609-07534",
-          "arxiv-2609-05832",
-          "arxiv-2609-03889",
-          "arxiv-2609-02020"
+          "arxiv-2601-19275",
+          "arxiv-2609-07534"
         ],
         "counter_paper_ids": [
           "arxiv-2609-11661",
@@ -15540,11 +17020,11 @@
         "why_it_matters": "如果纠正信息不被系统性地用于改进失败恢复策略，机器人将反复犯相同错误",
         "supporting_paper_ids": [],
         "counter_paper_ids": [
+          "arxiv-2609-15726",
           "arxiv-2609-05369",
           "arxiv-2609-03067",
           "arxiv-2608-26645",
-          "arxiv-2608-26673",
-          "arxiv-2608-25872"
+          "arxiv-2608-26673"
         ],
         "confidence": "low",
         "research_opportunity": "研究 human correction → failure recovery policy improvement 的闭环机制",
@@ -15571,11 +17051,11 @@
           "arxiv-2607-15448"
         ],
         "counter_paper_ids": [
+          "arxiv-2609-12634",
+          "arxiv-2609-05927",
           "arxiv-2609-07859",
           "arxiv-2608-17691",
-          "arxiv-2608-16889",
-          "arxiv-2608-13438",
-          "arxiv-2607-15633"
+          "arxiv-2608-16889"
         ],
         "confidence": "low",
         "research_opportunity": "探索视觉-力觉联合状态一致性验证方法，建立 false-success 检测基线",
@@ -15592,7 +17072,7 @@
         "what_has_been_addressed": "",
         "what_remains_open": "",
         "status_reason": "",
-        "current_progress": "Radar 中检测相关论文 30 篇，诊断相关 8 篇；但 counter 中已有 Diagnose Correct Learn 等工作在做诊断",
+        "current_progress": "Radar 中检测相关论文 30 篇，诊断相关 10 篇；但 counter 中已有 Diagnose Correct Learn 等工作在做诊断",
         "missing_piece": "多数工作聚焦于检测失败是否发生，较少深入诊断失败的具体原因和模式",
         "why_it_matters": "没有准确的诊断，恢复策略选择缺乏依据",
         "supporting_paper_ids": [
@@ -15603,11 +17083,11 @@
           "arxiv-2609-00908"
         ],
         "counter_paper_ids": [
+          "arxiv-2609-15726",
+          "arxiv-2609-13845",
           "arxiv-2609-05324",
           "arxiv-2609-05376",
-          "arxiv-2608-22800",
-          "arxiv-2608-22990",
-          "arxiv-2608-11769"
+          "arxiv-2608-22800"
         ],
         "confidence": "low",
         "research_opportunity": "研究 failure mode taxonomy 与诊断模型，建立 detection→diagnosis pipeline",
@@ -15654,7 +17134,7 @@
         "what_has_been_addressed": "",
         "what_remains_open": "",
         "status_reason": "",
-        "current_progress": "涉及虚假成功风险的论文 2 篇，涉及成功验证的 21 篇；Radar 未覆盖 false-success detection 领域",
+        "current_progress": "涉及虚假成功风险的论文 2 篇，涉及成功验证的 26 篇；Radar 未覆盖 false-success detection 领域",
         "missing_piece": "多数系统假设感知判断即为真实状态，未建模 false-success 的代价",
         "why_it_matters": "虚假成功可能导致机器人在危险状态上继续执行",
         "supporting_paper_ids": [
@@ -15662,11 +17142,11 @@
           "arxiv-2608-09303"
         ],
         "counter_paper_ids": [
-          "arxiv-2609-06852",
-          "arxiv-2609-05832",
-          "arxiv-2609-05369",
-          "arxiv-2609-05178",
-          "arxiv-2609-01596"
+          "arxiv-2609-14133",
+          "arxiv-2609-14156",
+          "arxiv-2609-12634",
+          "arxiv-2601-19275",
+          "arxiv-2609-07211"
         ],
         "confidence": "low",
         "research_opportunity": "研究 false-success risk estimation 和 risk-aware execution",
@@ -15683,15 +17163,15 @@
         "what_has_been_addressed": "",
         "what_remains_open": "",
         "status_reason": "",
-        "current_progress": "基准相关论文 52 篇，VF 相关 10 篇，failure 相关 7 篇；'benchmark' 关键词匹配了大量非 VF 失败恢复基准",
+        "current_progress": "基准相关论文 58 篇，VF 相关 12 篇，failure 相关 7 篇；'benchmark' 关键词匹配了大量非 VF 失败恢复基准",
         "missing_piece": "现有基准多聚焦于静态操作成功率，缺乏针对失败恢复过程的标准化评估",
         "why_it_matters": "没有统一基准难以公平比较不同方法的恢复能力",
         "supporting_paper_ids": [
+          "arxiv-2609-14156",
+          "arxiv-2609-08673",
           "arxiv-2608-30536",
           "arxiv-2608-22100",
-          "arxiv-2608-21290",
-          "arxiv-2608-17962",
-          "arxiv-2608-15816"
+          "arxiv-2608-21290"
         ],
         "counter_paper_ids": [
           "arxiv-2609-03715",
@@ -15715,18 +17195,18 @@
         "what_has_been_addressed": "",
         "what_remains_open": "",
         "status_reason": "",
-        "current_progress": "涉及泛化的论文 68 篇，VF 相关 24 篇，真实机器人 13 篇；'generaliz' 关键词过于宽泛，匹配了大量非 VF 跨任务论文",
+        "current_progress": "涉及泛化的论文 80 篇，VF 相关 29 篇，真实机器人 14 篇；'generaliz' 关键词过于宽泛，匹配了大量非 VF 跨任务论文",
         "missing_piece": "多数方法在特定任务和平台上验证，跨场景泛化能力未充分评估",
         "why_it_matters": "缺乏泛化能力限制了方法的实用性和可迁移性",
         "supporting_paper_ids": [
+          "arxiv-2609-13779",
+          "arxiv-2609-14173",
+          "arxiv-2609-13516",
+          "arxiv-2609-07747",
+          "arxiv-2609-08673",
           "arxiv-2609-07534",
           "arxiv-2609-07002",
-          "arxiv-2608-26645",
-          "arxiv-2608-25872",
-          "arxiv-2608-24741",
-          "arxiv-2608-22100",
-          "arxiv-2608-17962",
-          "arxiv-2608-17628"
+          "arxiv-2608-26645"
         ],
         "counter_paper_ids": [],
         "confidence": "low",
@@ -15755,7 +17235,7 @@
         "title_zh": "失败模式到恢复策略的层级映射",
         "research_question": "是否存在从失败模式到恢复策略的系统化映射？",
         "why_worthwhile": "不同的失败模式可能需要根本不同的恢复策略",
-        "current_state": "涉及失败-恢复映射的论文 11 篇；VoLo 和 Continue or Replan? 在做初步映射",
+        "current_state": "涉及失败-恢复映射的论文 12 篇；VoLo 和 Continue or Replan? 在做初步映射",
         "missing": "多数恢复方法使用统一策略，缺乏根据失败类型选择不同恢复方案的机制",
         "potential_experiment": "研究 failure taxonomy → recovery policy 的层级决策框架",
         "difficulty": "medium",
@@ -15769,7 +17249,7 @@
         "title_zh": "恢复后重新验证机制的系统性仍待确认",
         "research_question": "已有部分研究在恢复、重规划或闭环执行后进行任务完成检查，但这些机制是否形成了跨任务、可复用且显式建模的 Post-Recovery Re-verification 框架，仍需进一步验证",
         "why_worthwhile": "未经验证的恢复可能导致系统在未察觉的失败状态上继续执行",
-        "current_state": "涉及恢复的论文 64 篇，涉及恢复后验证的 2 篇；外部搜索发现26篇 counter evidence，说明已有工作在做恢复后验证",
+        "current_state": "涉及恢复的论文 71 篇，涉及恢复后验证的 2 篇；外部搜索发现26篇 counter evidence，说明已有工作在做恢复后验证",
         "missing": "多数恢复研究的验证机制嵌入在特定任务流程中，尚未形成独立、可复用的验证框架",
         "potential_experiment": "研究 post-recovery verification 机制和闭环恢复评估协议",
         "difficulty": "medium",
@@ -15783,7 +17263,7 @@
         "title_zh": "时序六维力觉用于失败状态验证",
         "research_question": "已有研究开始使用 RGB 与时序 F/T 进行联合建模；当前值得进一步研究的问题是：短时 6D F/T 历史是否能够作为独立物理证据，提高操作 Outcome Verification，并特别降低 False Success 风险",
         "why_worthwhile": "时序力觉信号可能包含关键的接触状态变化信息，但当前缺乏将其与失败验证直接关联的研究",
-        "current_state": "VF 论文中涉及时序力觉的 21 篇，RGB-D+F/T 联合 4 篇。ManipForce 已在做 RGB+时序 F/T 联合编码，但其是否被用于失败状态验证和 False Success 降低仍需验证",
+        "current_state": "VF 论文中涉及时序力觉的 24 篇，RGB-D+F/T 联合 4 篇。ManipForce 已在做 RGB+时序 F/T 联合编码，但其是否被用于失败状态验证和 False Success 降低仍需验证",
         "missing": "重点从'有没有 Temporal F/T'转移到'Temporal F/T 是否真正改善失败状态验证和 False Success'",
         "potential_experiment": "研究 sliding-window F/T history 与视觉的联合编码方法，尤其关注其在失败验证中的应用",
         "difficulty": "medium",
@@ -15839,7 +17319,7 @@
         "title_zh": "失败检测与失败诊断的差距",
         "research_question": "当前研究在失败检测和失败原因诊断之间是否存在能力落差？",
         "why_worthwhile": "没有准确的诊断，恢复策略选择缺乏依据",
-        "current_state": "Radar 中检测相关论文 30 篇，诊断相关 8 篇；但 counter 中已有 Diagnose Correct Learn 等工作在做诊断",
+        "current_state": "Radar 中检测相关论文 30 篇，诊断相关 10 篇；但 counter 中已有 Diagnose Correct Learn 等工作在做诊断",
         "missing": "多数工作聚焦于检测失败是否发生，较少深入诊断失败的具体原因和模式",
         "potential_experiment": "研究 failure mode taxonomy 与诊断模型，建立 detection→diagnosis pipeline",
         "difficulty": "medium",
@@ -15867,7 +17347,7 @@
         "title_zh": "虚假成功风险建模",
         "research_question": "当前系统是否建模了将未完成任务误判为成功的风险？",
         "why_worthwhile": "虚假成功可能导致机器人在危险状态上继续执行",
-        "current_state": "涉及虚假成功风险的论文 2 篇，涉及成功验证的 21 篇；Radar 未覆盖 false-success detection 领域",
+        "current_state": "涉及虚假成功风险的论文 2 篇，涉及成功验证的 26 篇；Radar 未覆盖 false-success detection 领域",
         "missing": "多数系统假设感知判断即为真实状态，未建模 false-success 的代价",
         "potential_experiment": "研究 false-success risk estimation 和 risk-aware execution",
         "difficulty": "medium",
@@ -15881,7 +17361,7 @@
         "title_zh": "视觉力觉失败恢复基准",
         "research_question": "是否存在统一的视觉力觉失败恢复评估基准？",
         "why_worthwhile": "没有统一基准难以公平比较不同方法的恢复能力",
-        "current_state": "基准相关论文 52 篇，VF 相关 10 篇，failure 相关 7 篇；'benchmark' 关键词匹配了大量非 VF 失败恢复基准",
+        "current_state": "基准相关论文 58 篇，VF 相关 12 篇，failure 相关 7 篇；'benchmark' 关键词匹配了大量非 VF 失败恢复基准",
         "missing": "现有基准多聚焦于静态操作成功率，缺乏针对失败恢复过程的标准化评估",
         "potential_experiment": "设计统一的 Vision-Force Failure Recovery Benchmark",
         "difficulty": "medium",
@@ -15895,7 +17375,7 @@
         "title_zh": "跨任务、跨机器人泛化",
         "research_question": "视觉力觉方法在不同任务和机器人平台间的泛化能力如何？",
         "why_worthwhile": "缺乏泛化能力限制了方法的实用性和可迁移性",
-        "current_state": "涉及泛化的论文 68 篇，VF 相关 24 篇，真实机器人 13 篇；'generaliz' 关键词过于宽泛，匹配了大量非 VF 跨任务论文",
+        "current_state": "涉及泛化的论文 80 篇，VF 相关 29 篇，真实机器人 14 篇；'generaliz' 关键词过于宽泛，匹配了大量非 VF 跨任务论文",
         "missing": "多数方法在特定任务和平台上验证，跨场景泛化能力未充分评估",
         "potential_experiment": "研究 vision-force 方法的 domain transfer 和 cross-platform evaluation",
         "difficulty": "medium",
@@ -15905,6 +17385,162 @@
       }
     ],
     "evidence_index": {
+      "arxiv-2609-15726": {
+        "evidence_tier": "none",
+        "pipeline_stages": [
+          "perception",
+          "failure_diagnosis",
+          "recovery_action"
+        ],
+        "topics": [
+          "generative-policy"
+        ],
+        "relevance_score": 68
+      },
+      "arxiv-2609-15198": {
+        "evidence_tier": "none",
+        "pipeline_stages": [
+          "perception",
+          "contact_state"
+        ],
+        "topics": [
+          "vision-force"
+        ],
+        "relevance_score": 60
+      },
+      "arxiv-2609-15921": {
+        "evidence_tier": "none",
+        "pipeline_stages": [
+          "perception",
+          "representation"
+        ],
+        "topics": [
+          "core-papers"
+        ],
+        "relevance_score": 56
+      },
+      "arxiv-2609-15910": {
+        "evidence_tier": "none",
+        "pipeline_stages": [
+          "perception",
+          "representation",
+          "contact_state"
+        ],
+        "topics": [
+          "core-papers"
+        ],
+        "relevance_score": 47
+      },
+      "arxiv-2609-14783": {
+        "evidence_tier": "none",
+        "pipeline_stages": [
+          "perception",
+          "representation"
+        ],
+        "topics": [
+          "core-papers"
+        ],
+        "relevance_score": 52
+      },
+      "arxiv-2609-13779": {
+        "evidence_tier": "none",
+        "pipeline_stages": [
+          "contact_state",
+          "recovery_selection"
+        ],
+        "topics": [
+          "vision-force"
+        ],
+        "relevance_score": 87
+      },
+      "arxiv-2609-14173": {
+        "evidence_tier": "none",
+        "pipeline_stages": [
+          "perception",
+          "contact_state"
+        ],
+        "topics": [
+          "vision-force"
+        ],
+        "relevance_score": 73
+      },
+      "arxiv-2609-14133": {
+        "evidence_tier": "direct",
+        "pipeline_stages": [
+          "perception",
+          "contact_state",
+          "recovery_action"
+        ],
+        "topics": [
+          "vision-force",
+          "failure-recovery"
+        ],
+        "relevance_score": 63
+      },
+      "arxiv-2609-14156": {
+        "evidence_tier": "none",
+        "pipeline_stages": [
+          "perception",
+          "representation",
+          "contact_state"
+        ],
+        "topics": [
+          "vision-force",
+          "vla-manipulation"
+        ],
+        "relevance_score": 56
+      },
+      "arxiv-2609-13845": {
+        "evidence_tier": "direct",
+        "pipeline_stages": [
+          "representation",
+          "contact_state",
+          "failure_diagnosis",
+          "recovery_selection",
+          "recovery_action"
+        ],
+        "topics": [
+          "vision-force",
+          "failure-recovery"
+        ],
+        "relevance_score": 46
+      },
+      "arxiv-2609-12737": {
+        "evidence_tier": "none",
+        "pipeline_stages": [],
+        "topics": [
+          "core-papers"
+        ],
+        "relevance_score": 66
+      },
+      "arxiv-2609-13516": {
+        "evidence_tier": "none",
+        "pipeline_stages": [
+          "contact_state"
+        ],
+        "topics": [
+          "vision-force"
+        ],
+        "relevance_score": 52
+      },
+      "arxiv-2609-12677": {
+        "evidence_tier": "none",
+        "pipeline_stages": [
+          "recovery_action"
+        ],
+        "topics": [
+          "failure-recovery"
+        ],
+        "relevance_score": 48
+      },
+      "arxiv-2609-12634": {
+        "evidence_tier": "none",
+        "pipeline_stages": [],
+        "topics": [
+          "generative-policy"
+        ],
+        "relevance_score": 46
+      },
       "arxiv-2609-11661": {
         "evidence_tier": "none",
         "pipeline_stages": [
@@ -15938,6 +17574,29 @@
           "generative-policy"
         ],
         "relevance_score": 60
+      },
+      "arxiv-2609-05927": {
+        "evidence_tier": "none",
+        "pipeline_stages": [
+          "recovery_selection",
+          "recovery_action"
+        ],
+        "topics": [
+          "core-papers"
+        ],
+        "relevance_score": 53
+      },
+      "arxiv-2608-30237": {
+        "evidence_tier": "none",
+        "pipeline_stages": [
+          "perception",
+          "contact_state",
+          "reverification"
+        ],
+        "topics": [
+          "core-papers"
+        ],
+        "relevance_score": 49
       },
       "arxiv-2609-11310": {
         "evidence_tier": "none",
@@ -15974,6 +17633,19 @@
         ],
         "relevance_score": 70
       },
+      "arxiv-2609-07747": {
+        "evidence_tier": "background",
+        "pipeline_stages": [
+          "perception",
+          "contact_state",
+          "outcome_verification",
+          "recovery_action"
+        ],
+        "topics": [
+          "vision-force"
+        ],
+        "relevance_score": 62
+      },
       "arxiv-2609-10706": {
         "evidence_tier": "none",
         "pipeline_stages": [
@@ -16007,6 +17679,27 @@
         ],
         "relevance_score": 50
       },
+      "arxiv-2601-19275": {
+        "evidence_tier": "none",
+        "pipeline_stages": [
+          "perception",
+          "contact_state"
+        ],
+        "topics": [
+          "vision-force"
+        ],
+        "relevance_score": 49
+      },
+      "arxiv-2512-21043": {
+        "evidence_tier": "none",
+        "pipeline_stages": [
+          "perception"
+        ],
+        "topics": [
+          "core-papers"
+        ],
+        "relevance_score": 48
+      },
       "arxiv-2609-09119": {
         "evidence_tier": "none",
         "pipeline_stages": [
@@ -16028,6 +17721,29 @@
           "generative-policy"
         ],
         "relevance_score": 60
+      },
+      "arxiv-2505-20498": {
+        "evidence_tier": "none",
+        "pipeline_stages": [
+          "perception",
+          "contact_state"
+        ],
+        "topics": [
+          "core-papers"
+        ],
+        "relevance_score": 58
+      },
+      "arxiv-2609-08673": {
+        "evidence_tier": "none",
+        "pipeline_stages": [
+          "perception",
+          "representation",
+          "contact_state"
+        ],
+        "topics": [
+          "vision-force"
+        ],
+        "relevance_score": 52
       },
       "arxiv-2609-07534": {
         "evidence_tier": "none",
@@ -16064,6 +17780,17 @@
         ],
         "relevance_score": 56
       },
+      "arxiv-2609-07211": {
+        "evidence_tier": "none",
+        "pipeline_stages": [
+          "perception",
+          "recovery_action"
+        ],
+        "topics": [
+          "core-papers"
+        ],
+        "relevance_score": 51
+      },
       "arxiv-2609-07049": {
         "evidence_tier": "none",
         "pipeline_stages": [
@@ -16084,6 +17811,17 @@
         ],
         "topics": [
           "vla-manipulation"
+        ],
+        "relevance_score": 45
+      },
+      "arxiv-2505-14486": {
+        "evidence_tier": "none",
+        "pipeline_stages": [
+          "perception",
+          "reverification"
+        ],
+        "topics": [
+          "core-papers"
         ],
         "relevance_score": 45
       },
@@ -18030,163 +19768,163 @@
     },
     "external_evidence": {
       "physical-state-aliasing": {
-        "total_retrieved": 91,
-        "unique_after_dedup": 88,
-        "supporting_count": 14,
-        "counter_count": 13,
+        "total_retrieved": 3,
+        "unique_after_dedup": 3,
+        "supporting_count": 0,
+        "counter_count": 1,
         "sources": {
-          "openalex": 60,
-          "semantic_scholar": 21,
-          "arxiv": 11
+          "openalex": 3,
+          "semantic_scholar": 0,
+          "arxiv": 0
         },
-        "searched_at": "2026-09-07",
+        "searched_at": "2026-09-14",
         "evidence_stale": false
       },
       "failure-detection-vs-diagnosis": {
-        "total_retrieved": 186,
-        "unique_after_dedup": 129,
-        "supporting_count": 2,
+        "total_retrieved": 40,
+        "unique_after_dedup": 39,
+        "supporting_count": 0,
         "counter_count": 0,
         "sources": {
-          "openalex": 100,
+          "openalex": 40,
           "semantic_scholar": 0,
-          "arxiv": 86
+          "arxiv": 0
         },
-        "searched_at": "2026-09-07",
+        "searched_at": "2026-09-14",
         "evidence_stale": false
       },
       "detection-without-recovery": {
-        "total_retrieved": 109,
-        "unique_after_dedup": 106,
-        "supporting_count": 2,
+        "total_retrieved": 60,
+        "unique_after_dedup": 60,
+        "supporting_count": 0,
         "counter_count": 0,
         "sources": {
-          "openalex": 80,
+          "openalex": 60,
           "semantic_scholar": 0,
-          "arxiv": 29
+          "arxiv": 0
         },
-        "searched_at": "2026-09-07",
+        "searched_at": "2026-09-14",
         "evidence_stale": false
       },
       "recovery-without-reverification": {
-        "total_retrieved": 108,
-        "unique_after_dedup": 106,
-        "supporting_count": 19,
-        "counter_count": 27,
+        "total_retrieved": 38,
+        "unique_after_dedup": 38,
+        "supporting_count": 5,
+        "counter_count": 6,
         "sources": {
-          "openalex": 85,
-          "semantic_scholar": 20,
-          "arxiv": 3
+          "openalex": 38,
+          "semantic_scholar": 0,
+          "arxiv": 0
         },
-        "searched_at": "2026-09-07",
+        "searched_at": "2026-09-14",
         "evidence_stale": false
       },
       "temporal-6d-ft-evidence": {
         "total_retrieved": 40,
         "unique_after_dedup": 40,
         "supporting_count": 3,
-        "counter_count": 2,
+        "counter_count": 4,
         "sources": {
           "openalex": 40,
           "semantic_scholar": 0,
           "arxiv": 0
         },
-        "searched_at": "2026-09-07",
+        "searched_at": "2026-09-14",
         "evidence_stale": false
       },
       "outcome-vs-evidence-sufficiency": {
-        "total_retrieved": 62,
-        "unique_after_dedup": 60,
+        "total_retrieved": 40,
+        "unique_after_dedup": 40,
         "supporting_count": 0,
         "counter_count": 0,
         "sources": {
-          "openalex": 62,
+          "openalex": 40,
           "semantic_scholar": 0,
           "arxiv": 0
         },
-        "searched_at": "2026-09-07",
+        "searched_at": "2026-09-14",
         "evidence_stale": false
       },
       "false-success-risk": {
-        "total_retrieved": 38,
-        "unique_after_dedup": 37,
-        "supporting_count": 2,
-        "counter_count": 0,
-        "sources": {
-          "openalex": 38,
-          "semantic_scholar": 0,
-          "arxiv": 0
-        },
-        "searched_at": "2026-09-07",
-        "evidence_stale": false
-      },
-      "failure-to-recovery-hierarchy": {
-        "total_retrieved": 61,
-        "unique_after_dedup": 59,
+        "total_retrieved": 35,
+        "unique_after_dedup": 35,
         "supporting_count": 3,
         "counter_count": 0,
         "sources": {
-          "openalex": 61,
-          "semantic_scholar": 0,
+          "openalex": 15,
+          "semantic_scholar": 20,
           "arxiv": 0
         },
-        "searched_at": "2026-09-07",
+        "searched_at": "2026-09-14",
         "evidence_stale": false
       },
-      "selective-human-escalation": {
-        "total_retrieved": 120,
-        "unique_after_dedup": 106,
-        "supporting_count": 4,
-        "counter_count": 1,
-        "sources": {
-          "openalex": 120,
-          "semantic_scholar": 0,
-          "arxiv": 0
-        },
-        "searched_at": "2026-09-07",
-        "evidence_stale": false
-      },
-      "learning-from-corrections": {
-        "total_retrieved": 107,
-        "unique_after_dedup": 98,
-        "supporting_count": 14,
-        "counter_count": 0,
-        "sources": {
-          "openalex": 107,
-          "semantic_scholar": 0,
-          "arxiv": 0
-        },
-        "searched_at": "2026-09-07",
-        "evidence_stale": false
-      },
-      "benchmark-gap": {
-        "total_retrieved": 46,
-        "unique_after_dedup": 42,
+      "failure-to-recovery-hierarchy": {
+        "total_retrieved": 41,
+        "unique_after_dedup": 40,
         "supporting_count": 1,
         "counter_count": 0,
         "sources": {
-          "openalex": 46,
+          "openalex": 41,
           "semantic_scholar": 0,
           "arxiv": 0
         },
-        "searched_at": "2026-09-07",
+        "searched_at": "2026-09-14",
+        "evidence_stale": false
+      },
+      "selective-human-escalation": {
+        "total_retrieved": 80,
+        "unique_after_dedup": 75,
+        "supporting_count": 4,
+        "counter_count": 1,
+        "sources": {
+          "openalex": 80,
+          "semantic_scholar": 0,
+          "arxiv": 0
+        },
+        "searched_at": "2026-09-14",
+        "evidence_stale": false
+      },
+      "learning-from-corrections": {
+        "total_retrieved": 67,
+        "unique_after_dedup": 67,
+        "supporting_count": 8,
+        "counter_count": 0,
+        "sources": {
+          "openalex": 67,
+          "semantic_scholar": 0,
+          "arxiv": 0
+        },
+        "searched_at": "2026-09-14",
+        "evidence_stale": false
+      },
+      "benchmark-gap": {
+        "total_retrieved": 20,
+        "unique_after_dedup": 20,
+        "supporting_count": 1,
+        "counter_count": 0,
+        "sources": {
+          "openalex": 20,
+          "semantic_scholar": 0,
+          "arxiv": 0
+        },
+        "searched_at": "2026-09-14",
         "evidence_stale": false
       },
       "cross-task-generalization": {
-        "total_retrieved": 60,
-        "unique_after_dedup": 55,
+        "total_retrieved": 40,
+        "unique_after_dedup": 40,
         "supporting_count": 0,
         "counter_count": 0,
         "sources": {
-          "openalex": 60,
+          "openalex": 40,
           "semantic_scholar": 0,
           "arxiv": 0
         },
-        "searched_at": "2026-09-07",
+        "searched_at": "2026-09-14",
         "evidence_stale": false
       }
     },
     "external_update_source": "local",
-    "external_searched_at": "2026-09-07"
+    "external_searched_at": "2026-09-14"
   }
 }

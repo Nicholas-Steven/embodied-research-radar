@@ -10,3 +10,8 @@ dist/
 build/
 *.log
 site/assets/data.json.tmp
+
+# 临时诊断产物(抓取日志、checkpoint、审计快照)——不入库
+_diag_logs/
+_remote_ids_before.txt
+_remote_ids_now.txt

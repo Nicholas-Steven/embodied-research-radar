@@ -9,7 +9,7 @@ import time
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -21,6 +21,9 @@ except ImportError:  # Allows `python scripts/radar/arxiv_fetcher.py` for quick 
 
 ROOT = Path(__file__).resolve().parents[2]
 ATOM = {"a": "http://www.w3.org/2005/Atom", "opensearch": "http://a9.com/-/spec/opensearch/1.1/"}
+
+# Identifiable UA per arXiv API guidelines — no browser impersonation, no secrets.
+USER_AGENT = "EmbodiedResearchRadar/1.0 (https://github.com/Nicholas-Steven/embodied-research-radar; static research radar, no bulk redistribution)"
 
 
 def _request(url: str, user_agent: str, timeout: int = 45) -> bytes:
@@ -207,6 +210,40 @@ def collect(query_groups: list[dict[str, Any]], limit_per_query: int, user_agent
             if delay:
                 time.sleep(delay)
     return list(collected.values())
+
+
+def harvest_recent_search(lookback_days: int, health: Any, limit: int = 500, now: datetime | None = None) -> list[dict[str, Any]]:
+    """Fallback source: ONE broad Search API query over a rolling window.
+
+    Uses the official submittedDate range syntax so the remote side only
+    ships recent papers; category filtering, keyword scoring and topic
+    matching all happen locally. Raises SourceUnhealthyError when the
+    request is exhausted, never an empty list disguised as a quiet day.
+    """
+    from .fetch_health import SourceUnhealthyError
+
+    now = now or datetime.now(timezone.utc)
+    start = now - timedelta(days=lookback_days)
+    fmt = "%Y%m%d%H%M"
+    window = f"submittedDate:[{start.strftime(fmt)} TO {now.strftime(fmt)}]"
+    cats = json.loads((ROOT / "config/queries.json").read_text(encoding="utf-8")).get("allowed_primary_categories", ["cs.RO"])
+    category_filter = " OR ".join(f"cat:{c}" for c in cats)
+    query = f"({category_filter}) AND {window}"
+    health.source = "arXiv Search API (broad window query)"
+    health.window_start = start.date().isoformat()
+    health.window_end = now.date().isoformat()
+    health.requests_attempted += 1
+    try:
+        papers = query_arxiv(query, limit, os.getenv("ARXIV_USER_AGENT", USER_AGENT),
+                             int(os.getenv("ARXIV_MAX_RETRIES", "5")), float(os.getenv("ARXIV_DELAY_SECONDS", "3")))
+    except SourceUnhealthyError:
+        raise
+    if papers is None:
+        health.requests_exhausted += 1
+        raise SourceUnhealthyError("Search API exhausted all retries (persistent 429)")
+    health.requests_succeeded += 1
+    health.raw_records_received = len(papers)
+    return papers
 
 
 def main() -> int:

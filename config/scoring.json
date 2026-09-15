@@ -1,18 +1,23 @@
 {
   "weights": {
     "vision_force": 30,
-    "manipulation": 25,
-    "state_understanding": 15,
-    "failure_recovery": 10,
-    "method_signal": 10,
-    "direct_reproduction": 10
+    "manipulation": 20,
+    "state_understanding": 10,
+    "failure_recovery": 10
   },
-  "bonuses": {
-    "six_axis_ft": 8,
-    "rgbd": 5,
-    "real_robot": 5,
-    "open_code": 5,
-    "contact_rich": 6
+  "method": {
+    "learning_methods": 8,
+    "generative_policy": 8
+  },
+  "theme_bonus": {
+    "six_axis_ft": 6,
+    "rgbd": 3,
+    "contact_rich": 4
+  },
+  "resource_metadata": {
+    "real_robot": 3,
+    "open_code": 2,
+    "dataset_benchmark": 2
   },
   "penalty": 35,
   "stars": [20, 40, 60, 80, 95]
