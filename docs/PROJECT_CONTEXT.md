@@ -3,15 +3,85 @@
 > **IMPORTANT:** If this document conflicts with the current repository, the repository
 > is authoritative. Update this document after resolving the difference.
 
-**Last Updated:** 2026-09-13
-**Current Commit:** b48848a (V2 uncommitted local work — pending human review)
+**Last Updated:** 2026-09-15 (ingestion hardening + filter tuning RELEASED)
+**Current Commit:** main @ filter-tuning release
 **Default Branch:** main
 **Repository:** https://github.com/Nicholas-Steven/embodied-research-radar
 **Production Site:** https://nicholas-steven.github.io/embodied-research-radar/
 
 ---
 
-## 0. V2 Research Workspace (2026-09-13, LOCAL ONLY — NOT DEPLOYED)
+## 0. Radar Ingestion Architecture (hardened + filter-tuned 2026-09-15, RELEASED)
+
+Pipeline stages: **OAI-PMH metadata candidates → publication-date filter →
+Candidate Eligibility Gate → relevance scoring → topic assignment → dedupe →
+papers.json**.
+
+**Harvest (primary source)**: arXiv OAI-PMH (`https://oaipmh.arxiv.org/oai`,
+`metadataPrefix=arXiv`): one ListRecords call per category set (`cs:cs:RO`,
+`cs:cs:AI`, `cs:cs:LG`, `cs:cs:CV`, `cs:cs:CL`, `cs:cs:SY`, `eess:eess:SY`)
+with a **7-day rolling harvest window** on the OAI datestamp (`--lookback-days`).
+Fallback is ONE broad Search API query with the official
+`submittedDate:[...]` window. No per-keyword remote queries.
+
+**Publication window filter** (round 2 fix): the OAI datestamp only means
+"metadata changed recently". Candidates count as NEW only if the arXiv
+`<created>` field (first submission) falls within lookback + 1 day overlap;
+stale papers whose metadata merely got updated are dropped
+(`records_stale_metadata`). Never use `updated`/datestamp as published date.
+
+**Candidate Eligibility Gate** (`scoring.py::is_radar_eligible`): a paper
+needs Anchor A (robot/embodied semantics) AND Anchor B (manipulation/
+interaction semantics), or one of a few high-precision Strong Phrases.
+Category tiering: cs.RO/eess.SY/cs.SY (Tier A) pass with both anchors;
+cs.AI/LG/CV/CL (Tier B) need explicit robot-manipulation context. Category
+alone is NOT relevance proof. The gate applies ONLY to newly discovered
+candidates.
+
+**Scoring** (four layers): Domain (vision-force / manipulation / state /
+failure-recovery) dominates; Method, Theme bonuses, and Resource metadata
+(code/dataset/real-robot) only top up papers that already show domain
+relevance. **Generic keywords (`code`, `github`, `benchmark`, `dataset`,
+`real-world`, `progress`) never create eligibility or relevance.** Threshold
+stays 45 (calibrated; round-2 audit: threshold-band precision ≈100%).
+
+**Topic assignment** (`scoring.py::infer_topics`): explicit keyword evidence
+only; **no fallback bucket** — vla-manipulation requires actual
+VLA/vision-language-action/language-conditioned-action evidence; unmatched
+papers go to `core-papers`.
+
+**Source health semantics** (`scripts/radar/fetch_health.py`):
+- `FetchHealth` counters (oai_raw_records / fallback_raw_records /
+  merged_records_before_dedup / records_after_dedup / stale_metadata /
+  relevant / new) drive all decisions — never stdout parsing.
+- **Source failure** (all requests 429-exhausted, unparseable XML, or a
+  PARTIAL harvest where some sets failed) raises `SourceUnhealthyError` →
+  `update_radar.py` exits 2 → workflow FAILS, papers.json stays byte-identical.
+- **Healthy + 0 new papers is a SUCCESS** and writes nothing: `generated_at`
+  only changes when the dataset actually changes (no empty commits).
+- Health report (Radar Update Health) is written to `GITHUB_STEP_SUMMARY`.
+- Long harvests are resumable via env `RADAR_OAI_CHECKPOINT=<file>`.
+
+**Data-safety contract**: existing production paper IDs are preserved
+UNCONDITIONALLY — eligibility/filter rules apply to newly discovered
+candidates, never retroactively to production history (any such cleanup
+would be an explicit migration). `REMOTE_IDS ⊆ FINAL_IDS` must always hold.
+
+Key modules: `scripts/radar/oai_harvester.py` (primary), `scripts/radar/
+arxiv_fetcher.py::harvest_recent_search` (fallback), `scripts/radar/
+fetch_health.py`, `scripts/radar/pipeline.py` (discipline + summary).
+Tests: `tests/test_ingestion_health.py` (21), `tests/test_filter_tuning.py` (19).
+Audit history: `docs/DIAGNOSTIC_REPORT_2026-09-15.md`,
+`docs/BACKFILL_AUDIT_2026-09-15.md` (466-paper round rejected),
+`docs/BACKFILL_AUDIT_ROUND2_2026-09-15.md` (23-paper round accepted).
+
+**Dataset snapshot (at release)**: 208 papers (185 remote baseline + 23
+accepted backfill); latest published date 2026-09-14. Daily runs may grow
+this — check `data/papers.json` for the live count.
+
+---
+
+## 0b. V2 Research Workspace (2026-09-13, DEPLOYED)
 
 V2 adds a Research Decision system at `?view=workspace` (sidebar WORKSPACE group).
 Modules: Dashboard, Research Thesis, Collision Radar, Novelty Red Team,

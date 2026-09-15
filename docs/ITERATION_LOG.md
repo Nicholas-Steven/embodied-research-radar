@@ -6,6 +6,36 @@
 
 ---
 
+## 2026-09-15 — Harden Radar Ingestion and Tune Backfill Filters（已发布）
+
+### Root Cause
+- 网站 9/10 后停滞:arXiv 429 限流被 pipeline 误判为"当天 0 新论文",`generated_at` 每日变化产生空 commit,workflow 绿色成功掩盖故障(run 34827892508 日志级确认:32 处 429、5 查询重试耗尽)
+
+### Reliability Fix(保留至今,不回退)
+- 新增 `scripts/radar/fetch_health.py`:FetchHealth 结构化计数(oai_raw/fallback_raw/merged_before_dedup/after_dedup/stale_metadata)+ SourceUnhealthyError;全 429 耗尽/部分采集失败 → exit 2 → workflow 红,papers.json 字节级不动
+- 新增 `scripts/radar/oai_harvester.py`:OAI-PMH 主源(7 个类别 set 各一次 ListRecords,checkpoint 续传);Search API 单请求宽查询 fallback(submittedDate 官方语法)
+- `pipeline.py`:失败不写盘;healthy+0 新论文=成功且不改文件(generated_at 仅真实变化时更新);GITHUB_STEP_SUMMARY 健康报告;`--lookback-days` 滚动窗口;按 arXiv ID 去重、幂等(同窗口二跑 new=0)
+- workflow:source failure 即红、零变化不提交
+
+### Round 1 Audit(拒绝)
+- backfill(185→651,新增 466)审计:overall precision 仅 ~60–70%,threshold 带 30–45%;248/466 篇 published 早于窗口(OAI datestamp=元数据更新日语义混入旧论文);vla-manipulation 兜底占 82%;code/github/benchmark 等 generic 词主导入选 → **拒绝发布**(docs/BACKFILL_AUDIT_2026-09-15.md)
+
+### Round 2 Fix
+- publication-date 语义:OAI 切换 `metadataPrefix=arXiv`,以 `<created>`(首次提交)为 published;publication window = lookback+1 天 overlap,剔除仅 metadata 更新的旧论文
+- Candidate Eligibility Gate:Anchor A(机器人/具身)∩ Anchor B(操作/交互)双锚点 + 少量 Strong Phrases;category 分层(Tier A 宽、Tier B 严)
+- 四层 score:Domain 主导,code/github/benchmark/dataset/real-world/progress 移出领域相关性(降为资源元数据 ≤7 分);threshold 经校准维持 45
+- Topic 去 fallback:vla-manipulation 需真实 VLA 证据,无匹配进 core-papers
+- 数据安全契约:已入库论文无条件保留,gate/threshold 只作用于新候选(REMOTE_IDS ⊆ FINAL_IDS)
+
+### Round 2 Result(验收通过,SAFE TO RELEASE)
+- 最终新增 23 篇(185→208),最新 published 2026-09-14;旧论文污染 0、future date 0、重复 0/0/0(arXiv/DOI/title)
+- 全量审阅 precision ≈95–100%(Top/Mid/Threshold 分带均 ≥94%);Known Relevant Retained 19/19;vla-manipulation 仅 1 篇且有真实证据
+- 幂等二跑 new=0;REMOTE_IDS 100% 保留(missing=[])
+- 测试:test_ingestion_health 21/21、test_filter_tuning 19/19,其余套件(pipeline/schema/stability/landscape/frontend_layout/v2_logic/v2_ui)全 OK
+- 判定依据:docs/BACKFILL_AUDIT_ROUND2_2026-09-15.md;诊断:docs/DIAGNOSTIC_REPORT_2026-09-15.md
+
+---
+
 ## 2026-09-13 — 方法知识库 V2：解释重写 + KaTeX 公式 + 核验代表论文（已上线）
 
 ### User-visible Changes
