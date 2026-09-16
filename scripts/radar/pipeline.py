@@ -170,22 +170,34 @@ def run(fetch: bool = False, limit_per_query: int = 10, threshold: int = 45, wit
             if paper.get("image_caption") and (not paper.get("image_caption_zh") or str(paper.get("image_caption_zh")) == "Pending"):
                 paper["image_caption_zh"] = translate_caption(paper.get("image_caption", ""))
     retained.sort(key=lambda p: (p.get("published_date", ""), p.get("relevance_score", 0)), reverse=True)
-    # Attach the best method figure only for genuinely new papers — re-probing
-    # the whole backlog every run would hammer arxiv.org/html for no benefit.
-    # The per-run cap bounds request volume (a 7-day backfill can surface
-    # hundreds of new papers at once; remaining figures are picked up on
-    # later runs, since only papers without an image are probed).
-    new_ids = {p.get("paper_id") for p in retained} - existing_ids
+    # Attach the best method figure (arXiv HTML <figure> extraction). The
+    # per-run cap bounds request volume; candidates include ANY retained
+    # paper still missing an image (not just brand-new ones), so papers that
+    # missed enrichment in an earlier run (e.g. a backfill with figure
+    # budget 0) are picked up on later runs. Image fetch failure is optional
+    # enrichment: the paper stays, the image stays empty, the frontend shows
+    # its fallback — never a pipeline failure.
     figure_budget = int(os.getenv("ARXIV_FIGURE_FETCH_LIMIT", "20"))
+    new_ids = {p.get("paper_id") for p in retained} - existing_ids
     figure_candidates = sorted(
-        (p for p in retained if p.get("paper_id") in new_ids and not p.get("image") and p.get("arxiv_id")),
-        key=lambda p: p.get("relevance_score", 0), reverse=True,
+        (p for p in retained if not p.get("image") and p.get("arxiv_id")),
+        key=lambda p: (p.get("paper_id") in new_ids, p.get("relevance_score", 0)), reverse=True,
     )
+    images_found = 0
+    images_failed = 0
     for paper in figure_candidates[:figure_budget]:
-        figure = fetch_method_figure(paper["arxiv_id"])
+        try:
+            figure = fetch_method_figure(paper["arxiv_id"])
+        except Exception:
+            figure = {}
         if figure.get("url"):
             paper["image"] = figure["url"]
             paper["image_caption"] = figure.get("caption", "")
+            images_found += 1
+        else:
+            images_failed += 1
+    health.images_found = images_found
+    health.images_missing = sum(1 for p in retained if not p.get("image"))
 
     health.records_after_dedupe = len(deduped)
     health.merged_records_before_dedup = len(candidates)

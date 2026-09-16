@@ -61,6 +61,8 @@ class FetchHealth:
     records_after_dedupe: int = 0
     relevant_records: int = 0
     new_records: int = 0
+    images_found: int = 0          # optional enrichment; failure never fails ingestion
+    images_missing: int = 0
     notes: list[str] = field(default_factory=list)
 
     def note(self, message: str) -> None:
@@ -110,6 +112,8 @@ class FetchHealth:
             f"records_stale_metadata (dropped by publication window): {self.records_stale_metadata}",
             f"Relevant records (eligible + score ≥ threshold): {self.relevant_records}",
             f"New papers added: {self.new_records}",
+            f"Images found: {self.images_found}",
+            f"Images missing (dataset-wide): {self.images_missing}",
             f"Status: {self.status()}",
         ] + [f"Note: {n}" for n in self.notes]
 

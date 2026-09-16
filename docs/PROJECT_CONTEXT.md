@@ -79,6 +79,21 @@ Audit history: `docs/DIAGNOSTIC_REPORT_2026-09-15.md`,
 accepted backfill); latest published date 2026-09-14. Daily runs may grow
 this — check `data/papers.json` for the live count.
 
+**Image enrichment** (restored 2026-09-16): Search API and OAI-PMH
+candidates share ONE enrichment path (`pipeline.py` → `fetch_method_figure`,
+arXiv HTML `<figure>` extraction with caption-keyword scoring). Figure
+candidates are ALL retained papers missing an image with an `arxiv_id`
+(new papers first, sorted by relevance), so papers that missed enrichment
+in an earlier run (e.g. a backfill with figure budget 0) are retried on
+later runs within the per-run `ARXIV_FIGURE_FETCH_LIMIT` budget. Images are
+OPTIONAL enrichment: a fetch failure keeps the paper, leaves `image` empty
+(frontend shows its fallback), and never fails Radar ingestion — only the
+`Images found` / `Images missing` counters in the Actions Summary move.
+Figure source is the paper's arXiv HTML version; image URLs are remote
+`arxiv.org` links, NOT locally mirrored (known risk: arXiv URL/layout
+changes could break images site-wide). Coverage snapshot 2026-09-16:
+203/208 = 97.6% — a point-in-time figure, not a permanent property.
+
 ---
 
 ## 0b. V2 Research Workspace (2026-09-13, DEPLOYED)

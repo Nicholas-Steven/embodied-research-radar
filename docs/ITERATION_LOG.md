@@ -6,6 +6,27 @@
 
 ---
 
+## 2026-09-16 — Restore Image Enrichment for OAI-ingested Papers（已发布）
+
+### Root Cause
+- OAI 新论文未持续进入 figure enrichment:上轮回填以 `ARXIV_FIGURE_FETCH_LIMIT=0` 运行,且旧逻辑的 figure 候选仅限当次 `new_ids`——空 `image` 一旦入库,后续运行永不重试,导致 9/11 起新论文覆盖率跌至 0%
+
+### Fix
+- `pipeline.py`:figure 候选改为所有 retained 中缺图且有 `arxiv_id` 的论文(新论文优先、按相关度排序),每轮在 `ARXIV_FIGURE_FETCH_LIMIT` 预算内逐批补齐,历史缺口自动收敛
+- 失败容错:figure 抓取异常被捕获,论文保留、image 为空、前端 fallback;图片失败绝不导致 ingestion 失败
+- `fetch_health.py`:新增 `images_found`/`images_missing` 计数与 Actions Summary 统计行(缺图不为 failure)
+- Search 与 OAI 共用同一 enrichment 路径,未复制任何 image 代码
+
+### Result
+- Before coverage: 181/208 = 87.0%;After: **203/208 = 97.6%**
+- OAI 段(9/11–9/14)coverage: 0% → 16/17
+- Image-only backfill:27 篇检查,恢复 22 篇,仍 fallback 5 篇(arXiv HTML 无可用 figure,属正常)
+- Paper IDs preserved: 100%(208=208,仅 image/image_caption 两字段变化)
+- 重点论文:Bench2Dex/PredTac/Touch2Trace/SlipSense/Constraint-Grounded/Size Doesn't Matter/Online Material 均已恢复;Safe Grasping 保持 fallback(arXiv HTML 无合适 figure)
+
+### Known Risk
+- arXiv images are hotlinked, not locally mirrored — arXiv URL/layout 变化可能导致全站图片失效,待后续专项处理
+
 ## 2026-09-15 — Harden Radar Ingestion and Tune Backfill Filters（已发布）
 
 ### Root Cause
