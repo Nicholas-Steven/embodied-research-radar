@@ -1,11 +1,489 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-16",
+  "generated_at": "2026-09-17",
   "source": "arXiv",
-  "candidate_count": 4848,
-  "retained_count": 214,
+  "candidate_count": 4966,
+  "retained_count": 221,
   "relevance_threshold": 45,
   "papers": [
+    {
+      "arxiv_id": "2609.19137",
+      "paper_id": "arxiv-2609-19137",
+      "title": "Dreaming the Sound of Contact: Leveraging Video and Audio Generation for Zero-Shot Force-Aware Manipulation and Data Generation",
+      "abstract": "Recent advances in video generation allow robots to learn manipulation trajectories from generated videos. However, these approaches produce purely kinematic trajectories that lack force information, causing failures in contact-rich tasks where appropriate contact forces are essential for success. In this work, we explore augmenting generated video with audio to shape a bounded, time-varying desired-force profile using the loudness of generated contact sounds. We present a pipeline that jointly leverages generated video and audio to derive motion trajectories and corresponding desired-force profiles from a structured natural-language task prompt. We execute these force-aware trajectories on a Franka Panda robot using a closed-loop force regulator that tracks the audio-shaped force profile during contact. We evaluate our pipeline on multiple tasks that require making contact and demonstrate successful manipulation where a kinematic-only baseline fails. We also use the pipeline as a data generation engine to train policies that achieve the tasks in a closed-loop manner. Project website, videos, and dataset: https://dreamingcontactsound.github.io/",
+      "authors": [],
+      "published_date": "2026-09-16",
+      "updated_date": "2026-09-17",
+      "oai_datestamp": "2026-09-17",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO",
+        "cs:cs:AI"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.19137",
+      "pdf_url": "https://arxiv.org/pdf/2609.19137",
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出联合利用生成视频和音频来推导运动轨迹和对应期望力轮廓的流水线",
+        "使用音频响度作为力轮廓的塑造信号，实现零样本力感知操作",
+        "在多个接触任务上验证了优于纯运动学基线的方法",
+        "将该流水线作为数据生成引擎，训练闭环策略"
+      ],
+      "research_branches": [],
+      "abstract_zh": "视频生成的最新进展使得机器人能够从生成的视频中学习操作轨迹。然而，这些方法仅产生纯运动学轨迹，缺乏力信息，导致在需要适当接触力才能成功的接触丰富任务中失败。在本工作中，我们探索用音频增强生成的视频，利用生成的接触声音的响度来塑造一个有界的、时变期望力轮廓。我们提出一个流水线，联合利用生成的视频和音频，从结构化自然语言任务提示中推导运动轨迹和对应的期望力轮廓。我们在Franka Panda机器人上使用闭环力调节器执行这些力感知轨迹，该调节器在接触期间跟踪音频形状的力轮廓。我们在多个需要接触的任务上评估我们的流水线，并展示了在纯运动学基线失败的情况下成功操作。我们还使用该流水线作为数据生成引擎，以训练以闭环方式实现任务的策略。项目网站、视频和数据集：https://dreamingcontactsound.github.io/",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.19137v1/pipeline_v3.png",
+      "image_caption": "Fig. 2: Pipeline overview. Given a generated video with synchronized audio, our vision pipeline localizes the object and gripper (MolmoPoint), segments them (SAM 2), and recovers depth and 3D point tracks (TAPIP3D) to detect contacts and estimate force directions. The audio pipeline processes the generated contact sound (SAM-Audio) and maps relative loudness to a bounded desired-force profile. The combined force-aware trajectory is executed on a Franka Panda through a closed-loop force regulator that tracks the desired force via virtual-target displacement on a 1 kHz fixed-stiffness impedance controller.",
+      "summary_one_sentence": "本文提出利用生成视频中的音频响度来塑造期望力轮廓，实现零样本力感知操作和数据生成。",
+      "research_problem": "现有视频生成方法仅提供运动学轨迹，缺乏力信息，导致在接触丰富任务中失败。",
+      "method_summary": "从自然语言提示生成视频和音频，提取音频响度来构建有界时变力轮廓，与运动轨迹结合，在Franka Panda机器人上使用闭环力调节器跟踪力轮廓。",
+      "experimental_setup": "使用Franka Panda机器人，评估多个需要接触的任务，并与纯运动学基线对比，同时作为数据生成引擎训练闭环策略。具体实验数字无法从摘要确认。",
+      "key_results": "在多个接触任务上成功操作，而纯运动学基线失败；作为数据生成引擎训练的策略能闭环完成任务。具体数字无法从摘要确认。",
+      "limitations": "摘要未提及明确局限性，可能需要依赖生成音频的准确性，且力轮廓由音频响度间接塑造，可能不适用于所有任务。具体局限性无法从摘要确认。",
+      "why_it_matters": "该工作首次将音频生成用于力感知操作，弥补视频生成方法缺乏力信息的缺陷，为接触丰富任务提供了零样本解决方案和数据生成新途径。",
+      "relevance_reason": "该论文涉及接触力感知和力控制，与视觉-力觉融合和接触状态估计相关，属于机器人操作与具身智能的前沿工作。",
+      "related_to_my_research": "方法参考：其利用音频生成力轮廓的思路可启发多模态融合（视觉+听觉）进行接触状态估计；作为潜在竞争方法，在零样本力感知操作方面有优势。",
+      "recommended_reading": "相关领域包括视频生成在机器人学习中的应用，基于音频的力估计，以及接触力控制。建议关注其项目网站获取更多细节。",
+      "reproduction_value": "Medium: 方法依赖视频和音频生成模型，且需要机器人平台和力控制，复现有一定复杂度，但提供了项目网站和数据集，有助于复现。",
+      "core_candidate": "Review",
+      "last_checked": "2026-09-17",
+      "relevance_score": 78,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-17T09:04:42.207188+00:00"
+    },
+    {
+      "arxiv_id": "2609.18497",
+      "paper_id": "arxiv-2609-18497",
+      "title": "TAO-Force: Unifying Force-Aware Perception and Fast-Slow Control for Contact-Rich Manipulation",
+      "abstract": "Vision-Language-Action (VLA) models have demonstrated strong performance across diverse robotic manipulation tasks, yet their predominantly vision-centric perception and position-controlled execution remain insufficient for contact-rich manipulation. Visual observations alone often provide limited evidence of contact onset and interaction magnitude, while position-control policies cannot respond compliantly to rapidly changing contact dynamics. To bridge both the perception and control gaps, we propose TAO-Force, a force-conditioned VLA framework that combines force-aware policy learning with contact-regulated execution. For force-aware perception, TAO-Force introduces Force-conditioned Feature-wise Linear Modulation (F-FiLM) to inject encoded force feedback into the representations of a frozen pretrained visual-language backbone while preserving its semantic priors. For responsive control, it employs a contact-gated fast-slow architecture, with a slow position-control branch tracking nominal trajectories during non-contact phases and a fast admittance-control branch regulating physical interaction during contact phases. Detailed analyses on a force-perception task and real-world evaluations across four contact-rich manipulation tasks validate the effectiveness and robustness of TAO-Force.",
+      "authors": [],
+      "published_date": "2026-09-16",
+      "updated_date": "2026-09-17",
+      "oai_datestamp": "2026-09-17",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.18497",
+      "pdf_url": "https://arxiv.org/pdf/2609.18497",
+      "research_topics": [
+        "vision-force",
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出TAO-Force，一种力条件化的VLA框架，结合力感知策略学习和接触调节执行",
+        "引入力条件化的特征级线性调制（F-FiLM）注入力反馈到预训练视觉-语言骨干网络",
+        "设计接触门控的快慢控制架构，结合慢速位置控制和快速导纳控制",
+        "在四个接触丰富操作任务上验证了有效性和鲁棒性"
+      ],
+      "research_branches": [],
+      "abstract_zh": "视觉-语言-动作（VLA）模型在多种机器人操作任务中表现出强大的性能，但其以视觉为中心的感知和位置控制执行对于接触丰富的操作仍显不足。仅凭视觉观察往往难以提供接触起始和交互强度的明确证据，而位置控制策略无法对快速变化的接触动力学做出柔顺响应。为弥合感知和控制两方面的差距，我们提出TAO-Force，一种力条件化的VLA框架，结合了力感知策略学习和接触调节的执行。在力感知方面，TAO-Force引入了力条件化的特征级线性调制（F-FiLM），将编码的力反馈注入冻结的预训练视觉-语言骨干网络的表示中，同时保留其语义先验。在响应控制方面，它采用接触门控的快慢架构，慢速位置控制分支在非接触阶段跟踪标称轨迹，快速导纳控制分支在接触阶段调节物理交互。对力感知任务的详细分析和在四个接触丰富操作任务上的真实世界评估验证了TAO-Force的有效性和鲁棒性。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.18497v1/images/architecture_3.png",
+      "image_caption": "Fig. 2: Overview of TAO-Force. TAO-Force preserves a frozen pretrained visual–language backbone and uses F-FiLM to condition its representations on force feedback, enabling the policy to jointly generate nominal action and desired-force chunks while separately estimating the current contact probability. During execution, the predicted contact probability gates between position-controlled motion in the non-contact phase and compliant force regulation in the contact phase. The contact-gated fast–slow controller coordinates low-frequency policy inference with high-frequency admittance control, enabling smooth transitions and responsive physical regulation for contact-rich manipulation.",
+      "summary_one_sentence": "TAO-Force提出一种力条件化的VLA框架，通过F-FiLM注入力反馈感知和接触门控的快慢控制架构，以提升接触丰富操作的性能。",
+      "research_problem": "视觉-语言-动作模型在接触丰富操作中感知和控制的不足，即视觉感知无法提供接触信息，位置控制无法柔顺响应接触动态。",
+      "method_summary": "TAO-Force采用力条件化VLA框架：在感知端使用F-FiLM将编码的力反馈注入冻结的预训练视觉-语言骨干网络；在控制端采用接触门控的快慢架构，非接触阶段由慢速位置控制跟踪标称轨迹，接触阶段由快速导纳控制调节物理交互。",
+      "experimental_setup": "包括一个力感知任务的详细分析和四个接触丰富操作任务的真实世界评估，具体实验平台和任务细节无法从摘要确认。",
+      "key_results": "TAO-Force在力感知任务和四个接触丰富操作任务上验证了有效性和鲁棒性，但具体量化结果无法从摘要确认。",
+      "limitations": "摘要未明确提及局限性，但可推断依赖力传感器和预训练骨干网络，具体限制无法从摘要确认。",
+      "why_it_matters": "该工作填补了VLA模型在接触丰富操作中力感知和力控制方面的空白，将力反馈整合进视觉-语言模型，并采用导纳控制实现柔顺交互，对机器人操作和具身智能具有重要意义。",
+      "relevance_reason": "论文聚焦于力觉感知与力控制的融合，直接涉及接触状态估计和接触丰富操作，是机器人操作与具身智能领域的前沿工作，可作为方法参考或基线对比。",
+      "related_to_my_research": "该论文与视觉-力觉融合、接触状态估计和机器人操作研究高度相关，其F-FiLM力注入方法和接触门控快慢控制架构可作为方法参考，其力感知任务分析可作为背景文献。",
+      "recommended_reading": "建议阅读关于视觉-语言-动作模型、力觉感知、导纳控制、可控性柔顺操作的相关文献，以及F-FiLM机制和快慢控制架构的细节。",
+      "reproduction_value": "Medium: 方法描述较为清晰，但需要力传感器数据和预训练视觉-语言骨干网络，复现难度中等，具体实验设置需参考论文正文。",
+      "core_candidate": "Review",
+      "last_checked": "2026-09-17",
+      "relevance_score": 75,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-17T09:04:51.260432+00:00"
+    },
+    {
+      "arxiv_id": "2609.18242",
+      "paper_id": "arxiv-2609-18242",
+      "title": "ForceDelta-VLA: Distilling Force-Conditioned ActionCorrections for Contact-Rich Manipulation",
+      "abstract": "Force-aware Vision-Language-Action (VLA) policies improve contact-rich manipulation, but typically combine task-level motion and contact-dependent adjustment in a single action prediction. Demonstrations provide no explicit labels for decomposing that prediction into a reusable reference action and a correction. We present ForceDelta-VLA, a correction-distillation framework that constructs an explicit force-correction target using paired predictions from a frozen teacher's force-conditioned and learned force-agnostic modes. A separate delay-correction target accounts for reference-action mismatch and the change in reference state. Training uses asynchronous schedule replay with the cached task context available during execution. The resulting lightweight policy adjusts the reference actions using recent force history and robot state, responding to contact changes between reference-action updates without regenerating complete action chunks. Across nine single-arm and bimanual contact-rich tasks, ForceDelta-VLA achieves an 82.2% mean success rate, compared with 54.4% for the original ForceVLA baseline. Direct execution of our Stage-1 Temporal Teacher achieves 70.6%. Relative to ForceVLA, the complete system reduces mean peak contact force over successful trials by approximately 26% on both platforms.",
+      "authors": [],
+      "published_date": "2026-09-16",
+      "updated_date": "2026-09-17",
+      "oai_datestamp": "2026-09-17",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.18242",
+      "pdf_url": "https://arxiv.org/pdf/2609.18242",
+      "research_topics": [
+        "vision-force",
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出修正蒸馏框架，利用冻结教师的力条件和无力感知模式构建显式力修正目标",
+        "引入延迟修正目标以解决参考动作不匹配和参考状态变化问题",
+        "设计异步调度回放训练策略，利用缓存任务上下文",
+        "实现轻量策略，基于最近力历史和机器人状态调整参考动作，无需重新生成完整动作块"
+      ],
+      "research_branches": [],
+      "abstract_zh": "力感知的视觉-语言-行动（VLA）策略改善了接触丰富的操作，但通常将任务级运动和接触相关的调整合并为单一的动作预测。演示数据没有提供显式标签来将该预测分解为可复用的参考动作和修正。我们提出了ForceDelta-VLA，一种修正蒸馏框架，利用冻结教师模型的力条件模式和学习的无力感知模式的成对预测，构建显式的力修正目标。额外的延迟修正目标考虑参考动作不匹配和参考状态的变化。训练采用异步调度回放，在执行期间缓存任务上下文。生成的轻量策略利用最近力历史和机器人状态调整参考动作，在参考动作更新之间响应接触变化，无需重新生成完整动作块。在九个单臂和双臂接触丰富任务中，ForceDelta-VLA实现了82.2%的平均成功率，而原始ForceVLA基线为54.4%。我们第一阶段时间教师的直接执行为70.6%。相对于ForceVLA，完整系统在两个平台上将成功试验的平均峰值接触力降低了约26%。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.18242v1/fig02_architecture.png",
+      "image_caption": "Fig. 2: Correction distillation (training stage 3). (a) Paired predictions from the frozen teacher share context, proprioception, and sampling noise. The pose difference between the force-conditioned and force-agnostic predictions defines the force target. The delay target compares the current force-agnostic prediction with the stored reference and includes reference-state alignment. (b) Two evaluations of Φ \\Phi share weights and the learned query q corr q_{\\mathrm{corr}} ; only the delay evaluation masks the force token. Separate heads predict the two corrections, supervised by the teacher-defined targets.",
+      "summary_one_sentence": "ForceDelta-VLA提出了一种修正蒸馏框架，通过解耦参考动作和力修正，显著提高了接触丰富操作的成功率并降低了接触力。",
+      "research_problem": "在接触丰富的操作中，如何将力感知的VLA策略中的动作预测分解为可复用的参考动作和与接触相关的修正，并利用力反馈进行高效调整。",
+      "method_summary": "ForceDelta-VLA使用冻结教师的力条件和无力感知模式进行成对预测，蒸馏出力修正目标；训练采用异步调度回放，执行时利用缓存上下文；策略根据力历史和状态调整参考动作。",
+      "experimental_setup": "在九个单臂和双臂接触丰富任务上评估，对比ForceVLA基线和第一阶段时间教师。",
+      "key_results": "ForceDelta-VLA平均成功率82.2%，基线54.4%，第一阶段时间教师70.6%；平均峰值接触力降低约26%。",
+      "limitations": "无法从摘要确认。",
+      "why_it_matters": "该工作为力感知VLA策略提供了有效的修正蒸馏方法，显著提升接触丰富操作性能，并降低接触力，对机器人操作和具身智能研究有重要价值。",
+      "relevance_reason": "论文直接涉及力感知的VLA策略和接触丰富操作，与视觉-力觉融合和接触状态估计紧密相关。",
+      "related_to_my_research": "本文是潜在竞争方法或方法参考，为接触丰富操作中的力反馈集成和动作修正提供新思路，可作为背景文献或对比基线。",
+      "recommended_reading": "可阅读关于VLA策略、力感知控制、接触丰富操作和蒸馏方法的文献。",
+      "reproduction_value": "Medium - 摘要提供了核心方法和结果，但复现需详细架构细节和数据集，未给出代码或完整实验配置。",
+      "core_candidate": "Review",
+      "last_checked": "2026-09-17",
+      "relevance_score": 64,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-17T09:04:59.525353+00:00"
+    },
+    {
+      "arxiv_id": "2607.02840",
+      "paper_id": "arxiv-2607-02840",
+      "title": "TACO: TActile World Model as a Self-COrrector for Scalable Robot Policy Post-Training",
+      "abstract": "Vision-Language-Action models and World Action Models have shown promising generalization in robotic manipulation but remain fragile in contact-rich tasks, where contact perturbations can cause failures that are difficult to detect from vision alone. Corrective post-training with tactile feedback can improve recovery, but scaling such supervision through human intervention is costly. World models can synthesize additional training data, yet vision-only generation may produce visually plausible but contact-inconsistent trajectories. We therefore introduce TACO, a scalable robot policy post-training framework built on a compositional tactile world model. Given real rollouts, TACO follows a Recognize--Imagine--Label loop: an inverse dynamics and value model identifies failure-adjacent states using progress estimates, a visuo-tactile generation model imagines local corrections by jointly generating video and tactile sequences, and the inverse dynamics and value model labels them with corrective actions and progress scores. Candidates are filtered for kinematic feasibility and tactile plausibility, then selected by predicted progress gain. TACO aggregates demonstrations, real rollouts, and selected corrections for iterative post-training. It combines knowledge-insulated tactile adaptation with CFG-RL using binary advantage labels while keeping the pretrained VLM backbone fixed. Experiments on real-world tasks show that TACO improves the average task score from 0.375 to 0.825 after two post-training iterations.",
+      "authors": [],
+      "published_date": "2026-09-16",
+      "updated_date": "2026-09-17",
+      "oai_datestamp": "2026-09-17",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2607.02840",
+      "pdf_url": "https://arxiv.org/pdf/2607.02840",
+      "research_topics": [
+        "vision-force",
+        "failure-recovery",
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出 TACO 框架，一种基于组合触觉世界模型的可扩展机器人策略后训练方法",
+        "设计 Recognize--Imagine--Label 循环，利用逆动力学和值模型识别失败状态，视觉-触觉生成模型想象局部纠正，并自动标记纠正动作",
+        "引入知识隔离的触觉适应与 CFG-RL 训练策略，保持预训练 VLM 骨干固定，仅调整触觉相关部分",
+        "在真实世界任务上验证，平均任务分数从 0.375 提升至 0.825"
+      ],
+      "research_branches": [],
+      "abstract_zh": "视觉-语言-动作模型和世界动作模型在机器人操作中显示出良好的泛化能力，但在接触丰富的任务中仍然脆弱，接触扰动可能导致仅从视觉难以检测的失败。通过触觉反馈进行纠正性后训练可以改善恢复，但通过人工干预扩展这种监督成本高昂。世界模型可以合成额外的训练数据，但仅视觉生成可能产生视觉上合理但接触不一致的轨迹。因此，我们引入了TACO，一个基于组合触觉世界模型的可扩展机器人策略后训练框架。给定真实 rollout，TACO遵循“识别-想象-标记”循环：逆动力学和值模型通过进度估计识别接近失败的状态，视觉-触觉生成模型通过联合生成视频和触觉序列来想象局部纠正，逆动力学和值模型用纠正动作和进度分数标记它们。候选被筛选以符合运动学可行性和触觉合理性，然后根据预测的进度增益选择。TACO聚合演示、真实 rollout 和选定的纠正进行迭代后训练。它结合了知识隔离的触觉适应与使用二元优势标签的 CFG-RL，同时保持预训练的 VLM 骨干固定。真实世界任务的实验表明，TACO 在两次后训练迭代后将平均任务分数从 0.375 提高到 0.825。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2607.02840v2/methods_02.png",
+      "image_caption": "Fig. 1 : Overview of TACO. TACO uses a compositional tactile world model to turn real rollout failures into local visuo-tactile corrections for scalable robot policy post-training. Across six contact-rich real-world tasks, it improves average task score (TS) from 0.375 to 0.825 after two post-training iterations.",
+      "summary_one_sentence": "TACO 提出了一种基于组合触觉世界模型的可扩展机器人策略后训练框架，通过识别-想象-标记循环生成触觉一致的纠正轨迹，显著提升接触丰富任务的成功率。",
+      "research_problem": "接触丰富任务中，视觉-语言-动作模型和世界动作模型容易因接触扰动而失败，且仅依赖视觉难以检测和纠正这些失败，人工提供触觉反馈监督成本高昂。",
+      "method_summary": "TACO 采用组合触觉世界模型，流程包括：1) 逆动力学和值模型估计进度，识别接近失败的状态；2) 视觉-触觉生成模型联合生成视频和触觉序列，想象局部纠正；3) 逆动力学和值模型为纠正轨迹标记动作和进度分数；4) 筛选运动学可行且触觉合理的候选，并选择预测进度增益最大的纠正；5) 聚合演示、真实 rollout 和纠正数据进行迭代后训练，使用 CFG-RL 和二元优势标签，固定 VLM 骨干。",
+      "experimental_setup": "实验在真实世界任务上进行，进行两次后训练迭代，评估平均任务分数。具体任务和硬件细节无法从摘要确认。",
+      "key_results": "TACO 在两次后训练迭代后将平均任务分数从 0.375 提高到 0.825。",
+      "limitations": "摘要未提及明确的局限性，仅提到扩展触觉反馈监督成本高昂，但 TACO 旨在解决该问题。其他限制无法从摘要确认。",
+      "why_it_matters": "该工作首次将触觉世界模型用于策略后训练，通过生成触觉一致的纠正轨迹，解决了接触丰富任务中视觉信息不足的问题，为可扩展的触觉反馈利用提供了新思路。",
+      "relevance_reason": "该论文直接针对机器人操作中的接触丰富问题，提出融合视觉和触觉的世界模型，与视觉-力觉融合和接触状态估计高度相关，且方法可视为触觉反馈用于策略后训练的基线或参考。",
+      "related_to_my_research": "方法参考：该框架结合视觉-触觉生成模型和逆动力学模型，可作为接触状态估计和触觉反馈策略的参考；背景文献：提供触觉世界模型在机器人操作中的应用背景；潜在竞争：其目标与接触状态估计相关，可能提供竞争性或互补性方法。",
+      "recommended_reading": "建议阅读关于世界模型、视觉-语言-动作模型、触觉感知、以及接触丰富操作的相关文献。",
+      "reproduction_value": "Medium：方法描述较为详细，但具体实现细节（如模型架构、训练参数、数据集）未完全公开，复现需要进一步参考代码或补充材料。",
+      "core_candidate": "Review",
+      "last_checked": "2026-09-17",
+      "relevance_score": 62,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-17T09:05:11.216636+00:00"
+    },
+    {
+      "arxiv_id": "2609.18174",
+      "paper_id": "arxiv-2609-18174",
+      "title": "TacBPM: A Tactile-conditioned Behavior Prior Model for Dexterous Reorientation",
+      "abstract": "Dexterous in-hand manipulation requires policies that coordinate high-DoF hand joints through intermittent, contact-rich interaction. Beyond target-orientation tracking, such policies must discover finger gaits that preserve object stability while adapting to geometry, anisotropy, pose, contact, and sensing changes. We propose \\method, a tactile-conditioned behavior prior model for dexterous reorientation. \\method distills multi-scale sphere specialists into a latent controller and lets downstream policies reuse the fixed tactile prior through residual latent actions, reducing renewed exploration from raw joint commands. The prior conditions on tactile-proprioceptive history so latent behavior reflects the current hand-object interaction. We evaluate arbitrary-pose transfer across anisotropic objects, commanded-axis rotation, and an arm-hand Grasp-to-AnyPose task in which the robot must grasp, lift, transport, and reach goal poses for novel tool geometries and generalized placements. Extensive experiments demonstrate that the proposed method accelerates training and enables stable policies where matched raw-action PPO remains near failure, with successful sim-to-real transfer in in-hand and arm-hand tasks.",
+      "authors": [],
+      "published_date": "2026-09-16",
+      "updated_date": "2026-09-17",
+      "oai_datestamp": "2026-09-17",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.18174",
+      "pdf_url": "https://arxiv.org/pdf/2609.18174",
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出TacBPM，一种触觉条件的行为先验模型，将多尺度球体专家蒸馏为潜在控制器",
+        "让下游策略通过残差潜在动作重用固定触觉先验，减少从原始关节命令的重新探索",
+        "在任意姿态迁移、指定轴旋转和手臂-手抓取到任意姿态任务中验证方法，并完成模拟到现实迁移"
+      ],
+      "research_branches": [],
+      "abstract_zh": "灵巧手内操作需要策略通过间歇性、接触丰富的交互来协调高自由度手部关节。除了目标姿态跟踪，这类策略还必须发现手指步态，在适应几何、各向异性、姿态、接触和传感变化的同时保持物体稳定性。我们提出TacBPM，一种用于灵巧重定向的触觉条件行为先验模型。TacBPM将多尺度球体专家蒸馏为潜在控制器，并让下游策略通过残差潜在动作重用固定的触觉先验，减少从原始关节命令重新探索的需求。该先验以触觉-本体感受历史为条件，使潜在行为反映当前手-物交互。我们评估了跨各向异性物体的任意姿态迁移、指定轴旋转，以及手臂-手抓取到任意姿态任务，其中机器人必须为新型工具几何形状和广义放置抓取、提升、运输并达到目标姿态。大量实验表明，所提方法加速了训练，并在匹配的原始动作PPO接近失败的情况下实现了稳定策略，在手中和手臂-手任务中成功实现模拟到现实迁移。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.18174v1/pipelinev3.png",
+      "image_caption": "Fig. 1: Overview of TacBPM. The pipeline distills specialist behavior into a tactile-conditioned latent controller, then applies a prior-centered residual-latent interface to the corresponding downstream tasks.",
+      "summary_one_sentence": "TacBPM提出一种以触觉条件的行为先验模型，通过蒸馏多尺度球体专家为潜在控制器，使下游策略利用残差潜在动作加速灵巧重定向训练并实现稳定的仿真到现实迁移。",
+      "research_problem": "灵巧手内重定向需要策略在接触丰富的交互中协调高自由度手指，同时发现适应几何、各向异性、姿态、接触和传感变化的手指步态，而直接基于原始关节命令的强化学习训练缓慢且容易失败。",
+      "method_summary": "TacBPM通过蒸馏多尺度球体专家（sphere specialists）到一个潜在控制器，形成固定行为先验。先验以触觉-本体感受历史为条件，输出潜在行为。下游策略在原始动作基础上叠加残差潜在动作，从而复用先验知识，避免从零探索。",
+      "experimental_setup": "评估任务包括跨各向异性物体的任意姿态迁移、指定轴旋转，以及手臂-手抓取到任意姿态任务（涉及新型工具几何和广义放置）。对比基线为匹配的原始动作PPO，并测试模拟到现实迁移。",
+      "key_results": "TacBPM加速了训练，并在匹配原始动作PPO接近失败的情况下实现了稳定策略，且在手中和手臂-手任务中成功实现模拟到现实迁移。",
+      "limitations": "无法从摘要确认具体局限性，但摘要未提及失败案例或约束条件。",
+      "why_it_matters": "该工作展示了触觉条件先验在灵巧操作中的有效性，通过潜在控制器复用行为知识，显著降低高自由度操作策略的训练难度，并支持仿真到现实迁移，对机器人具身智能研究有重要参考价值。",
+      "relevance_reason": "该论文直接面向机器人操作中的触觉感知与接触状态估计，其触觉条件先验模型与灵巧手操作策略紧密相关，属于机器人操作和具身智能的前沿方法。",
+      "related_to_my_research": "方法参考：本文的触觉条件先验和残差潜在动作机制可作为视觉-力觉融合与接触状态估计的参照，尤其适合用于灵巧操作策略的加速和稳定化。",
+      "recommended_reading": "建议阅读关于灵巧操作、触觉感知、行为先验和强化学习加速的相关文献，特别是涉及潜在动作空间和触觉反馈建模的研究。",
+      "reproduction_value": "Medium - 摘要提供了清晰的方法框架和实验任务，但缺乏具体网络结构、超参数和公开代码，复现需要较多工程细节。",
+      "core_candidate": "No",
+      "last_checked": "2026-09-17",
+      "relevance_score": 59,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-17T09:05:23.613048+00:00"
+    },
+    {
+      "arxiv_id": "2607.19190",
+      "paper_id": "arxiv-2607-19190",
+      "title": "Agentic Real2Sim: Physics-based World Modeling with Vision-Language Agents",
+      "abstract": "Real-to-sim conversion for robotic interaction with objects remains labor-intensive because it requires more than visual reconstruction: a streamlined real2sim process must recover scene geometries and object states, infer physical parameters, and assemble actors, objects, cameras, poses, and trajectories into a runnable physical simulation. Today this process still depends on brittle workflow glue across visual perception tools and simulators: manual tuning of visual foundation models, mesh cleanup, coordinate frame alignments, etc. We introduce \\textit{Agentic Real2Sim}, a framework for generalized physical world modeling with vision-language agents that converts a real-world recording of object-robot interaction into a simulatable episodic twin, and connects the resulting twin to downstream policy fine-tuning and evaluation. We evaluate Agentic Real2Sim on rigid-object manipulation, deformable-object interaction, and humanoid motion scenes, spanning domains that are usually handled by separate Real2Sim pipelines. The framework's agentic decisions can be driven by an open-weight VLM backend at a small fraction of the cost of frontier models, while attaining a comparable conversion success rate. The framework further supports custom scene conversion, fine-tuning of a pretrained policy with data generated from converted episodes, and works effectively as a surrogate for real-world policy evaluation. The project site, including code is available at https://agentic-real2sim.github.io.",
+      "authors": [],
+      "published_date": "2026-09-16",
+      "updated_date": "2026-09-17",
+      "oai_datestamp": "2026-09-17",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO",
+        "cs:cs:AI"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2607.19190",
+      "pdf_url": "https://arxiv.org/pdf/2607.19190",
+      "research_topics": [
+        "core-papers"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出Agentic Real2Sim框架，使用视觉语言代理实现通用物理世界建模，将真实物体-机器人交互记录转换为可模拟的片段孪生体。",
+        "该框架适用于刚体操作、可变形物体交互和人形运动等多种领域，统一了通常由单独流程处理的场景。",
+        "支持开放权重VLM后端，以较低成本实现与前沿模型相当的转换成功率，并具备可扩展性。",
+        "框架支持自定义场景转换、预训练策略微调，并能作为真实世界策略评估的替代方案。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "用于机器人交互的物体真实到仿真（real2sim）转换仍然非常耗时，因为它不仅需要视觉重建：一个精简的real2sim流程必须恢复场景几何和物体状态，推断物理参数，并将参与者、物体、相机、姿态和轨迹组装成一个可运行的物理仿真。如今，这一过程仍然依赖于跨视觉感知工具和模拟器的脆弱工作流粘合：手动调整视觉基础模型、网格清理、坐标系对齐等。我们提出了Agentic Real2Sim，一个基于视觉语言代理的通用物理世界建模框架，它可以将真实世界中的物体-机器人交互记录转换为一个可模拟的片段孪生体，并将结果孪生体连接到下游策略微调和评估。我们在刚体操作、可变形物体交互和人形运动场景上评估了Agentic Real2Sim，涵盖了通常由单独Real2Sim流程处理的领域。该框架的代理决策可以由一个开放权重的VLM后端驱动，其成本仅为前沿模型的一小部分，同时达到相当的转换成功率。该框架还支持自定义场景转换，利用转换片段生成的数据对预训练策略进行微调，并可作为真实世界策略评估的有效替代。项目网站包括代码可在https://agentic-real2sim.github.io获取。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2607.19190v4/figures/compressed/fig_2_new.jpg",
+      "image_caption": "\\fnum@figure : DROID episode conversion at scale. Three representative episodes from DROID-500 , each pairing the episode’s real-world observation with its synthetic twin. Intermediate pipeline artifacts are exposed for selected scenes: object segmentation and FoundationPose pose-tracking overlays.",
+      "summary_one_sentence": "本文提出Agentic Real2Sim框架，利用视觉语言代理将真实世界的机器人交互记录自动转换为可运行的物理仿真，并支持下游策略微调与评估。",
+      "research_problem": "传统的真实到仿真（real2sim）转换过程耗时且依赖人工干预，需要恢复场景几何、物体状态、物理参数并组装成可运行的物理仿真，但现有流程缺乏通用性和自动化。",
+      "method_summary": "Agentic Real2Sim利用视觉语言代理（VLM）作为决策核心，自动执行场景几何恢复、物体状态推断、物理参数估计，并将参与者、物体、相机、姿态和轨迹组装为可运行的物理仿真，同时连接下游策略微调和评估。",
+      "experimental_setup": "无法从摘要确认：摘要未提供具体实验设置细节，仅在刚体操作、可变形物体交互和人形运动场景上进行评估，并提及与前沿模型比较成本及转换成功率。",
+      "key_results": "框架使用开放权重VLM后端时，成本仅为前沿模型的一小部分，同时达到相当的转换成功率；支持预训练策略微调，并可作为真实世界策略评估的有效替代。",
+      "limitations": "无法从摘要确认：摘要未明确提及局限性。",
+      "why_it_matters": "该工作自动化了真实到仿真转换流程，减少了人工干预，使机器人策略训练与评估更高效，且成本可控，对具身智能和机器人操作研究具有重要意义。",
+      "relevance_reason": "该论文涉及物理世界建模、机器人操作仿真和策略评估，与视觉-力觉融合和接触状态估计相关，可作为机器人操作和具身智能研究的背景文献，尤其在仿真环境构建方面。",
+      "related_to_my_research": "方法参考：该框架的自动化仿真流程可应用于机器人操作中接触状态估计的仿真数据生成，但未涉及力觉信息，可作为背景文献或潜在竞争。",
+      "recommended_reading": "建议阅读与视觉语言模型、机器人操作仿真、自动物理参数估计以及策略微调相关的背景文献。",
+      "reproduction_value": "Medium：摘要提供了框架概念和代码链接，但未给出详细实验配置和量化结果，复现需要依赖公开代码并补充实验细节。",
+      "core_candidate": "No",
+      "last_checked": "2026-09-17",
+      "relevance_score": 45,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-17T09:07:10.503433+00:00"
+    },
+    {
+      "arxiv_id": "2609.19119",
+      "paper_id": "arxiv-2609-19119",
+      "title": "Track, Articulate, Act: Generating Articulation from Casual Human Videos",
+      "abstract": "Human videos contain rich causal evidence for robot manipulation: they reveal how hand motion induces object motion and produces task-relevant changes in object state. In this work, we study articulated objects such as doors, drawers, cabinets, laptops, ovens, and hinged containers that are ubiquitous in daily life and present unique challenges for embodied interaction. These objects cannot be represented by a single pose; their motion depends on the underlying parts and joints. We introduce a real-to-sim framework that reconstructs a simulation-ready articulated object and hand-object interaction from a casual monocular RGB video, without RGB-D or multi-view input, prior scans, manually specified joints, or robot demonstrations. Our key insight is that dense 3D point tracks provide an embodiment-agnostic articulation cue: points on the fixed link remain approximately stationary, while points on the moving link follow coherent revolute or prismatic motion. Our method segments the links, estimates the joint and its state trajectory, reconstructs an articulated asset, and aligns the recovered 3D hand motion with the object. Central to our approach is a modular recipe that repurposes powerful pretrained models for single-image 3D reconstruction, mesh segmentation, and 3D scene flow, connecting their predictions through explicit geometric reasoning to infer articulation. We use the reconstructed articulated object and the human hand trajectory to replay interactions through contact in MuJoCo. The framework shows how pretrained vision models and explicit motion reasoning can turn casual human videos into articulated object models suitable for downstream embodied interactions. https://track-articulate-act.github.io/",
+      "authors": [],
+      "published_date": "2026-09-16",
+      "updated_date": "2026-09-17",
+      "oai_datestamp": "2026-09-17",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.CV"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.CV"
+      ],
+      "oai_set_specs": [
+        "cs:cs:CV"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.19119",
+      "pdf_url": "https://arxiv.org/pdf/2609.19119",
+      "research_topics": [
+        "core-papers"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出从单目RGB视频重建铰接物体和手-物体交互的真实到仿真框架，无需RGB-D、多视图、预扫描或手动关节指定。",
+        "利用稠密3D点轨迹作为铰接线索，通过几何推理分割连杆、估计关节和状态轨迹。",
+        "模块化流程结合预训练模型（单图像3D重建、网格分割、3D场景流）进行显式几何推理，重建仿真就绪的铰接资产。",
+        "在MuJoCo中通过接触重放交互，验证了重建模型可支持下游具身交互任务。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "人类视频包含了丰富的机器人操作因果证据：它们揭示了手部运动如何引发物体运动，并产生与任务相关的物体状态变化。在这项工作中，我们研究了日常生活中普遍存在的铰接物体，如门、抽屉、柜子、笔记本电脑、烤箱和铰接容器，这些物体对具身交互提出了独特的挑战。这些物体不能用单一姿态表示；它们的运动取决于底层部件和关节。我们提出了一个真实到仿真（real-to-sim）框架，从随意的单目RGB视频中重建一个可供仿真使用的铰接物体和手-物体交互，无需RGB-D或多视角输入、预先扫描、手动指定关节或机器人演示。我们的关键洞察是，稠密3D点轨迹提供了一种与具身无关的铰接线索：固定连杆上的点近似保持静止，而移动连杆上的点遵循一致的旋转或平移运动。我们的方法分割连杆，估计关节及其状态轨迹，重建铰接资源，并将恢复的3D手部运动与物体对齐。我们方法的核心是一个模块化配方，它重新利用强大的预训练模型进行单图像3D重建、网格分割和3D场景流，通过显式几何推理连接它们的预测来推断铰接。我们使用重建的铰接物体和人类手部轨迹，在MuJoCo中通过接触重放交互。该框架展示了预训练视觉模型和显式运动推理如何将随意的人类视频转化为适合下游具身交互的铰接物体模型。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.19119v1/teaser.png",
+      "image_caption": "Figure 1 : Overview . Starting from only a casual RGB human video, our method extracts motion cues, predicts articulation, constructs an approximate simulation-ready articulated object model, and replays the recovered hand-object interaction in a physics simulator. Results show that our framework is able to infer articulation for different types of joints including revolute and prismatic across diverse real-world objects.",
+      "summary_one_sentence": "本文提出一个真实到仿真框架，利用预训练视觉模型从单目RGB视频中重建铰接物体和手-物体交互，无需额外传感器或手动指定。",
+      "research_problem": "如何从随意的人类单目RGB视频中重建铰接物体及其关节运动，并产生适合机器人操作的仿真模型。",
+      "method_summary": "从单目RGB视频提取稠密3D点轨迹，利用固定和移动连杆的运动差异进行链路分割，估计旋转或平移关节的类型和状态轨迹，结合预训练模型进行单图像3D重建、网格分割和3D场景流，通过几何推理重建铰接物体，并恢复手部轨迹，最终在MuJoCo中重放接触交互。",
+      "experimental_setup": "摘要未提供具体实验设置，但提到使用MuJoCo进行接触重放，输入为casual monocular RGB视频，无RGB-D或多视图。具体数据集和定量指标无法从摘要确认。",
+      "key_results": "摘要未提供具体实验结果数字，但声称框架能高效重建铰接物体并支持下游具身交互，没有给出量化性能。",
+      "limitations": "无法从摘要确认（具体局限性未提及，例如对视频质量、物体类型、遮挡等的限制）。",
+      "why_it_matters": "该工作将预训练视觉模型与显式几何推理结合，从日常人类视频中自动生成铰接物体仿真模型，降低了获取机器人训练数据成本，为具身智能提供可交互的仿真资产。",
+      "relevance_reason": "论文直接涉及机器人操作中的铰接物体建模和手-物交互，与视觉-力觉融合、接触状态估计相关，其重建结果可用于操作规划和仿真，属于具身智能领域的前沿研究。",
+      "related_to_my_research": "方法参考：其利用视觉信息推断物体关节和状态轨迹，可作为接触状态估计或操作规划的输入；背景文献：提供了从视觉到仿真模型的转换思路，可能用于我的视觉-力觉融合研究中的物体建模部分；潜在竞争：若我的研究涉及铰接物体操作，该框架可能提供替代方案。",
+      "recommended_reading": "建议阅读原文及项目网站（https://track-articulate-act.github.io/），以及关于铰接物体重建、手部运动估计、真实到仿真迁移的近期工作。",
+      "reproduction_value": "Medium: 方法依赖多个预训练模型和仔细的几何推理，复现需要整合这些组件，且未提供完整实验细节和代码，但模块化设计有助于部分复现。",
+      "core_candidate": "No",
+      "last_checked": "2026-09-17",
+      "relevance_score": 45,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-17T09:07:23.919111+00:00"
+    },
     {
       "arxiv_id": "2609.16504",
       "paper_id": "arxiv-2609-16504",
@@ -71,7 +549,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-16T09:03:48.590581+00:00"
+      "ai_generated_at": "2026-09-16T09:03:48.590581+00:00",
+      "image_caption_zh": "UniDex-ViTac系统概览。(1) 标注人类视频提供人-物交互参考（绿色）。(2) 面向物体的残差强化学习专家在仿真中调整这些参考，生成机器人动作-接触演示（蓝色）。(3) 汇集演示训练单一基于ACT的视触觉通用模型（粉色）。部署时，通用模型仅使用点云、本体感觉和四个接触位，不依赖人类参考或特权的物体身份与姿态信息。"
     },
     {
       "arxiv_id": "2609.16518",
@@ -140,7 +619,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-16T09:04:04.873168+00:00"
+      "ai_generated_at": "2026-09-16T09:04:04.873168+00:00",
+      "image_caption_zh": "端到端系统实时运行的五帧画面。用户佩戴装有四组压力传感器阵列的腕带，身后显示器自下而上依次展示原始腕带压力热图、预测的触觉手套压力图，以及由每用户模型中20个手指角度和3个手腕角度渲染出的3D手部姿态。"
     },
     {
       "arxiv_id": "2609.16586",
@@ -209,7 +689,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-16T09:04:19.858143+00:00"
+      "ai_generated_at": "2026-09-16T09:04:19.858143+00:00",
+      "image_caption_zh": "策略推断流水线概览，带有动力学一致性引导。"
     },
     {
       "arxiv_id": "2609.15726",
@@ -489,7 +970,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-16T09:06:10.177002+00:00"
+      "ai_generated_at": "2026-09-16T09:06:10.177002+00:00",
+      "image_caption_zh": "XRoboToolkit-T遥操作系统的总览。该框架集成了触觉稳定器和触觉优化器以辅助遥操作，提升稳定性，并为接触密集的操作任务实现可靠的数据采集。"
     },
     {
       "arxiv_id": "2604.23696",
@@ -561,7 +1043,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-16T09:07:20.676579+00:00"
+      "ai_generated_at": "2026-09-16T09:07:20.676579+00:00",
+      "image_caption_zh": "力模型参数估计。左侧为𝒇^B，右侧为𝒇_0^S，经过242次测量后收敛。"
     },
     {
       "arxiv_id": "2609.15910",
@@ -1321,7 +1804,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-16T09:13:23.048863+00:00"
+      "ai_generated_at": "2026-09-16T09:13:23.048863+00:00",
+      "image_caption_zh": "Bi-MoDe总览。约束潜变量𝒛_c作为token附加到Transformer编码器输入，并通过adaLN-Zero调制动作解码器的每一层。"
     },
     {
       "arxiv_id": "2609.12634",
