@@ -1,11 +1,562 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-17",
+  "generated_at": "2026-09-18",
   "source": "arXiv",
-  "candidate_count": 4966,
-  "retained_count": 221,
+  "candidate_count": 5088,
+  "retained_count": 229,
   "relevance_threshold": 45,
   "papers": [
+    {
+      "arxiv_id": "2609.20649",
+      "paper_id": "arxiv-2609-20649",
+      "title": "DexTouch-WM: Learning Action-Conditioned Tactile World Models from Human Touch for Dexterous Robot Manipulation",
+      "abstract": "Learning predictive models of contact-rich dexterous manipulation requires dense tactile interaction, but such data are costly to scale on real robots and remain tied to embodiment-specific sensors. We introduce DexTouch-WM, an action-conditioned world model that learns from scalable human touch to jointly predict future RGB observations and bilateral tactile dynamics. Our insight is that human and robot manipulation share transferable contact dynamics when their tactile observations and action spaces are made compatible. We deploy flexible piezoresistive arrays with a shared sensing layout on both human and dexterous robot hands, and retarget human motion into the robot action space so that human interaction can supervise the same dynamics model used for real-robot prediction. DexTouch-WM couples a pretrained video expert with a lightweight tactile expert using anatomy-aware tactile tokens and aligned action conditioning. In human-to-robot scaling experiments, we keep five hours of real-robot supervision fixed while increasing human interaction from 0 to 100 hours, and observe substantial improvements in held-out robot-domain visual, geometric, and contact prediction despite disjoint human and robot task sets. Beyond prediction, we evaluate the world models as surrogate environments for policy evaluation and as generators of synthetic trajectories for real-robot policy learning, showing that scalable human interaction provides a complementary data axis for learning dexterous robot world models.",
+      "authors": [],
+      "published_date": "2026-09-17",
+      "updated_date": "2026-09-18",
+      "oai_datestamp": "2026-09-18",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO",
+        "cs:cs:CV"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.20649",
+      "pdf_url": "https://arxiv.org/pdf/2609.20649",
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出DexTouch-WM，一种动作条件化世界模型，联合预测未来RGB观测与双侧触觉动力学，利用人类触觉数据作为可扩展训练源。",
+        "设计共享传感布局的柔性压阻阵列，部署在人类与机器人手上，使人类与机器人的触觉观测兼容，并通过动作重定向实现动力学模型迁移。",
+        "在固定5小时真实机器人监督下，增加人类交互数据（0至100小时）显著提升保留机器人域的视觉、几何和接触预测精度。",
+        "将世界模型用作替代环境进行策略评估，并生成合成轨迹用于真实机器人策略学习，验证人类交互作为补充数据轴的价值。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "学习接触丰富的灵巧操作预测模型需要密集的触觉交互，但此类数据在真实机器人上规模化成本高昂，且受限于特定实施例的传感器。我们提出了DexTouch-WM，一种由动作条件化的世界模型，从可扩展的人类触觉中学习，联合预测未来的RGB观测和双侧触觉动力学。我们的洞察是，当人类和机器人的触觉观测与动作空间变得兼容时，它们共享可迁移的接触动力学。我们在人类和灵巧机器人手上部署具有共享传感布局的柔性压阻阵列，并将人类运动重定向到机器人动作空间，使得人类交互能够监督用于真实机器人预测的同一动力学模型。DexTouch-WM将预训练的视频专家与轻量级触觉专家相结合，使用解剖学感知的触觉令牌和对齐的动作条件化。在从人到机器人的扩展实验中，我们将真实机器人监督时间固定为5小时，同时将人类交互从0小时增加到100小时，观察到在保留的机器人域视觉、几何和接触预测上取得了显著改进，尽管人类和机器人的任务集并不重叠。除预测外，我们还将世界模型评估为用于策略评估的替代环境，以及用于真实机器人策略学习的合成轨迹生成器，表明可扩展的人类交互为学习灵巧机器人世界模型提供了互补的数据轴。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.20649v1/Pipeline.png",
+      "image_caption": "Fig. 2: DexTouch-WM architecture. Left: shared fingertip and palm encoders tokenize bilateral tactile maps while pad identity embeddings preserve anatomy. Right: a pretrained video expert and a tactile expert exchange information through bi-modal joint attention, retaining modality-specific AdaLN and feed-forward pathways. Instruction features and pose AdaLN condition generation. Frozen visual and tactile codecs encode observations and decode future RGB and pressure maps.",
+      "summary_one_sentence": "DexTouch-WM提出一种从可扩展人类触觉中学习的动作条件化世界模型，通过共享触觉传感布局和动作重定向，联合预测机器人的未来视觉与触觉动力学，从而提升真实机器人预测性能并支持策略学习。",
+      "research_problem": "接触丰富的灵巧操作预测需要密集触觉数据，但真实机器人采集成本高且受传感器限制，如何利用可扩展的人类触觉数据来学习机器人操作的世界模型。",
+      "method_summary": "DexTouch-WM将预训练视频专家与轻量级触觉专家耦合，使用解剖学感知的触觉令牌和统一动作条件化；通过共享触觉传感布局收集人类触觉数据，并将人类运动重定向至机器人动作空间，使同一动力学模型可接受人类交互监督，同时用于真实机器人预测。",
+      "experimental_setup": "从人机扩展实验中，保持真实机器人监督数据为5小时，人类交互数据从0增至100小时；评估保留的机器人域预测任务，包括视觉、几何和接触预测，并测试世界模型作为替代环境进行策略评估及生成合成轨迹用于策略学习。",
+      "key_results": "增加人类交互数据后，在保留的机器人域视觉、几何和接触预测上获得显著改进，尽管人类与机器人任务集不重叠；同时世界模型能有效作为策略评估替代环境和合成轨迹生成器，支持真实机器人策略学习。",
+      "limitations": "无法从摘要确认：未提及具体局限性，如任务集不重叠的影响分析、模型泛化边界、硬件依赖或计算成本等。",
+      "why_it_matters": "该工作提出利用可扩展人类触觉数据来学习机器人世界模型，缓解了真实机器人触觉数据采集成本高的问题，为灵巧操作预测和策略学习提供了新的数据范式，可能推动触觉感知与机器人学习的跨物种迁移。",
+      "relevance_reason": "论文核心涉及触觉动力学预测与动作条件化，与视觉-力觉融合、接触状态估计和机器人操作密切相关，提供了从人类触觉迁移到机器人的新视角。",
+      "related_to_my_research": "方法参考：提出触觉与视觉联合预测框架，可作为视觉-力觉融合的基线对比；背景文献：展示触觉数据在具身智能中的作用；潜在竞争：在接触状态估计任务上可能直接比较。",
+      "recommended_reading": "建议阅读触觉感知建模、世界模型（如Dreamer系列）、动作条件化视频预测以及人机共享表征的相关文献。",
+      "reproduction_value": "Medium - 需要构建共享触觉传感阵列和动作重定向流程，涉及硬件部署与预训练专家耦合，复现难度中等，但方法描述较详细，数据规模可控。",
+      "core_candidate": "Review",
+      "last_checked": "2026-09-18",
+      "relevance_score": 60,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-18T08:39:39.326740+00:00"
+    },
+    {
+      "arxiv_id": "2609.20414",
+      "paper_id": "arxiv-2609-20414",
+      "title": "TouchSight: Bare-Handed Tactile Prediction from Egocentric Video via Generative Visual Augmentation",
+      "abstract": "Tactile signals provide direct contact and force measurements that are essential for understanding physical interactions and enabling dexterous robotic manipulation. However, tactile sensing requires direct measurement at contact interfaces, making large-scale data collection reliant on intrusive, costly, and restrictive instrumentation. We present TouchSight, a monocular egocentric vision framework for dense full-hand contact force prediction that leverages 500 hours of pressure-glove recordings and extensive hand-object interaction (HOI) data. To address the appearance gap between gloved training data and bare-hand real-world scenarios, we construct TwinTouch-20H: 20 hours of paired visual data in which generative video models re-render gloved recordings as bare-hand observations against new backgrounds while preserving the original measured tactile labels. TouchSight predicts dense force from both gloved and generated bare-hand videos, outperforms prior contact prediction methods on OakInk2, qualitatively generalizes to natural bare-hand egocentric videos from unseen datasets, and improves consistently as glove supervision scales. These results demonstrate that dense tactile signals can be recovered from egocentric vision alone, without tactile instrumentation at capture time.",
+      "authors": [],
+      "published_date": "2026-09-17",
+      "updated_date": "2026-09-18",
+      "oai_datestamp": "2026-09-18",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "oai_set_specs": [
+        "cs:cs:CV",
+        "cs:cs:AI"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.20414",
+      "pdf_url": "https://arxiv.org/pdf/2609.20414",
+      "research_topics": [
+        "core-papers"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出TouchSight框架，利用500小时压力手套数据和大量手-物交互数据，从单目自我中心视频预测稠密全手接触力。",
+        "构建TwinTouch-20H数据集，使用生成式视频模型将手套记录重新渲染为裸手观察并保留原始触觉标签，解决外观差异问题。",
+        "在OakInk2上验证TouchSight优于先前的接触预测方法，并定性展示对未见裸手视频的泛化能力。",
+        "证明触觉信号可从自我中心视觉中恢复，无需采集时佩戴触觉仪器。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "触觉信号提供直接的接触和力测量，对于理解物理交互和实现灵巧的机器人操作至关重要。然而，触觉感知需要在接触界面处进行直接测量，使得大规模数据收集依赖于侵入性、昂贵且受限的仪器。我们提出TouchSight，一种单目自我中心视觉框架，用于稠密全手接触力预测，利用500小时的压力手套记录和广泛的手-物交互(HOI)数据。为解决手套训练数据与裸手现实场景之间的外观差异，我们构建了TwinTouch-20H：20小时的配对视觉数据，其中生成式视频模型将手套记录重新渲染为裸手观察，并保持原始测量触觉标签不变。TouchSight能从手套和生成的裸手视频中预测稠密力，在OakInk2上优于先前的接触预测方法，定性地泛化到来自未见数据集的自然裸手自我中心视频，并随着手套监督规模的增加而持续改进。这些结果表明，无需在采集时使用触觉仪器，仅凭自我中心视觉即可恢复稠密触觉信号。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.20414v1/model.png",
+      "image_caption": "Fig. 4: TouchSight architecture. Frozen DINOv3 and VGGT features undergo symmetric fusion, space–time attention, and region-query decoding. Shared queries predict bimanual taxel force and MANO contact; inference uses RGB only.",
+      "summary_one_sentence": "TouchSight通过生成式视频增强将手套训练数据转换为裸手外观，仅从单目自我中心视频即可预测稠密全手接触力。",
+      "research_problem": "如何从自我中心视觉中预测稠密触觉信号，克服手套训练数据与真实裸手场景之间的外观差异。",
+      "method_summary": "TouchSight使用生成式视频模型将手套记录重新渲染为裸手视频（TwinTouch-20H），然后训练一个视觉模型从这些视频中预测稠密全手接触力，同时利用手套视频作为监督，模型能处理手套和裸手两种输入。",
+      "experimental_setup": "使用500小时压力手套记录和手-物交互数据，构建TwinTouch-20H（20小时配对视觉数据），在OakInk2基准上评估，并与先前接触预测方法比较，同时测试未见裸手数据集的定性泛化。",
+      "key_results": "TouchSight在OakInk2上优于先前方法，对未见裸手自我中心视频有定性泛化效果，且性能随手套监督数据规模增加而持续提升。",
+      "limitations": "无法从摘要确认。",
+      "why_it_matters": "该工作表明无需触觉仪器，仅凭自我中心视觉即可恢复稠密触觉信号，为机器人操作和具身智能提供了低成本、非侵入式的触觉预测途径。",
+      "relevance_reason": "该论文直接涉及接触力估计和视觉-触觉融合，与机器人操作和具身智能中触觉感知的研究高度相关。",
+      "related_to_my_research": "该方法属于视觉-力觉融合的典型代表，可为接触状态估计提供背景文献和基线对比，且其生成式视觉增强思路对无触觉传感器场景有参考价值。",
+      "recommended_reading": "建议阅读TouchSight方法部分和TwinTouch-20H数据构建细节，以及OakInk2基准。",
+      "reproduction_value": "Medium：方法依赖生成式视频模型和大规模数据（500小时）及特定设备（压力手套），复现门槛较高，但数据构建思路和框架可借鉴。",
+      "core_candidate": "No",
+      "last_checked": "2026-09-18",
+      "relevance_score": 58,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-18T08:40:10.498907+00:00"
+    },
+    {
+      "arxiv_id": "2609.19962",
+      "paper_id": "arxiv-2609-19962",
+      "title": "Hybrid Residual Reinforcement Learning for Contact-Rich Robotic Book Insertion",
+      "abstract": "Placing a grasped book into a tight shelf is a compact but difficult contact-rich control problem: millimetre-scale pose error can turn a geometrically valid approach into jamming, failed release, or incomplete seating. We study this final phase after grasp acquisition and global approach, and ask how control authority should be divided between known geometry and learned behaviour. Our method retains a nominal task-space controller for structured insertion and seating, while residual PPO supplies bounded local corrections and decides when to release. Only the brief open-retreat-reclose transition is scripted. For the final policy used on hardware, a deployment-matched simulation evaluation over 512 fixed conditions yields 98.50 percent mean success (0.23 percentage-point sample SD) across three independent training runs, compared with 37.89 percent for nominal control. On the physical xArm7, 60 trials over 30 matched conditions show the same qualitative advantage: residual control raises success from 26.7 percent to 63.3 percent, reduces failures from 22 to 11, and wins 13 of the 15 matched conditions in which the two controllers differ. Robustness tests show that performance remains above 87 percent under initialization perturbations up to 1.5x, while very tight clearances expose the geometric limit of local correction. These results support a hybrid design in which geometry preserves reliable task structure and learning is concentrated on the contact-sensitive behaviour that fixed rules handle poorly.",
+      "authors": [],
+      "published_date": "2026-09-17",
+      "updated_date": "2026-09-18",
+      "oai_datestamp": "2026-09-18",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.19962",
+      "pdf_url": "https://arxiv.org/pdf/2609.19962",
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出一种混合控制框架，保留名义控制器用于结构化插入，同时使用残差 PPO 提供有界局部修正并决定释放时机。",
+        "在部署匹配的模拟评估中，残差控制将成功率从 37.89% 提升至 98.50%。",
+        "在物理 xArm7 机器人上，残差控制将成功率从 26.7% 提升至 63.3%，并在多数匹配条件下优于名义控制。",
+        "通过鲁棒性测试和间隙变化实验，揭示了残差控制的性能边界与几何极限。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "将抓取的书本放入狭窄的书架是一个紧凑但困难的接触丰富控制问题：毫米级的位姿误差可能使几何上有效的接近变成卡住、释放失败或未完全就位。我们研究抓取获取和全局接近之后的最终阶段，并询问控制权应如何在已知几何和 learned 行为之间分配。我们的方法保留了一个名义任务空间控制器用于结构化插入和就位，而残差 PPO 提供有界的局部修正并决定何时释放。只有短暂的打开-后退-关闭过渡是脚本化的。对于硬件上使用的最终策略，部署匹配的模拟评估在 512 个固定条件下，三次独立训练运行的平均成功率为 98.50%（样本标准差 0.23 个百分点），而名义控制为 37.89%。在物理 xArm7 上，30 个匹配条件下的 60 次试验显示了相同的定性优势：残差控制将成功率从 26.7% 提高到 63.3%，失败次数从 22 减少到 11，并在两个控制器不同的 15 个匹配条件中赢得了 13 个。鲁棒性测试表明，在高达 1.5 倍的初始化扰动下，性能仍保持在 87% 以上，而非常紧密的间隙暴露了局部修正的几何极限。这些结果支持一种混合设计，其中几何结构保留可靠的任务结构，而学习集中在固定规则难以处理的接触敏感行为上。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.19962v1/Pics/figure1a_controller.png",
+      "image_caption": "Fig. 4: Controller formulations and simulation comparison. (a) Nominal-only follows geometric feedback, PPO-only directly controls the task-space action, and Residual PPO adds a bounded learned correction to nominal control while also learning the release request. (b) At 3 ​ mm 3\\,\\mathrm{mm} slot clearance, all three formulations are evaluated with the final evaluator on the same frozen 2,000-condition scenario bank. Nominal-only achieves 27.10 % 27.10\\% success, PPO-only achieves 0 % 0\\% across three independently trained policies, and Residual PPO achieves 93.28 ± 2.25 % 93.28\\pm 2.25\\% mean success across three independent training runs.",
+      "summary_one_sentence": "本文提出一种混合残差强化学习方法，将名义任务空间控制器与 PPO 残差策略结合，用于解决机器人书本插入书架这一接触丰富的操作任务，显著提高了成功率。",
+      "research_problem": "在机器人将书本插入紧密书架的最后阶段，如何处理毫米级位姿误差导致的卡住、释放失败或未完全就位问题，以及如何分配已知几何与学习行为之间的控制权。",
+      "method_summary": "方法保留一个名义任务空间控制器用于结构化插入和就位，同时使用近端策略优化（PPO）训练残差策略，提供有界局部修正并决定释放时机；只有短暂的打开-后退-关闭过渡是脚本化的。",
+      "experimental_setup": "模拟评估：512 个固定条件下三次独立训练运行；物理实验：xArm7 机器人上 30 个匹配条件下的 60 次试验。鲁棒性测试包括初始化扰动和间隙变化。",
+      "key_results": "模拟中残差控制平均成功率为 98.50%（样本标准差 0.23 个百分点），名义控制为 37.89%；物理实验中残差控制成功率从 26.7% 提高到 63.3%，失败次数从 22 减少到 11，并在 15 个匹配条件中赢得 13 个；鲁棒性测试在 1.5 倍初始化扰动下性能仍高于 87%。",
+      "limitations": "非常紧密的间隙暴露了局部修正的几何极限，无法完全依赖学习修正处理极端几何约束。",
+      "why_it_matters": "该工作展示了在接触丰富的操作任务中，将几何先验与强化学习结合的系统化方法，验证了混合设计在可靠性和适应性上的优势，为具身智能中的精密操作提供了实用的控制范式。",
+      "relevance_reason": "该论文涉及机器人操作中的接触丰富任务（书本插入），与视觉-力觉融合和接触状态估计密切相关，其混合控制思路可能为接触状态估计提供策略分解参考。",
+      "related_to_my_research": "方法参考：其残差控制与名义控制结合的思想可作为接触状态估计中融合先验模型与学习模型的参考；背景文献：展示接触丰富操作中几何与学习的互补性。",
+      "recommended_reading": "建议阅读关于残差强化学习、接触丰富操作、以及名义控制与学习策略结合的相关文献，例如 PPO 在机器人控制中的应用和任务空间控制设计。",
+      "reproduction_value": "Medium - 摘要提供了清晰的算法思想和详细的成功率数据，但未给出网络架构、训练超参数或具体代码，且物理实验依赖特定硬件，复现需要较多推断和调参。",
+      "core_candidate": "No",
+      "last_checked": "2026-09-18",
+      "relevance_score": 55,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-18T08:40:24.611654+00:00"
+    },
+    {
+      "arxiv_id": "2609.20761",
+      "paper_id": "arxiv-2609-20761",
+      "title": "Agile-WAM: An Agile Tactile World Action Model for Contact-Rich Robot Control",
+      "abstract": "World Action Models (WAMs) advance beyond conventional visuomotor policies by jointly predicting future world states and robot actions, enabling the policy to learn physical dynamics that support effective control. However, recent tactile WAMs often rely on large-scale pretrained generative backbones to capture contact-rich physical dynamics, which limit their inference efficiency and flexible deployment. In this paper, we present \\ABBR{}, an agile tactile World Action Model for contact-rich robot control. \\ABBR{} encodes visual and tactile observations into a shared latent that serves as the source of a direct vision-tactile-to-action flow-matching process, which can jointly generate latent representations of action chunks and future visual/tactile latents. A key observation is that vision and tactile signals evolve at inherently different timescales: adjacent visual frames are often highly similar, whereas tactile signals can change abruptly upon contact. We therefore introduce multi-horizon multimodal prediction in \\ABBR{}, which provides supervision for visual latent at a larger temporal offset while predicting the tactile latent in the next frame to capture fine-grained contact dynamics. Across nine simulated and five real-world contact-rich manipulation tasks, \\ABBR{} demonstrates strong and robust performance, outperforming the strongest baseline in success rate while maintaining low inference latency. In particular, in five real-world experiments, \\ABBR{} yields a relative gain of $\\textbf{29.4\\%}$ in overall success rates while achieving inference latency of $\\textbf{11.9 ms}$. These results demonstrate that multimodal WAM can be achieved with an agile architecture suitable for precise and high-frequency robot control. More details are available on our project page: https://hanchuzhou.github.io/TARO_project_page/.",
+      "authors": [],
+      "published_date": "2026-09-17",
+      "updated_date": "2026-09-18",
+      "oai_datestamp": "2026-09-18",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO",
+        "cs.LG"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO",
+        "cs.LG"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO",
+        "cs:cs:LG"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.20761",
+      "pdf_url": "https://arxiv.org/pdf/2609.20761",
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出Agile-WAM，一种基于共享潜在表示和直接流匹配的敏捷触觉世界动作模型。",
+        "引入多视野多模态预测机制，分别以不同时间尺度预测视觉与触觉潜在表示，以捕获接触动力学。",
+        "在九个模拟和五个真实世界接触丰富操作任务中验证了方法，实现高成功率与低推理延迟。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "世界动作模型（WAM）通过联合预测未来世界状态和机器人动作，超越了传统的视觉运动策略，使策略能够学习支持有效控制的物理动力学。然而，最近的触觉WAM通常依赖大规模预训练生成骨干来捕获接触丰富的物理动力学，这限制了它们的推理效率和灵活部署。在本文中，我们提出了Agile-WAM，一种用于接触丰富机器人控制的敏捷触觉世界动作模型。Agile-WAM将视觉和触觉观测编码为共享潜在表示，作为直接的视觉-触觉到动作流匹配过程的源，该过程可以联合生成动作块和未来视觉/触觉潜在表示的潜在表示。一个关键观察是视觉和触觉信号在本质上以不同的时间尺度演化：相邻视觉帧通常高度相似，而触觉信号在接触时可能突然变化。因此，我们在Agile-WAM中引入了多视野多模态预测，它在较大的时间偏移处提供视觉潜在表示监督，同时预测下一帧的触觉潜在表示以捕获细粒度的接触动力学。在九个模拟和五个真实世界的接触丰富操作任务中，Agile-WAM表现出强大且稳健的性能，在成功率上优于最强基线，同时保持低推理延迟。特别是在五个真实世界实验中，Agile-WAM在总体成功率上取得了29.4%的相对提升，同时实现了11.9毫秒的推理延迟。这些结果表明，多模态WAM可以通过适合精确和高频机器人控制的敏捷架构实现。更多细节可在项目页面获取：https://hanchuzhou.github.io/TARO_project_page/。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.20761v1/figures/tac_framework.png",
+      "image_caption": "Fig. 2: Overview of Agile-WAM . Agile-WAM encodes visual, tactile, and proprioceptive observations into a shared latent that serves as the source of a lightweight vision-tactile-to-action flow-matching backbone. The flow jointly generates latent representations of the action chunk and future visual and tactile observations. An action autoencoder provides a structured action latent space, while multi-horizon multimodal prediction uses a longer horizon for vision and a short horizon for tactile feedback to capture their distinct temporal dynamics. The model is trained end-to-end with flow-matching, action reconstruction and generation, and visual/tactile latent prediction losses.",
+      "summary_one_sentence": "Agile-WAM是一种敏捷的触觉世界动作模型，通过多视野多模态预测和直接的视觉-触觉到动作流匹配，在接触丰富操作任务中实现了高成功率与低推理延迟。",
+      "research_problem": "如何在不依赖大规模预训练生成骨干的情况下，构建高效且灵活的触觉世界动作模型，以支持接触丰富机器人的高频精确控制。",
+      "method_summary": "Agile-WAM将视觉和触觉观测编码为共享潜在表示，通过流匹配过程联合生成动作块和未来视觉/触觉潜在表示，并使用多视野预测分别监督视觉（较大时间偏移）和触觉（下一帧）。",
+      "experimental_setup": "九个模拟和五个真实世界接触丰富操作任务，与最强基线比较成功率，并测量推理延迟。",
+      "key_results": "在真实世界实验中，总体成功率相对提升29.4%，推理延迟为11.9毫秒。",
+      "limitations": "无法从摘要确认具体限制，但可能涉及对多视野预测机制的依赖或真实世界任务范围有限等。",
+      "why_it_matters": "该工作展示了一种无需大规模预训练生成骨干的敏捷多模态世界动作模型，同时保持高控制频率，为机器人接触丰富操作提供了一种高效可行的新范式。",
+      "relevance_reason": "该方法直接涉及视觉-力觉（触觉）融合、接触状态估计以及机器人操作，属于具身智能中的接触丰富控制研究，与相关领域高度相关。",
+      "related_to_my_research": "该方法可作为视觉-力觉融合与接触状态估计的最新基线参考，也是接触丰富操作控制的重要背景文献。",
+      "recommended_reading": "建议阅读流匹配（flow matching）相关文献以及世界模型（World Model）在机器人控制中的应用研究。",
+      "reproduction_value": "Medium - 摘要提供了清晰的方法架构和关键机制（多视野预测、流匹配），但缺少训练细节、网络参数和代码链接，复现需更多信息。",
+      "core_candidate": "No",
+      "last_checked": "2026-09-18",
+      "relevance_score": 54,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-18T08:40:35.271376+00:00"
+    },
+    {
+      "arxiv_id": "2609.19666",
+      "paper_id": "arxiv-2609-19666",
+      "title": "Towards High-DoF Dexterous Manipulation through VLA Post-Training",
+      "abstract": "Imitation-learned vision--language--action (VLA) foundation models acquire broad manipulation capabilities by scaling robot data across tasks and embodiments, but reliable deployment on a specific downstream task and hardware platform still requires post-training. Dexterous hands make this adaptation particularly difficult: their broad behavioural repertoire and high degree of freedom create a large and structured action space. Three obstacles are central: open-source VLAs do not natively provide an action interface for high-DoF hands; gesture mismatch during human-gated DAgger takeover creates command discontinuities and contaminates corrective trajectories; and reinforcement learning in the raw joint space is sample-inefficient. We present a unified four-step post-training pipeline comprising a learned temporal hand-action codec, supervised fine-tuning, DAgger, and real-world residual reinforcement learning. The codec adapts a pretrained VLA to absolute dexterous-hand commands. Buffered rollback, pose alignment, and smooth command blending enable continuous, task-relevant DAgger corrections, while latent residual RL confines exploration to coordinated hand motions captured by the codec. We evaluate the pipeline on five diverse real-world tasks spanning bimanual transfer, in-hand reorientation, and tool use. Within the reported post-training budgets, the resulting policies achieve 100\\% success on every evaluated task over 20 trials per task. These results provide a practical path for adapting VLA foundation models to reliable real-world dexterous manipulation.",
+      "authors": [],
+      "published_date": "2026-09-17",
+      "updated_date": "2026-09-18",
+      "oai_datestamp": "2026-09-18",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.19666",
+      "pdf_url": "https://arxiv.org/pdf/2609.19666",
+      "research_topics": [
+        "core-papers"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出统一四步后训练流程，包括学习的时间手部动作编解码器、监督微调、DAgger和真实世界残差强化学习",
+        "设计编解码器将预训练VLA适配到绝对灵巧手命令",
+        "引入缓冲回滚、姿态对齐和平滑命令混合实现连续、任务相关的DAgger纠正",
+        "使用潜在残差RL限制探索到协调手部运动，提高样本效率"
+      ],
+      "research_branches": [],
+      "abstract_zh": "通过模仿学习得到的视觉-语言-动作（VLA）基础模型通过跨任务和跨实体扩展机器人数据获得了广泛的操作能力，但在特定下游任务和硬件平台上可靠部署仍然需要后训练。灵巧手使这种适配尤其困难：其广泛的行为 repertoire 和高自由度创造了庞大且结构化的动作空间。三个核心障碍是：开源VLA原生不提供高自由度手的动作接口；人类门控的DAgger接管过程中的手势不匹配会导致命令不连续并污染纠正轨迹；原始关节空间中的强化学习样本效率低。我们提出了一个统一的四步后训练流程，包括学习的时间手部动作编解码器、监督微调、DAgger和真实世界残差强化学习。该编解码器将预训练VLA适配到绝对灵巧手命令。缓冲回滚、姿态对齐和平滑命令混合实现了连续、任务相关的DAgger纠正，而潜在残差RL将探索限制在编解码器捕获的协调手部运动上。我们在五个多样的真实世界任务上评估了该流程，涵盖双手转移、手内重定向和工具使用。在报告的后训练预算内，所得策略在每项任务的20次试验中均达到100%成功率。这些结果为将VLA基础模型适配到可靠的现实世界灵巧操作提供了实用路径。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.19666v1/img/overall.png",
+      "image_caption": "Figure 1: Overview of dexterous policy post-training. A learned hand-action representation provides a common interface for supervised fine-tuning, corrective data aggregation, and real-world latent residual reinforcement learning, which progressively improve task success. The curves on the right schematically illustrate improvement across post-training stages.",
+      "summary_one_sentence": "本文提出一种包含时间手部动作编解码器、监督微调、DAgger和残差强化学习的四步后训练流程，使VLA基础模型能够在五个真实世界灵巧操作任务上达到100%成功率。",
+      "research_problem": "如何将预训练的VLA基础模型后训练适配到高自由度灵巧手操作，克服动作接口缺失、DAgger手势不匹配和原始动作空间RL样本效率低等障碍。",
+      "method_summary": "使用学习的时间手部动作编解码器将预训练VLA映射到灵巧手动作空间，通过监督微调初始化策略，再用DAgger进行人类纠正（通过缓冲回滚、姿态对齐和平滑混合保证连续性），最后在真实世界应用残差RL在潜在空间进行微调。",
+      "experimental_setup": "在五个真实世界灵巧操作任务上评估，涵盖双手转移、手内重定向和工具使用，每个任务20次试验。",
+      "key_results": "在所报告的后训练预算内，所有评估任务均达到100%成功率。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该工作提供了一条将VLA基础模型可靠部署到高自由度灵巧手操作的实用路径，解决了动作接口、数据污染和样本效率等关键问题，对机器人操作和具身智能领域有重要参考价值。",
+      "relevance_reason": "该论文直接涉及机器人灵巧操作与具身智能，特别是VLA模型的后训练，与视觉-力觉融合和接触状态估计有间接关联（灵巧手依赖触觉反馈），可作为方法参考或背景文献。",
+      "related_to_my_research": "方法参考：其高自由度手动作编码和残差RL策略可能对接触状态估计的柔顺控制有启发；背景文献：灵巧操作是视觉-力觉融合的重要应用场景；潜在竞争：如果用户研究灵巧手操作，该工作可能构成竞争基线。",
+      "recommended_reading": "建议阅读关于VLA后训练、DAgger算法、残差强化学习以及灵巧手操作的相关工作。",
+      "reproduction_value": "Medium - 方法描述详细且使用真实世界任务，但需要特定硬件和VLA模型，复现成本较高，且关键实现细节（如编解码器结构、超参数）未在摘要中提供。",
+      "core_candidate": "No",
+      "last_checked": "2026-09-18",
+      "relevance_score": 53,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-18T08:42:23.553756+00:00"
+    },
+    {
+      "arxiv_id": "2609.20477",
+      "paper_id": "arxiv-2609-20477",
+      "title": "Visual Sim-to-Real Learning for Robotic Insertion under Geometric Variations: Application to Rebar Installation",
+      "abstract": "Rebar insertion is among the most repetitive and physically demanding tasks on construction sites, and a contact-rich problem at 1.4 mm clearance. The parts, however, vary at two levels: a nominal design per structural member, and fabrication tolerance around each nominal design. Real-world data therefore has to be re-collected as designs and batches change. We present RebarSim, a visual sim-to-real system trained entirely in simulation. A privileged state-based teacher is trained with reinforcement learning over procedurally generated rebar geometries, then distilled into a multi-view student that maps raw RGB and proprioception directly to actions under extensive domain randomization. The student transfers to the real world zero-shot, seating rebars taken from a real factory production run in 91.3% of real-robot rollouts. Underlying that result, geometry diversity and pretraining both bring benefits. Training across a diverse set of nominal designs rather than one lifts the zero-shot success of both the teacher and the student on unseen designs, and the student policy outperforms a single-design specialist on that specialist's own design. A pretrained student then adapts to a new design with 4--6x fewer distillation samples than one trained from scratch. Visual sim-to-real transfer depends on appearance randomization and the DAgger mixture: removing either one sharply lowers success. Videos, code, and task assets are available at https://rebarsim.github.io.",
+      "authors": [],
+      "published_date": "2026-09-17",
+      "updated_date": "2026-09-18",
+      "oai_datestamp": "2026-09-18",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.20477",
+      "pdf_url": "https://arxiv.org/pdf/2609.20477",
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出RebarSim，一个完全在仿真中训练的视觉仿真到现实系统，实现零样本迁移到真实钢筋插入任务。",
+        "通过程序化生成多样化的钢筋几何形状，训练策略在未见设计上具有更好的泛化能力。",
+        "证明了预训练学生策略能减少4-6倍适应新设计所需的蒸馏样本。",
+        "分析了外观随机化和DAgger混合对于仿真到现实迁移的关键作用。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "钢筋插入是建筑工地上最重复且体力消耗最大的任务之一，也是一个在1.4毫米间隙下的接触丰富问题。然而，零件在两个层面上存在变化：每个结构构件的名义设计，以及围绕每个名义设计的制造公差。因此，随着设计批次的变化，真实世界数据需要重新收集。我们提出了RebarSim，一个完全在仿真中训练的视觉仿真到现实系统。一个基于特权的状态教师通过强化学习在程序生成的钢筋几何形状上训练，然后通过广泛的域随机化将多视角学生蒸馏出来，直接将原始RGB和本体感觉映射到动作。学生零样本迁移到现实世界，在真实机器人测试中，来自真实工厂生产批次的钢筋成功就位率为91.3%。在这项结果背后，几何多样性和预训练都带来了好处。在多个名义设计上训练而非单一设计，提高了教师和学生在新设计上的零样本成功率，且学生策略在专精设计的性能上超过了单一设计专家。预训练学生适应新设计所需蒸馏样本比从零训练的学生少4-6倍。视觉仿真到现实迁移依赖于外观随机化和DAgger混合：移除其中任何一个都会大幅降低成功率。视频、代码和任务资源可在https://rebarsim.github.io获取。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.20477v1/figures_src/framework.png",
+      "image_caption": "Fig. 3: Overview of RebarSim. Training in simulation: a procedural generator generates the rebar assets. A privileged teacher is trained with RL (Phase 1, teal) and supervises a student that sees only rendered RGB and proprioception (Phase 2, purple). Deployment: the same student, frozen, on the real cameras (Phase 3, orange).",
+      "summary_one_sentence": "本文提出RebarSim，一种完全在仿真中训练的视觉仿真到现实系统，通过程序化几何生成和蒸馏实现钢筋插入任务的零样本迁移，在真实机器人上达到91.3%的成功率。",
+      "research_problem": "在钢筋插入任务中，由于设计变化和制造公差，真实世界数据难以收集，需要能够适应几何变化的视觉仿真到现实学习方法，以减少数据重采集成本。",
+      "method_summary": "使用基于特权的状态教师通过强化学习在程序生成的多样化钢筋几何形状上训练，然后通过多视角学生网络在域随机化下蒸馏，学生直接映射RGB和本体感觉到动作。",
+      "experimental_setup": "无法从摘要确认详细实验设置，但包括真实工厂生产批次钢筋、1.4毫米间隙、多视角RGB输入和本体感觉，评估零样本成功率和蒸馏样本效率。",
+      "key_results": "在真实机器人测试中，钢筋成功就位率为91.3%；几何多样性提升了教师和学生在未见设计上的零样本成功率；学生策略在专精设计上优于单一设计专家；预训练学生适应新设计所需蒸馏样本减少4-6倍；移除外观随机化或DAgger混合会大幅降低成功率。",
+      "limitations": "无法从摘要确认明确局限性，但可能包括未能覆盖所有真实世界变化、需要仿真环境的精确建模等。",
+      "why_it_matters": "这项工作展示了视觉仿真到现实方法在接触丰富且几何变化大的任务中的可行性，显著减少了真实数据采集需求，对于建筑自动化等具身智能应用具有重要意义。",
+      "relevance_reason": "该论文涉及接触丰富的机器人插入操作，与视觉-力觉融合和接触状态估计紧密相关，同时属于具身智能在建筑领域的应用，可提供方法参考和基线对比。",
+      "related_to_my_research": "本文方法参考了仿真到现实迁移、视觉引导操作和接触丰富任务，可作为视觉-力觉融合或接触状态估计研究中的背景文献与潜在竞争方法，特别是其零样本迁移策略和几何泛化处理值得参考。",
+      "recommended_reading": "建议阅读论文正文以获取更详细的网络架构、训练细节、域随机化策略以及消融实验结果。",
+      "reproduction_value": "Medium：摘要提供了核心方法思路和关键结果，但复现需要访问代码和任务资产（已公开），且需要仿真环境构建和强化学习训练细节，这些在摘要中未完全描述。",
+      "core_candidate": "No",
+      "last_checked": "2026-09-18",
+      "relevance_score": 47,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-18T08:42:37.056671+00:00"
+    },
+    {
+      "arxiv_id": "2609.20107",
+      "paper_id": "arxiv-2609-20107",
+      "title": "AnyViewDex: View-Invariant Dexterous Manipulation from RGB Observations",
+      "abstract": "Visuomotor policies for multi-fingered dexterous manipulation are highly sensitive to camera viewpoint shifts. To achieve view invariance, recent methods increasingly rely on explicit 3D modalities like RGB-D or point clouds, which can introduce hardware dependencies, calibration requirements, and vulnerability to sensor noise during real-world deployment. In this work, we show that view-invariant control can be achieved without explicit test-time 3D sensing by encoding geometric knowledge into the visual representation during simulation. We present AnyViewDex, an asymmetric training pipeline that combines multi-view contrastive alignment with privileged 3D geometric supervision. By regressing absolute 3D object coordinates during simulated training, this auxiliary objective provides a geometric grounding signal that mitigates the spatial collapse of the globally pooled contrastive embedding. At deployment, the policy operates zero-shot using only uncalibrated monocular RGB and proprioception. We validate this approach across both reinforcement learning and student-teacher distillation. In hardware evaluation on an xArm7 with a 16-DoF LEAP Hand, AnyViewDex reaches 76.7% grasping success across eight unseen objects and six uncalibrated viewpoints (480 trials; 2,400 across all ablation conditions), indicating that geometrically grounded monocular policies transfer zero-shot without test-time depth. Project Page: https://anyviewdex.github.io/",
+      "authors": [],
+      "published_date": "2026-09-17",
+      "updated_date": "2026-09-18",
+      "oai_datestamp": "2026-09-18",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.20107",
+      "pdf_url": "https://arxiv.org/pdf/2609.20107",
+      "research_topics": [
+        "core-papers"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出AnyViewDex，一种非对称训练流程，结合多视角对比对齐与特权3D几何监督，无需测试时3D感知即可实现视角不变控制",
+        "通过回归绝对3D物体坐标提供几何接地信号，缓解全局池化对比嵌入的空间坍缩问题",
+        "在强化学习和学生-教师蒸馏两种设置下验证方法有效性",
+        "在xArm7+16自由度LEAP手硬件上实现76.7%抓取成功率，跨八个未见物体和六个未校准视角，证明零样本迁移能力"
+      ],
+      "research_branches": [],
+      "abstract_zh": "多指灵巧操作的视觉运动策略对相机视角变化高度敏感。为了实现视角不变性，近期方法越来越依赖RGB-D或点云等显式3D模态，这可能在实际部署中引入硬件依赖、校准要求以及对传感器噪声的脆弱性。在本工作中，我们证明可以通过在仿真训练期间将几何知识编码到视觉表示中，无需测试时的显式3D感知即可实现视角不变控制。我们提出AnyViewDex，一种结合多视角对比对齐与特权3D几何监督的非对称训练流程。通过在仿真训练中回归绝对3D物体坐标，该辅助目标提供了几何接地信号，缓解了全局池化对比嵌入的空间坍缩。在部署时，策略仅使用未校准的单目RGB和本体感觉即可零样本运行。我们在强化学习和师生蒸馏两种设置下验证了该方法。在带有16自由度LEAP手的xArm7硬件评估中，AnyViewDex在八个未见物体和六个未校准视角下达到76.7%的抓取成功率（480次试验；所有消融条件共2400次），表明几何接地的单目策略无需测试时深度即可零样本迁移。项目页面：https://anyviewdex.github.io/",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.20107v1/sim_multi_view.png",
+      "image_caption": "Fig. 2: Multi-View Contrastive Training Setup. During simulated representation learning, visual observations of the identical physical state are rendered concurrently.",
+      "summary_one_sentence": "AnyViewDex提出一种非对称训练流程，通过在仿真中结合多视角对比对齐与特权3D几何监督，使得仅依赖单目RGB和本体感觉的策略在零样本条件下实现视角不变的灵巧操作。",
+      "research_problem": "多指灵巧操作的视觉运动策略对相机视角变化高度敏感，现有方法依赖显式3D模态（RGB-D或点云）来实现视角不变性，但引入硬件依赖、校准要求和传感器噪声脆弱性。",
+      "method_summary": "AnyViewDex采用非对称训练流程：在仿真训练期间，使用多视角对比对齐（multi-view contrastive alignment）将不同视角的图像嵌入对齐，同时利用特权3D几何监督（通过回归绝对3D物体坐标）提供几何接地信号。该辅助目标缓解了全局池化对比嵌入的空间坍缩。部署时，策略仅使用未校准的单目RGB和本体感觉，零样本运行，无需测试时深度。",
+      "experimental_setup": "硬件评估在带有16自由度LEAP手的xArm7机械臂上进行，测试八个未见物体和六个未校准视角，共480次试验，所有消融条件共2400次试验。方法在强化学习和学生-教师蒸馏两种训练范式下评估。",
+      "key_results": "AnyViewDex在硬件评估中达到76.7%的抓取成功率（跨八个未见物体和六个未校准视角，480次试验；所有消融条件共2400次），表明几何接地的单目策略无需测试时深度即可零样本迁移。",
+      "limitations": "无法从摘要确认具体局限性，但可推测可能依赖于仿真环境的真实性以及特权3D监督在仿真中的可用性，测试时未见物体和视角的泛化仍有上限（成功率76.7%），且未涉及复杂长时间操作任务。",
+      "why_it_matters": "该工作证明视角不变控制可以在不依赖测试时3D传感的情况下实现，通过仿真中的几何知识编码，降低了实际部署中对深度传感器和标定的依赖，为灵巧操作策略的实际应用提供更简单鲁棒的方案。",
+      "relevance_reason": "论文聚焦于机器人灵巧操作中的视觉策略，涉及相机视角不变性、几何表示学习以及单目RGB部署，与视觉-力觉融合、接触状态估计和具身智能研究紧密相关，提供了如何利用几何监督提升泛化能力的思路。",
+      "related_to_my_research": "背景文献/方法参考：该论文展示了如何通过仿真中的3D几何监督获得鲁棒的视觉表示，对接触状态估计或视觉-力觉融合策略的视角鲁棒性设计有参考价值，可作为基线对比方法或启发新的训练策略。",
+      "recommended_reading": "建议阅读与多视角对比学习、3D几何监督、视觉运动策略以及灵巧操作相关的文献，特别是关于视图不变性和域随机化的研究。",
+      "reproduction_value": "Medium：方法结合了对比学习和特权监督，需要仿真环境、多视角数据以及特定硬件（xArm7和LEAP Hand），复现门槛较高，但公开项目页面可能提供代码和细节，具备一定可复现性。",
+      "core_candidate": "No",
+      "last_checked": "2026-09-18",
+      "relevance_score": 46,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-18T08:42:55.042530+00:00"
+    },
+    {
+      "arxiv_id": "2609.19613",
+      "paper_id": "arxiv-2609-19613",
+      "title": "TacSushi: Tactile-Grounded World-Action Modeling for Dexterous Sushi Manipulation",
+      "abstract": "Dexterous food manipulation requires control under deformation, occlusion, and uncertain contact. We present TacSushi, a tactile-grounded, Cosmos3-based world-action policy that learns from recorded future consequences while acting on current observations. The backbone encodes current RGB, language, and hand state, and feature-wise gated fusion incorporates fingertip tactile features into the action representation. During training, a decoder conditioned on demonstrated action chunks predicts logged future visual observations, task progress, relative contact risk, and tactile summaries; this decoder is removed at deployment. Failed trials provide consequence supervision, but their actions are excluded from imitation. We train TacSushi on 340 successful and 50 failed real-robot trials and compare six methods in 600 separate rollouts across three in-distribution tasks and two out-of-distribution ingredient variants. To assess food quality beyond a single geometric threshold, we score terminal outcomes using an anchored visual-quality protocol that equally weights five human ratings and three vision-language-model ratings per rollout. Full TacSushi achieves 68.3% average in-distribution success and 37.5% out-of-distribution success, compared with 36.7%/10.0% without future-consequence supervision and 25.0%/17.5% with direct tactile concatenation in place of gated fusion. These comparisons support complementary benefits of feature-wise gated tactile fusion and training-only predictive supervision.",
+      "authors": [],
+      "published_date": "2026-09-17",
+      "updated_date": "2026-09-18",
+      "oai_datestamp": "2026-09-18",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO",
+        "cs:cs:AI",
+        "cs:cs:LG"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.19613",
+      "pdf_url": "https://arxiv.org/pdf/2609.19613",
+      "research_topics": [
+        "core-papers"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出TacSushi，一种触觉接地、基于Cosmos3的世界-行动策略，利用训练时的未来后果监督。",
+        "设计特征级门控融合机制，将指尖触觉特征整合到行动表示中。",
+        "在失败试验中利用后果监督但排除其动作，实现仅训练时的预测监督。",
+        "系统比较六种方法，在600次rollout中验证了门控触觉融合和预测监督的互补优势。",
+        "提出锚定视觉质量协议，平衡人类和视觉语言模型评分评估食物质量。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "灵巧的食物操作需要在变形、遮挡和不确定接触条件下进行控制。我们提出了TacSushi，一种基于触觉接地、Cosmos3-based的世界-行动策略，它在根据当前观察行动的同时，从记录的未来后果中学习。主干编码当前的RGB、语言和手部状态，特征级门控融合将指尖触觉特征纳入行动表示。在训练过程中，以示范动作块为条件的解码器预测记录的后续视觉观察、任务进度、相对接触风险和触觉摘要；该解码器在部署时移除。失败试验提供后果监督，但其行动被排除在模仿之外。我们在340次成功和50次失败的实机试验上训练TacSushi，并在三个分布内任务和两个分布外食材变体上比较了六种方法的600次独立rollout。为了评估超出单一几何阈值的食品质量，我们使用锚定视觉质量协议对终端结果进行评分，该协议每rollout等权加权五个人类评分和三个视觉语言模型评分。完整的TacSushi实现68.3%的平均分布内成功率和37.5%的分布外成功率，相比之下，无未来后果监督为36.7%/10.0%，直接触觉拼接替代门控融合为25.0%/17.5%。这些比较支持特征级门控触觉融合和仅训练时的预测监督的互补优势。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.19613v1/fig3_v2.png",
+      "image_caption": "Fig. 2: Platform and bare-hand collection. MediaPipe landmarks drive the tactile-equipped Shadow Hand; workspace RGB, robot state/targets, and touch are logged synchronously.",
+      "summary_one_sentence": "TacSushi提出了一种结合触觉门控融合和训练时未来后果监督的世界-行动策略，显著提升了灵巧寿司操作的成功率。",
+      "research_problem": "灵巧食物操作中，如何在形变、遮挡和不确定接触条件下实现有效控制，并充分利用触觉信息和未来后果预测。",
+      "method_summary": "TacSushi由Cosmos3世界模型作为主干，编码当前RGB、语言和手部状态，并通过特征级门控融合整合指尖触觉特征到行动表示。训练时，解码器以示范动作块为条件，预测未来视觉观测、任务进度、相对接触风险和触觉摘要；部署时移除解码器。失败试验提供后果监督但不用于模仿学习。",
+      "experimental_setup": "在340次成功和50次失败的实机试验上训练，比较六种方法，在3个分布内任务和2个分布外食材变体上进行600次独立rollout。使用锚定视觉质量协议，每rollout等权加权5个人类评分和3个视觉语言模型评分。",
+      "key_results": "完整的TacSushi实现68.3%平均分布内成功率和37.5%分布外成功率；无未来后果监督为36.7%/10.0%；直接触觉拼接为25.0%/17.5%。表明门控融合和训练时预测监督互补有效。",
+      "limitations": "无法从摘要确认。",
+      "why_it_matters": "该工作展示了触觉门控融合与训练时未来后果监督在复杂灵巧操作中的互补优势，为变形物体操作提供了新思路，且提出了综合质量评估协议，对具身智能和机器人操作研究具有参考价值。",
+      "relevance_reason": "论文聚焦触觉和未来后果预测在机器人灵巧操作中的应用，涉及接触状态估计和食物形变操作，与视觉-力觉融合和接触状态估计直接相关，是具身智能领域的前沿工作。",
+      "related_to_my_research": "方法参考：TacSushi的触觉门控融合和训练时预测监督机制可借鉴到视觉-力觉融合和接触状态估计的框架中；作为背景文献理解当前灵巧操作的前沿趋势；潜在竞争：该工作与接触状态估计应用场景有重叠。",
+      "recommended_reading": "建议关注Cosmos3世界模型的使用、特征级门控融合机制以及失败试验用于后果监督的方法。",
+      "reproduction_value": "Medium：摘要提供了详细的实验设置（如训练样本数、成功率和变体）和方法描述，但未公开代码、具体网络架构细节或部署参数，复现需一定工程努力。",
+      "core_candidate": "No",
+      "last_checked": "2026-09-18",
+      "relevance_score": 45,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-18T08:43:13.199110+00:00"
+    },
     {
       "arxiv_id": "2609.19137",
       "paper_id": "arxiv-2609-19137",
@@ -74,7 +625,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-17T09:04:42.207188+00:00"
+      "ai_generated_at": "2026-09-17T09:04:42.207188+00:00",
+      "image_caption_zh": "给定一段带同步音频的生成视频，视觉管线定位物体和夹爪（MolmoPoint），分割它们（SAM 2），并恢复深度和3D点轨迹（TAPIP3D），以检测接触并估计力的方向。音频管线处理生成的接触声（SAM-Audio），并将相对响度映射为有界的目标力曲线。合并后的力感知轨迹通过闭环力调节器在Franka Panda上执行，该调节器通过1 kHz固定刚度阻抗控制器上的虚拟目标位移来跟踪目标力。"
     },
     {
       "arxiv_id": "2609.18497",
@@ -142,7 +694,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-17T09:04:51.260432+00:00"
+      "ai_generated_at": "2026-09-17T09:04:51.260432+00:00",
+      "image_caption_zh": "TAO-Force的概述。TAO-Force保留冻结的预训练视觉-语言骨干网络，并使用F-FiLM根据力反馈调节其表征，使策略能够联合生成标称动作和期望力指令块，同时单独估算当前接触概率。在执行过程中，预测的接触概率在非接触阶段的位控运动和接触阶段的柔顺力调节之间进行门控切换。接触门控的快-慢控制器协调低频策略推理与高频导纳控制，实现平滑过渡和响应迅速的物理调节，适用于接触丰富的操作任务。"
     },
     {
       "arxiv_id": "2609.18242",
@@ -210,7 +763,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-17T09:04:59.525353+00:00"
+      "ai_generated_at": "2026-09-17T09:04:59.525353+00:00",
+      "image_caption_zh": "纠正蒸馏（训练阶段3）。(a) 冻结教师模型的成对预测共享上下文、本体感觉和采样噪声。力条件预测与无力预测之间的姿态差异定义了力目标。延迟目标将当前无力预测与存储的参考进行比较，并包含参考状态对齐。(b) Φ的两个评估共享权重和学习到的查询q_corr；仅延迟评估会掩蔽力令牌。分离的头分别预测两个纠正，由教师定义的目标监督。"
     },
     {
       "arxiv_id": "2607.02840",
@@ -279,7 +833,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-17T09:05:11.216636+00:00"
+      "ai_generated_at": "2026-09-17T09:05:11.216636+00:00",
+      "image_caption_zh": "TACO概览：TACO利用组合式触觉世界模型，将真实 rollout 中的失败转化为局部视觉-触觉修正，实现可扩展的机器人策略后训练。在六项接触密集的真实世界任务中，经过两轮后训练迭代，平均任务得分（TS）从0.375提升至0.825。"
     },
     {
       "arxiv_id": "2609.18174",
@@ -345,7 +900,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-17T09:05:23.613048+00:00"
+      "ai_generated_at": "2026-09-17T09:05:23.613048+00:00",
+      "image_caption_zh": "TacBPM概述：将专家行为提炼为触觉条件化的潜在控制器，再对下游任务应用以先验为中心的残差-潜在接口。"
     },
     {
       "arxiv_id": "2607.19190",
@@ -415,7 +971,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-17T09:07:10.503433+00:00"
+      "ai_generated_at": "2026-09-17T09:07:10.503433+00:00",
+      "image_caption_zh": "DROID 大规模片段转换。展示 DROID-500 中三个代表性片段，每个片段将真实世界观测与其合成孪生配对。针对选定场景展示中间流水线产物：物体分割和 FoundationPose 位姿跟踪叠加。"
     },
     {
       "arxiv_id": "2609.19119",
@@ -482,7 +1039,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-17T09:07:23.919111+00:00"
+      "ai_generated_at": "2026-09-17T09:07:23.919111+00:00",
+      "image_caption_zh": "概述。仅从一段日常的RGB人类视频出发，我们的方法提取运动线索、预测关节结构、构建近似的可仿真关节物体模型，并在物理仿真器中重放恢复的手-物交互。结果表明，我们的框架能够为不同类型的关节（包括旋转关节和滑动关节）推断出真实世界物体的关节结构。"
     },
     {
       "arxiv_id": "2609.16504",
