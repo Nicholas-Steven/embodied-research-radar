@@ -1,11 +1,352 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-18",
+  "generated_at": "2026-09-21",
   "source": "arXiv",
-  "candidate_count": 5088,
-  "retained_count": 229,
+  "candidate_count": 4077,
+  "retained_count": 237,
   "relevance_threshold": 45,
   "papers": [
+    {
+      "arxiv_id": "2609.21753",
+      "paper_id": "arxiv-2609-21753",
+      "title": "PSR: Predictive Sensorimotor Representation Learning for Contact-Rich Manipulation",
+      "abstract": "Contact-rich manipulation requires policies to generate precise actions by reasoning over contact forces, robot configurations, and interaction histories beyond visual observations. Existing methods passively condition on force feedback rather than actively predicting future contact dynamics, limiting their ability to generate high-precision actions. To address this problem, we introduce Predictive Sensorimotor Representation (PSR) learning, a framework that learns a hierarchy of predictive representations from multimodal sensorimotor signals and integrates them into the action stream of a visuomotor policy. Specifically, during a pretraining stage, a multimodal Transformer is trained to learn a hierarchy of predictive representations by jointly forecasting future interaction dynamics. The learned hierarchy subsequently augments the action stream, enabling the resulting policy to exploit contact-relevant cues at multiple depths. We further instantiate PSR within a Vision-Language-Action (VLA) model, resulting in PSR-VLA, and evaluate it on six real-world contact-rich manipulation tasks. Experimental results show that PSR-VLA achieves 91.7% overall success, improving over $π_{0.5}$, ForceVLA-$π_{0.5}$, and ForceVLA2-$π_{0.5}$ by 30.0, 22.5, and 19.2 percentage points, respectively. These results demonstrate the effectiveness of the proposed PSR for force-aware, contact-rich manipulation. Videos of the tasks and stability tests are available at https://psr-vla.pages.dev/.",
+      "authors": [],
+      "published_date": "2026-09-18",
+      "updated_date": "2026-09-21",
+      "oai_datestamp": "2026-09-21",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.21753",
+      "pdf_url": "https://arxiv.org/pdf/2609.21753",
+      "research_topics": [
+        "vision-force",
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出预测性传感器运动表示（PSR）学习框架，学习分层预测表示并整合到动作流中。",
+        "将PSR实例化到视觉-语言-动作（VLA）模型中，形成PSR-VLA。",
+        "在六个真实世界接触丰富操作任务上验证了PSR-VLA的有效性，显著优于基线方法。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "接触丰富的操作任务要求策略能够通过推理接触力、机器人配置和交互历史来生成精确动作，而不仅仅是视觉观察。现有方法被动地以力反馈为条件，而非主动预测未来的接触动态，限制了其生成高精度动作的能力。为解决这一问题，我们提出了预测性传感器运动表示（PSR）学习框架，该框架从多模态传感器运动信号中学习分层预测表示，并将其整合到视觉运动策略的动作流中。具体而言，在预训练阶段，多模态Transformer通过联合预测未来交互动态来学习分层预测表示。学习到的层次结构随后增强动作流，使策略能够利用多个深度的接触相关线索。我们进一步将PSR实例化到视觉-语言-动作（VLA）模型中，形成PSR-VLA，并在六个真实世界的接触丰富操作任务上进行了评估。实验结果表明，PSR-VLA实现了91.7%的总体成功率，分别比π0.5、ForceVLA-π0.5和ForceVLA2-π0.5高出30.0、22.5和19.2个百分点。这些结果证明了所提出的PSR在力感知、接触丰富操作中的有效性。任务和稳定性测试的视频可在https://psr-vla.pages.dev/获取。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.21753v1/psr_pretraining_overview_final_20260908.png",
+      "image_caption": "Fig. 2: PSR learns a hierarchy of predictive sensorimotor representations through multi-target prediction in Stage 1. In Stage 2, PSR integrates the resulting representations into the action stream of a policy via gated cross-attention, influencing action generation across multiple depths.",
+      "summary_one_sentence": "本文提出预测性传感器运动表示（PSR）学习框架，通过预训练多模态Transformer预测未来交互动态，学习分层表示并整合到视觉运动策略的动作流中，在六个真实接触丰富操作任务上显著提升了成功率。",
+      "research_problem": "接触丰富操作中，现有方法被动依赖力反馈，缺乏主动预测未来接触动态的能力，限制了高精度动作的生成。",
+      "method_summary": "PSR框架在预训练阶段使用多模态Transformer联合预测未来交互动态，学习分层预测表示；随后将这些表示整合到视觉运动策略的动作流中，使策略能够利用多深度的接触相关线索。",
+      "experimental_setup": "在六个真实世界接触丰富操作任务上评估PSR-VLA，与π0.5、ForceVLA-π0.5和ForceVLA2-π0.5进行对比。",
+      "key_results": "PSR-VLA达到91.7%的总体成功率，分别比π0.5、ForceVLA-π0.5和ForceVLA2-π0.5高出30.0、22.5和19.2个百分点。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该工作通过主动预测接触动态而非被动响应，为接触丰富操作提供了新的表示学习范式，显著提升了操作精度，对力觉融合和具身智能研究具有重要价值。",
+      "relevance_reason": "该论文直接涉及接触丰富操作中的力觉融合和预测性表示学习，与视觉-力觉融合和接触状态估计高度相关，可作为方法参考或基线对比。",
+      "related_to_my_research": "方法参考：其预测性传感器运动表示学习框架可借鉴用于接触状态估计；基线对比：其PSR-VLA可作为力觉融合操作任务的强基线。",
+      "recommended_reading": "建议阅读与力觉融合、视觉-语言-动作模型（VLA）、接触丰富操作相关的文献，特别是ForceVLA系列和π0.5基线。",
+      "reproduction_value": "Medium: 摘要提供了方法框架和实验对比，但未给出实现细节、超参数或代码，复现需参考更多信息。",
+      "core_candidate": "Review",
+      "last_checked": "2026-09-21",
+      "relevance_score": 70,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-21T09:30:25.588530+00:00"
+    },
+    {
+      "arxiv_id": "2609.21726",
+      "paper_id": "arxiv-2609-21726",
+      "title": "ZeroTouch: Tactile-Supervised Visual Contact Estimation for Contact-Rich Manipulation",
+      "abstract": "Reliable robotic grasping benefits from estimating the evolving physical interaction and selecting a grasp-dependent compression target. Tactile sensors provide direct interaction measurements but require dedicated hardware at deployment. We introduce ZeroTouch, a tactile-supervised framework that predicts dense contact deformation, the instantaneous six-axis wrench, and a grasp-dependent desired compression target from wrist RGB observations, gripper state, and local gravity direction. Tactile measurements are used only as privileged supervision during training and are not required at deployment. On the full validation set, the complete architecture reduces normal-force MAE from 2.017 N for a state-only baseline to 0.531 N. In physical evaluation with 20 trials per condition, ZeroTouch achieves 95% success on an unseen object, 80% in a seen-object/unseen-grasp condition, and 90% under a content/load shift. Under the same evaluation protocol, OpenVLA achieves 25%, 40%, and 55%, while SmolVLA achieves 10%, 25%, and 35%, respectively.",
+      "authors": [],
+      "published_date": "2026-09-18",
+      "updated_date": "2026-09-21",
+      "oai_datestamp": "2026-09-21",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.21726",
+      "pdf_url": "https://arxiv.org/pdf/2609.21726",
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出ZeroTouch框架，使用触觉测量作为训练时的特权监督，部署时仅需视觉和状态信息。",
+        "预测密集接触变形、瞬时六轴力和依赖于抓取的期望压缩目标。",
+        "在物理机器人评估中，ZeroTouch在未见物体、未见过抓取和负载偏移条件下均取得大幅优于VLA基线的成功率。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "可靠的机器人抓取受益于估计不断演变的物理交互并选择依赖于抓取的压缩目标。触觉传感器提供直接的交互测量，但在部署时需要专用硬件。我们提出了ZeroTouch，一个触觉监督框架，从腕部RGB观测、夹爪状态和局部重力方向预测密集接触变形、瞬时六轴力和依赖于抓取的期望压缩目标。触觉测量仅在训练期间用作特权监督，部署时不需要。在完整验证集上，完整架构将法向力MAE从仅状态基线的2.017 N降低到0.531 N。在每次条件20次试验的物理评估中，ZeroTouch在未见物体上达到95%的成功率，在已见物体/未见抓取条件下达到80%，在内容/负载偏移下达到90%。在相同评估协议下，OpenVLA分别达到25%、40%和55%，而SmolVLA分别达到10%、25%和35%。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.21726v1/overview.png",
+      "image_caption": "Fig. 1: Overview of ZeroTouch. From wrist RGB, gripper state, and local gravity direction, the model predicts contact deformation, the instantaneous 6D wrench, and the desired grasp force. The framework operates across different gripper poses and grasp locations on the object, while tactile sensing is used only during training.",
+      "summary_one_sentence": "ZeroTouch是一个触觉监督的视觉接触估计框架，利用RGB观测和夹爪状态预测接触变形、六轴力和压缩目标，在部署时无需触觉传感器，显著优于基线模型。",
+      "research_problem": "如何在不依赖触觉传感器硬件的情况下，从视觉观测中准确估计接触丰富的操作任务中的物理交互（如接触变形、力和压缩目标）。",
+      "method_summary": "ZeroTouch利用腕部RGB图像、夹爪状态和局部重力方向作为输入，通过神经架构预测密集接触变形、六轴力和压缩目标。训练过程中使用触觉传感器测量作为特权监督，测试时无需触觉传感器。",
+      "experimental_setup": "包括完整验证集上的数值评估（比较法向力MAE）和物理机器人评估，每种条件20次试验，测试未见物体、已见物体/未见抓取、内容/负载偏移三种场景，并与OpenVLA和SmolVLA基线对比。",
+      "key_results": "在完整验证集上，法向力MAE从2.017 N降至0.531 N。物理评估中，ZeroTouch在未见物体上达到95%成功率，已见物体/未见抓取80%，负载偏移90%，而OpenVLA分别为25%/40%/55%，SmolVLA为10%/25%/35%。",
+      "limitations": "无法从摘要确认（摘要未提及明确局限性，但可推测部署仍需视觉与状态传感器，且仅在特定测试条件下验证）。",
+      "why_it_matters": "该工作展示了利用触觉作为特权监督来训练纯视觉接触估计器，消除了部署时对专用触觉硬件的需求，有望提高接触丰富操作任务的可靠性和泛化性。",
+      "relevance_reason": "本文涉及视觉-力觉融合（触觉作为监督，视觉作为推理），接触状态估计（密集接触变形和六轴力预测），机器人操作（抓取任务），属于具身智能研究，提供了新的感知方法。",
+      "related_to_my_research": "方法参考：该框架可作为视觉-力觉融合的典型示例，其触觉监督训练策略对接触状态估计研究有直接参考价值。",
+      "recommended_reading": "建议阅读论文中的方法细节、网络架构和训练策略，以及物理实验的具体设置和评估协议。",
+      "reproduction_value": "Medium：摘要提供了清晰的性能对比和实验协议，但缺乏网络架构细节和代码地址，复现需要进一步参考论文全文。",
+      "core_candidate": "No",
+      "last_checked": "2026-09-21",
+      "relevance_score": 58,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-21T09:30:33.592381+00:00"
+    },
+    {
+      "arxiv_id": "2609.21229",
+      "paper_id": "arxiv-2609-21229",
+      "title": "KnowDemo: Knowledge-Guided Robot Demonstration Generation from Human Videos",
+      "abstract": "Learning robot manipulation policies typically requires substantial demonstration data, which are costly to collect on real robots. Recent methods generate robot demonstrations from human videos by adapting recovered motion and validating the resulting trajectories in simulation. However, methods centered on motion-reference adaptation can limit behavioral diversity by retaining the demonstrated contact strategies and subtask orders, while insufficient understanding of task requirements and scene relations can reduce demonstration generation efficiency by generating invalid candidates. To address these limitations, we propose KnowDemo, a framework that uses structured manipulation knowledge from human videos to generate diverse robot demonstrations for a target workspace. To distinguish task requirements from demonstration-specific choices, we develop a knowledge extraction and reasoning module based on a vision-language model (VLM) that associates object and action descriptions with inferred task conditions, demonstration references, and permissible execution variations. To translate this knowledge into executable demonstrations, we resolve the descriptions against target-scene entities and geometry to guide candidate generation and screening before motion planning and simulation. The resulting demonstrations exhibit multimodal behavior through alternative contact strategies and valid subtask orders, with structured execution labels. Experiments demonstrate additional verified execution modes beyond a reference-only configuration and improved candidate planning success through task-guided grasp sampling. To validate the generated data for policy learning, we fine-tune the pretrained $π_{0.5}$ model on simulation data, achieving sim-to-real transfer across three tasks. Project page: https://zhiyuan-gao.github.io/knowdemo/",
+      "authors": [],
+      "published_date": "2026-09-18",
+      "updated_date": "2026-09-21",
+      "oai_datestamp": "2026-09-21",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO",
+        "cs:cs:AI"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.21229",
+      "pdf_url": "https://arxiv.org/pdf/2609.21229",
+      "research_topics": [
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出KnowDemo框架，利用结构化操作知识生成多样化机器人演示。",
+        "开发基于VLM的知识提取与推理模块，区分任务需求与演示特定选择。",
+        "通过任务引导的抓取采样和知识驱动筛选，提高候选生成与规划成功率。",
+        "生成的演示具有多模态行为和结构化执行标签，并在仿真到真实迁移中验证了策略学习效果。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "学习机器人操作策略通常需要大量的演示数据，而这些数据在真实机器人上收集成本高昂。近期方法通过调整人类视频中恢复的运动并在仿真中验证生成的轨迹，来生成机器人演示。然而，基于运动参考调整的方法可能因保留演示中的接触策略和子任务顺序而限制行为多样性，同时缺乏对任务需求和场景关系的理解会因生成无效候选而降低演示生成效率。为解决这些限制，我们提出KnowDemo，一个利用人类视频中的结构化操作知识为目标工作区生成多样化机器人演示的框架。为区分任务需求与演示特定选择，我们开发了一个基于视觉语言模型（VLM）的知识提取与推理模块，将对象和动作描述与推断的任务条件、演示参考和允许的执行变化关联起来。为将这些知识转化为可执行的演示，我们根据目标场景实体和几何解决这些描述，以在运动规划和仿真之前指导候选生成与筛选。生成的演示通过替代接触策略和有效的子任务顺序展现多模态行为，并带有结构化执行标签。实验表明，相比仅参考配置，新增了额外的验证执行模式，并通过任务引导的抓取采样提高了候选规划成功率。为验证生成数据用于策略学习，我们在仿真数据上微调预训练的π₀.₅模型，在三个任务上实现了仿真到真实的迁移。项目页面：https://zhiyuan-gao.github.io/knowdemo/",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.21229v1/cup-scenes-preview.png",
+      "image_caption": "Fig. 4: Human grasp and placement references with corresponding robot grasps in simulation: (a) cabinet top to drawer, using a top-down robot approach; (b) beneath an extended drawer to cabinet top, pairing a palm-down human grasp with a side approach by the robot. Robot grasps accommodate placement and withdrawal in (a), and access beneath the drawer in (b).",
+      "summary_one_sentence": "KnowDemo利用视觉语言模型从人类视频中提取结构化操作知识，以在目标工作区生成多样化且可执行的机器人演示，并通过仿真到真实迁移验证其有效性。",
+      "research_problem": "机器人演示数据收集成本高，现有从人类视频生成演示的方法受限于运动参考，导致行为多样性不足和生成效率低下。",
+      "method_summary": "KnowDemo首先从人类视频中提取结构化知识（对象-动作关联、任务条件、演示参考、允许变化），然后利用VLM进行推理，将知识描述解析到目标场景中的实体和几何关系，指导候选轨迹生成与筛选，最后通过运动规划和仿真生成可执行演示。",
+      "experimental_setup": "在仿真环境中生成演示，并微调预训练的π₀.₅模型，在三个任务上测试仿真到真实迁移性能。",
+      "key_results": "相比仅参考配置，KnowDemo生成了额外验证的执行模式，提高了候选规划成功率（通过任务引导的抓取采样），并在三个任务上实现了仿真到真实的迁移。",
+      "limitations": "无法从摘要确认具体限制，可能包括对VLM推理质量的依赖、仿真与真实场景的差距等，但摘要未明确说明。",
+      "why_it_matters": "该工作提供了一种使用人类视频知识高效生成多样化机器人演示的新途径，解决了数据稀缺问题，并展示了在策略学习中的实用价值，对机器人操作和具身智能领域有重要启示。",
+      "relevance_reason": "该方法涉及视觉语言模型用于操作任务理解、接触状态（通过接触策略选择）和机器人演示生成，与视觉-力觉融合和接触状态估计在任务理解层面相关，但核心聚焦于知识引导的演示生成，可作为背景文献或方法参考。",
+      "related_to_my_research": "作为背景文献和方法参考，其VLM驱动的知识提取与任务推理思路可借鉴到接触状态估计和视觉-力觉融合中，用于理解任务需求和对象交互模式。",
+      "recommended_reading": "相关研究方向包括从人类视频学习机器人操作、视觉语言模型在机器人中的应用、仿真到真实迁移、演示生成与数据增强。",
+      "reproduction_value": "Medium：摘要提供了方法框架和实验概述，但缺乏详细实现细节（如VLM模块具体结构、抓取采样算法），复现需要依赖项目页面和代码。",
+      "core_candidate": "No",
+      "last_checked": "2026-09-21",
+      "relevance_score": 53,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-21T09:30:43.840440+00:00"
+    },
+    {
+      "arxiv_id": "2606.09615",
+      "paper_id": "arxiv-2606-09615",
+      "title": "DexPIE: Stable Dexterous Policy Improvement from Real-World Experience",
+      "abstract": "Dexterous manipulation presents substantial challenges for imitation learning due to its high-dimensional action space and complex contact-rich dynamics. Policies trained purely from demonstrations often suffer from compounding errors during deployment and require large amounts of expert data to achieve reliable performance. To move beyond the limitations of demonstration data, in this work, we propose DexPIE, a post-training framework for dexterous policy improvement from experience collected through real-world deployment. First, DexPIE enables effective exploration coverage through a dexterous-hand-adapted intervention system and multi-stage DAgger-style data collection across initial and intermediate task stages. Meanwhile, we enhance consistency between training and inference to reduce the distribution shift between rollouts and demonstration data, better aligning rollout behavior with demonstrations, allowing the critic to learn a value function induced by a more consistent underlying policy. Together, these components provide reliable supervision for policy evaluation. Finally, DexPIE improves the policy through conditioning on a continuous optimality indicator, allowing the policy to leverage the quality of data in a more fine-grained manner. Across three challenging real-world dexterous manipulation tasks, DexPIE achieves a 37.3% improvement in success rate over the demonstration-based reference policy, outperforming all baseline methods and demonstrating stronger robustness. The source code and dataset will be made publicly available.",
+      "authors": [],
+      "published_date": "2026-09-18",
+      "updated_date": "2026-09-21",
+      "oai_datestamp": "2026-09-21",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO",
+        "cs:cs:CV"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2606.09615",
+      "pdf_url": "https://arxiv.org/pdf/2606.09615",
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出DexPIE，一个用于灵巧策略改进的后训练框架，利用真实世界经验。",
+        "设计适应灵巧手的干预系统和多阶段DAgger风格数据收集，实现有效探索覆盖。",
+        "增强训练与推理一致性，减少分布偏移，使评论家学习更一致的价值函数。",
+        "引入连续最优性指标条件化，使策略能细粒度利用数据质量。",
+        "在三个真实世界灵巧操作任务中实现37.3%的成功率提升，优于基线方法。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "灵巧操作因其高维动作空间和复杂的接触丰富动力学，给模仿学习带来了巨大挑战。仅从演示中训练的策略在部署时常常遭受复合误差，并且需要大量专家数据才能实现可靠性能。为了超越演示数据的局限性，在这项工作中，我们提出了DexPIE，一个通过真实世界部署中收集的经验来改进灵巧策略的后训练框架。首先，DexPIE通过一个适应灵巧手的干预系统和跨初始及中间任务阶段的多阶段DAgger风格数据收集，实现了有效的探索覆盖。同时，我们增强了训练与推理之间的一致性，以减少 rollout 与演示数据之间的分布偏移，更好地将 rollout 行为与演示对齐，使评论家能够学习由更一致的基础策略诱导的价值函数。这些组件共同为策略评估提供了可靠的监督。最后，DexPIE通过连续最优性指标的条件化来改进策略，使策略能够更细粒度地利用数据质量。在三个具有挑战性的真实世界灵巧操作任务中，DexPIE相比基于演示的参考策略实现了37.3%的成功率提升，优于所有基线方法，并展现出更强的鲁棒性。源代码和数据集将公开提供。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2606.09615v2/pipeline.png",
+      "image_caption": "Fig. 2: Overview of DexPIE framework. (a) The model architecture consists of an actor and a critic. The actor is an optimality-conditioned diffusion policy with a U-Net architecture [ 39 ] , with an action space defined as relative EEF actions [ 40 ] concatenated with absolute dexterous-hand joint actions, while the critic is a distributional value network. (b) The policy is warm-started with demonstration data, and CFG is applied to the optimality indicator. During deployment, failures or exploration bottlenecks trigger human intervention. We further perform DAgger-style data collection across different task stages. (c) After obtaining stable advantage estimates, we perform policy improvement conditioned on a continuous optimality indicator. (d) We reduce the distribution shift between post-training data and demonstrations through improving training–inference consistency.",
+      "summary_one_sentence": "DexPIE提出了一种基于真实世界经验的后训练框架，通过干预式数据收集、训练-推理一致性增强和连续最优性指标条件化，显著提升了灵巧操作策略的成功率。",
+      "research_problem": "如何利用真实世界部署中收集的经验来改进基于演示的灵巧操作策略，以克服模仿学习中的复合误差和数据需求大的问题。",
+      "method_summary": "DexPIE采用后训练框架，首先通过适应灵巧手的干预系统和多阶段DAgger风格数据收集获取真实世界经验；然后通过增强训练与推理一致性（如使用一致的策略进行rollout和演示对齐）来训练评论家；最后通过连续最优性指标条件化策略，使策略能根据数据质量进行细粒度调整。",
+      "experimental_setup": "在三个具有挑战性的真实世界灵巧操作任务上进行评估，对比基于演示的参考策略和多种基线方法。",
+      "key_results": "DexPIE在成功率上比基于演示的参考策略提升37.3%，优于所有基线方法，并展现出更强的鲁棒性。",
+      "limitations": "无法从摘要确认。",
+      "why_it_matters": "该工作针对灵巧操作中模仿学习的核心痛点，提出了一种利用真实世界经验进行策略改进的通用框架，显著提升了性能，对机器人操作和具身智能领域具有重要价值。",
+      "relevance_reason": "该论文直接涉及机器人操作中的灵巧操作策略改进，与视觉-力觉融合和接触状态估计相关，因为灵巧操作依赖接触反馈；其方法可作为基线或参考。",
+      "related_to_my_research": "方法参考：DexPIE的后训练框架和一致性增强思想可借鉴到视觉-力觉融合的接触状态估计策略改进中；背景文献：灵巧操作中的模仿学习挑战。",
+      "recommended_reading": "建议阅读DAgger相关文献、模仿学习中的分布偏移问题、以及灵巧操作中的接触丰富动力学建模。",
+      "reproduction_value": "Medium：方法细节（如干预系统设计、一致性增强具体实现）在摘要中未完全展开，但代码和数据集将公开，可复现性潜力高。",
+      "core_candidate": "No",
+      "last_checked": "2026-09-21",
+      "relevance_score": 47,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-21T09:31:55.564613+00:00"
+    },
+    {
+      "arxiv_id": "2609.21449",
+      "paper_id": "arxiv-2609-21449",
+      "title": "ME-Dex 1.0: Bringing Heterogeneous Tactile Sensing into World Action Modeling",
+      "abstract": "World Action Models bring the predictive capabilities of video models into robot action generation, providing a rich foundation for modeling future visual states. Tactile sensing complements this foundation with direct measurements of physical interaction. Some existing methods use tactile features as conditioning inputs without jointly predicting future tactile states, visual observations, and actions. Our key insight is that tactile signals, like video, provide observations of the evolving world state and should be modeled as future observations alongside video. We present ME-Dex-1.0 (MachEmbodied-Dex-1.0), a unified World Action Tactile Model for joint visual, tactile, and action learning. ME-Dex-1.0 adopts a Mixture-of-Transformers architecture comprising a Video Expert, a Tactile Expert, and an Action Expert, all trained with flow matching. We use shared attention connects the experts in intermediate layers, allowing action generation to draw on learned representations of visual and tactile dynamics during joint denoising. To support multi-source heterogeneous tactile inputs, a Canonical Hand Model and a Unified Tactile Autoencoder map tactile observations from different embodiments and sensing layouts into shared spatial and latent spaces. To address the limited availability of paired visual, tactile, and action data, we develop the Agentic Tactile Data Engine, an agent-based data production platform. It supplements RoboTwin and DexJoCo with tactile data recorded directly from force sensors during trajectory replay in simulation. Experiments on the RoboTwin, DexJoCo, and ManiFeel simulation platforms, together with real robot evaluations, demonstrate improved manipulation performance using both grippers and dexterous hands equipped with tactile sensing.",
+      "authors": [],
+      "published_date": "2026-09-18",
+      "updated_date": "2026-09-21",
+      "oai_datestamp": "2026-09-21",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.CV"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.CV"
+      ],
+      "oai_set_specs": [
+        "cs:cs:CV"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.21449",
+      "pdf_url": "https://arxiv.org/pdf/2609.21449",
+      "research_topics": [
+        "generative-policy"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出ME-Dex-1.0，一个统一的World Action Tactile Model，联合学习视觉、触觉和动作，通过流匹配和共享注意力进行联合去噪。",
+        "设计标准手模型和统一触觉自编码器，将不同具身和传感布局的触觉观察映射到共享空间，支持多源异构触觉输入。",
+        "开发Agentic Tactile Data Engine，一个基于智能体的数据生产平台，通过模拟轨迹回放从力传感器记录触觉数据，补充现有数据集。",
+        "在RoboTwin、DexJoCo和ManiFeel模拟平台及真实机器人上验证了方法，使用夹爪和灵巧手均改善了操作性能。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "世界动作模型将视频模型的预测能力引入机器人动作生成，为建模未来视觉状态提供了丰富基础。触觉感知通过直接测量物理交互补充了这一基础。一些现有方法使用触觉特征作为条件输入，但不联合预测未来触觉状态、视觉观察和动作。我们的关键见解是，触觉信号与视频一样，提供了对演化世界状态的观察，应作为未来观察与视频一起建模。我们提出了ME-Dex-1.0（MachEmbodied-Dex-1.0），一个统一的World Action Tactile Model，用于联合视觉、触觉和动作学习。ME-Dex-1.0采用Mixture-of-Transformers架构，包含视频专家、触觉专家和动作专家，均使用流匹配训练。我们在中间层使用共享注意力连接专家，使得动作生成可以在联合去噪过程中利用视觉和触觉动力学的学习表示。为了支持多源异构触觉输入，一个标准手模型和统一触觉自编码器将来自不同具身和传感布局的触觉观察映射到共享空间和潜在空间。为了解决配对视觉、触觉和动作数据有限的问题，我们开发了Agentic Tactile Data Engine，一个基于智能体的数据生产平台。它通过在模拟中轨迹回放期间直接从力传感器记录的触觉数据来补充RoboTwin和DexJoCo。在RoboTwin、DexJoCo和ManiFeel模拟平台上的实验以及真实机器人评估表明，使用配备触觉传感的夹爪和灵巧手时操作性能得到改善。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.21449v1/mainpipeline.png",
+      "image_caption": "Figure 2 : Overview of MachEmbodied-Dex-1.0 The World Action Tactile Model (left) jointly predicts future video, tactile states, and action chunks through three experts trained with conditional flow matching. H-Bridge shared attention connects the Video Expert, Tactile Expert, and Action Expert in intermediate layers, enabling interaction among their evolving representations during joint denoising. Shallow and deep layers retain independent processing. The Unified Tactile Representation (right) aligns heterogeneous tactile measurements through a Canonical Hand Model and uses a shared tactile encoder to produce canonical region tokens.",
+      "summary_one_sentence": "ME-Dex-1.0提出一个统一的World Action Tactile Model，通过Mixture-of-Transformers架构联合建模视觉、触觉和动作，并利用标准手模型和统一触觉自编码器处理异构触觉输入，同时开发数据引擎补充配对数据，在模拟和真实机器人上验证了性能提升。",
+      "research_problem": "如何将触觉信号作为未来观察的一部分与视觉和动作联合建模，以提升机器人操作性能，同时解决异构触觉输入和配对数据稀缺的问题。",
+      "method_summary": "采用Mixture-of-Transformers架构，包含视频专家、触觉专家和动作专家，均用流匹配训练；中间层使用共享注意力连接专家，使动作生成能利用视觉和触觉动力学。标准手模型和统一触觉自编码器处理异构触觉输入；Agentic Tactile Data Engine通过模拟轨迹回放自动采集触觉数据。",
+      "experimental_setup": "在RoboTwin、DexJoCo和ManiFeel模拟平台以及真实机器人上评估，使用配备触觉传感的夹爪和灵巧手，与现有方法对比。",
+      "key_results": "与现有方法相比，在抓取和灵巧手操作任务上均取得了改进的操作性能。",
+      "limitations": "无法从摘要确认具体局限性，但可推断需要大量数据生成和计算资源，且触觉数据来自模拟，存在sim-to-real差距。",
+      "why_it_matters": "这项工作首次将触觉信号作为未来观察与视频一起建模，统一了视觉-触觉-动作的联合预测，为机器人操作中的世界模型提供了新范式，并解决了异构触觉输入和数据稀缺问题。",
+      "relevance_reason": "论文直接涉及触觉感知与视觉-力觉融合，在机器人操作中联合建模视觉、触觉和动作，与接触状态估计和具身智能密切相关，可作为方法参考和基线对比。",
+      "related_to_my_research": "方法参考：其统一预测视觉和触觉状态的思路可借鉴用于接触状态估计；背景文献：提供了触觉-视觉融合的基线对比。",
+      "recommended_reading": "世界动作模型（World Action Models）、Mixture-of-Transformers、流匹配（flow matching）、触觉感知建模、数据引擎相关文献。",
+      "reproduction_value": "Medium: 方法涉及复杂架构和数据引擎，但提供了模拟平台和真实实验，代码可能开源，复现需要较多计算资源和数据采集流程。",
+      "core_candidate": "No",
+      "last_checked": "2026-09-21",
+      "relevance_score": 46,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-21T09:32:06.122103+00:00"
+    },
     {
       "arxiv_id": "2609.20649",
       "paper_id": "arxiv-2609-20649",
@@ -74,7 +415,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-18T08:39:39.326740+00:00"
+      "ai_generated_at": "2026-09-18T08:39:39.326740+00:00",
+      "image_caption_zh": "DexTouch-WM架构。左：共享指尖与掌心编码器将双侧触觉图分词化，同时指垫身份嵌入保留解剖结构。右：预训练视频专家与触觉专家通过双模态联合注意力交换信息，保留模态特定的AdaLN与前馈通路。指令特征与姿态AdaLN条件化生成。冻结的视觉与触觉编解码器编码观测并解码未来RGB与压力图。"
     },
     {
       "arxiv_id": "2609.20414",
@@ -144,7 +486,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-18T08:40:10.498907+00:00"
+      "ai_generated_at": "2026-09-18T08:40:10.498907+00:00",
+      "image_caption_zh": "TouchSight架构。冻结的DINOv3和VGGT特征经过对称融合、时空注意力和区域查询解码。共享查询预测双手触觉力与MANO接触；推理仅使用RGB。"
     },
     {
       "arxiv_id": "2609.19962",
@@ -211,7 +554,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-18T08:40:24.611654+00:00"
+      "ai_generated_at": "2026-09-18T08:40:24.611654+00:00",
+      "image_caption_zh": "控制器方案与仿真对比。(a) 纯标称控制器遵循几何反馈，纯PPO直接控制任务空间动作，残差PPO在标称控制上添加有界学习修正，同时学习释放请求。(b) 在3毫米槽间隙下，三种方案均使用最终评估器在相同的冻结2000条件场景库上评估。纯标称方案成功率为27.10%，纯PPO在三个独立训练策略下成功率为0%，残差PPO在三次独立训练运行中平均成功率为93.28±2.25%。"
     },
     {
       "arxiv_id": "2609.20761",
@@ -280,7 +624,76 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-18T08:40:35.271376+00:00"
+      "ai_generated_at": "2026-09-18T08:40:35.271376+00:00",
+      "image_caption_zh": "Agile-WAM总览。Agile-WAM将视觉、触觉和本体感觉观测编码为共享潜变量，作为轻量级视觉-触觉到动作流匹配主干网络的输入。该流联合生成动作块及未来视觉和触觉观测的潜表示。动作自编码器提供结构化的动作潜空间，而多时域多模态预测对视觉采用较长时域、对触觉采用短时域反馈，以捕捉各自不同的时间动态。模型通过流匹配、动作重建与生成以及视觉/触觉潜预测损失进行端到端训练。"
+    },
+    {
+      "arxiv_id": "2609.20980",
+      "paper_id": "arxiv-2609-20980",
+      "title": "ForeTac-VLA: A Forecasting-Based Tactile-Vision-Language-Action Model for Contact-Rich Robotic Manipulation",
+      "abstract": "Vision-language-action (VLA) models have demonstrated strong capabilities in robotic manipulation, yet their reliance on visual perception limits robustness in contact-rich environments, where critical physical interaction states may not be visually observable. Existing tactile-enhanced VLA methods improve physical grounding using observed tactile feedback, but most remain largely reactive rather than explicitly modeling how contact may evolve. Therefore, we propose ForeTac-VLA, a forecasting-based tactile-vision-language fusion model that predicts future tactile states to guide action generation. Specifically, ForeTac-VLA encodes recent tactile observations into temporal representations and integrates them with vision-language features through bidirectional cross-attention. Further, a transformer-based forecasting module predicts multi-step future tactile states, enabling the model to reason jointly over observed and anticipated contact. Finally, the fused multimodal representations and predicted future tactile states are fed into the VLA backbone to condition action generation. To stabilize training, a ground-truth-to-prediction curriculum is employed when early forecasts are unreliable. Across four real-world contact-rich manipulation tasks, ForeTac-VLA achieves an average success rate of 95%, outperforming the fine-tuned VLA model by 36.25 percentage points and state-of-the-art tactile-enhanced VLA baselines by over 22 percentage points. ForeTac-VLA also maintains strong performance under low-illumination and visually cluttered conditions. Video demonstrations can be found on https://foretac-vla.github.io/",
+      "authors": [],
+      "published_date": "2026-09-17",
+      "updated_date": "2026-09-21",
+      "oai_datestamp": "2026-09-21",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.20980",
+      "pdf_url": "https://arxiv.org/pdf/2609.20980",
+      "research_topics": [
+        "vision-force",
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出ForeTac-VLA，一种基于预测的触觉-视觉-语言融合模型，预测未来触觉状态以引导动作生成。",
+        "设计双向交叉注意力机制集成触觉时间表示与视觉-语言特征。",
+        "引入Transformer-based预测模块预测多步未来触觉状态，实现联合推理观测和预期接触。",
+        "采用真值到预测的课程学习稳定训练，并在三个真实任务中显著优于基线。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "视觉-语言-动作（VLA）模型在机器人操作中展现出强大的能力，但其对视觉感知的依赖限制了在接触丰富环境中的鲁棒性，在这些环境中关键物理交互状态可能无法通过视觉观察。现有的触觉增强VLA方法利用观测到的触觉反馈来改善物理接地，但大多数仍然是反应式的，而非显式建模接触如何演变。因此，我们提出了ForeTac-VLA，一种基于预测的触觉-视觉-语言融合模型，通过预测未来触觉状态来引导动作生成。具体来说，ForeTac-VLA将近期触觉观测编码为时间表示，并通过双向交叉注意力与视觉-语言特征集成。此外，一个基于Transformer的预测模块预测多步未来触觉状态，使模型能联合推理观测到的和预期的接触。最后，融合的多模态表示和预测的未来触觉状态被输入到VLA主干中以调节动作生成。为稳定训练，在早期预测不可靠时采用真值到预测的课程学习。在四个真实世界的接触丰富操作任务中，ForeTac-VLA实现了95%的平均成功率，比微调的VLA模型高出36.25个百分点，比最先进的触觉增强VLA基线高出超过22个百分点。ForeTac-VLA在低光照和视觉杂乱条件下也保持了强劲性能。视频演示可在https://foretac-vla.github.io/查看。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.20980v1/Figure/Fig6.png",
+      "image_caption": "Fig. 6: Success rates of the three models under challenging visual conditions. Top: Low-Illumination Environment. Bottom: Visually Cluttered Environment.",
+      "summary_one_sentence": "ForeTac-VLA是一种通过预测未来触觉状态并将其与视觉-语言特征融合来提升接触丰富机器人操作性能的新型VLA模型。",
+      "research_problem": "现有VLA模型依赖视觉感知，在接触丰富环境中无法观测关键物理交互状态，且现有触觉增强方法大多是被动的，没有显式建模接触演变。",
+      "method_summary": "ForeTac-VLA将近期触觉观测编码为时间表示，通过双向交叉注意力与视觉-语言特征融合，再通过Transformer预测模块预测多步未来触觉状态，融合后的表示和预测状态输入VLA主干生成动作，并采用真值到预测的课程学习稳定训练。",
+      "experimental_setup": "无法从摘要确认具体实验设置细节，涉及四个真实世界接触丰富操作任务，包括低光照和视觉杂乱条件下的测试。",
+      "key_results": "在四个真实任务中平均成功率达到95%，比微调VLA高36.25个百分点，比最先进触觉增强VLA基线高超过22个百分点，且在低光照和视觉杂乱条件下表现良好。",
+      "limitations": "无法从摘要确认具体局限性，可能包括预测可靠性、计算开销或泛化性等未提及。",
+      "why_it_matters": "该工作解决了触觉增强VLA方法被动反应的问题，通过预测未来触觉状态实现主动推理，显著提升接触丰富操作的鲁棒性，为具身智能中的多模态融合与预测提供了新思路。",
+      "relevance_reason": "该方法结合视觉与触觉预测进行接触状态估计，属于视觉-力觉融合和接触状态估计领域的典型方法，为机器人操作中的触觉信息利用提供了可参考的预测范式。",
+      "related_to_my_research": "方法参考：其预测未来触觉状态并融合视觉语言特征的方式，与视觉-力觉融合和接触状态估计的研究方向紧密相关，可作为基线或灵感来源。",
+      "recommended_reading": "建议阅读原文获取详细的网络架构、训练细节和实验设置，以及对比基线的具体信息。",
+      "reproduction_value": "Medium：方法描述清晰，但实验设置细节（如数据集、硬件、超参数）未在摘要中给出，复现需依赖原文。",
+      "core_candidate": "No",
+      "last_checked": "2026-09-21",
+      "relevance_score": 54,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-21T09:32:15.533903+00:00"
     },
     {
       "arxiv_id": "2609.19666",
@@ -347,7 +760,142 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-18T08:42:23.553756+00:00"
+      "ai_generated_at": "2026-09-18T08:42:23.553756+00:00",
+      "image_caption_zh": "灵巧策略后训练概述。学习到的手部动作表示为监督微调、纠正数据聚合和真实世界潜在残差强化学习提供通用接口，逐步提升任务成功率。右侧曲线示意性地展示了后训练各阶段的改进。"
+    },
+    {
+      "arxiv_id": "2609.21045",
+      "paper_id": "arxiv-2609-21045",
+      "title": "DEXTERA: From a Single Image to Deployable Dexterous Manipulation via Real-to-Sim-to-Real",
+      "abstract": "Collecting real-world robot data for dexterous manipulation is costly and time-consuming. While high-fidelity physics simulators enable scalable data synthesis and policy learning, constructing deployment-ready digital twins manually remains labor-intensive, and residual visual, geometric, and dynamics gaps hinder reliable sim-to-real transfer. We present DEXTERA, an automated real-to-sim-to-real framework that transforms a single RGB image into deployable policies for dexterous manipulation across four unified stages: (1) single-image scene factorization into a static Gaussian background and interactive rigid or articulated assets with VLM-inferred physical parameters; (2) metric scene global alignment, object canonicalization, and morphology-balanced robot calibration; (3) scalable simulator task primitive construction, VR teleoperation, and object-centric trajectory synthesis; and (4) a shared multimodal policy interface supporting both imitation learning and reinforcement learning. We evaluate DEXTERA across 13 task-embodiment pairs, 2 dexterous robot platforms, and 6 policy architectures. Experimental results demonstrate that DEXTERA achieves superior visual fidelity and 3D geometric reconstruction compared to generative baselines, while cross-domain trajectory replays validate strong physical interaction consistency. Furthermore, simulation-only trained policies enable viable zero-shot real-robot deployment, while simulation-real co-training substantially improves mean physical policy success from 29.2% to 61.9% across diverse policy architectures.",
+      "authors": [],
+      "published_date": "2026-09-17",
+      "updated_date": "2026-09-21",
+      "oai_datestamp": "2026-09-21",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.21045",
+      "pdf_url": "https://arxiv.org/pdf/2609.21045",
+      "research_topics": [
+        "core-papers"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出DEXTERA，一个四阶段自动化的真实到仿真到真实框架，从单张图像生成可部署策略",
+        "利用VLM推断物理参数和场景分解，实现自动化数字孪生构建",
+        "支持模仿学习和强化学习的共享多模态策略接口",
+        "在13个任务-实体对、2个灵巧平台和6种策略架构上验证，显示零样本部署和联合训练显著提升成功率"
+      ],
+      "research_branches": [],
+      "abstract_zh": "收集真实世界的机器人灵巧操作数据成本高昂且耗时。虽然高保真物理模拟器支持可扩展的数据合成和策略学习，但手动构建可部署的数字孪生仍然劳动密集，且视觉、几何和动力学方面的残余差距阻碍了可靠的仿真到现实迁移。我们提出了DEXTERA，一个自动化的真实到仿真到真实框架，将单张RGB图像转化为可部署的灵巧操作策略，涵盖四个统一阶段：（1）单图像场景分解为静态高斯背景和具有VLM推断物理参数的交互式刚体或铰接资产；（2）度量场景全局对齐、对象规范化和形态平衡的机器人校准；（3）可扩展的模拟器任务原语构建、VR遥操作和以对象为中心的轨迹合成；（4）支持模仿学习和强化学习的共享多模态策略接口。我们在13个任务-实体对、2个灵巧机器人平台和6种策略架构上评估了DEXTERA。实验结果表明，与生成基线相比，DEXTERA实现了优越的视觉保真度和3D几何重建，跨域轨迹重放验证了强大的物理交互一致性。此外，仅仿真训练的策略实现了可行的零样本真实机器人部署，而仿真-真实联合训练将不同策略架构的平均物理策略成功率从29.2%提高到61.9%。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.21045v1/Figure/Final/training_data_comparison_compact_ob.png",
+      "image_caption": "Fig. 8: Simulation-only training versus sim-real co-training for three policies on six task-embodiment pairs. Each panel separates simulation evaluation (left) from physical evaluation (right, shaded), with 100 and 20 trials per bar, respectively. Bar labels report success percentages. OB: OpenArm + BrainCo Revo1; KL: KUKA + LEAP Hand. Co-training improves physical success in 17 of 18 comparisons.",
+      "summary_one_sentence": "DEXTERA是一个自动化框架，从单张RGB图像生成可部署的灵巧操作策略，通过真实到仿真到真实的流程，结合场景分解、对齐、任务构建和多模态策略接口，实现了零样本部署和联合训练性能提升。",
+      "research_problem": "如何从单张RGB图像自动构建可部署的灵巧操作策略，克服真实数据收集成本高和仿真到现实迁移的差距。",
+      "method_summary": "DEXTERA包含四个阶段：单图像场景分解（静态高斯背景和交互资产，VLM推断物理参数）、度量场景全局对齐和机器人校准、模拟器任务原语构建和VR遥操作轨迹合成、共享多模态策略接口（支持IL和RL）。",
+      "experimental_setup": "评估涵盖13个任务-实体对、2个灵巧机器人平台和6种策略架构，比较生成基线的视觉保真度和3D几何重建，进行跨域轨迹重放和真实机器人部署测试。",
+      "key_results": "DEXTERA在视觉保真度和3D几何重建上优于生成基线；仿真-真实联合训练将平均物理策略成功率从29.2%提高到61.9%，仅仿真训练实现零样本部署。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该工作解决了灵巧操作中数据收集成本高和仿真到现实迁移的难题，通过自动化真实到仿真到真实流程，显著降低了部署门槛，提高了策略泛化能力，对机器人操作和具身智能领域具有重要推动作用。",
+      "relevance_reason": "该论文直接涉及机器人操作和具身智能，特别是灵巧操作和仿真到现实迁移，与视觉-力觉融合和接触状态估计相关，因为场景分解和物理参数推断涉及接触和动力学建模。",
+      "related_to_my_research": "方法参考：其场景分解和物理参数推断方法可借鉴于接触状态估计；背景文献：提供灵巧操作和仿真到现实迁移的最新进展；潜在竞争：其自动化框架可能与本领域研究形成竞争。",
+      "recommended_reading": "建议阅读关于真实到仿真到真实框架、数字孪生构建、灵巧操作策略学习（如模仿学习和强化学习）以及仿真到现实迁移的相关文献。",
+      "reproduction_value": "Medium: 框架描述详细，但依赖特定硬件（VR、灵巧机器人平台）和VLM，复现需要较多资源，但方法步骤清晰，可部分复现。",
+      "core_candidate": "No",
+      "last_checked": "2026-09-21",
+      "relevance_score": 51,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-21T09:33:27.933033+00:00"
+    },
+    {
+      "arxiv_id": "2609.21112",
+      "paper_id": "arxiv-2609-21112",
+      "title": "Demonstration Synthesis from a Single Scan via Gaussian Splatting for Visuomotor Policy Learning",
+      "abstract": "Training a visuomotor policy calls for abundant demonstrations that closely match the target environment, yet collecting them anew remains expensive. Existing demonstration synthesis methods reduce this cost but remain constrained by high manual effort, limited visual fidelity, or heavy reliance on physics simulators. This paper introduces GaussianFactory, a high-fidelity data engine that mass-produces demonstrations with a single video scan as its only human input and no physics engine in the generation loop. Specifically, GaussianFactory reconstructs the scene as an editable 3D Gaussian Splatting (3DGS) replica and samples from the object-combination tasks the scene affords. For each task, it plans grasps and trajectories purely kinematically on the geometric reconstruction, rendering photorealistic demonstrations that visually match the target environment. Physical dynamics enter the pipeline only where contact force interactions dictate the outcome---during grasp formation, via a learned contact model pretrained once on an interaction dataset. To evaluate the downstream utility of the synthesized demonstrations, we implement an end-to-end scan-to-deployment workflow in two setups: a simulated scene that stands in for the real world to enable reproducibility, and a real-world workspace with a physical UR10e robot. In each setup, a standard diffusion policy trained solely on the synthesized demonstrations achieves 95.1% and 84.2% success rates, respectively.",
+      "authors": [],
+      "published_date": "2026-09-17",
+      "updated_date": "2026-09-21",
+      "oai_datestamp": "2026-09-21",
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.21112",
+      "pdf_url": "https://arxiv.org/pdf/2609.21112",
+      "research_topics": [
+        "generative-policy"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出GaussianFactory，一种仅需单次视频扫描作为人工输入、无需物理引擎的示范数据引擎",
+        "将场景重建为可编辑的3D高斯泼溅副本，并从场景支持的任务中采样目标组合",
+        "采用纯运动学规划抓取和轨迹，仅通过预训练的学得接触模型在抓取形成时引入物理交互",
+        "实现端到端扫描到部署工作流，在模拟和真实机器人上验证合成示范训练策略的有效性"
+      ],
+      "research_branches": [],
+      "abstract_zh": "训练视觉运动策略需要大量与目标环境密切匹配的示范，但重新收集这些示范仍然昂贵。现有的示范合成方法降低了这一成本，但仍受限于高人工工作量、视觉保真度有限或对物理模拟器的严重依赖。本文介绍了GaussianFactory，一个高保真数据引擎，仅需单次视频扫描作为唯一人工输入，且生成循环中无需物理引擎，即可大规模生产示范。具体而言，GaussianFactory将场景重建为可编辑的3D高斯泼溅（3DGS）副本，并从场景支持的目标组合任务中采样。对于每个任务，它仅在几何重建上以运动学方式规划抓取和轨迹，渲染出与目标环境视觉匹配的逼真示范。物理动力学仅在接触力交互决定结果的阶段引入——即在抓取形成期间，通过一个预先在交互数据集上训练一次的学得接触模型。为了评估合成示范的下游效用，我们在两种设置中实现了端到端的扫描到部署工作流：一个模拟场景（代表真实世界，以实现可重复性）和一个带有物理UR10e机器人的真实工作空间。在每种设置中，仅用合成示范训练的标准扩散策略分别达到95.1%和84.2%的成功率。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.21112v1/images/fig_main_v2.jpg",
+      "image_caption": "Fig. 2: Overview of GaussianFactory. A single video scan of the deployment scene is reconstructed as a 3DGS world, objects are extracted, and manipulation episodes are synthesised and rendered without leaving the 3DGS representation.",
+      "summary_one_sentence": "GaussianFactory通过单次视频扫描重建3D高斯泼溅场景，纯运动学规划抓取和轨迹，合成高保真示范，无需物理引擎，训练扩散策略在模拟和真实场景中分别取得95.1%和84.2%的成功率。",
+      "research_problem": "如何低成本、高保真地合成与目标环境匹配的示范数据，用于训练视觉运动策略，同时避免昂贵的重新采集和物理模拟器的依赖。",
+      "method_summary": "该方法使用3D高斯泼溅从单次视频扫描重建可编辑场景，基于重建几何采样物体组合任务，通过运动学方式规划抓取和轨迹，渲染逼真示范。物理接触力通过预训练的接触模型（在交互数据集上训练一次）仅在抓取形成阶段模拟，其余生成过程不依赖物理引擎。",
+      "experimental_setup": "两种设置：1）模拟场景作为真实世界的替身以支持可重复性；2）带有物理UR10e机器人的真实工作空间。两种设置均使用仅由合成示范训练的扩散策略进行评估。",
+      "key_results": "在模拟场景中成功率为95.1%，在真实场景中成功率为84.2%。",
+      "limitations": "无法从摘要确认，但可能涉及对接触模型依赖、单次扫描场景重建的局限性、以及运动学规划未覆盖的动态交互等，具体未在摘要中明确。",
+      "why_it_matters": "这项工作大幅降低了示范数据采集成本，仅需一次视频扫描即可生成高保真示范，且不依赖物理模拟器，为机器人操作策略学习提供了一种实用的数据生成途径，有望推动视觉运动策略在真实场景中的快速部署。",
+      "relevance_reason": "该论文涉及机器人操作中的视觉运动策略学习与示范数据合成，其方法中包含抓取规划、接触建模和视觉渲染，与视觉-力觉融合、接触状态估计、机器人操作和具身智能研究高度相关。",
+      "related_to_my_research": "该方法参考：其使用学得接触模型处理抓取形成阶段的物理交互，与接触状态估计相关；其示范合成框架可作为机器人操作策略学习的背景文献；其运动学规划与视觉渲染可视为潜在竞争或互补方法。",
+      "recommended_reading": "建议阅读关于3D高斯泼溅（3DGS）、扩散策略（Diffusion Policy）、示范合成以及接触模型的相关文献。",
+      "reproduction_value": "Medium - 摘要提供了详细方法流程和可重复的模拟设置，但未提供代码或实验细节，真实场景复现需UR10e机器人等硬件，且接触模型和交互数据集未公开，复现有一定难度。",
+      "core_candidate": "No",
+      "last_checked": "2026-09-21",
+      "relevance_score": 51,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-21T09:33:50.595550+00:00"
     },
     {
       "arxiv_id": "2609.20477",
@@ -414,7 +962,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-18T08:42:37.056671+00:00"
+      "ai_generated_at": "2026-09-18T08:42:37.056671+00:00",
+      "image_caption_zh": "RebarSim概览。仿真训练：程序化生成器生成钢筋资产。特权教师通过强化学习训练（阶段1，青色），并监督仅看到渲染RGB和本体感觉的学生（阶段2，紫色）。部署：同一学生模型冻结后部署到真实相机上（阶段3，橙色）。"
     },
     {
       "arxiv_id": "2609.20107",
@@ -481,7 +1030,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-18T08:42:55.042530+00:00"
+      "ai_generated_at": "2026-09-18T08:42:55.042530+00:00",
+      "image_caption_zh": "多视图对比训练设置。在模拟表征学习过程中，同一物理状态的视觉观察被同时渲染。"
     },
     {
       "arxiv_id": "2609.19613",
@@ -555,7 +1105,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-18T08:43:13.199110+00:00"
+      "ai_generated_at": "2026-09-18T08:43:13.199110+00:00",
+      "image_caption_zh": "平台与裸手采集：MediaPipe地标驱动带触觉的Shadow Hand；同步记录工作空间RGB、机器人状态/目标及触觉数据。"
     },
     {
       "arxiv_id": "2609.19137",
