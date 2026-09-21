@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-20",
+  "generated_at": "2026-09-21",
   "topic": "Vision-Force Fusion in Failure Understanding & Recovery",
   "topic_zh": "视觉力觉融合在机器人操作失败理解与恢复中的研究进展",
   "disclaimer": "当前分析基于 Embodied Research Radar 已收录论文及其标题、摘要、结构化字段和辅助分析，不等同于系统综述或 Meta-analysis。Research Gap 表示当前收录证据中尚未被充分覆盖的问题，不表示学术界绝对无人研究。",
@@ -3645,55 +3645,55 @@
   },
   "external_evidence": {
     "physical-state-aliasing": {
-      "total_retrieved": 3,
-      "unique_after_dedup": 3,
-      "supporting_count": 0,
-      "counter_count": 1,
-      "sources": {
-        "openalex": 3,
-        "semantic_scholar": 0,
-        "arxiv": 0
-      },
-      "searched_at": "2026-09-14",
-      "evidence_stale": false
-    },
-    "failure-detection-vs-diagnosis": {
-      "total_retrieved": 40,
-      "unique_after_dedup": 39,
-      "supporting_count": 0,
-      "counter_count": 0,
-      "sources": {
-        "openalex": 40,
-        "semantic_scholar": 0,
-        "arxiv": 0
-      },
-      "searched_at": "2026-09-14",
-      "evidence_stale": false
-    },
-    "detection-without-recovery": {
       "total_retrieved": 60,
-      "unique_after_dedup": 60,
-      "supporting_count": 0,
-      "counter_count": 0,
+      "unique_after_dedup": 59,
+      "supporting_count": 4,
+      "counter_count": 5,
       "sources": {
         "openalex": 60,
         "semantic_scholar": 0,
         "arxiv": 0
       },
-      "searched_at": "2026-09-14",
+      "searched_at": "2026-09-21",
       "evidence_stale": false
     },
-    "recovery-without-reverification": {
-      "total_retrieved": 38,
-      "unique_after_dedup": 38,
-      "supporting_count": 5,
-      "counter_count": 6,
+    "failure-detection-vs-diagnosis": {
+      "total_retrieved": 100,
+      "unique_after_dedup": 88,
+      "supporting_count": 0,
+      "counter_count": 0,
       "sources": {
-        "openalex": 38,
+        "openalex": 100,
         "semantic_scholar": 0,
         "arxiv": 0
       },
-      "searched_at": "2026-09-14",
+      "searched_at": "2026-09-21",
+      "evidence_stale": false
+    },
+    "detection-without-recovery": {
+      "total_retrieved": 80,
+      "unique_after_dedup": 79,
+      "supporting_count": 0,
+      "counter_count": 0,
+      "sources": {
+        "openalex": 80,
+        "semantic_scholar": 0,
+        "arxiv": 0
+      },
+      "searched_at": "2026-09-21",
+      "evidence_stale": false
+    },
+    "recovery-without-reverification": {
+      "total_retrieved": 86,
+      "unique_after_dedup": 84,
+      "supporting_count": 18,
+      "counter_count": 26,
+      "sources": {
+        "openalex": 86,
+        "semantic_scholar": 0,
+        "arxiv": 0
+      },
+      "searched_at": "2026-09-21",
       "evidence_stale": false
     },
     "temporal-6d-ft-evidence": {
@@ -3706,101 +3706,101 @@
         "semantic_scholar": 0,
         "arxiv": 0
       },
-      "searched_at": "2026-09-14",
+      "searched_at": "2026-09-21",
       "evidence_stale": false
     },
     "outcome-vs-evidence-sufficiency": {
-      "total_retrieved": 40,
-      "unique_after_dedup": 40,
+      "total_retrieved": 62,
+      "unique_after_dedup": 60,
       "supporting_count": 0,
       "counter_count": 0,
       "sources": {
-        "openalex": 40,
+        "openalex": 62,
         "semantic_scholar": 0,
         "arxiv": 0
       },
-      "searched_at": "2026-09-14",
+      "searched_at": "2026-09-21",
       "evidence_stale": false
     },
     "false-success-risk": {
-      "total_retrieved": 35,
-      "unique_after_dedup": 35,
-      "supporting_count": 3,
-      "counter_count": 0,
-      "sources": {
-        "openalex": 15,
-        "semantic_scholar": 20,
-        "arxiv": 0
-      },
-      "searched_at": "2026-09-14",
-      "evidence_stale": false
-    },
-    "failure-to-recovery-hierarchy": {
-      "total_retrieved": 41,
-      "unique_after_dedup": 40,
-      "supporting_count": 1,
-      "counter_count": 0,
-      "sources": {
-        "openalex": 41,
-        "semantic_scholar": 0,
-        "arxiv": 0
-      },
-      "searched_at": "2026-09-14",
-      "evidence_stale": false
-    },
-    "selective-human-escalation": {
-      "total_retrieved": 80,
-      "unique_after_dedup": 75,
-      "supporting_count": 4,
-      "counter_count": 1,
-      "sources": {
-        "openalex": 80,
-        "semantic_scholar": 0,
-        "arxiv": 0
-      },
-      "searched_at": "2026-09-14",
-      "evidence_stale": false
-    },
-    "learning-from-corrections": {
-      "total_retrieved": 67,
-      "unique_after_dedup": 67,
-      "supporting_count": 8,
-      "counter_count": 0,
-      "sources": {
-        "openalex": 67,
-        "semantic_scholar": 0,
-        "arxiv": 0
-      },
-      "searched_at": "2026-09-14",
-      "evidence_stale": false
-    },
-    "benchmark-gap": {
-      "total_retrieved": 20,
-      "unique_after_dedup": 20,
-      "supporting_count": 1,
-      "counter_count": 0,
-      "sources": {
-        "openalex": 20,
-        "semantic_scholar": 0,
-        "arxiv": 0
-      },
-      "searched_at": "2026-09-14",
-      "evidence_stale": false
-    },
-    "cross-task-generalization": {
       "total_retrieved": 40,
-      "unique_after_dedup": 40,
-      "supporting_count": 0,
+      "unique_after_dedup": 39,
+      "supporting_count": 2,
       "counter_count": 0,
       "sources": {
         "openalex": 40,
         "semantic_scholar": 0,
         "arxiv": 0
       },
-      "searched_at": "2026-09-14",
+      "searched_at": "2026-09-21",
+      "evidence_stale": false
+    },
+    "failure-to-recovery-hierarchy": {
+      "total_retrieved": 61,
+      "unique_after_dedup": 59,
+      "supporting_count": 3,
+      "counter_count": 0,
+      "sources": {
+        "openalex": 61,
+        "semantic_scholar": 0,
+        "arxiv": 0
+      },
+      "searched_at": "2026-09-21",
+      "evidence_stale": false
+    },
+    "selective-human-escalation": {
+      "total_retrieved": 120,
+      "unique_after_dedup": 106,
+      "supporting_count": 4,
+      "counter_count": 1,
+      "sources": {
+        "openalex": 120,
+        "semantic_scholar": 0,
+        "arxiv": 0
+      },
+      "searched_at": "2026-09-21",
+      "evidence_stale": false
+    },
+    "learning-from-corrections": {
+      "total_retrieved": 107,
+      "unique_after_dedup": 98,
+      "supporting_count": 14,
+      "counter_count": 0,
+      "sources": {
+        "openalex": 107,
+        "semantic_scholar": 0,
+        "arxiv": 0
+      },
+      "searched_at": "2026-09-21",
+      "evidence_stale": false
+    },
+    "benchmark-gap": {
+      "total_retrieved": 47,
+      "unique_after_dedup": 44,
+      "supporting_count": 1,
+      "counter_count": 0,
+      "sources": {
+        "openalex": 47,
+        "semantic_scholar": 0,
+        "arxiv": 0
+      },
+      "searched_at": "2026-09-21",
+      "evidence_stale": false
+    },
+    "cross-task-generalization": {
+      "total_retrieved": 60,
+      "unique_after_dedup": 55,
+      "supporting_count": 0,
+      "counter_count": 0,
+      "sources": {
+        "openalex": 60,
+        "semantic_scholar": 0,
+        "arxiv": 0
+      },
+      "searched_at": "2026-09-21",
       "evidence_stale": false
     }
   },
   "external_update_source": "local",
-  "external_searched_at": "2026-09-14"
+  "external_searched_at": "2026-09-21"
 }
