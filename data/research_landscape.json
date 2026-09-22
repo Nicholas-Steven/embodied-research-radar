@@ -1,27 +1,27 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-21",
+  "generated_at": "2026-09-22",
   "topic": "Vision-Force Fusion in Failure Understanding & Recovery",
   "topic_zh": "视觉力觉融合在机器人操作失败理解与恢复中的研究进展",
   "disclaimer": "当前分析基于 Embodied Research Radar 已收录论文及其标题、摘要、结构化字段和辅助分析，不等同于系统综述或 Meta-analysis。Research Gap 表示当前收录证据中尚未被充分覆盖的问题，不表示学术界绝对无人研究。",
   "disclaimer_zh": "当前分析基于 Embodied Research Radar 已收录论文及其标题、摘要、结构化字段和辅助分析，不等同于系统综述或 Meta-analysis。Research Gap 表示当前收录证据中尚未被充分覆盖的问题，不表示学术界绝对无人研究。",
   "statistics": {
-    "total_papers": 237,
-    "analysis_sample_size": 237,
+    "total_papers": 266,
+    "analysis_sample_size": 266,
     "topic_counts": {
-      "vision-force": 100,
+      "vision-force": 117,
       "failure-understanding": 12,
-      "failure-recovery": 21
+      "failure-recovery": 22
     },
     "cross_topic_counts": {
       "vision-force_and_failure-understanding": 1,
-      "vision-force_and_failure-recovery": 4,
+      "vision-force_and_failure-recovery": 5,
       "vision-force_and_failure-understanding_and_failure-recovery": 0
     },
     "evidence_tiers": {
-      "direct": 8,
+      "direct": 9,
       "related": 0,
-      "background": 26
+      "background": 31
     }
   },
   "pipeline": [
@@ -30,28 +30,28 @@
       "label": "Multimodal Perception",
       "label_zh": "多模态感知",
       "description": "视觉、力觉、触觉等传感器信号的获取与初步处理",
-      "paper_count": 187,
+      "paper_count": 211,
       "paper_ids": [
-        "arxiv-2609-21753",
-        "arxiv-2609-21726",
-        "arxiv-2609-21229",
-        "arxiv-2606-09615",
-        "arxiv-2609-21449",
-        "arxiv-2609-20649",
-        "arxiv-2609-20414",
-        "arxiv-2609-20761",
-        "arxiv-2609-20980",
-        "arxiv-2609-19666",
-        "arxiv-2609-21045",
-        "arxiv-2609-21112",
-        "arxiv-2609-20477",
-        "arxiv-2609-20107",
-        "arxiv-2609-19613",
-        "arxiv-2609-18497",
-        "arxiv-2609-18242",
-        "arxiv-2607-02840",
-        "arxiv-2609-18174",
-        "arxiv-2607-19190"
+        "arxiv-2609-23968",
+        "arxiv-2609-24507",
+        "arxiv-2609-24180",
+        "arxiv-2609-24385",
+        "arxiv-2609-24068",
+        "arxiv-2609-24660",
+        "arxiv-2609-24033",
+        "arxiv-2607-14021",
+        "arxiv-2609-24133",
+        "arxiv-2609-24976",
+        "arxiv-2609-24621",
+        "arxiv-2609-24413",
+        "arxiv-2609-23800",
+        "arxiv-2609-23885",
+        "arxiv-2609-23888",
+        "arxiv-2608-29601",
+        "arxiv-2609-22730",
+        "arxiv-2609-22852",
+        "arxiv-2609-22840",
+        "arxiv-2609-22803"
       ]
     },
     {
@@ -59,8 +59,15 @@
       "label": "Multimodal Representation",
       "label_zh": "多模态表示",
       "description": "将多源传感器数据编码为可用于决策的特征表示",
-      "paper_count": 84,
+      "paper_count": 91,
       "paper_ids": [
+        "arxiv-2609-24385",
+        "arxiv-2609-24033",
+        "arxiv-2607-14021",
+        "arxiv-2609-24976",
+        "arxiv-2609-24621",
+        "arxiv-2609-23888",
+        "arxiv-2608-29601",
         "arxiv-2609-21753",
         "arxiv-2609-21449",
         "arxiv-2609-20761",
@@ -73,14 +80,7 @@
         "arxiv-2609-16504",
         "arxiv-2609-16586",
         "arxiv-2609-15921",
-        "arxiv-2609-15910",
-        "arxiv-2609-14783",
-        "arxiv-2609-14156",
-        "arxiv-2609-13845",
-        "arxiv-2609-16040",
-        "arxiv-2609-10918",
-        "arxiv-2609-11270",
-        "arxiv-2609-11310"
+        "arxiv-2609-15910"
       ]
     },
     {
@@ -88,28 +88,28 @@
       "label": "Physical / Contact State",
       "label_zh": "物理/接触状态",
       "description": "估计接触发生时机、接触力分布、滑移和对齐状态",
-      "paper_count": 109,
+      "paper_count": 133,
       "paper_ids": [
-        "arxiv-2609-21753",
-        "arxiv-2609-21726",
-        "arxiv-2606-09615",
-        "arxiv-2609-20649",
-        "arxiv-2609-19962",
-        "arxiv-2609-20761",
-        "arxiv-2609-20980",
-        "arxiv-2609-19666",
-        "arxiv-2609-21045",
-        "arxiv-2609-20477",
-        "arxiv-2609-20107",
-        "arxiv-2609-19137",
-        "arxiv-2609-18497",
-        "arxiv-2609-18242",
-        "arxiv-2607-02840",
-        "arxiv-2609-18174",
-        "arxiv-2607-19190",
-        "arxiv-2609-15198",
-        "arxiv-2609-16437",
-        "arxiv-2609-15910"
+        "arxiv-2609-23968",
+        "arxiv-2609-24507",
+        "arxiv-2609-24180",
+        "arxiv-2609-24385",
+        "arxiv-2609-24068",
+        "arxiv-2609-24093",
+        "arxiv-2609-24033",
+        "arxiv-2607-14021",
+        "arxiv-2609-24511",
+        "arxiv-2609-24976",
+        "arxiv-2510-26280",
+        "arxiv-2609-24413",
+        "arxiv-2609-23554",
+        "arxiv-2609-23800",
+        "arxiv-2609-23888",
+        "arxiv-2608-29601",
+        "arxiv-2609-22730",
+        "arxiv-2609-22852",
+        "arxiv-2609-22840",
+        "arxiv-2609-22803"
       ]
     },
     {
@@ -117,8 +117,12 @@
       "label": "Outcome Verification",
       "label_zh": "结果验证",
       "description": "判断任务步骤是否成功完成",
-      "paper_count": 30,
+      "paper_count": 34,
       "paper_ids": [
+        "arxiv-2609-24660",
+        "arxiv-2607-14021",
+        "arxiv-2609-22606",
+        "arxiv-2609-22591",
         "arxiv-2607-02840",
         "arxiv-2609-10918",
         "arxiv-2609-11043",
@@ -134,11 +138,7 @@
         "arxiv-2608-28108",
         "arxiv-2608-26645",
         "arxiv-2608-19574",
-        "arxiv-2608-18701",
-        "arxiv-2608-16889",
-        "arxiv-2608-15938",
-        "arxiv-2608-11769",
-        "arxiv-2608-09138"
+        "arxiv-2608-18701"
       ]
     },
     {
@@ -161,8 +161,10 @@
       "label": "Failure Diagnosis",
       "label_zh": "失败诊断",
       "description": "分析失败原因、模式和类型",
-      "paper_count": 10,
+      "paper_count": 12,
       "paper_ids": [
+        "arxiv-2609-24996",
+        "arxiv-2609-22591",
         "arxiv-2609-15726",
         "arxiv-2609-13845",
         "arxiv-2609-05324",
@@ -180,8 +182,9 @@
       "label": "Recovery Selection",
       "label_zh": "恢复策略选择",
       "description": "根据失败类型选择合适的恢复策略",
-      "paper_count": 29,
+      "paper_count": 30,
       "paper_ids": [
+        "arxiv-2609-22840",
         "arxiv-2607-02840",
         "arxiv-2609-13779",
         "arxiv-2609-13845",
@@ -200,8 +203,7 @@
         "arxiv-2608-16978",
         "arxiv-2608-15440",
         "arxiv-2608-13678",
-        "arxiv-2608-11769",
-        "arxiv-2608-11204"
+        "arxiv-2608-11769"
       ]
     },
     {
@@ -209,8 +211,19 @@
       "label": "Recovery Action",
       "label_zh": "恢复动作",
       "description": "执行恢复动作，包括重试、纠偏和重规划",
-      "paper_count": 80,
+      "paper_count": 91,
       "paper_ids": [
+        "arxiv-2609-24180",
+        "arxiv-2609-24068",
+        "arxiv-2609-24093",
+        "arxiv-2607-14021",
+        "arxiv-2609-24133",
+        "arxiv-2609-24511",
+        "arxiv-2609-24413",
+        "arxiv-2609-23800",
+        "arxiv-2609-22852",
+        "arxiv-2609-22840",
+        "arxiv-2609-22591",
         "arxiv-2609-21229",
         "arxiv-2609-20414",
         "arxiv-2609-19962",
@@ -219,18 +232,7 @@
         "arxiv-2607-02840",
         "arxiv-2607-19190",
         "arxiv-2609-19119",
-        "arxiv-2609-16518",
-        "arxiv-2609-15726",
-        "arxiv-2609-14133",
-        "arxiv-2609-13845",
-        "arxiv-2609-12677",
-        "arxiv-2609-05927",
-        "arxiv-2609-11043",
-        "arxiv-2609-09925",
-        "arxiv-2609-07747",
-        "arxiv-2609-10243",
-        "arxiv-2609-07002",
-        "arxiv-2609-07211"
+        "arxiv-2609-16518"
       ]
     },
     {
@@ -238,8 +240,11 @@
       "label": "Re-verification",
       "label_zh": "恢复后验证",
       "description": "恢复动作后验证任务是否真正成功",
-      "paper_count": 23,
+      "paper_count": 26,
       "paper_ids": [
+        "arxiv-2609-23968",
+        "arxiv-2609-24180",
+        "arxiv-2609-23800",
         "arxiv-2609-20107",
         "arxiv-2609-19137",
         "arxiv-2608-30237",
@@ -256,10 +261,7 @@
         "arxiv-2608-16885",
         "arxiv-2608-15938",
         "arxiv-2608-13678",
-        "arxiv-2608-11204",
-        "arxiv-2608-05738",
-        "arxiv-2608-01824",
-        "arxiv-2607-14842"
+        "arxiv-2608-11204"
       ]
     }
   ],
@@ -269,18 +271,18 @@
       "label": "视觉力觉融合",
       "label_en": "Vision-Force Fusion",
       "level": "Relatively Mature",
-      "paper_count": 96,
+      "paper_count": 113,
       "paper_ids": [
-        "arxiv-2609-21753",
-        "arxiv-2609-21726",
-        "arxiv-2606-09615",
-        "arxiv-2609-20649",
-        "arxiv-2609-19962",
-        "arxiv-2609-20761",
-        "arxiv-2609-20980",
-        "arxiv-2609-20477",
-        "arxiv-2609-19137",
-        "arxiv-2609-18497"
+        "arxiv-2609-23968",
+        "arxiv-2609-24180",
+        "arxiv-2609-24385",
+        "arxiv-2609-24093",
+        "arxiv-2609-24033",
+        "arxiv-2609-24511",
+        "arxiv-2609-24976",
+        "arxiv-2510-26280",
+        "arxiv-2609-23554",
+        "arxiv-2609-23800"
       ]
     },
     {
@@ -288,18 +290,18 @@
       "label": "接触状态估计",
       "label_en": "Contact State Estimation",
       "level": "Relatively Mature",
-      "paper_count": 85,
+      "paper_count": 101,
       "paper_ids": [
-        "arxiv-2609-21753",
-        "arxiv-2609-21726",
-        "arxiv-2606-09615",
-        "arxiv-2609-20649",
-        "arxiv-2609-19962",
-        "arxiv-2609-20761",
-        "arxiv-2609-20980",
-        "arxiv-2609-20477",
-        "arxiv-2609-19137",
-        "arxiv-2609-18497"
+        "arxiv-2609-23968",
+        "arxiv-2609-24180",
+        "arxiv-2609-24385",
+        "arxiv-2609-24093",
+        "arxiv-2609-24033",
+        "arxiv-2609-24511",
+        "arxiv-2609-24976",
+        "arxiv-2510-26280",
+        "arxiv-2609-23554",
+        "arxiv-2609-23800"
       ]
     },
     {
@@ -380,8 +382,9 @@
       "label": "恢复动作生成",
       "label_en": "Recovery Action Generation",
       "level": "Relatively Mature",
-      "paper_count": 15,
+      "paper_count": 16,
       "paper_ids": [
+        "arxiv-2609-23800",
         "arxiv-2607-02840",
         "arxiv-2609-14133",
         "arxiv-2608-19574",
@@ -390,8 +393,7 @@
         "arxiv-2608-02197",
         "arxiv-2606-12372",
         "arxiv-2606-07723",
-        "arxiv-2606-01478",
-        "arxiv-2605-01201"
+        "arxiv-2606-01478"
       ]
     },
     {
@@ -427,18 +429,18 @@
       "label": "不确定性估计",
       "label_en": "Uncertainty Estimation",
       "level": "Relatively Mature",
-      "paper_count": 34,
+      "paper_count": 39,
       "paper_ids": [
+        "arxiv-2609-24133",
+        "arxiv-2609-24413",
+        "arxiv-2609-23800",
+        "arxiv-2609-22730",
+        "arxiv-2512-11908",
         "arxiv-2609-21045",
         "arxiv-2609-20107",
         "arxiv-2609-16586",
         "arxiv-2609-15198",
-        "arxiv-2604-23696",
-        "arxiv-2609-14173",
-        "arxiv-2609-14133",
-        "arxiv-2609-12677",
-        "arxiv-2601-19275",
-        "arxiv-2609-08673"
+        "arxiv-2604-23696"
       ]
     },
     {
@@ -446,8 +448,10 @@
       "label": "人在环升级",
       "label_en": "Human-in-the-Loop Escalation",
       "level": "Moderate",
-      "paper_count": 8,
+      "paper_count": 10,
       "paper_ids": [
+        "arxiv-2609-24511",
+        "arxiv-2609-22840",
         "arxiv-2607-02840",
         "arxiv-2609-10243",
         "arxiv-2609-06852",
@@ -463,18 +467,18 @@
       "label": "真实机器人跨任务泛化",
       "label_en": "Cross-task Generalization (Real Robot)",
       "level": "Relatively Mature",
-      "paper_count": 162,
+      "paper_count": 184,
       "paper_ids": [
-        "arxiv-2609-21753",
-        "arxiv-2609-21726",
-        "arxiv-2609-21229",
-        "arxiv-2606-09615",
-        "arxiv-2609-21449",
-        "arxiv-2609-20649",
-        "arxiv-2609-20414",
-        "arxiv-2609-19962",
-        "arxiv-2609-20761",
-        "arxiv-2609-20980"
+        "arxiv-2609-23968",
+        "arxiv-2609-24507",
+        "arxiv-2609-24180",
+        "arxiv-2609-24068",
+        "arxiv-2609-24660",
+        "arxiv-2609-24093",
+        "arxiv-2609-24033",
+        "arxiv-2607-14021",
+        "arxiv-2609-24133",
+        "arxiv-2609-24996"
       ]
     }
   ],
@@ -521,22 +525,22 @@
       "what_has_been_addressed": "",
       "what_remains_open": "",
       "status_reason": "",
-      "current_progress": "涉及失败-恢复映射的论文 13 篇；VoLo 和 Continue or Replan? 在做初步映射",
+      "current_progress": "涉及失败-恢复映射的论文 14 篇；VoLo 和 Continue or Replan? 在做初步映射",
       "missing_piece": "多数恢复方法使用统一策略，缺乏根据失败类型选择不同恢复方案的机制",
       "why_it_matters": "不同的失败模式可能需要根本不同的恢复策略",
       "supporting_paper_ids": [
+        "arxiv-2609-22591",
         "arxiv-2607-02840",
         "arxiv-2609-13779",
         "arxiv-2609-07049",
-        "arxiv-2609-05369",
-        "arxiv-2609-05376"
+        "arxiv-2609-05369"
       ],
       "counter_paper_ids": [
+        "arxiv-2609-24068",
+        "arxiv-2609-24621",
         "arxiv-2609-20649",
         "arxiv-2609-15198",
-        "arxiv-2609-14173",
-        "arxiv-2609-13516",
-        "arxiv-2609-11043"
+        "arxiv-2609-14173"
       ],
       "confidence": "medium",
       "research_opportunity": "研究 failure taxonomy → recovery policy 的层级决策框架",
@@ -553,18 +557,18 @@
       "what_has_been_addressed": "若干工作已在恢复动作后执行任务完成检测或闭环状态观察，包括自适应重规划后的终止条件判断和闭环执行监控",
       "what_remains_open": "这些方法是否能够形成跨任务、可复用、显式且具有不确定性感知的 Post-Recovery Re-verification 框架仍需验证",
       "status_reason": "外部搜索发现26篇论文已涉及恢复后验证机制，原始'恢复后缺少重新验证'表述过宽；问题缩窄为跨任务、显式且不确定性感知的恢复后验证",
-      "current_progress": "涉及恢复的论文 80 篇，涉及恢复后验证的 3 篇；外部搜索发现26篇 counter evidence，说明已有工作在做恢复后验证",
+      "current_progress": "涉及恢复的论文 91 篇，涉及恢复后验证的 3 篇；外部搜索发现26篇 counter evidence，说明已有工作在做恢复后验证",
       "missing_piece": "多数恢复研究的验证机制嵌入在特定任务流程中，尚未形成独立、可复用的验证框架",
       "why_it_matters": "未经验证的恢复可能导致系统在未察觉的失败状态上继续执行",
       "supporting_paper_ids": [
-        "arxiv-2609-21229",
-        "arxiv-2609-20414",
-        "arxiv-2609-19962",
-        "arxiv-2609-19666",
-        "arxiv-2609-18242",
-        "arxiv-2607-02840",
-        "arxiv-2607-19190",
-        "arxiv-2609-19119"
+        "arxiv-2609-24180",
+        "arxiv-2609-24068",
+        "arxiv-2609-24093",
+        "arxiv-2607-14021",
+        "arxiv-2609-24133",
+        "arxiv-2609-24511",
+        "arxiv-2609-24413",
+        "arxiv-2609-23800"
       ],
       "counter_paper_ids": [
         "arxiv-2609-20107",
@@ -586,21 +590,22 @@
       "what_has_been_addressed": "ManipForce 等工作已在做 RGB + 时序 F/T 联合编码，Frequency-Aware Transformer 能够处理异步多模态信号",
       "what_remains_open": "时序 F/T 是否被明确用于 physical state verification、outcome verification、failure-state verification 和 false-success reduction 仍需验证",
       "status_reason": "外部搜索发现 ManipForce 等工作已在做 RGB+时序 F/T 联合建模，原始'没人研究时序 F/T'不成立；问题缩窄为时序 F/T 是否真正改善失败状态验证",
-      "current_progress": "VF 论文中涉及时序力觉的 30 篇，RGB-D+F/T 联合 4 篇。ManipForce 已在做 RGB+时序 F/T 联合编码，但其是否被用于失败状态验证和 False Success 降低仍需验证",
+      "current_progress": "VF 论文中涉及时序力觉的 37 篇，RGB-D+F/T 联合 7 篇。ManipForce 已在做 RGB+时序 F/T 联合编码，但其是否被用于失败状态验证和 False Success 降低仍需验证",
       "missing_piece": "重点从'有没有 Temporal F/T'转移到'Temporal F/T 是否真正改善失败状态验证和 False Success'",
       "why_it_matters": "时序力觉信号可能包含关键的接触状态变化信息，但当前缺乏将其与失败验证直接关联的研究",
       "supporting_paper_ids": [
-        "arxiv-2609-21753",
-        "arxiv-2609-19137",
-        "arxiv-2609-18497",
-        "arxiv-2609-18242",
-        "arxiv-2609-16437"
+        "arxiv-2609-23968",
+        "arxiv-2609-24093",
+        "arxiv-2609-24033",
+        "arxiv-2609-23554",
+        "arxiv-2609-23800"
       ],
       "counter_paper_ids": [
+        "arxiv-2607-14021",
+        "arxiv-2609-23885",
+        "arxiv-2609-22852",
         "arxiv-2609-11661",
-        "arxiv-2608-17962",
-        "arxiv-2607-16123",
-        "arxiv-2509-19047"
+        "arxiv-2608-17962"
       ],
       "confidence": "low",
       "research_opportunity": "研究 sliding-window F/T history 与视觉的联合编码方法，尤其关注其在失败验证中的应用",
@@ -621,14 +626,14 @@
       "missing_piece": "现有 HITL 框架多使用固定触发条件，而非基于感知不确定性和证据充分性的自适应策略",
       "why_it_matters": "在视觉力觉失败恢复中，错误的自主恢复可能比请求人类干预代价更高",
       "supporting_paper_ids": [
+        "arxiv-2609-24511",
+        "arxiv-2609-22840",
         "arxiv-2607-02840",
         "arxiv-2609-10243",
         "arxiv-2609-06852",
         "arxiv-2608-21204",
         "arxiv-2608-03872",
-        "arxiv-2606-12372",
-        "arxiv-2605-01201",
-        "arxiv-2505-14941"
+        "arxiv-2606-12372"
       ],
       "counter_paper_ids": [],
       "confidence": "low",
@@ -651,11 +656,11 @@
       "why_it_matters": "如果纠正信息不被系统性地用于改进失败恢复策略，机器人将反复犯相同错误",
       "supporting_paper_ids": [],
       "counter_paper_ids": [
-        "arxiv-2609-19962",
-        "arxiv-2609-19666",
-        "arxiv-2609-18242",
-        "arxiv-2609-15726",
-        "arxiv-2609-05369"
+        "arxiv-2609-24180",
+        "arxiv-2609-24660",
+        "arxiv-2607-14021",
+        "arxiv-2609-24996",
+        "arxiv-2609-22840"
       ],
       "confidence": "low",
       "research_opportunity": "研究 human correction → failure recovery policy improvement 的闭环机制",
@@ -676,6 +681,7 @@
       "missing_piece": "缺少视觉成功与物理成功之间的显式一致性验证机制",
       "why_it_matters": "如果视觉判断成功但物理状态实际不一致，机器人可能在错误状态上继续执行",
       "supporting_paper_ids": [
+        "arxiv-2609-22730",
         "arxiv-2609-18497",
         "arxiv-2609-04193",
         "arxiv-2608-03872",
@@ -683,11 +689,11 @@
         "arxiv-2607-15448"
       ],
       "counter_paper_ids": [
+        "arxiv-2609-24413",
+        "arxiv-2609-22730",
+        "arxiv-2609-22840",
         "arxiv-2609-21229",
-        "arxiv-2609-20980",
-        "arxiv-2604-23696",
-        "arxiv-2609-12634",
-        "arxiv-2609-05927"
+        "arxiv-2609-20980"
       ],
       "confidence": "low",
       "research_opportunity": "探索视觉-力觉联合状态一致性验证方法，建立 false-success 检测基线",
@@ -704,22 +710,22 @@
       "what_has_been_addressed": "",
       "what_remains_open": "",
       "status_reason": "",
-      "current_progress": "Radar 中检测相关论文 31 篇，诊断相关 10 篇；但 counter 中已有 Diagnose Correct Learn 等工作在做诊断",
+      "current_progress": "Radar 中检测相关论文 32 篇，诊断相关 12 篇；但 counter 中已有 Diagnose Correct Learn 等工作在做诊断",
       "missing_piece": "多数工作聚焦于检测失败是否发生，较少深入诊断失败的具体原因和模式",
       "why_it_matters": "没有准确的诊断，恢复策略选择缺乏依据",
       "supporting_paper_ids": [
+        "arxiv-2607-14021",
         "arxiv-2607-02840",
         "arxiv-2609-10918",
         "arxiv-2609-11043",
-        "arxiv-2609-05369",
-        "arxiv-2609-05178"
+        "arxiv-2609-05369"
       ],
       "counter_paper_ids": [
+        "arxiv-2609-24996",
+        "arxiv-2609-22591",
         "arxiv-2609-15726",
         "arxiv-2609-13845",
-        "arxiv-2609-05324",
-        "arxiv-2609-05376",
-        "arxiv-2608-22800"
+        "arxiv-2609-05324"
       ],
       "confidence": "low",
       "research_opportunity": "研究 failure mode taxonomy 与诊断模型，建立 detection→diagnosis pipeline",
@@ -736,7 +742,7 @@
       "what_has_been_addressed": "",
       "what_remains_open": "",
       "status_reason": "",
-      "current_progress": "结果预测论文 13 篇，显式讨论证据充分性的 5 篇；Radar 未覆盖 evidence sufficiency 领域",
+      "current_progress": "结果预测论文 13 篇，显式讨论证据充分性的 6 篇；Radar 未覆盖 evidence sufficiency 领域",
       "missing_piece": "多数 outcome prediction 直接输出成功/失败概率，不区分'证据不足'和'任务确实失败'",
       "why_it_matters": "证据不充分时的误判风险可能高于任务本身的失败率",
       "supporting_paper_ids": [
@@ -747,9 +753,9 @@
         "arxiv-2609-01596"
       ],
       "counter_paper_ids": [
+        "arxiv-2609-22840",
         "arxiv-2609-18497",
-        "arxiv-2608-15938",
-        "arxiv-2608-10824"
+        "arxiv-2608-15938"
       ],
       "confidence": "low",
       "research_opportunity": "研究 evidence-aware outcome prediction，将观测充分性纳入决策",
@@ -766,7 +772,7 @@
       "what_has_been_addressed": "",
       "what_remains_open": "",
       "status_reason": "",
-      "current_progress": "涉及虚假成功风险的论文 2 篇，涉及成功验证的 29 篇；Radar 未覆盖 false-success detection 领域",
+      "current_progress": "涉及虚假成功风险的论文 2 篇，涉及成功验证的 31 篇；Radar 未覆盖 false-success detection 领域",
       "missing_piece": "多数系统假设感知判断即为真实状态，未建模 false-success 的代价",
       "why_it_matters": "虚假成功可能导致机器人在危险状态上继续执行",
       "supporting_paper_ids": [
@@ -774,11 +780,11 @@
         "arxiv-2608-09303"
       ],
       "counter_paper_ids": [
+        "arxiv-2609-24180",
+        "arxiv-2609-22840",
         "arxiv-2609-21229",
         "arxiv-2609-20761",
-        "arxiv-2609-20980",
-        "arxiv-2609-14133",
-        "arxiv-2609-14156"
+        "arxiv-2609-20980"
       ],
       "confidence": "low",
       "research_opportunity": "研究 false-success risk estimation 和 risk-aware execution",
@@ -795,15 +801,15 @@
       "what_has_been_addressed": "",
       "what_remains_open": "",
       "status_reason": "",
-      "current_progress": "基准相关论文 63 篇，VF 相关 13 篇，failure 相关 7 篇；'benchmark' 关键词匹配了大量非 VF 失败恢复基准",
+      "current_progress": "基准相关论文 73 篇，VF 相关 17 篇，failure 相关 7 篇；'benchmark' 关键词匹配了大量非 VF 失败恢复基准",
       "missing_piece": "现有基准多聚焦于静态操作成功率，缺乏针对失败恢复过程的标准化评估",
       "why_it_matters": "没有统一基准难以公平比较不同方法的恢复能力",
       "supporting_paper_ids": [
+        "arxiv-2609-24511",
+        "arxiv-2609-23554",
+        "arxiv-2609-22803",
         "arxiv-2609-21726",
-        "arxiv-2609-14156",
-        "arxiv-2609-08673",
-        "arxiv-2608-30536",
-        "arxiv-2608-22100"
+        "arxiv-2609-22591"
       ],
       "counter_paper_ids": [
         "arxiv-2609-03715",
@@ -827,18 +833,18 @@
       "what_has_been_addressed": "",
       "what_remains_open": "",
       "status_reason": "",
-      "current_progress": "涉及泛化的论文 91 篇，VF 相关 34 篇，真实机器人 18 篇；'generaliz' 关键词过于宽泛，匹配了大量非 VF 跨任务论文",
+      "current_progress": "涉及泛化的论文 104 篇，VF 相关 43 篇，真实机器人 24 篇；'generaliz' 关键词过于宽泛，匹配了大量非 VF 跨任务论文",
       "missing_piece": "多数方法在特定任务和平台上验证，跨场景泛化能力未充分评估",
       "why_it_matters": "缺乏泛化能力限制了方法的实用性和可迁移性",
       "supporting_paper_ids": [
-        "arxiv-2609-20649",
-        "arxiv-2609-20477",
-        "arxiv-2607-02840",
-        "arxiv-2609-18174",
-        "arxiv-2609-16437",
-        "arxiv-2609-13779",
-        "arxiv-2609-14173",
-        "arxiv-2609-13516"
+        "arxiv-2609-23968",
+        "arxiv-2609-24180",
+        "arxiv-2609-24093",
+        "arxiv-2609-24511",
+        "arxiv-2609-23800",
+        "arxiv-2609-23888",
+        "arxiv-2609-22852",
+        "arxiv-2609-22803"
       ],
       "counter_paper_ids": [],
       "confidence": "low",
@@ -867,7 +873,7 @@
       "title_zh": "失败模式到恢复策略的层级映射",
       "research_question": "是否存在从失败模式到恢复策略的系统化映射？",
       "why_worthwhile": "不同的失败模式可能需要根本不同的恢复策略",
-      "current_state": "涉及失败-恢复映射的论文 13 篇；VoLo 和 Continue or Replan? 在做初步映射",
+      "current_state": "涉及失败-恢复映射的论文 14 篇；VoLo 和 Continue or Replan? 在做初步映射",
       "missing": "多数恢复方法使用统一策略，缺乏根据失败类型选择不同恢复方案的机制",
       "potential_experiment": "研究 failure taxonomy → recovery policy 的层级决策框架",
       "difficulty": "medium",
@@ -881,7 +887,7 @@
       "title_zh": "恢复后重新验证机制的系统性仍待确认",
       "research_question": "已有部分研究在恢复、重规划或闭环执行后进行任务完成检查，但这些机制是否形成了跨任务、可复用且显式建模的 Post-Recovery Re-verification 框架，仍需进一步验证",
       "why_worthwhile": "未经验证的恢复可能导致系统在未察觉的失败状态上继续执行",
-      "current_state": "涉及恢复的论文 80 篇，涉及恢复后验证的 3 篇；外部搜索发现26篇 counter evidence，说明已有工作在做恢复后验证",
+      "current_state": "涉及恢复的论文 91 篇，涉及恢复后验证的 3 篇；外部搜索发现26篇 counter evidence，说明已有工作在做恢复后验证",
       "missing": "多数恢复研究的验证机制嵌入在特定任务流程中，尚未形成独立、可复用的验证框架",
       "potential_experiment": "研究 post-recovery verification 机制和闭环恢复评估协议",
       "difficulty": "medium",
@@ -895,7 +901,7 @@
       "title_zh": "时序六维力觉用于失败状态验证",
       "research_question": "已有研究开始使用 RGB 与时序 F/T 进行联合建模；当前值得进一步研究的问题是：短时 6D F/T 历史是否能够作为独立物理证据，提高操作 Outcome Verification，并特别降低 False Success 风险",
       "why_worthwhile": "时序力觉信号可能包含关键的接触状态变化信息，但当前缺乏将其与失败验证直接关联的研究",
-      "current_state": "VF 论文中涉及时序力觉的 30 篇，RGB-D+F/T 联合 4 篇。ManipForce 已在做 RGB+时序 F/T 联合编码，但其是否被用于失败状态验证和 False Success 降低仍需验证",
+      "current_state": "VF 论文中涉及时序力觉的 37 篇，RGB-D+F/T 联合 7 篇。ManipForce 已在做 RGB+时序 F/T 联合编码，但其是否被用于失败状态验证和 False Success 降低仍需验证",
       "missing": "重点从'有没有 Temporal F/T'转移到'Temporal F/T 是否真正改善失败状态验证和 False Success'",
       "potential_experiment": "研究 sliding-window F/T history 与视觉的联合编码方法，尤其关注其在失败验证中的应用",
       "difficulty": "medium",
@@ -951,7 +957,7 @@
       "title_zh": "失败检测与失败诊断的差距",
       "research_question": "当前研究在失败检测和失败原因诊断之间是否存在能力落差？",
       "why_worthwhile": "没有准确的诊断，恢复策略选择缺乏依据",
-      "current_state": "Radar 中检测相关论文 31 篇，诊断相关 10 篇；但 counter 中已有 Diagnose Correct Learn 等工作在做诊断",
+      "current_state": "Radar 中检测相关论文 32 篇，诊断相关 12 篇；但 counter 中已有 Diagnose Correct Learn 等工作在做诊断",
       "missing": "多数工作聚焦于检测失败是否发生，较少深入诊断失败的具体原因和模式",
       "potential_experiment": "研究 failure mode taxonomy 与诊断模型，建立 detection→diagnosis pipeline",
       "difficulty": "medium",
@@ -965,7 +971,7 @@
       "title_zh": "结果预测与证据充分性",
       "research_question": "任务结果预测是否考虑了当前观测证据的充分性？",
       "why_worthwhile": "证据不充分时的误判风险可能高于任务本身的失败率",
-      "current_state": "结果预测论文 13 篇，显式讨论证据充分性的 5 篇；Radar 未覆盖 evidence sufficiency 领域",
+      "current_state": "结果预测论文 13 篇，显式讨论证据充分性的 6 篇；Radar 未覆盖 evidence sufficiency 领域",
       "missing": "多数 outcome prediction 直接输出成功/失败概率，不区分'证据不足'和'任务确实失败'",
       "potential_experiment": "研究 evidence-aware outcome prediction，将观测充分性纳入决策",
       "difficulty": "medium",
@@ -979,7 +985,7 @@
       "title_zh": "虚假成功风险建模",
       "research_question": "当前系统是否建模了将未完成任务误判为成功的风险？",
       "why_worthwhile": "虚假成功可能导致机器人在危险状态上继续执行",
-      "current_state": "涉及虚假成功风险的论文 2 篇，涉及成功验证的 29 篇；Radar 未覆盖 false-success detection 领域",
+      "current_state": "涉及虚假成功风险的论文 2 篇，涉及成功验证的 31 篇；Radar 未覆盖 false-success detection 领域",
       "missing": "多数系统假设感知判断即为真实状态，未建模 false-success 的代价",
       "potential_experiment": "研究 false-success risk estimation 和 risk-aware execution",
       "difficulty": "medium",
@@ -993,7 +999,7 @@
       "title_zh": "视觉力觉失败恢复基准",
       "research_question": "是否存在统一的视觉力觉失败恢复评估基准？",
       "why_worthwhile": "没有统一基准难以公平比较不同方法的恢复能力",
-      "current_state": "基准相关论文 63 篇，VF 相关 13 篇，failure 相关 7 篇；'benchmark' 关键词匹配了大量非 VF 失败恢复基准",
+      "current_state": "基准相关论文 73 篇，VF 相关 17 篇，failure 相关 7 篇；'benchmark' 关键词匹配了大量非 VF 失败恢复基准",
       "missing": "现有基准多聚焦于静态操作成功率，缺乏针对失败恢复过程的标准化评估",
       "potential_experiment": "设计统一的 Vision-Force Failure Recovery Benchmark",
       "difficulty": "medium",
@@ -1007,7 +1013,7 @@
       "title_zh": "跨任务、跨机器人泛化",
       "research_question": "视觉力觉方法在不同任务和机器人平台间的泛化能力如何？",
       "why_worthwhile": "缺乏泛化能力限制了方法的实用性和可迁移性",
-      "current_state": "涉及泛化的论文 91 篇，VF 相关 34 篇，真实机器人 18 篇；'generaliz' 关键词过于宽泛，匹配了大量非 VF 跨任务论文",
+      "current_state": "涉及泛化的论文 104 篇，VF 相关 43 篇，真实机器人 24 篇；'generaliz' 关键词过于宽泛，匹配了大量非 VF 跨任务论文",
       "missing": "多数方法在特定任务和平台上验证，跨场景泛化能力未充分评估",
       "potential_experiment": "研究 vision-force 方法的 domain transfer 和 cross-platform evaluation",
       "difficulty": "medium",
@@ -1017,6 +1023,299 @@
     }
   ],
   "evidence_index": {
+    "arxiv-2609-23968": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "perception",
+        "contact_state",
+        "reverification"
+      ],
+      "topics": [
+        "vision-force",
+        "vla-manipulation"
+      ],
+      "relevance_score": 75
+    },
+    "arxiv-2609-24507": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "perception",
+        "contact_state"
+      ],
+      "topics": [
+        "generative-policy"
+      ],
+      "relevance_score": 65
+    },
+    "arxiv-2609-24180": {
+      "evidence_tier": "background",
+      "pipeline_stages": [
+        "perception",
+        "contact_state",
+        "recovery_action",
+        "reverification"
+      ],
+      "topics": [
+        "vision-force"
+      ],
+      "relevance_score": 62
+    },
+    "arxiv-2609-24385": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "perception",
+        "representation",
+        "contact_state"
+      ],
+      "topics": [
+        "vision-force"
+      ],
+      "relevance_score": 59
+    },
+    "arxiv-2609-24068": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "perception",
+        "contact_state",
+        "recovery_action"
+      ],
+      "topics": [
+        "core-papers"
+      ],
+      "relevance_score": 58
+    },
+    "arxiv-2609-24660": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "perception",
+        "outcome_verification"
+      ],
+      "topics": [
+        "generative-policy"
+      ],
+      "relevance_score": 58
+    },
+    "arxiv-2609-24093": {
+      "evidence_tier": "background",
+      "pipeline_stages": [
+        "contact_state",
+        "recovery_action"
+      ],
+      "topics": [
+        "vision-force"
+      ],
+      "relevance_score": 57
+    },
+    "arxiv-2609-24033": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "perception",
+        "representation",
+        "contact_state"
+      ],
+      "topics": [
+        "vision-force",
+        "vla-manipulation"
+      ],
+      "relevance_score": 52
+    },
+    "arxiv-2607-14021": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "perception",
+        "representation",
+        "contact_state",
+        "outcome_verification",
+        "recovery_action"
+      ],
+      "topics": [
+        "generative-policy"
+      ],
+      "relevance_score": 50
+    },
+    "arxiv-2609-24133": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "perception",
+        "recovery_action"
+      ],
+      "topics": [
+        "core-papers"
+      ],
+      "relevance_score": 50
+    },
+    "arxiv-2609-24996": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "failure_diagnosis"
+      ],
+      "topics": [
+        "core-papers"
+      ],
+      "relevance_score": 50
+    },
+    "arxiv-2609-24511": {
+      "evidence_tier": "background",
+      "pipeline_stages": [
+        "contact_state",
+        "recovery_action"
+      ],
+      "topics": [
+        "vision-force"
+      ],
+      "relevance_score": 49
+    },
+    "arxiv-2609-24976": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "perception",
+        "representation",
+        "contact_state"
+      ],
+      "topics": [
+        "vision-force"
+      ],
+      "relevance_score": 49
+    },
+    "arxiv-2609-24621": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "perception",
+        "representation"
+      ],
+      "topics": [
+        "core-papers"
+      ],
+      "relevance_score": 48
+    },
+    "arxiv-2510-26280": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "contact_state"
+      ],
+      "topics": [
+        "vision-force"
+      ],
+      "relevance_score": 45
+    },
+    "arxiv-2609-24413": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "perception",
+        "contact_state",
+        "recovery_action"
+      ],
+      "topics": [
+        "core-papers"
+      ],
+      "relevance_score": 45
+    },
+    "arxiv-2609-23554": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "contact_state"
+      ],
+      "topics": [
+        "vision-force"
+      ],
+      "relevance_score": 85
+    },
+    "arxiv-2609-23800": {
+      "evidence_tier": "direct",
+      "pipeline_stages": [
+        "perception",
+        "contact_state",
+        "recovery_action",
+        "reverification"
+      ],
+      "topics": [
+        "vision-force",
+        "failure-recovery",
+        "generative-policy"
+      ],
+      "relevance_score": 67
+    },
+    "arxiv-2609-23885": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "perception"
+      ],
+      "topics": [
+        "core-papers"
+      ],
+      "relevance_score": 61
+    },
+    "arxiv-2609-23888": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "perception",
+        "representation",
+        "contact_state"
+      ],
+      "topics": [
+        "vision-force"
+      ],
+      "relevance_score": 58
+    },
+    "arxiv-2608-29601": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "perception",
+        "representation",
+        "contact_state"
+      ],
+      "topics": [
+        "core-papers"
+      ],
+      "relevance_score": 52
+    },
+    "arxiv-2609-22730": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "perception",
+        "contact_state"
+      ],
+      "topics": [
+        "generative-policy"
+      ],
+      "relevance_score": 61
+    },
+    "arxiv-2609-22852": {
+      "evidence_tier": "background",
+      "pipeline_stages": [
+        "perception",
+        "contact_state",
+        "recovery_action"
+      ],
+      "topics": [
+        "vision-force"
+      ],
+      "relevance_score": 56
+    },
+    "arxiv-2609-22840": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "perception",
+        "contact_state",
+        "recovery_selection",
+        "recovery_action"
+      ],
+      "topics": [
+        "vla-manipulation"
+      ],
+      "relevance_score": 54
+    },
+    "arxiv-2609-22803": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "perception",
+        "contact_state"
+      ],
+      "topics": [
+        "vision-force"
+      ],
+      "relevance_score": 49
+    },
     "arxiv-2609-21753": {
       "evidence_tier": "none",
       "pipeline_stages": [
@@ -1030,6 +1329,30 @@
       ],
       "relevance_score": 70
     },
+    "arxiv-2609-22606": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "perception",
+        "contact_state",
+        "outcome_verification"
+      ],
+      "topics": [
+        "vision-force",
+        "vla-manipulation"
+      ],
+      "relevance_score": 61
+    },
+    "arxiv-2609-22493": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "perception",
+        "contact_state"
+      ],
+      "topics": [
+        "vision-force"
+      ],
+      "relevance_score": 60
+    },
     "arxiv-2609-21726": {
       "evidence_tier": "none",
       "pipeline_stages": [
@@ -1040,6 +1363,20 @@
         "vision-force"
       ],
       "relevance_score": 58
+    },
+    "arxiv-2609-22591": {
+      "evidence_tier": "background",
+      "pipeline_stages": [
+        "perception",
+        "contact_state",
+        "outcome_verification",
+        "failure_diagnosis",
+        "recovery_action"
+      ],
+      "topics": [
+        "vision-force"
+      ],
+      "relevance_score": 54
     },
     "arxiv-2609-21229": {
       "evidence_tier": "none",
@@ -1060,6 +1397,18 @@
       ],
       "topics": [
         "vision-force"
+      ],
+      "relevance_score": 47
+    },
+    "arxiv-2512-11908": {
+      "evidence_tier": "none",
+      "pipeline_stages": [
+        "perception",
+        "contact_state"
+      ],
+      "topics": [
+        "vision-force",
+        "vla-manipulation"
       ],
       "relevance_score": 47
     },
