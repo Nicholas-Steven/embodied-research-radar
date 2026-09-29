@@ -470,11 +470,13 @@ def _search_provider(provider: str, queries: list[str]) -> tuple[list[dict], dic
         except ProviderError as e:
             if not first_error:
                 first_error = e.reason
+            time.sleep(0.3)  # keep spacing even after failures (rate limits)
             continue
         succeeded += 1
         for p in found:
             p["query"] = query
         papers.extend(found)
+        time.sleep(0.3)  # per-query request spacing, as before the refactor
     status, degraded = _provider_state(len(queries), succeeded, len(papers))
     return papers, {
         "status": status,
