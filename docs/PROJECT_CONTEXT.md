@@ -24,11 +24,25 @@ with a **7-day rolling harvest window** on the OAI datestamp (`--lookback-days`)
 Fallback is ONE broad Search API query with the official
 `submittedDate:[...]` window. No per-keyword remote queries.
 
-**Publication window filter** (round 2 fix): the OAI datestamp only means
-"metadata changed recently". Candidates count as NEW only if the arXiv
-`<created>` field (first submission) falls within lookback + 1 day overlap;
-stale papers whose metadata merely got updated are dropped
-(`records_stale_metadata`). Never use `updated`/datestamp as published date.
+**Publication window filter** (round 3 fix, 2026-09-29): the OAI datestamp
+only means "metadata changed recently" — it is a HARVEST window, never a
+publication date. arXiv semantics (verified against VibeAct 2606.27344):
+- **OAI header datestamp** = when the metadata record was last
+  created/modified/deleted → increment harvesting only.
+- **OAI metadataPrefix=arXiv `<created>`** = reflects the LATEST version in
+  arXiv's current implementation; it can be a REVISION date and must NOT be
+  treated as first submission (VibeAct: v1=2026-06-25 but `<created>`=
+  2026-09-22 → a June paper nearly entered a September window).
+- **arXivRaw `<version version="v1"><date>`** = TRUE first submission —
+  this is what the publication window now uses (`published_date`).
+  The last `<version>` date becomes `updated_date` (Atom `<updated>`
+  equivalent). Records without a v1 entry are rejected.
+- **Atom API `<published>`** = first version (same semantics as arXivRaw v1);
+  **Atom `<updated>`** = current version.
+The harvester now lists `metadataPrefix=arXivRaw` (same one-ListRecords-per-
+set request count, zero extra requests). Candidates count as NEW only if
+first_submitted falls within lookback + 1 day overlap; revision-only papers
+(v1 old, vN in-window) are dropped as `records_stale_metadata`.
 
 **Candidate Eligibility Gate** (`scoring.py::is_radar_eligible`): a paper
 needs Anchor A (robot/embodied semantics) AND Anchor B (manipulation/

@@ -21,6 +21,7 @@ from __future__ import annotations
 import http.client
 import json
 import random
+import re
 import time
 import urllib.error
 import urllib.parse
@@ -36,13 +37,18 @@ except ImportError:  # direct-script diagnostics
     from fetch_health import FetchHealth, SourceUnhealthyError
 
 OAI_ENDPOINT = "https://oaipmh.arxiv.org/oai"
-# metadataPrefix=arXiv carries the authoritative per-paper fields:
-#   <created>  = first submission date (what "published" means for the radar)
-#   <updated>  = latest metadata/version change (NOT first publication)
-# oai_dc's dc:date was verified to mix both semantics, so oai_dc must NOT be
-# used for the publication window (2026-09 audit: 248/466 stale papers got in).
-METADATA_PREFIX = "arXiv"
-ARXIV_NS = {"ax": "http://arxiv.org/OAI/arXiv/"}
+# metadataPrefix=arXivRaw carries the per-VERSION submission history:
+#   <version version="v1"><date>...</date></version>  = TRUE first submission
+#   last <version> date                                = latest version date
+# metadataPrefix=arXiv's <created> was proven WRONG for first-submission
+# semantics (2026-09-29 audit): arXiv's OAI arXiv metadata reflects the
+# LATEST version, so <created> can be a revision date (VibeAct 2606.27344:
+# v1=2026-06-25 but <created>=2026-09-22 → a June paper entered a September
+# window). The OAI header datestamp is only a harvest-freshness marker.
+# Atom API <published> = first version, <updated> = current version —
+# consistent with arXivRaw v1/last-version dates.
+METADATA_PREFIX = "arXivRaw"
+ARXIV_NS = {"ax": "http://arxiv.org/OAI/arXivRaw/"}
 OAI_NS = {"o": "http://www.openarchives.org/OAI/2.0/", "dc": "http://purl.org/dc/elements/1.1/"}
 DC_NS = {"dc": OAI_NS["dc"]}
 
@@ -174,7 +180,7 @@ def _parse_record(record: ET.Element) -> dict[str, Any] | None:
     datestamp = (header.findtext("o:datestamp", default="", namespaces=OAI_NS) or "")[:10]
     set_specs = [el.text or "" for el in header.findall("o:setSpec", OAI_NS)]
 
-    md = record.find(".//ax:arXiv", ARXIV_NS)
+    md = record.find(".//ax:arXivRaw", ARXIV_NS)
     if md is None:
         return None
 
@@ -184,27 +190,50 @@ def _parse_record(record: ET.Element) -> dict[str, Any] | None:
 
     title = ax_text("title")
     abstract = ax_text("abstract")
-    authors = [" ".join(el.text.split()) for el in md.findall("ax:authors/ax:author", ARXIV_NS) if el.text]
-    created = ax_text("created")[:10]      # FIRST submission — the radar's "published"
-    updated = ax_text("updated")[:10]      # latest version/metadata change
+    authors = [a.strip() for a in ax_text("authors").split(",") if a.strip()]
     categories = [c.strip() for c in (md.findtext("ax:categories", default="", namespaces=ARXIV_NS) or "").split() if c.strip()]
     doi = ax_text("doi")
+
+    # arXivRaw version history: v1 date = TRUE first submission; the last
+    # <version> date = latest revision. <created> from metadataPrefix=arXiv
+    # is NOT usable (it can be a revision date — VibeAct 2606.27344 case).
+    def _version_date(version_attr: str) -> str:
+        for el in md.findall("ax:version", ARXIV_NS):
+            if el.attrib.get("version") == version_attr:
+                raw = (el.findtext("ax:date", default="", namespaces=ARXIV_NS) or "").strip()
+                # "Thu, 25 Jun 2026 17:50:07 GMT" -> "2026-06-25"; fall back to
+                # an ISO-date regex so non-RFC formats never yield garbage.
+                try:
+                    from email.utils import parsedate_to_datetime
+                    return parsedate_to_datetime(raw).date().isoformat()
+                except (TypeError, ValueError):
+                    m = re.search(r"\d{4}-\d{2}-\d{2}", raw)
+                    return m.group(0) if m else ""
+        return ""
+
+    versions = md.findall("ax:version", ARXIV_NS)
+    first_submitted = _version_date("v1")
+    last_updated = _version_date(f"v{len(versions)}") if versions else ""
+    if not first_submitted:
+        # arXivRaw without a v1 entry is unusable for publication semantics.
+        return None
     return {
         "arxiv_id": arxiv_id,
         "paper_id": f"arxiv-{arxiv_id.replace('.', '-')}",
         "title": title,
         "abstract": abstract,
         "authors": authors,
-        "published_date": created,
-        "updated_date": updated,
+        "published_date": first_submitted,   # v1 first submission (Atom <published> equivalent)
+        "updated_date": last_updated,        # latest version date (Atom <updated> equivalent)
         "oai_datestamp": datestamp,
+        "version_count": len(versions),
         "venue": "Preprint / arXiv",
         "doi": doi,
         "keywords": categories,
         "source": "arXiv",
         "source_categories": categories,
         "oai_set_specs": set_specs,
-        "year": int(created[:4] or 0),
+        "year": int(first_submitted[:4] or 0),
     }
 
 
@@ -323,8 +352,9 @@ def harvest(
         )
 
     # PUBLICATION WINDOW filter: keep only papers whose FIRST submission
-    # (arXiv <created>) falls within lookback + overlap days. Papers whose
-    # metadata was merely updated inside the harvest window are dropped.
+    # (arXivRaw v1 <version> date — NOT the latest-version <created>) falls
+    # within lookback + overlap days. Papers whose metadata was merely
+    # updated inside the harvest window are dropped.
     now = now or datetime.now(timezone.utc)
     pub_start = (now - timedelta(days=lookback_days + PUBLICATION_OVERLAP_DAYS)).date().isoformat()
     pub_end = now.date().isoformat()

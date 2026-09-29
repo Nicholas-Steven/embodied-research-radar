@@ -26,17 +26,21 @@ OAI_NS = {"o": "http://www.openarchives.org/OAI/2.0/"}
 
 
 def _oai_record_xml(arxiv_id="2609.12345", created="2026-09-12", title="Force-Aware Robotic Manipulation"):
+    """arXivRaw fixture — `created` here means the V1 FIRST-SUBMISSION date
+    (metadataPrefix=arXivRaw). The old arXiv <created> field proved to be a
+    latest-version date and was abandoned on 2026-09-29."""
     return f"""<record>
       <header><identifier>oai:arXiv.org:{arxiv_id}</identifier><datestamp>2026-09-14</datestamp><setSpec>cs:cs:RO</setSpec></header>
       <metadata>
-        <arXiv xmlns="http://arxiv.org/OAI/arXiv/">
-          <id>{arxiv_id}</id><created>{created}</created><updated>2026-09-14</updated>
-          <authors><author>Ada Lovelace</author></authors>
+        <arXivRaw xmlns="http://arxiv.org/OAI/arXivRaw/">
+          <id>{arxiv_id}</id>
+          <version version="v1"><date>Mon, {created} 12:00:00 GMT</date><size>1kb</size></version>
+          <authors>Ada Lovelace, Alan Turing</authors>
           <title>{title}</title>
           <categories>cs.RO</categories>
           <abstract>Robotic manipulation with force torque sensing on contact-rich assembly tasks.</abstract>
           <doi>10.1234/test</doi>
-        </arXiv>
+        </arXivRaw>
       </metadata>
     </record>"""
 

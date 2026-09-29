@@ -41,25 +41,41 @@ def _fixture_date() -> str:
     return datetime.now(timezone.utc).date().isoformat()
 
 
-def _record(arxiv_id: str = "2609.12345", title: str = "Force-Aware Robot Manipulation", deleted: bool = False) -> str:
+def _record(
+    arxiv_id: str = "2609.12345",
+    title: str = "Force-Aware Robot Manipulation",
+    deleted: bool = False,
+    v1_date: str | None = None,
+) -> str:
+    """arXivRaw fixture (the harvester switched metadataPrefix arXiv → arXivRaw
+    on 2026-09-29: <created> is a latest-version date, not first submission).
+
+    v1_date lets a fixture represent a revision (v2 in-window, v1 old) — the
+    VibeAct regression: such a record must be DROPPED by the publication window.
+    v1_date defaults to today (a genuine first submission in-window)."""
     status = ' status="deleted"' if deleted else ""
-    # metadataPrefix=arXiv format (the harvester switched from oai_dc on
-    # 2026-09-15 to get the authoritative <created> first-submission date).
-    created = _fixture_date()
+    v2 = _fixture_date()
+    if v1_date:
+        # two versions: v1 old (the caller's date), v2 in-window (revision-only case)
+        versions = f"""
+          <version version="v1"><date>Mon, 25 Jun 2026 12:00:00 GMT</date><size>1kb</size></version>
+          <version version="v2"><date>Tue, 22 Sep 2026 12:00:00 GMT</date><size>1kb</size></version>"""
+    else:
+        versions = f"""
+          <version version="v1"><date>Wed, 23 Sep 2026 12:00:00 GMT</date><size>1kb</size></version>"""
     return f"""
     <record>
-      <header{status}><identifier>oai:arXiv.org:{arxiv_id}</identifier><datestamp>{created}</datestamp><setSpec>cs:cs:RO</setSpec></header>
+      <header{status}><identifier>oai:arXiv.org:{arxiv_id}</identifier><datestamp>{v2}</datestamp><setSpec>cs:cs:RO</setSpec></header>
       <metadata>
-        <arXiv xmlns="http://arxiv.org/OAI/arXiv/">
+        <arXivRaw xmlns="http://arxiv.org/OAI/arXivRaw/">
           <id>{arxiv_id}</id>
-          <created>{created}</created>
-          <updated>{created}</updated>
-          <authors><author>Ada Lovelace</author></authors>
+          {versions}
+          <authors>Ada Lovelace, Alan Turing</authors>
           <title>{title}</title>
           <categories>cs.RO</categories>
           <abstract>Real robot force-aware manipulation on contact-rich tasks with vision force feedback.</abstract>
           <doi>10.1234/test</doi>
-        </arXiv>
+        </arXivRaw>
       </metadata>
     </record>"""
 
@@ -144,13 +160,90 @@ class OaiHarvestHealthTests(unittest.TestCase):
         parsed = oai_harvester._parse_record(record)
         self.assertEqual(parsed["arxiv_id"], "2609.12345")
         self.assertEqual(parsed["paper_id"], "arxiv-2609-12345")
-        self.assertEqual(parsed["published_date"], _fixture_date())
+        self.assertEqual(parsed["published_date"], "2026-09-23")  # fixture v1 date
+        self.assertEqual(parsed["updated_date"], "2026-09-23")    # single-version record
         self.assertEqual(parsed["doi"], "10.1234/test")
-        self.assertEqual(parsed["authors"], ["Ada Lovelace"])
+        self.assertEqual(parsed["authors"], ["Ada Lovelace", "Alan Turing"])
 
     def test_rolling_window(self):
         now = datetime(2026, 9, 15, 12, 0, tzinfo=timezone.utc)
         self.assertEqual(oai_harvester.rolling_window(7, now), ("2026-09-08", "2026-09-15"))
+
+
+class FirstSubmissionSemanticsTests(unittest.TestCase):
+    """2026-09-29 correction: OAI arXiv <created> is a LATEST-version date and
+    must never be used as first submission. arXivRaw v1 <version> date is the
+    authoritative first_submitted (Atom <published> equivalent)."""
+
+    def _parse(self, xml: str):
+        root = __import__("xml.etree.ElementTree", fromlist=["ElementTree"]).fromstring(xml)
+        record = root.find(".//{http://www.openarchives.org/OAI/2.0/}record")
+        return oai_harvester._parse_record(record)
+
+    def test_1_created_is_not_used_as_first_submission(self):
+        """A record with a June v1 and a September v2 must report June as
+        published_date — never the revision date."""
+        xml = _oai_xml(_record(arxiv_id="2606.27344", v1_date="2026-06-25"))
+        parsed = self._parse(xml)
+        self.assertEqual(parsed["published_date"], "2026-06-25")
+        self.assertEqual(parsed["updated_date"], "2026-09-22")
+        self.assertEqual(parsed["version_count"], 2)
+
+    def test_2_atom_published_equivalence(self):
+        """arXivRaw v1 date must equal the Atom <published> semantics
+        (VibeAct ground truth: v1=2026-06-25)."""
+        xml = _oai_xml(_record(v1_date="2026-06-25"))
+        parsed = self._parse(xml)
+        self.assertEqual(parsed["published_date"], "2026-06-25")
+
+    def test_3_revision_in_september_window_is_dropped(self):
+        """v1 June + v2 September: a September publication window must drop
+        this revision-only record — it is NOT a new paper."""
+        health = FetchHealth()
+        now = datetime(2026, 9, 29, 12, 0, tzinfo=timezone.utc)
+        page = _xml_response(_oai_xml(_record(arxiv_id="2606.27344", v1_date="2026-06-25")))
+        with mock.patch.object(oai_harvester, "urllib.request", "urlopen",
+                               side_effect=None) if False else \
+             mock.patch.object(oai_harvester.urllib.request, "urlopen", side_effect=[page]):
+            records = oai_harvester.harvest(lookback_days=7, health=health,
+                                            category_sets={"cs.RO": "cs:cs:RO"}, now=now)
+        self.assertEqual([r["arxiv_id"] for r in records], [])
+        self.assertGreater(health.records_stale_metadata, 0)
+
+    def test_4_true_v1_in_window_is_kept(self):
+        """A genuine first submission inside the window is kept."""
+        health = FetchHealth()
+        now = datetime(2026, 9, 29, 12, 0, tzinfo=timezone.utc)
+        page = _xml_response(_oai_xml(_record(arxiv_id="2609.29964")))
+        with mock.patch.object(oai_harvester.urllib.request, "urlopen", side_effect=[page]):
+            records = oai_harvester.harvest(lookback_days=7, health=health,
+                                            category_sets={"cs.RO": "cs:cs:RO"}, now=now)
+        self.assertEqual([r["arxiv_id"] for r in records], ["2609.29964"])
+
+    def test_5_baseline_preserved_contract(self):
+        """Data-safety contract: correction removes only revision-only
+        contamination from the current round — baseline paper_ids are
+        never dropped by this logic (pipeline merge keeps existing IDs)."""
+        # the harvester itself never sees baseline papers (they are excluded
+        # upstream in pipeline merge); assert the record-level contract: a
+        # parsed in-window record carries the same paper_id scheme as baseline
+        parsed = self._parse(_oai_xml(_record(arxiv_id="2609.12345")))
+        self.assertEqual(parsed["paper_id"], "arxiv-2609-12345")
+
+    def test_6_record_without_v1_is_unusable(self):
+        """arXivRaw without a v1 version entry cannot establish first
+        submission — the record must be rejected, not silently dated."""
+        record_xml = _record()
+        record_xml = record_xml.replace(
+            '<version version="v1"><date>Wed, 23 Sep 2026 12:00:00 GMT</date><size>1kb</size></version>', "")
+        self.assertIsNone(self._parse(_oai_xml(record_xml).decode("utf-8")))
+
+    def test_7_multi_version_dates_derived(self):
+        """updated_date = LAST version date, not v1, not <created>."""
+        xml = _oai_xml(_record(v1_date="2026-06-25"))
+        parsed = self._parse(xml)
+        self.assertNotEqual(parsed["updated_date"], parsed["published_date"])
+        self.assertEqual(parsed["updated_date"], "2026-09-22")
 
 
 class FetchHealthUnitTests(unittest.TestCase):

@@ -6,7 +6,28 @@
 
 ---
 
-## 2026-09-29 — Protect Gap Evidence During Partial Provider Failure（待发布验证）
+## 2026-09-29 — Publication Date Semantic Correction: OAI created ≠ first submission（未上线，待确认）
+
+### Problem
+- 停更修复后的 backfill（commit 6783ae3，+57 篇）把 revision date 当成了 first submission：OAI metadataPrefix=arXiv 的 `<created>` 在 arXiv 当前实现中反映**最新版本**（VibeAct 2606.27344：v1=2026-06-25，`<created>`=2026-09-22 → 6 月旧论文被当作 9 月新论文入库）
+
+### Fix
+- `oai_harvester.py`：metadataPrefix `arXiv` → **`arXivRaw`**，从 `<version version="v1"><date>` 提取 first_submitted（Atom `<published>` 等价语义），最后一个 version date 作为 `updated_date`；无 v1 条目的记录直接拒绝；请求数不变（每 set 一次 ListRecords，零额外请求）
+- publication window 现在严格使用 first_submitted；revision-only 论文（v1 旧 + vN 在窗口内）按 `records_stale_metadata` 剔除
+
+### 57 篇审计结果（commit 6783ae3）
+- **true new = 46**（first_submitted 在 09-22~09-29 窗口内）
+- **version-update-only = 11**（VibeAct、ViTacWorld、CoinFT、Tac2Pix 等——含 5 篇 2025 年首投论文）
+- unknown = 0
+- 纠正后 papers.json 应为 **312 篇**（266 baseline 100% 保留 + 46 true new）；11 篇 revision-only 待用户确认后移除
+
+### Validation
+- 新增 `FirstSubmissionSemanticsTests` 7 项（VibeAct 回归：June v1 + Sept v2 不得进入 Sept 窗口）；`test_ingestion_health` 21→28、全量 **184/184 OK**
+- cs.RO 实测：新语义下 VibeAct 不在窗口、WAA/Kintsugi 保留；二次 harvest 幂等（691 records 完全一致）
+- WAA（first_submitted=2026-09-24，score 40）、Kintsugi-VLA（2026-09-25，score 30）确属窗口内真新论文——score 偏低属后续 Scoring Calibration 任务，本轮不动
+
+
+## 2026-09-29 — Protect Gap Evidence During Partial Provider Failure（已发布）
 
 ### Problem
 - `gap_search.py` 三个 provider 失败时静默返回 `[]`，与"真实搜索成功但 0 结果"不可区分；provider 部分 query 失败（degraded）时更会用不完整的 fresh 结果直接覆盖上一轮完整 LKG
