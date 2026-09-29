@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "generated_at": "2026-09-29",
   "source": "arXiv",
-  "candidate_count": 312,
+  "candidate_count": 4942,
   "retained_count": 312,
   "relevance_threshold": 45,
   "papers": [
@@ -70,7 +70,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:41:05.529256+00:00"
+      "ai_generated_at": "2026-09-29T09:41:05.529256+00:00",
+      "image_caption_zh": "RUS系统的实验装置。"
     },
     {
       "arxiv_id": "2609.34286",
@@ -119,8 +120,8 @@
       "abstract_zh": "世界模型通常从视频中训练，但决定操作过程的事件（如接触和释放接触）难以通过视觉观察，往往更容易通过触觉感知。我们提出了灵巧触觉世界模型（DTWM），一个视频世界模型，用于从观察到的视频和每只手佩戴的手套的触觉信号中预测自我中心操作的未来帧。我们通过在每个手对应视频标记位置的零初始化残差，将预训练的视频扩散变换器条件化于每只手的触觉信号，同时因果掩码防止预测帧访问未来信息。与架构、参数和训练匹配的纯视觉模型相比，DTWM将手部运动的低估从23%降至9%，并在三个训练运行中使手部区域的感知误差降低7.4%。这种优势随预测时间跨度增加而增大，后期预测块的改进约为第一块的4.1倍。DTWM在相同设置下也优于其他视觉-触觉世界模型，且即使推理时无触觉输入，训练时使用触觉也能改善未来帧预测。消融实验表明，模型受益于力的大小和空间位置：将触觉信号替换为二值接触状态（每只手或每个位置）会增加预测误差。力的变化过程指示交互将持续还是改变。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.34286v1/figures/assets/ego_frame.png",
+      "image_caption": "Figure 2: Pipeline of DTWM. During both training and inference, the model observes RGB frames, hand poses, and tactile signals from both hands for time steps t ≤ K t\\leq K . We sample one reading from both gloves ( 255 255 pressure taxels and 30 30 finger-flexion channels in total) per video frame. In the touch panel, color shows pressure and blue bars show flexion. The task instruction is encoded by the text encoder, the observed frames are represented as clean latents, and the hand skeleton is encoded using a widened patch embedding. Each hand’s tactile signal is embedded as e e and added to the video tokens at the hand’s projected location using a normalized Gaussian footprint g g : u ← u + proj ⁡ ( LN ⁡ ( e ) ) ​ g u\\leftarrow u+\\mathrm{proj}(\\mathrm{LN}(e))\\,g . The model then predicts the future RGB frames at time steps t &gt; K t&gt;K . During training, K K is sampled from { 4 , … , 44 } \\{4,\\dots,44\\} , and the model is optimized with a flow-matching loss against the ground-truth future frames. At inference, the model observes 13 frames ( K = 12 K=12 ) and predicts all 36 future frames in a single pass.",
       "summary_one_sentence": "本文提出灵巧触觉世界模型（DTWM），通过将触觉信号注入视频扩散变换器，显著提升自我中心操作视频的未来帧预测精度，尤其是手部运动预测。",
       "research_problem": "如何利用触觉信号改进操作任务中的视频世界模型，以解决纯视觉模型难以观察接触事件导致的手部运动预测不足问题。",
       "method_summary": "DTWM基于预训练的视频扩散变换器，将每只手的触觉信号通过零初始化残差注入到对应手部位置的视频标记中，并使用因果掩码防止未来信息泄漏，从而进行未来帧预测。",
@@ -189,8 +190,8 @@
       "abstract_zh": "灵巧操作需要触觉反馈。然而，机器人触觉演示难以规模化，因为灵巧手遥操作提供给操作员的触觉反馈有限。相比之下，人类演示提供了更具可扩展性的多样化触觉交互来源。我们基于一个简单的前提：手可以改变，但交互的底层物理不变。我们利用人类触觉数据来改进灵巧操作策略。具体而言，我们首先构建了一个触觉动作捕捉系统，同步记录图像、触觉信号和手部运动。利用该系统，我们构建了UVTA数据集，涵盖五个接触密集型任务，每个任务包含1000次人类演示（覆盖多样交互模式）和150次机器人演示。为了将人类交互的底层物理迁移到机器人控制，我们提出了一个统一视觉-触觉-动作模型，将两种具身映射到对齐的触觉和动作表示，并联合预测未来的动作和触觉轨迹。联合目标使人类演示能够监督接触感知表示学习，而部署时仅执行机器人动作。在五个任务的真实机器人评估中，我们的方法平均成功率达70%，优于最强的视觉-触觉基线（29%）和架构消融（42%）。性能随人类演示增加持续提升，在每任务1000次演示时未出现饱和，验证了可扩展人类触觉数据对灵巧操作的有效性。项目页面：https://uni-vta.github.io/。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.34182v1/figures/human_data_system_1.jpg",
+      "image_caption": "Fig. 2: Overview of the Tactile Motion-Capture System. A passive tactile exoskeleton captures hand motion and tactile signals. The integrated system further includes a VIVE tracker and a wrist-mounted RGB camera for capturing the wrist pose and wrist-centric images, respectively. The camera and VIVE tracker are calibrated to the Sharpa Wave wrist frame.",
       "summary_one_sentence": "本文提出利用人类演示中的触觉数据训练统一视觉-触觉-动作模型，显著提升灵巧操作策略的性能。",
       "research_problem": "灵巧操作需要触觉反馈，但机器人触觉演示难以规模化，因为遥操作提供的触觉反馈有限；而人类演示可提供丰富的触觉交互，如何利用这些数据改进机器人灵巧操作策略。",
       "method_summary": "该方法首先构建触觉动作捕捉系统，收集人类演示数据，然后提出Unified Visual-Tactile-Action模型，将人类和机器人具身映射到对齐的触觉和动作表示，训练时联合预测未来动作和触觉轨迹，人类演示作为监督信号，部署时仅执行机器人动作。",
@@ -486,7 +487,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:43:43.527643+00:00"
+      "ai_generated_at": "2026-09-29T09:43:43.527643+00:00",
+      "image_caption_zh": "多模态流程。姿态估计用于检测手指滑动并辅助接触点选择。摩擦估计依赖于NLS（非线性最小二乘）估计的输出。"
     },
     {
       "arxiv_id": "2609.33882",
@@ -553,7 +555,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:44:35.493833+00:00"
+      "ai_generated_at": "2026-09-29T09:44:35.493833+00:00",
+      "image_caption_zh": "DexTaG系统概览。该流程包含三个阶段：（i）使用触觉手套采集手-物体演示数据，（ii）利用实测触觉参考引导强化学习重定向，（iii）将重定向器蒸馏为无触觉控制器，用于实际部署。"
     },
     {
       "arxiv_id": "2609.34006",
@@ -619,7 +622,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:45:44.470573+00:00"
+      "ai_generated_at": "2026-09-29T09:45:44.470573+00:00",
+      "image_caption_zh": "策略架构。融合的视觉与触觉特征，连同本体感觉，共同调节一个流匹配策略，该策略预测动作片段。"
     },
     {
       "arxiv_id": "2609.33053",
@@ -886,7 +890,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:47:37.956462+00:00"
+      "ai_generated_at": "2026-09-29T09:47:37.956462+00:00",
+      "image_caption_zh": "模仿目标对比。基线方法模仿可观测响应（位置与力）；所提方法则模仿生成这些响应的潜在参数——平衡点与刚度——从而实现对环境不确定性的被动顺应。"
     },
     {
       "arxiv_id": "2609.31924",
@@ -953,7 +958,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:48:02.269670+00:00"
+      "ai_generated_at": "2026-09-29T09:48:02.269670+00:00",
+      "image_caption_zh": "HapticWorld模型架构。每一步，观测历史被编码为潜变量，并与操作者指令的关节位置a_{t-1}及噪声水平一同输入一致性动力学模型。模型生成下一个潜变量，解码为下一观测ô_t；力矩头从块堆栈中部读取最宽的中间特征，映射为关节力矩τ̂_t，并渲染回主臂。"
     },
     {
       "arxiv_id": "2609.30828",
@@ -1020,7 +1026,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:48:28.536815+00:00"
+      "ai_generated_at": "2026-09-29T09:48:28.536815+00:00",
+      "image_caption_zh": "HIRE系统概览。(a) ISR将长时程力/力矩轨迹压缩为力事件令牌，用于基于历史条件的动作生成。(b) IME将局部感知与锁存CCE结合，实现高速流形结构化交互执行。(c)表面、插入和旋转交互的典型交互流形实例。(d)跨速率耦合将CCE和具身接触进入条件前向传递，同时测量的物理交互证据返回到后续ISR推理中。"
     },
     {
       "arxiv_id": "2609.30889",
@@ -1086,7 +1093,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:49:12.228691+00:00"
+      "ai_generated_at": "2026-09-29T09:49:12.228691+00:00",
+      "image_caption_zh": "PHASE框架概览。该框架包含三个阶段：（1）触觉表征学习，其中掩码触觉-本体感觉编码器[17]学习捕捉力驱动交互动态的嵌入表示；（2）相位感知分割与检索，利用触觉估计的力矩信号对示范进行分割，以识别交互定义的接触相位，并据此检索变长片段；（3）策略训练，在检索到的相位一致片段上训练ACT策略[18]，以实现鲁棒的插轴入孔操作。"
     },
     {
       "arxiv_id": "2609.30735",
@@ -1129,8 +1137,8 @@
       "abstract_zh": "移动人形操作需要同时达到可用的工作空间，并在物体姿态和接触条件变化时保持精确的手-物交互。从有限的任务特定数据中学习这些行为仍然具有挑战性。为此，我们提出了Praxis，一个全身操作框架，结合了来自一次性第一人称视频演示的物理交互先验、闭环姿态校准和在线感知。该框架协调三个阶段：视觉-语言引导的朝向目标物体的导航、闭环姿态校准以对齐手臂-手工作空间，以及同步上下身控制的灵巧操作。在线视觉反馈在新的物体姿态和场景配置下重新锚定演示的交互几何，而触觉反馈则使手部运动适应实际接触条件。每个操作技能由一个人类演示指定，无需任务特定的操作策略重训练。在五个长时程操作任务上的实验展示了空间、视觉和跨物体的泛化能力，以及在所有三个阶段中从外部物理干扰中恢复的能力。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.30735v1/pipeline_detailed_compressed.png",
+      "image_caption": "Fig. 2: Praxis architecture. Stage 1: Navigation to the manipulation region. Stage 2: Calibration to a manipulation-ready posture in a closed-loop manner. Stage 3: Distilling hand-object interaction priors through egocentric videos and applying online feedback to adapt manipulation policies.",
       "summary_one_sentence": "Praxis是一个全身操作框架，利用一次性第一人称视频演示的物理交互先验，结合闭环姿态校准和在线感知，实现无需任务特定重训练的泛化移动人形操作。",
       "research_problem": "移动人形操作需要在物体姿态和接触条件变化时保持精确的手-物交互，但从有限的任务特定数据中学习这些行为具有挑战性。",
       "method_summary": "Praxis框架协调三个阶段：视觉-语言引导的导航、闭环姿态校准、以及同步上下身控制的灵巧操作。在线视觉反馈重新锚定演示的交互几何，触觉反馈适应实际接触条件。每个技能由单个人类演示指定，无需重训练。",
@@ -1197,8 +1205,8 @@
       "abstract_zh": "视觉-语言-动作（VLA）模型提供了广泛的、指令条件下的操作行为，但在接触丰富的交互中，其物理执行可能仍然不精确。残差强化学习（RL）可以在保持VLA冻结的同时纠正此类错误，但真实机器人RL成本高昂且存在安全风险。我们提出了VLA潜在条件强化学习（VLaRL），该方法使得冻结VLA的残差RL能够在仿真中训练，并部署到真实机器人上，无需真实世界RL或在线适应。关键挑战在于尽管仿真与现实之间存在视觉差距，仍要迁移学习到的残差策略。VLaRL不要求像素级视觉对应，而是利用VLA内部的视觉-语言潜在表示来条件化残差控制，并将其作为仿真到现实迁移的接口，同时学习一个轻量级映射器，将仿真衍生的潜在表示转换为接近真实潜在分布的表示。在四个接触丰富的操作任务和两个VLA骨干网络上，VLaRL在所有任务-骨干组合中均提高了真实世界的成功率，而受控消融实验则证明了潜在条件化和潜在对齐对于迁移仿真训练的残差控制的重要性。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.30868v1/pipeline.png",
+      "image_caption": "Fig. 2: Overview of VLaRL and its four-stage workflow: (1) fine-tune the VLA, (2) train the latent mapper, (3) train the residual policy in simulation with the VLA and mapper frozen, and (4) deploy the frozen VLA and residual policy on the real robot. During deployment, real-image latents are supplied directly and the mapper is not used.",
       "summary_one_sentence": "VLaRL提出了一种利用VLA内部潜在表示作为仿真到现实迁移接口的方法，使得冻结VLA的残差强化学习策略能够在仿真中训练并直接部署到真实机器人上，无需真实世界RL或在线适应。",
       "research_problem": "如何在不进行真实世界强化学习或在线适应的情况下，将仿真训练的残差强化学习策略迁移到真实机器人上，以纠正冻结VLA模型在接触丰富操作中的不精确执行。",
       "method_summary": "VLaRL使用冻结的VLA模型，提取其内部视觉-语言潜在表示作为条件信息，训练残差强化学习策略。在仿真中训练时，学习一个轻量级映射器将仿真潜在表示映射到真实潜在分布，使得策略在部署时能够直接使用真实VLA的潜在表示进行条件化控制，从而实现仿真到现实的迁移。",
@@ -1265,8 +1273,8 @@
       "abstract_zh": "学习到的机器人策略会产生动作，但仅凭其输出无法确定执行是否按预期进行。机器人执行监控需要从执行过程中可用的观测中识别当前执行阶段、检测失败并识别任务完成。训练此类监控器需要标注，而这些标注在机器人策略学习收集的数据集中是稀缺的。我们提出了RoboMonitor，一种标签高效的视觉-语言执行监控器，在引入监控监督之前从这些数据集中学习。我们在25小时的多相机轨迹上进行预训练，涵盖12个操作任务和两种机器人本体，使用动作条件下的未来特征预测、逆动力学和掩蔽当前预测。然后，我们将学习到的视觉和上下文编码器迁移到因果监控器，并应用时间监督微调（Temporal SFT），该方法结合了整个观测窗口内的监督以及窗口内和重叠窗口间的一致性目标。部署时，RoboMonitor仅需要任务指令和相机观测。在四项任务监控基准上，使用52个标注片段训练的RoboMonitor在两个微调种子上的平均阶段准确率达到93.1%，宏召回率达到85.9%，超过了使用相同监控监督训练的Qwen3-VL和Robometer。其阶段准确率也超过了使用100个片段训练的Qwen3-VL和Robometer。对Qwen3-VL的消融研究表明，Temporal SFT将平均虚假阶段切换从15.23%降至4.95%。在闭环部署中，集成系统在40次模拟Toolbox Sorting试验中完成39次，在40次真实Reel Packing试验中完成35次，且未观察到虚假恢复触发。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.30715v1/robomonitor_final.png",
+      "image_caption": "Fig. 1: Overview of RoboMonitor. Training has two stages: (1) predictive self-supervised pre-training on unlabeled robot trajectories, which uses multi-view observations together with recorded robot state and executed actions to learn execution-relevant visual and temporal representations; and (2) causal supervised fine-tuning (Temporal SFT) on a smaller monitoring-labeled dataset to predict execution phase, failure, and task completion. At deployment, RoboMonitor receives only the task instruction and camera observations, so it can monitor both end-to-end visuomotor policies and task-orchestration systems without access to the underlying controller.",
       "summary_one_sentence": "RoboMonitor是一种标签高效的视觉-语言执行监控器，通过预训练和时序监督微调，在少量标注下实现高精度的机器人任务阶段识别、失败检测和完成识别。",
       "research_problem": "机器人策略执行监控需要从观测中识别执行阶段、检测失败和识别任务完成，但训练监控器所需的标注在机器人策略学习数据集中稀缺。",
       "method_summary": "RoboMonitor先在大规模多相机轨迹数据集上预训练，使用动作条件未来特征预测、逆动力学和掩蔽当前预测学习视觉和上下文编码器；然后迁移到因果监控器，应用时序监督微调（Temporal SFT），结合每个观测窗口内的监督和重叠窗口间的一致性目标。部署时仅需任务指令和相机观测。",
@@ -1332,8 +1340,8 @@
       "abstract_zh": "人类手-物体交互（HOIs）为灵巧操作提供了丰富的演示来源，但从中直接学习面临着形态差异、动力学可行性和仿真到现实部署的挑战。我们提出了形态模仿（Morphometric Imitation），一个三阶段框架，将重建的HOIs转化为零样本仿真到现实的视觉运动策略。首先，形态度优化（MMO）在保持演示接触的情况下，跨手部形态对运动进行运动学重定向。其次，残差强化学习（RL）利用来自人类运动的物体姿态和接触信息优化运动学参考，以生成动力学可行的机器人演示。第三，这些演示被提炼为视觉运动策略。在三种机器人手和十种HOIs上，MMO在接触F1分数上优于五个基线，比最强基线提高8到28个百分点，同时将下游动态重定向的成功率提高多达35个百分点。在Sharpa手上，视觉运动策略在30个物体（覆盖10个类别）的300次真实世界试验中实现了89.3%的零样本成功率。项目页面：https://morphometricimitation.github.io",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.28660v2/Figure4.png",
+      "image_caption": "Fig. 4: Dynamic Retargeting Rollouts. We show time lapses of residual RL policy rollouts for three robot hand embodiments (Dex3, Allegro, and Sharpa) across three object categories (hammer, apple, and cube). All policies use the same training hyperparameters, demonstrating that the residual RL formulation transfers across distinct hand morphologies and grasp configurations without embodiment- or task-specific tuning.",
       "summary_one_sentence": "提出一个三阶段框架，通过形态度优化和残差强化学习将人类手-物体交互重定向为动力学可行的机器人演示，并蒸馏为零样本仿真到现实的视觉运动策略，在Sharpa手上达到89.3%的真实世界成功率。",
       "research_problem": "如何从人类手-物体交互演示中学习灵巧操作策略，同时解决跨形态差异、动力学可行性和仿真到现实迁移的挑战。",
       "method_summary": "三阶段流程：1) 形态度优化（MMO）通过运动学重定向跨手形态，同时保持演示接触；2) 残差强化学习利用物体姿态和接触信息优化运动学参考，产生动力学可行的演示；3) 将演示蒸馏为视觉运动策略。",
@@ -1398,8 +1406,8 @@
       "abstract_zh": "触觉信息对于机器人接触丰富的操作任务至关重要。基于视觉的触觉传感器使得设计端到端的操作策略变得特别容易，因为它们可以利用计算机视觉中现有的编码器。然而，这导致了架构、训练数据集和评估协议的巨大差异，使得难以确定哪种设计选择最能编码触觉。在这项工作中，我们解决了这一差距，并在真实世界实验中针对各种接触丰富的操作任务，对触觉编码器和融合策略进行了全面研究。为了实现受控比较，我们在相同的流程和实验设置下训练和评估所有模型，包括超过2000次真实世界 rollout。我们的结果超越了其他仅比较模拟性能的研究，因为模拟性能不一定能转化为真实世界设置，而真实世界需要大规模评估才能获得可靠的统计数据。我们的关键发现是，对于编码视觉-触觉，不存在普遍最优的表示或融合策略。相反，最佳的编码器主干和融合方案强烈依赖于任务。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.30969v1/tactic_eyecandy.png",
+      "image_caption": "Fig. 1: An overview of TACTIC. We study the effect of five tactile encoders paired with five multimodal fusion methods, tested on four different challenging contact-rich manipulation tasks.",
       "summary_one_sentence": "本文通过超过2000次真实世界实验，系统比较了多种触觉编码器和融合策略，发现没有普遍最优的表示或融合方法，最佳选择强烈依赖于具体任务。",
       "research_problem": "在接触丰富的机器人操作任务中，如何选择最佳的触觉编码器和融合策略，以有效利用视觉-触觉信息。",
       "method_summary": "在统一的流程和实验设置下，训练和评估多种触觉编码器（如视觉编码器）和融合策略，通过真实世界实验比较其性能。",
@@ -1465,8 +1473,8 @@
       "abstract_zh": "人类演示是灵巧操作数据的廉价来源，但基于人类演示共同训练机器人策略需要弥合策略所消费的每种模态中的人机差距。我们提出了VisTacAlign，一个在人类和机器人演示上共同训练3D视觉-触觉灵巧策略的框架。手套跟踪的人类手部运动通过一次性指尖校正被重定向到17自由度触觉机器人手。然后，人类手从两个立体视图中被擦除，并用来自机器人记录的像素绘制的姿态机器人手网格替换，实时立体基础模型在合成图像上重新运行，因此人类点云携带与机器人相同的立体误差和可见性。最后，电容式触觉手套在信号空间中对齐到机器人的指尖传感器，给出每个手指的可解释力表示。扩散Transformer消费点云、本体感觉和每指触觉令牌。在三个需要精确力的真实世界任务——乐高组装、采摘不同大小的草莓以及启动和举起电钻——中，将对齐的人类演示添加到现有机器人数据中优于仅机器人策略，消融实验表明触觉输入和视觉对齐都是必要的。项目页面：https://vis-tac-align.github.io",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.30959v1/pipeline.png",
+      "image_caption": "Fig. 2: Tactile co-training pipeline. Top: human demonstrations collected with a tactile glove and hand tracking ( blue ) and robot demonstrations teleoperated on the ORCA Hand ( green ) are brought into a shared co-training dataset. Each stream provides object-centric point clouds, per-finger tactile activations, and action trajectories ( t 1 t_{1} reach, t 2 t_{2} grasp, t 3 t_{3} lift/place) for the drill, strawberry, and Lego tasks. Visual alignment, tactile alignment, and kinematic retargeting map the human modalities into the robot’s observation and action spaces. Middle: a diffusion transformer policy encodes point-cloud, proprioception, and tactile tokens as context and denoises 64-step action chunks with consistency flow matching. Bottom: the co-trained policies are deployed on the robot on all three tasks.",
       "summary_one_sentence": "VisTacAlign通过视觉和触觉对齐将人类演示与机器人数据共同训练，提升灵巧操作策略在精确力任务上的表现。",
       "research_problem": "如何利用人类演示数据共同训练机器人策略，同时弥合视觉和触觉模态中的人机差距。",
       "method_summary": "VisTacAlign首先将手套跟踪的人类手部运动重定向到17自由度触觉机器人手，并进行一次性指尖校正；然后从立体视图中擦除人手，替换为机器人手网格，并重新运行实时立体基础模型以生成与机器人一致的点云；接着将电容式触觉手套信号对齐到机器人指尖传感器；最后使用扩散Transformer处理点云、本体感觉和每指触觉令牌，共同训练策略。",
@@ -1698,7 +1706,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:52:22.413798+00:00"
+      "ai_generated_at": "2026-09-29T09:52:22.413798+00:00",
+      "image_caption_zh": "全流程在三个物体上的执行快照，结合了分层反应式到达[20]与全手力调节。有人为干扰的帧以橙色标注。手在到达过程中跟随被移动的物体，接触后在扰动下调节抓取，当物体滑落或被夺走时，返回到达状态并在其新位姿重新抓取。时间戳单位为秒。"
     },
     {
       "arxiv_id": "2609.29822",
@@ -1764,7 +1773,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:52:46.518723+00:00"
+      "ai_generated_at": "2026-09-29T09:52:46.518723+00:00",
+      "image_caption_zh": "策略学习模型架构示意图"
     },
     {
       "arxiv_id": "2609.30506",
@@ -1808,8 +1818,8 @@
       "abstract_zh": "人形手需要整个手指的触觉反馈，而不仅仅是指尖，才能正确抓取和操作物体。仅靠视觉和本体感觉无法可靠地提供这些信息，尤其是当手自己的手指遮挡相机对抓取的视野时。我们提出了一种由Velostat和导电胶带制成的低成本人形手指触觉阵列。指尖承载七个接触点，包括一个包裹其正面、左侧和右侧的2x3矩阵，以及一个位于指尖的独立接触点。近端和中端指骨各承载一个面向正面的接触线。我们通过重复加载和按压-释放测试，测量了传感器的迟滞和释放后的恢复时间。我们还测试了一种受先前工作类似设计启发的、带有间隙和凸起的柔性3D打印接触结构，并表明与平齐接触基线相比，它将恢复时间缩短了74%。然后，我们展示了该传感器可以为指尖的不同接触几何形状（平面、边缘、角落）产生不同的激活模式，并且在抓握过程中记录到所有三个指骨的接触。最后，我们讨论了制造变更的局限性，并指出基于软件的补偿是未来更直接修复剩余迟滞的有前景的方法。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.30506v1/figures/heat.png",
+      "image_caption": "Fig. 1: Heatmap of important regions for grasping and manipulation, adapted from [ 4 ]",
       "summary_one_sentence": "本文提出了一种基于Velostat和导电胶带的低成本人形手指触觉阵列，覆盖指尖和所有指骨，并通过结构优化显著缩短了恢复时间，同时验证了不同接触几何形状的区分能力。",
       "research_problem": "人形手在抓取和操作物体时，需要整个手指的触觉反馈，而不仅仅是指尖，但视觉和本体感觉在手指遮挡时无法可靠提供这些信息。",
       "method_summary": "使用Velostat和导电胶带构建触觉阵列，指尖包含2x3矩阵和独立触点，近端和中端指骨各有一个接触线。通过3D打印的柔性接触结构（带间隙和凸起）优化恢复时间，并进行加载-释放测试和接触几何形状区分实验。",
@@ -1874,8 +1884,8 @@
       "abstract_zh": "人类通常依赖视觉、触觉、听觉和本体感觉来感知接触并在操作过程中调整动作。为了让机器人具备类似的响应能力，需要能够保留和使用这些互补感官信号的硬件。然而，大多数模仿学习系统主要通过视觉和本体感觉观察演示，限制了对难以通过视觉推断的接触信息的获取。我们提出了PolyUMI，一个用于可扩展的视觉-触觉-音频演示收集和机器人部署的开源平台。其轻量级无线手持夹爪记录同步的腕部相机、光学触觉、接触音频和本体感觉观测，无需连接工作站。相同的传感手指可以转移到机器人末端执行器，保持演示收集和策略执行之间的传感几何一致性。为了有效利用这些异构观测，我们进一步引入了VisTA，一种令牌级多模态策略，跨传感器和时间整合信息以预测接触感知的机器人动作。涵盖物体推断、滑移控制和接触丰富操作实验表明，触觉和音频揭示了超出视觉的任务相关信息，且VisTA与现有多模态策略相比具有竞争力或更优。PolyUMI和VisTA共同提供了一种可访问的流程，用于收集多模态演示和学习感知视觉之外物理交互的策略。项目页面：https://polyumi-vista.github.io",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.29760v1/figures/system_v2.jpg",
+      "image_caption": "Fig. 2 : Left : The relationship between different sensor views of the same scene. The tactile camera “sees” the screwdriver through the sensing surface, as well as the lightbulb through peripheral vision. The wrist camera sees the lightbulb directly, while the screwdriver is mostly occluded by the fingers holding it. As the device interacts with its environment, contact events are detected by the piezo microphone, which can be seen as spikes in the audio spectrogram, as well as heard through headphones during gripper operation. Center, Right : The PolyUMI system is composed of a gripper and end-effector, carefully designed to share the same tactile finger component and task-oriented geometry.",
       "summary_one_sentence": "PolyUMI是一个开源平台，通过无线手持夹爪收集视觉-触觉-音频-本体感觉演示，并配合VisTA多模态策略，实现接触感知的机器人操作。",
       "research_problem": "现有模仿学习系统主要依赖视觉和本体感觉，缺乏对接触信息的获取，限制了机器人在操作中对物理交互的感知和响应。",
       "method_summary": "PolyUMI使用无线手持夹爪同步记录腕部相机、光学触觉、接触音频和本体感觉数据，传感手指可转移到机器人末端执行器以保持几何一致性。VisTA是一种令牌级多模态策略，将异构观测在token级别融合，并跨时间整合以输出接触感知动作。",
@@ -1941,8 +1951,8 @@
       "abstract_zh": "模仿学习使机器人能够从演示中获取操作技能，但得到的策略在训练数据之外可能失败，而收集更多演示需要大量人力。人在回路强化学习在在线训练期间使用纠正性反馈，但通常学习完整的任务策略，而不是改进预训练的模仿策略。我们提出了Res-HIL，一种人在回路残差强化学习框架，在冻结的模仿策略之上学习纠正动作。每次人工干预提供两个互补的学习信号：对残差策略的直接监督和对先前自主行为的奖励塑形。Res-HIL将这些信号与残差策略的零初始化相结合，以稳定并加速在线学习。我们在五个接触丰富的操作任务上评估了Res-HIL，涵盖高精度和长时程行为。仅用20个初始演示，经过十分钟在线训练后，Res-HIL在每项任务上都优于最先进的全策略人在回路强化学习和无人工指导的残差微调。Res-HIL改进了其预训练基础策略，并优于使用五倍演示训练的模仿策略。消融研究表明，直接残差监督对性能至关重要，而干预感知的奖励塑形显著提高了训练效率。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.30023v1/reshil_loops3.png",
+      "image_caption": "Fig. 2 : Overview of the proposed Res-HIL framework. During environment interaction, the frozen base policy and the learned residual policy jointly determine the executed action, while human interventions provide corrective actions and are incorporated into reward shaping. All transitions are stored in the replay buffer, with intervention transitions additionally stored in the intervention buffer. In parallel, the learning loop continuously samples training batches to update the critics and residual actor, followed by the corresponding target networks.",
       "summary_one_sentence": "Res-HIL提出了一种人在回路残差强化学习框架，通过冻结的模仿策略学习纠正动作，利用人工干预的直接监督和奖励塑形信号，以少量演示实现样本高效的灵巧操作。",
       "research_problem": "如何利用少量人工纠正反馈高效改进预训练模仿策略，避免完全重新学习策略或大量收集演示数据。",
       "method_summary": "Res-HIL在冻结的模仿策略上学习残差动作，每次人工干预同时提供直接监督（用于更新残差策略）和奖励塑形（用于强化先前自主行为），并通过零初始化残差策略稳定训练。",
@@ -2370,7 +2380,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:56:12.886857+00:00"
+      "ai_generated_at": "2026-09-29T09:56:12.886857+00:00",
+      "image_caption_zh": "InternW0架构。模态特定的视频与动作专家通过观测条件化的分块K/V编辑器耦合。该编辑器将缓存的视频上下文适配到分块级观测，使其可在动作更新间复用。冻结的Wan VAE和DINOv3编码器提供视觉表征，预计算的语言嵌入同时条件化两个专家。领域特定接口与软提示支持异构具身；力觉与触觉通道在接触感知后训练阶段可选引入。"
     },
     {
       "arxiv_id": "2609.27466",
@@ -2504,7 +2515,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:57:00.765464+00:00"
+      "ai_generated_at": "2026-09-29T09:57:00.765464+00:00",
+      "image_caption_zh": "弱接触检测在G1右臂上的表现。顶部：书堆及单独测量的参考滑动阻力。(a) 在几何接触参考后0.5秒内的试验级检测，跨三种速度汇总并对模型种子取平均。(b) F₉₀为在90%及以上检测率下最低测试阻力；>5.5表示未达到该值。召回率汇总所有试验。任务/广泛FA_t为确认报警中保留的与任务匹配/更广泛的非接触时间（%）。所有方法共享1%的校准FA_t预算。CoPRE达到F₉₀=5.5 N。"
     },
     {
       "arxiv_id": "2609.28131",
@@ -2548,8 +2560,8 @@
       "abstract_zh": "合成逼真的关节手-物体交互是虚拟现实、具身智能和数字人应用中的基本问题。现有的灵巧抓取合成方法通常在关节空间中回归或去噪姿态，该空间耦合了全局刚体运动与局部关节运动，这往往导致不稳定的样本和物理上不可行的接触。我们提出了DEAL-Grasp，基于解耦对齐（DEAL）表示，将抓取合成重新表述为对齐空间生成：交互状态由任务空间几何锚点和关节参数组成，通过闭式Procrustes对齐恢复刚体变换，同时保持局部关节。在此混合状态上，我们使用异构状态流匹配和分量向量场建模抓取生成，并在训练中加入时间自适应物理正则化。在推理时，仅通过积分学习到的向量场合成抓取，无需测试时优化或辅助物理指导。在MultiDex和零样本RealDex基准上，DEAL-Grasp实现了高力扰动成功率、最小穿透和高生成多样性，同时相比优化密集型基线大幅降低了原生推理延迟。项目页面可在https://wmtlab.github.io/DEAL-Grasp/获取。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.28131v1/framework.png",
+      "image_caption": "Figure 2. Overview of the DEAL-Grasp framework. The framework generates dexterous grasps by modeling a conditional neural vector field 𝐯 ϕ \\mathbf{v}_{\\phi} in a continuous-time domain. The Object Encoder first integrates the object points 𝒪 \\mathcal{O} with its PCA-based spatial scales 𝒔 \\boldsymbol{s} to extract geometric features ( ℰ 𝒪 , glo , ℰ 𝒪 , loc \\mathcal{E}_{\\mathcal{O},\\text{glo}},\\mathcal{E}_{\\mathcal{O},\\text{loc}} ). Simultaneously, the DEAL Encoder maps the stochastic state ℋ t \\mathcal{H}_{t} to the initial query position 𝒫 ℋ 0 \\mathcal{P}_{\\mathcal{H}}^{0} via the embedding operator Φ ⁡ ( ⋅ ) \\Phi(\\cdot) , while ℰ ℋ 0 \\mathcal{E}_{\\mathcal{H}}^{0} denotes the predefined identity tokens used to distinguish different kinematic components. Subsequently, the Iterative Velocity Refinement Decoder (IVRD) evolves these tokens across L L transformer layers. In each layer, an AdaLN-based fusion mechanism integrates the context vector 𝒞 \\mathcal{C} (comprising ℰ 𝒪 , glo , t , 𝒔 \\mathcal{E}_{\\mathcal{O},\\text{glo}},t,\\boldsymbol{s} ) to guide the velocity prediction. Training combines CFM supervision against the linear conditional vector field 𝐮 t \\mathbf{u}_{t} with time-adaptively weighted physical losses (TAW); inference integrates 𝐯 ϕ \\mathbf{v}_{\\phi} purely via ODE steps without test-time physical guidance. Pipeline diagram from left to right: object point-cloud encoder; DEAL encoder that embeds joint and anchor state into query tokens; multi-layer IVRD blocks with context fusion; and separate training path with flow matching plus physical losses versus inference path that integrates the learned field alone.",
       "summary_one_sentence": "DEAL-Grasp提出了一种基于解耦对齐表示的灵巧抓取生成方法，通过将抓取合成转化为对齐空间生成并使用异构状态流匹配，实现了高效、物理合理且多样化的抓取生成。",
       "research_problem": "灵巧手抓取合成中，现有方法在关节空间回归或去噪姿态，耦合了全局刚体运动与局部关节运动，导致样本不稳定和物理接触不可行。",
       "method_summary": "DEAL-Grasp基于解耦对齐（DEAL）表示，将交互状态分解为任务空间几何锚点和关节参数，通过闭式Procrustes对齐恢复刚体变换。使用异构状态流匹配，为不同分量定义向量场，并在训练中加入时间自适应物理正则化。推理时仅积分学习到的向量场生成抓取，无需测试时优化。",
@@ -2705,7 +2717,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:59:09.234877+00:00"
+      "ai_generated_at": "2026-09-29T09:59:09.234877+00:00",
+      "image_caption_zh": "控制器在两方面至关重要：在数据采集中塑造示范，在部署中充当安全层。在遥操作采集中，反射将示范塑造成可重复的可行抓取模式；无触觉学生模型从RGB观测和机器人状态中学习，在推理时无需触觉输入即可重新进入该接近教师的状态；部署时，手臂控制仍由策略负责，而确定性仲裁器将策略输出重新解析为闭合/张开意图来解耦夹爪控制，使反射在执行过程中保留高速夹爪权限，用于抓取稳定、保持和释放。"
     },
     {
       "arxiv_id": "2609.25785",
@@ -2772,7 +2785,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:59:44.468386+00:00"
+      "ai_generated_at": "2026-09-29T09:59:44.468386+00:00",
+      "image_caption_zh": "所提出的VisForce框架概览。VisForce通过将执行器力和任务特定期望力锚定在对应的指尖位置，将其表示在共同的视觉空间中。执行器力叠加在当前手腕图像上，而期望力渲染在检索到的手腕图像上。这些力锚定的当前与目标观测，连同外部图像、机器人状态和语言指令，用于条件化预训练视觉语言模型和动作专家，以生成力感知的动作。"
     },
     {
       "arxiv_id": "2609.26467",
@@ -2815,8 +2829,8 @@
       "abstract_zh": "视觉-语言-动作（VLA）模型提供了广泛的操作能力，但在接触密集型工业任务（如连接器插入和线缆管理）中占主导地位的精度关键阶段，它们常常表现不佳。一种常见的补救方法是使用强化学习（RL）对预训练的VLA进行微调，从而在行为克隆之外实现任务特定的改进。然而，如何在决定何时需要RL细化以及哪个专用策略应该行动的同时，保持其通用行为，仍然是一个开放的问题。在这项工作中，我们提出了RouteRLT，一个路由框架，学习何时以及哪个RL专家（为单个精度关键阶段训练的RL策略）应该从通用VLA接管控制。一个阶段选择器识别活动控制器，一个稳定器抑制瞬态切换，一个动作边界管理器处理分块策略输出之间的转换。我们在LIBERO中的多对象拾取和放置任务，以及具有多个精度关键阶段的真实世界线缆拾取和端口插入任务上评估了RouteRLT。在模拟中，学习到的路由优于基础VLA，并与具有特权阶段边界的路由相匹配，而无需在部署时访问这些边界。真实机器人评估验证了在操作员对齐的交接协议下，自动路由到拾取和插入专家。总之，这些结果表明，学习到的路由在最需要精确适应的位置应用RL专家控制，同时保持通用VLA行为，包括从失败执行尝试中恢复。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.26467v1/figures/routerlt_deployment.png",
+      "image_caption": "\\fnum@figure : Representative RouteRLT deployment on the Trossen insertion task in real time. Synchronized front and wrist views show the active-controller sequence over one rollout, with controller ownership indicated by the frame borders and lower timeline. Under the operator-aligned handoff protocol, the router selects both specialists automatically, while insertion execution begins after operator alignment.",
       "summary_one_sentence": "RouteRLT提出了一种学习路由框架，在精度关键阶段自动选择RL专家控制通用VLA策略，在模拟和真实机器人任务中验证了其有效性。",
       "research_problem": "如何在不牺牲通用VLA行为的前提下，决定何时需要RL细化以及哪个专用策略应该接管控制，以应对接触密集型任务中的精度关键阶段。",
       "method_summary": "RouteRLT包含一个阶段选择器（识别当前活动控制器）、一个稳定器（抑制瞬态切换）和一个动作边界管理器（处理分块策略输出之间的转换），通过学习路由来决定在精度关键阶段由哪个RL专家接管控制。",
@@ -2881,8 +2895,8 @@
       "abstract_zh": "动态物体操作对于在真实环境中运行的机器人至关重要，但生成高质量示范的方法仍然有限。为静态任务设计的方法不易迁移到动态场景。在动态示范生成器中，基于规划的方法在接触附近可能失败，而DOMINO风格的重放简化了动态交互，可能限制策略学习可用的经验。我们提出了DynaForge，一个规划引导的框架，学习用于动态操作示范生成的残差修正。DynaForge结合了跨任务阶段的低频全局规划与高频物体中心逆运动学，并应用残差策略在动态交互期间修正动作。隐式课程将具有匹配条件的rollout分组，并选择混合成功的组，将残差强化学习聚焦于不断发展的能力前沿。在Can和Bottle任务上，在相同的标称环境步预算下，它使用的优化器步数是vanilla GRPO的0.73倍，且观察到的最终成功率更高。在九个仿真任务中，DynaForge将平均示范生成成功率从规划先验的41.30%提高到78.37%。每个任务使用800个示范，基于DynaForge数据训练的DP3策略平均成功率为49.11%，而DOMINO数据为7.07%。在三个真实世界动态任务中，DynaForge训练的策略达到30-60%的成功率，而DOMINO训练的策略为0-10%，展示了DynaForge的sim-to-real迁移能力。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.25631v1/method_final_version.png",
+      "image_caption": "Fig. 2: DynaForge overview. A low-frequency motion planner provides nominal trajectories in geometrically stable phases, while high-frequency object-centric IK updates the planning action near dynamic contact boundaries and a residual policy corrects it before execution. For residual learning, rollouts under matched difficulty conditions form groups, and only mixed-success groups contribute to group-relative updates. Successful rollouts are retained as demonstrations for downstream imitation learning, simulation evaluation, and sim-to-real deployment.",
       "summary_one_sentence": "DynaForge是一个规划引导的残差学习框架，通过结合低频全局规划与高频逆运动学以及残差策略修正，显著提升了动态操作示范生成的成功率，并实现了有效的仿真到现实迁移。",
       "research_problem": "动态物体操作中高质量示范生成方法有限，现有规划方法在接触附近易失败，而DOMINO风格重放简化了动态交互，限制了策略学习经验。",
       "method_summary": "DynaForge采用规划引导的残差学习：低频全局规划提供粗略轨迹，高频物体中心逆运动学处理任务阶段，残差策略在动态交互期间修正动作。隐式课程对rollout分组，选择混合成功组以逐步增加难度，聚焦于当前能力边界进行强化学习。",
@@ -3774,8 +3788,8 @@
       "abstract_zh": "近年来，人形机器人和具身智能的进展使机器人能够执行越来越复杂的操作任务。然而，乐器演奏仍然是一个艰巨的基准，不仅要求无碰撞的轨迹执行，还要求在物理乐器上实现精确的接触时机、不对称的双臂协调以及目标声学效果。古琴，一种七弦无品齐特琴，由于其毫米级的弦间距、瞬态的右手拨弦和持续的左手泛音接触，带来了独特的操作挑战。在这项工作中，我们提出了一套物理异构双臂机器人系统，用于短语级别的自主古琴演奏。我们将古琴演奏建模为混合离散-连续执行问题，并开发了一个分层规划框架，协调工作手指分配、配置连续性、避障以及跨连续音乐事件的紧密双臂接触调度。该系统集成了视觉引导的乐器定位、基于触觉的泛音接触监测以及基于听觉反馈的拨弦参数校准。在25个事件的乐句上的真实世界实验表明，该系统能够在物理古琴上可靠地执行协调的空弦和七徽泛音序列，在重复试验中实现了93.6%和96.8%的事件正确率。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.24133v1/fig/fig1_thumb.png",
+      "image_caption": "Fig. 1: Physical heterogeneous dual-arm robotic system executing phrase-level performance on a real guqin. The setup integrates an Elfin manipulator with a multi-fingered hand for right-hand plucking, a UR5 manipulator with a contact-sensing hand for left-hand harmonic interaction, an RGB-D camera for instrument localization, and an acoustic feedback pipeline.",
       "summary_one_sentence": "本文提出了一种物理异构双臂机器人系统，通过分层规划框架和视觉-触觉-听觉融合，实现了短语级别的自主古琴演奏，并在真实实验中达到高事件正确率。",
       "research_problem": "如何让双臂机器人在物理乐器（古琴）上执行短语级别的自主演奏，同时满足无碰撞轨迹、精确接触时机、不对称双臂协调和声学目标。",
       "method_summary": "系统采用分层规划框架，将古琴演奏分解为离散事件（如手指分配、接触调度）和连续轨迹执行，协调双臂运动；结合视觉定位乐器、触觉监测泛音接触、听觉反馈校准拨弦参数。",
@@ -3840,8 +3854,8 @@
       "abstract_zh": "行为克隆在机器人操作中依赖于专家演示。然而，对于需要动态稳定性、精确接触时机或灵巧协调的任务，人类操作员可能难以甚至无法收集数据。我们研究了这种不可行演示场景，并提出了GLIDE（Guardrails for Learning from Infeasible Demonstrations Efficiently）框架，该框架推断任务特定的失败模式并将其转化为可执行的安全护栏，用于数据收集和策略部署。给定任务描述和条件遥操作代码，GLIDE编写护栏，利用系统状态过滤遥操作和策略命令，约束易失败动作，并通过轨迹反馈迭代改进。在三个任务中，GLIDE发现了超越领域专家硬编码护栏的新兴护栏，相比朴素VR遥操作和领域专家硬编码护栏，提高了数据收集效率。经过改进后，GLIDE将三个任务的数据收集成功率从0-10%提升到70-90%。在策略执行阶段，混合数据护栏策略在番茄盘转移、标记物交接和站立、倒酒任务中分别达到70%、60%和60%的成功率。这些结果表明，当直接演示不可行时，GLIDE可以支持策略学习。项目网站：http://guardrail-policy.github.io/",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.24996v1/setup.png",
+      "image_caption": "Figure 4: Robot system setup for dexterous tasks.",
       "summary_one_sentence": "GLIDE框架通过自动生成安全护栏，使机器人能够在人类无法演示的任务中通过遥操作收集数据并训练策略，显著提升数据收集和策略执行成功率。",
       "research_problem": "在需要动态稳定性、精确接触时机或灵巧协调的任务中，人类专家难以或无法提供演示数据，导致行为克隆无法应用。",
       "method_summary": "GLIDE框架根据任务描述和条件遥操作代码，编写护栏规则，利用系统状态过滤遥操作和策略命令，约束易失败动作，并通过轨迹反馈迭代改进护栏。",
@@ -7794,8 +7808,8 @@
       "abstract_zh": "机器人越来越多地用于非结构化环境。它们需要安全地抓取未知物体而不造成损坏，这变得至关重要。人类通过感知并快速响应调整抓取力来实现这一点。同样，机器人的有效抓取获取需要柔顺交互策略，以适应不确定的物体属性并在操作过程中调整任何不稳定性。我们提出了一种基于几何感知的力/力矩接触估计方法，用于粗略位置控制的夹爪，并结合自适应导纳控制器以实现安全的抓取获取。期望接触力在线估计，以保持与未知属性物体的稳定接触。这使得柔顺且稳定的抓取成为可能，同时避免过大的力。对不同大小、形状、刚度和重量的物体进行的实验表明，所提出的算法不仅防止滑动，而且施加最小的力来安全抓取物体而不造成过度变形。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.12737v2/Figures/fig_robot-setup.png",
+      "image_caption": "Figure 4: Robot setup. The grasping trials are conducted on a bimanual manipulation system comprising two Franka robotic arms. One arm carries a Robotiq 3-Finger Gripper instrumented with miniature 6-axis F/T sensors integrated directly into the fingertips for contact force measurement. A Overview of the robot setup with a representative subset of the grasped objects. B Detailed view of the gripper end-effector highlighting the integrated miniature sensors and cable routing. C Close-up of the instrumented robot fingertips featuring integrated Resense HEX21 6-axis F/T sensors, custom-designed adapter parts, and rigid hemispherical fingertips. D CAD rendering of the Robotiq 3-Finger Adaptive Gripper equipped with sensorized fingertips.",
       "summary_one_sentence": "本文提出一种结合几何感知力/力矩接触估计与自适应导纳控制器的架构，使粗略位置控制的夹爪能够安全抓取易碎物体。",
       "research_problem": "如何让使用粗略位置控制夹爪的机器人在非结构化环境中安全抓取未知物体，避免施加过大力量造成损坏。",
       "method_summary": "该方法结合几何感知的力/力矩接触估计与自适应导纳控制。接触估计利用几何信息推断接触位置，导纳控制器根据估计的接触力在线调整期望接触力，以实现柔顺稳定的抓取并避免过大压力。",
