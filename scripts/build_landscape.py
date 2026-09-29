@@ -893,6 +893,11 @@ def build() -> dict[str, Any]:
                     "counter_count": gap_result.get("counter_count", 0),
                     "sources": gap_result.get("sources", {}),
                     "searched_at": gap_result.get("searched_at", ""),
+                    # Provider health (newer cache schema; absent in old caches)
+                    "coverage_status": gap_result.get("coverage_status", ""),
+                    "fresh_providers": gap_result.get("fresh_providers"),
+                    "provider_status": gap_result.get("provider_status", {}),
+                    "preserved_lkg_count": gap_result.get("preserved_lkg_count", 0),
                 }
         except (json.JSONDecodeError, OSError):
             pass
@@ -925,6 +930,13 @@ def build() -> dict[str, Any]:
                 ext["evidence_stale"] = False
             # Only adjust confidence from non-stale evidence
             if ext.get("evidence_stale"):
+                continue
+            # Degraded coverage (some providers failed this round, LKG kept):
+            # partial evidence must NOT be read as a stronger counter signal —
+            # missing data is not disproof. Skip confidence changes unless
+            # all providers were fresh.
+            fresh_providers = ext.get("fresh_providers")
+            if fresh_providers is not None and fresh_providers < 3:
                 continue
             sup = ext.get("supporting_count", 0)
             cnt = ext.get("counter_count", 0)

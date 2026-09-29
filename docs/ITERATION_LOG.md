@@ -6,7 +6,32 @@
 
 ---
 
-## 2026-09-29 — Diagnose refresh-evidence failure: time-bomb test fixture（未推送，待用户确认）
+## 2026-09-29 — Protect Gap Evidence During Partial Provider Failure（待发布验证）
+
+### Problem
+- `gap_search.py` 三个 provider 失败时静默返回 `[]`，与"真实搜索成功但 0 结果"不可区分；provider 部分 query 失败（degraded）时更会用不完整的 fresh 结果直接覆盖上一轮完整 LKG
+
+### Example（实测复现）
+- learning-from-corrections 旧 14 supporting，本轮 S2 3/7 query 失败、成功 query 返回 20 条 → 旧 14 条被丢弃，只剩 20
+
+### Fix
+- Provider 函数失败改 raise `ProviderError`（短分类码：http_429 / network_* / json_parse_error 等，无栈无 secret）
+- `_merge_lkg` 三分支：**FULL SUCCESS**（全部 query OK）→ 正常替换（含真实 0，是清理旧 LKG 的唯一路径）；**DEGRADED**（部分失败）→ fresh partial ∪ provider LKG（fingerprint 去重，freshness=mixed）；**FAILED**（0 成功）→ 完整保留 LKG（stale_lkg）
+- `last_success_at` partial 可前移；`last_full_success_at` 仅 FULL SUCCESS 前移
+- 全 provider 失败 → raise，不伪造 0 结果轮；`search_all_gaps --refresh` 中间落盘不再抹掉未搜索 gap 的旧缓存
+- `build_landscape.py`：`fresh_providers < 3` 时跳过 confidence 调整（缺数据≠反证）
+- Actions Summary 新增 Provider Health 报告（provider 级 healthy/degraded/failed + query 计数 + preserved LKG 总数）
+
+### Validation
+- 新增 `tests/test_gap_provider_health.py` 32 项（含 7 项 degraded 专项、learning-from-corrections 回归案例）；全量 177/177 OK
+- 正式 data 文件（papers/gap_search_results/research_landscape）MD5 测试前后不变
+
+### Data Safety
+- 保护为 provider 级而非 query 级：历史 Evidence 无法可靠对应单一 query（一篇论文可命中多个 query），query 级 provenance 是伪精确
+- 旧缓存 schema 向后兼容（新字段全部 `.get()` 默认值兜底），无需 data migration
+
+
+## 2026-09-29 — Diagnose refresh-evidence failure: time-bomb test fixture（已发布）
 
 ### Root Cause
 - Run 36396983165 (2026-09-28 schedule) 失败于 **Validate** step：145 tests 中 3 个失败，全部在 `test_ingestion_health.OaiHarvestHealthTests`（cross_set_dedupe / deleted_records_skipped / retry_then_recovery）

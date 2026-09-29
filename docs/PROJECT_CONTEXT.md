@@ -314,6 +314,44 @@ bumped. External evidence carries its own `claim_version`; mismatch →
 3. Provider ID (Semantic Scholar / OpenAlex)
 4. Normalized title (fuzzy match fallback)
 
+### Provider Health Model (2026-09-29)
+
+Each gap records per-provider state in `data/gap_search_results.json`:
+`provider_status`, `provider_result_count`, `provider_health` (status,
+degraded, queries_attempted/succeeded, result_count, error, freshness,
+last_success_at, last_full_success_at, preserved_from), `coverage_status`
+(fresh|degraded), `fresh_providers`, `preserved_lkg_count`,
+`provider_last_success`, `provider_last_full_success`.
+
+Five provider states:
+- **SUCCESS_WITH_RESULTS** / **SUCCESS_ZERO_RESULTS** — HTTP 200 + parsed OK
+  (zero is a genuine zero)
+- **DEGRADED** — some queries failed; status stays success_* with
+  `degraded=true`, freshness=`mixed`
+- **FAILED** — 0 queries succeeded (429/timeout/5xx/network/parse)
+- **NOT_RUN** — no attempts
+
+**Merge rules (never confuse failure with a real zero):**
+- **FULL SUCCESS** (all queries OK): may fully REPLACE that provider's old
+  evidence, including a genuine zero. This is the only path that cleans up
+  previously preserved LKG (prevents unbounded accumulation).
+- **FAILED**: provider's last-known-good evidence is preserved intact,
+  freshness=`stale_lkg`.
+- **DEGRADED**: fresh partial ∪ provider LKG, deduped by paper fingerprint,
+  freshness=`mixed`. An incomplete round must never delete old records.
+- `last_success_at` may advance on partial success;
+  `last_full_success_at` advances ONLY on full success.
+- Protection is PROVIDER-level, not query-level: historical evidence cannot
+  be reliably attributed to a single query (a paper can match several
+  queries), so query-level provenance would be fabricated precision.
+- Gap confidence/status: when provider coverage is incomplete
+  (`fresh_providers < 3`), `build_landscape.py` skips confidence
+  adjustments — missing data must not be read as counter-evidence.
+- If ALL providers fail for a gap, `search_gap` raises → no fabricated
+  zero round; the workflow fails and the cache stays last-known-good.
+  Actions Summary includes a Provider Health section (per-provider
+  healthy/degraded/failed + query counts + preserved LKG totals).
+
 ## 9. Workflow Architecture
 
 ### deploy.yml — Build and Deploy Pages
