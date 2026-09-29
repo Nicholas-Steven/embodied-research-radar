@@ -6,6 +6,21 @@
 
 ---
 
+## 2026-09-29 — Diagnose refresh-evidence failure: time-bomb test fixture（未推送，待用户确认）
+
+### Root Cause
+- Run 36396983165 (2026-09-28 schedule) 失败于 **Validate** step：145 tests 中 3 个失败，全部在 `test_ingestion_health.OaiHarvestHealthTests`（cross_set_dedupe / deleted_records_skipped / retry_then_recovery）
+- `gap_search.py` 三个 provider（OpenAlex / Semantic Scholar / arXiv）全部成功——与 API、限流无关
+- 测试 fixture 硬编码 `created=2026-09-14`，而 harvester 的 publication window 以"当天"滚动（lookback 7 天）。9/21 运行时 09-14 恰好压窗口起点（通过）；9/28 起窗口起点 ≥09-21，fixture 被当作 stale metadata 剔除 → 返回 0 条 → 断言失败。定时炸弹型测试 bug，非回归非 provider 故障
+
+### Fix
+- `tests/test_ingestion_health.py`：`_record()` fixture 日期改为 `datetime.now(utc).date()`（`_fixture_date()`），`test_parse_record_fields` 断言同步使用动态日期
+
+### Result
+- 本地 OaiHarvestHealthTests 8/8 OK；全量 145 tests OK
+- 数据安全：失败发生在 commit 之前，`gap_search_results.json` / `research_landscape.json` / `papers.json` 均未被改动，last-known-good 完好
+
+
 ## 2026-09-16 — Restore Image Enrichment for OAI-ingested Papers（已发布）
 
 ### Root Cause

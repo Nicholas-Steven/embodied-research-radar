@@ -15,7 +15,7 @@ All network calls are mocked; no real arXiv request is made.
 import json
 import tempfile
 import unittest
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from unittest import mock
 
@@ -34,18 +34,26 @@ def _http_error(code: int):
     return exc
 
 
+def _fixture_date() -> str:
+    """Fixture records must fall inside the rolling publication window, which
+    is anchored to *now* — hard-coded dates went stale after 2026-09-21 and
+    broke three harvest tests (run 36396983165)."""
+    return datetime.now(timezone.utc).date().isoformat()
+
+
 def _record(arxiv_id: str = "2609.12345", title: str = "Force-Aware Robot Manipulation", deleted: bool = False) -> str:
     status = ' status="deleted"' if deleted else ""
     # metadataPrefix=arXiv format (the harvester switched from oai_dc on
     # 2026-09-15 to get the authoritative <created> first-submission date).
+    created = _fixture_date()
     return f"""
     <record>
-      <header{status}><identifier>oai:arXiv.org:{arxiv_id}</identifier><datestamp>2026-09-14</datestamp><setSpec>cs:cs:RO</setSpec></header>
+      <header{status}><identifier>oai:arXiv.org:{arxiv_id}</identifier><datestamp>{created}</datestamp><setSpec>cs:cs:RO</setSpec></header>
       <metadata>
         <arXiv xmlns="http://arxiv.org/OAI/arXiv/">
           <id>{arxiv_id}</id>
-          <created>2026-09-14</created>
-          <updated>2026-09-14</updated>
+          <created>{created}</created>
+          <updated>{created}</updated>
           <authors><author>Ada Lovelace</author></authors>
           <title>{title}</title>
           <categories>cs.RO</categories>
@@ -136,7 +144,7 @@ class OaiHarvestHealthTests(unittest.TestCase):
         parsed = oai_harvester._parse_record(record)
         self.assertEqual(parsed["arxiv_id"], "2609.12345")
         self.assertEqual(parsed["paper_id"], "arxiv-2609-12345")
-        self.assertEqual(parsed["published_date"], "2026-09-14")
+        self.assertEqual(parsed["published_date"], _fixture_date())
         self.assertEqual(parsed["doi"], "10.1234/test")
         self.assertEqual(parsed["authors"], ["Ada Lovelace"])
 
@@ -303,8 +311,9 @@ class SearchFallbackTests(unittest.TestCase):
             raw = arxiv_fetcher.harvest_recent_search(7, health)
         self.assertEqual(len(raw), 1)
         self.assertEqual(health.requests_succeeded, 1)
-        self.assertIn("2026-09", health.window_start)
-        self.assertIn("2026-09", health.window_end)
+        today = datetime.now(timezone.utc).date().isoformat()
+        self.assertEqual(health.window_end, today)
+        self.assertEqual(health.window_start, (datetime.now(timezone.utc) - timedelta(days=7)).date().isoformat())
 
 
 if __name__ == "__main__":
