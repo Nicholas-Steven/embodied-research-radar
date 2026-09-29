@@ -1,0 +1,79 @@
+[
+  {
+    "arxiv_id": "2607.22530",
+    "title": "ViTacWorld: Scaling Visuo-Tactile World Models for Contact-Rich Robot Manipulation",
+    "first_submitted": "2026-07-24",
+    "latest_updated": "2026-09-28",
+    "reason": "revision_only_contamination"
+  },
+  {
+    "arxiv_id": "2503.19225",
+    "title": "CoinFT: A Coin-Sized, Capacitive 6-Axis Force Torque Sensor for Robotic Applications",
+    "first_submitted": "2025-03-25",
+    "latest_updated": "2026-09-27",
+    "reason": "revision_only_contamination"
+  },
+  {
+    "arxiv_id": "2606.08765",
+    "title": "Tac2Pix: Image-Space Visuo-Tactile Fusion for Dexterous Manipulation",
+    "first_submitted": "2026-06-07",
+    "latest_updated": "2026-09-27",
+    "reason": "revision_only_contamination"
+  },
+  {
+    "arxiv_id": "2512.00324",
+    "title": "MILE: A Mechanically Isomorphic Hand Exoskeleton and Visuotactile Robotic Hand for Data Collection in Dexterous Manipulation",
+    "first_submitted": "2025-11-29",
+    "latest_updated": "2026-09-27",
+    "reason": "revision_only_contamination"
+  },
+  {
+    "arxiv_id": "2604.12879",
+    "title": "FastGrasp: Learning-based Whole-Body Control Method for Fast Dexterous Grasping with Mobile Manipulators",
+    "first_submitted": "2026-04-14",
+    "latest_updated": "2026-09-27",
+    "reason": "revision_only_contamination"
+  },
+  {
+    "arxiv_id": "2510.05382",
+    "title": "A multi-modal tactile fingertip design for robotic hands to enhance dexterous manipulation",
+    "first_submitted": "2025-10-06",
+    "latest_updated": "2026-09-27",
+    "reason": "revision_only_contamination"
+  },
+  {
+    "arxiv_id": "2606.23147",
+    "title": "Assistron: Bayesian Shared Autonomy with Off-the-shelf Vision-Language-Action Models",
+    "first_submitted": "2026-06-22",
+    "latest_updated": "2026-09-26",
+    "reason": "revision_only_contamination"
+  },
+  {
+    "arxiv_id": "2607.08448",
+    "title": "Harness VLA: Steering Frozen VLAs into Reliable Manipulation Primitives via Memory-Guided Agents",
+    "first_submitted": "2026-07-09",
+    "latest_updated": "2026-09-24",
+    "reason": "revision_only_contamination"
+  },
+  {
+    "arxiv_id": "2605.23568",
+    "title": "TactileReflex: Noise-Statistics-Driven Vision-Tactile Reflex Control for Force-Sensitive Manipulation",
+    "first_submitted": "2026-05-22",
+    "latest_updated": "2026-09-23",
+    "reason": "revision_only_contamination"
+  },
+  {
+    "arxiv_id": "2606.27344",
+    "title": "VibeAct: Vibration to Actions for Contact-Rich Reactive Robot Dexterity",
+    "first_submitted": "2026-06-25",
+    "latest_updated": "2026-09-22",
+    "reason": "revision_only_contamination"
+  },
+  {
+    "arxiv_id": "2602.23607",
+    "title": "MicroPush: A Lightweight Simulator for Sim-to-Real Microrobotic Pushing and Assembly",
+    "first_submitted": "2026-02-27",
+    "latest_updated": "2026-09-21",
+    "reason": "revision_only_contamination"
+  }
+]
