@@ -374,6 +374,123 @@ class PipelineSafetyTests(unittest.TestCase):
         self.assertIn("2026-09-13", dates)
 
 
+class ImageOnlyChangeTests(unittest.TestCase):
+    """Alias-bug regression (production run 36571636806): enrichment mutated
+    paper["image"] in place, but retained shares those dicts with
+    loaded["papers"], so dataset_changed() compared the state with itself and
+    never wrote image-only updates. The pre-mutation canonical snapshot in
+    run() must make image-only changes visible and committable."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.dump = Path(self.tmp.name) / "papers.json"
+        mock.patch.object(pipeline, "DATA_PATH", self.dump).start()
+        self.addCleanup(mock.patch.stopall)
+        self.addCleanup(self.tmp.cleanup)
+
+    def _fixture(self, papers, image="", caption=""):
+        from scripts.radar.scoring import enrich_score_and_topics
+        stored = [clean_paper(enrich_score_and_topics(p)) for p in papers]
+        for p in stored:
+            p["image"] = image
+            p["image_caption"] = caption
+        payload = {
+            "schema_version": "1.0.0", "generated_at": "2026-09-29", "source": "arXiv",
+            "candidate_count": len(stored), "retained_count": len(stored), "relevance_threshold": 45,
+            "papers": stored,
+        }
+        self.dump.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        return payload
+
+    def _existing(self):
+        return clean_paper({**BASE, "paper_id": "arxiv-2411-15753", "arxiv_id": "2411.15753", "relevance_score": 80})
+
+    def _healthy_empty(self):
+        return FetchHealth(source="arXiv OAI-PMH", requests_attempted=7, requests_succeeded=7,
+                           raw_records_received=100, records_after_dedupe=0)
+
+    def test_1_image_recovery_on_existing_paper_writes_dataset(self):
+        """No new papers + enrichment recovers an image → changed=True, file written."""
+        self._fixture([self._existing()])
+        before = json.loads(self.dump.read_text(encoding="utf-8"))
+        fig = {"url": "https://arxiv.org/html/2411.15753v1/fig.png", "caption": "Figure 1: method"}
+        with mock.patch.object(pipeline, "fetch_method_figure", return_value=fig), \
+             mock.patch.object(pipeline, "fetch_candidates", return_value=([], self._healthy_empty())):
+            payload, health = pipeline.run(fetch=True, threshold=45, with_ai=False)
+        after = json.loads(self.dump.read_text(encoding="utf-8"))
+        self.assertEqual(health.images_found, 1)
+        self.assertEqual(after["papers"][0]["image"], fig["url"])
+        self.assertEqual(after["papers"][0]["image_caption"], "Figure 1: method")
+        self.assertEqual(len(after["papers"]), len(before["papers"]))
+        self.assertEqual(after["papers"][0]["paper_id"], before["papers"][0]["paper_id"])
+        self.assertEqual(after["generated_at"], "2026-09-29")  # real change → date updates
+
+    def test_2_caption_persisted_with_recovery(self):
+        """Caption arrives together with the recovered image (papers WITH an
+        image are not probed, so a caption-only change is not a reachable
+        path); the new caption must be serialized."""
+        self._fixture([self._existing()])
+        fig = {"url": "https://x/new.png", "caption": "Figure 1: caption text"}
+        with mock.patch.object(pipeline, "fetch_method_figure", return_value=fig), \
+             mock.patch.object(pipeline, "fetch_candidates", return_value=([], self._healthy_empty())):
+            pipeline.run(fetch=True, threshold=45, with_ai=False)
+        after = json.loads(self.dump.read_text(encoding="utf-8"))
+        self.assertEqual(after["papers"][0]["image_caption"], "Figure 1: caption text")
+
+    def test_3_batch_recovery_all_results_in_serialized_dataset(self):
+        """17-style batch: every successful probe result survives serialization."""
+        papers = [clean_paper({**BASE, "paper_id": f"arxiv-2411-{i:05d}",
+                               "arxiv_id": f"2411.{i:05d}", "relevance_score": 80,
+                               "title": f"Vision-Force Recovery Policy {i}"})
+                  for i in range(1, 6)]
+        self._fixture(papers)
+        def fake_figure(arxiv_id):
+            return {"url": f"https://arxiv.org/html/{arxiv_id}v1/fig.png", "caption": f"Fig {arxiv_id}"}
+        with mock.patch.object(pipeline, "fetch_method_figure", side_effect=fake_figure), \
+             mock.patch.object(pipeline, "fetch_candidates", return_value=([], self._healthy_empty())):
+            pipeline.run(fetch=True, threshold=45, with_ai=False)
+        after = json.loads(self.dump.read_text(encoding="utf-8"))
+        recovered = [p for p in after["papers"] if p.get("image")]
+        self.assertEqual(len(recovered), 5)
+
+    def test_4_failed_probe_makes_no_change(self):
+        self._fixture([self._existing()])
+        before = self.dump.read_bytes()
+        with mock.patch.object(pipeline, "fetch_method_figure", return_value={"url": "", "caption": ""}), \
+             mock.patch.object(pipeline, "fetch_candidates", return_value=([], self._healthy_empty())):
+            pipeline.run(fetch=True, threshold=45, with_ai=False)
+        self.assertEqual(self.dump.read_bytes(), before, "failed probes must not fake a change")
+
+    def test_5_same_image_url_is_not_a_change(self):
+        fig = {"url": "https://x/old.png", "caption": "same"}
+        self._fixture([self._existing()], image=fig["url"], caption=fig["caption"])
+        before = self.dump.read_bytes()
+        with mock.patch.object(pipeline, "fetch_method_figure", return_value=fig), \
+             mock.patch.object(pipeline, "fetch_candidates", return_value=([], self._healthy_empty())):
+            pipeline.run(fetch=True, threshold=45, with_ai=False)
+        self.assertEqual(self.dump.read_bytes(), before)
+
+    def test_6_zero_new_papers_with_image_update_still_commits(self):
+        """The core production case: zero new papers, image-only update must commit."""
+        self._fixture([self._existing()])
+        fig = {"url": "https://arxiv.org/html/2411.15753v1/fig.png", "caption": "Fig"}
+        with mock.patch.object(pipeline, "fetch_method_figure", return_value=fig), \
+             mock.patch.object(pipeline, "fetch_candidates", return_value=([], self._healthy_empty())):
+            pipeline.run(fetch=True, threshold=45, with_ai=False)
+        after = json.loads(self.dump.read_text(encoding="utf-8"))
+        self.assertTrue(after["papers"][0]["image"], "image-only update must be persisted")
+
+    def test_7_premutation_snapshot_not_polluted_by_alias(self):
+        """The snapshot taken before mutations stays usable as the old state —
+        mutating a retained alias must not alter it."""
+        loaded = {"papers": [{"paper_id": "a", "image": ""}], "relevance_threshold": 45}
+        retained = list({p["paper_id"]: p for p in loaded["papers"]}.values())
+        before = pipeline._canonical_papers(loaded["papers"])
+        retained[0]["image"] = "https://x/fig.png"
+        self.assertIn('"image": ""', before)  # snapshot frozen pre-mutation
+        self.assertNotEqual(before, pipeline._canonical_papers(retained))
+
+
 class SearchFallbackTests(unittest.TestCase):
     def test_fallback_used_when_oai_fails(self):
         with mock.patch.object(pipeline, "harvest_oai", side_effect=SourceUnhealthyError("OAI down")), \

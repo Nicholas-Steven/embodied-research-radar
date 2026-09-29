@@ -126,6 +126,15 @@ def run(fetch: bool = False, limit_per_query: int = 10, threshold: int = 45, wit
         existing = []
     existing_ids = {p.get("paper_id") for p in existing if isinstance(p, dict)}
 
+    # PRE-MUTATION SNAPSHOT: existing paper dicts are shared by reference with
+    # loaded["papers"] (no copies are made), so later in-place mutations — most
+    # importantly the image enrichment writing paper["image"] — also mutate the
+    # "old" side. Comparing loaded vs retained AFTER those mutations compares a
+    # state with itself and reports "no change" (run 36571636806: 17 figures
+    # recovered in memory, papers.json left untouched). Freeze the old state
+    # now, before any paper object can be mutated.
+    before_papers = _canonical_papers(existing)
+
     health = FetchHealth()
     candidates = existing
     raw_new: list[dict[str, Any]] = []
@@ -218,7 +227,15 @@ def run(fetch: bool = False, limit_per_query: int = 10, threshold: int = 45, wit
             + "; ".join(health.notes[-3:])
         )
 
-    changed = dataset_changed(loaded, retained, threshold)
+    # changed detection uses the PRE-MUTATION snapshot taken at the top of
+    # run() — loaded["papers"] aliases the retained objects, so comparing it
+    # here directly would always report "no change" after in-place mutations.
+    # Guard branch preserves the original dataset_changed() contract: a
+    # malformed/missing papers list always counts as changed.
+    if not isinstance(loaded, dict) or not isinstance(loaded.get("papers"), list):
+        changed = True
+    else:
+        changed = before_papers != _canonical_papers(retained) or loaded.get("relevance_threshold") != threshold
     payload = {
         "schema_version": "1.0.0",
         "generated_at": date.today().isoformat() if changed else (loaded.get("generated_at", "") if isinstance(loaded, dict) else ""),
