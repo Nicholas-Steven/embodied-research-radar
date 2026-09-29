@@ -4085,33 +4085,33 @@
   },
   "external_evidence": {
     "physical-state-aliasing": {
-      "total_retrieved": 56,
-      "unique_after_dedup": 56,
+      "total_retrieved": 40,
+      "unique_after_dedup": 39,
       "supporting_count": 11,
       "counter_count": 3,
       "sources": {
-        "openalex": 19,
-        "semantic_scholar": 21,
+        "openalex": 20,
+        "semantic_scholar": 4,
         "arxiv": 16
       },
       "searched_at": "2026-09-29",
       "coverage_status": "degraded",
       "fresh_providers": 1,
       "provider_status": {
-        "openalex": "failed",
-        "semantic_scholar": "success_with_results",
+        "openalex": "success_with_results",
+        "semantic_scholar": "failed",
         "arxiv": "success_with_results"
       },
-      "preserved_lkg_count": 20,
+      "preserved_lkg_count": 4,
       "evidence_stale": false
     },
     "failure-detection-vs-diagnosis": {
-      "total_retrieved": 106,
-      "unique_after_dedup": 66,
+      "total_retrieved": 124,
+      "unique_after_dedup": 85,
       "supporting_count": 1,
       "counter_count": 0,
       "sources": {
-        "openalex": 20,
+        "openalex": 38,
         "semantic_scholar": 0,
         "arxiv": 86
       },
@@ -4123,12 +4123,12 @@
         "semantic_scholar": "failed",
         "arxiv": "success_with_results"
       },
-      "preserved_lkg_count": 0,
+      "preserved_lkg_count": 18,
       "evidence_stale": false
     },
     "detection-without-recovery": {
       "total_retrieved": 92,
-      "unique_after_dedup": 89,
+      "unique_after_dedup": 90,
       "supporting_count": 3,
       "counter_count": 0,
       "sources": {
@@ -4144,17 +4144,17 @@
         "semantic_scholar": "failed",
         "arxiv": "success_with_results"
       },
-      "preserved_lkg_count": 0,
+      "preserved_lkg_count": 20,
       "evidence_stale": false
     },
     "recovery-without-reverification": {
-      "total_retrieved": 35,
-      "unique_after_dedup": 35,
-      "supporting_count": 8,
+      "total_retrieved": 48,
+      "unique_after_dedup": 48,
+      "supporting_count": 14,
       "counter_count": 19,
       "sources": {
-        "openalex": 30,
-        "semantic_scholar": 0,
+        "openalex": 33,
+        "semantic_scholar": 10,
         "arxiv": 5
       },
       "searched_at": "2026-09-29",
@@ -4162,20 +4162,20 @@
       "fresh_providers": 1,
       "provider_status": {
         "openalex": "success_with_results",
-        "semantic_scholar": "failed",
+        "semantic_scholar": "success_with_results",
         "arxiv": "success_with_results"
       },
-      "preserved_lkg_count": 4,
+      "preserved_lkg_count": 10,
       "evidence_stale": false
     },
     "temporal-6d-ft-evidence": {
-      "total_retrieved": 80,
-      "unique_after_dedup": 79,
-      "supporting_count": 2,
-      "counter_count": 2,
+      "total_retrieved": 90,
+      "unique_after_dedup": 89,
+      "supporting_count": 4,
+      "counter_count": 5,
       "sources": {
-        "openalex": 20,
-        "semantic_scholar": 20,
+        "openalex": 40,
+        "semantic_scholar": 10,
         "arxiv": 40
       },
       "searched_at": "2026-09-29",
@@ -4183,10 +4183,10 @@
       "fresh_providers": 1,
       "provider_status": {
         "openalex": "success_with_results",
-        "semantic_scholar": "failed",
+        "semantic_scholar": "success_with_results",
         "arxiv": "success_with_results"
       },
-      "preserved_lkg_count": 20,
+      "preserved_lkg_count": 24,
       "evidence_stale": false
     },
     "outcome-vs-evidence-sufficiency": {
@@ -4207,37 +4207,37 @@
         "semantic_scholar": "failed",
         "arxiv": "success_with_results"
       },
-      "preserved_lkg_count": 20,
+      "preserved_lkg_count": 2,
       "evidence_stale": false
     },
     "false-success-risk": {
-      "total_retrieved": 1,
-      "unique_after_dedup": 1,
-      "supporting_count": 0,
+      "total_retrieved": 60,
+      "unique_after_dedup": 59,
+      "supporting_count": 2,
       "counter_count": 0,
       "sources": {
-        "openalex": 0,
-        "semantic_scholar": 0,
+        "openalex": 39,
+        "semantic_scholar": 20,
         "arxiv": 1
       },
       "searched_at": "2026-09-29",
       "coverage_status": "degraded",
       "fresh_providers": 1,
       "provider_status": {
-        "openalex": "failed",
-        "semantic_scholar": "failed",
+        "openalex": "success_with_results",
+        "semantic_scholar": "success_with_results",
         "arxiv": "success_with_results"
       },
       "preserved_lkg_count": 0,
       "evidence_stale": false
     },
     "failure-to-recovery-hierarchy": {
-      "total_retrieved": 43,
-      "unique_after_dedup": 43,
+      "total_retrieved": 44,
+      "unique_after_dedup": 44,
       "supporting_count": 4,
       "counter_count": 0,
       "sources": {
-        "openalex": 39,
+        "openalex": 40,
         "semantic_scholar": 0,
         "arxiv": 4
       },
@@ -4253,14 +4253,77 @@
       "evidence_stale": false
     },
     "selective-human-escalation": {
-      "total_retrieved": 57,
-      "unique_after_dedup": 57,
+      "total_retrieved": 232,
+      "unique_after_dedup": 154,
+      "supporting_count": 4,
+      "counter_count": 1,
+      "sources": {
+        "openalex": 112,
+        "semantic_scholar": 0,
+        "arxiv": 120
+      },
+      "searched_at": "2026-09-29",
+      "coverage_status": "degraded",
+      "fresh_providers": 1,
+      "provider_status": {
+        "openalex": "success_with_results",
+        "semantic_scholar": "failed",
+        "arxiv": "success_with_results"
+      },
+      "preserved_lkg_count": 12,
+      "evidence_stale": false
+    },
+    "learning-from-corrections": {
+      "total_retrieved": 44,
+      "unique_after_dedup": 44,
+      "supporting_count": 5,
+      "counter_count": 0,
+      "sources": {
+        "openalex": 40,
+        "semantic_scholar": 0,
+        "arxiv": 4
+      },
+      "searched_at": "2026-09-29",
+      "coverage_status": "degraded",
+      "fresh_providers": 1,
+      "provider_status": {
+        "openalex": "success_with_results",
+        "semantic_scholar": "failed",
+        "arxiv": "success_with_results"
+      },
+      "preserved_lkg_count": 0,
+      "evidence_stale": false
+    },
+    "benchmark-gap": {
+      "total_retrieved": 61,
+      "unique_after_dedup": 58,
+      "supporting_count": 6,
+      "counter_count": 0,
+      "sources": {
+        "openalex": 40,
+        "semantic_scholar": 0,
+        "arxiv": 21
+      },
+      "searched_at": "2026-09-29",
+      "coverage_status": "degraded",
+      "fresh_providers": 1,
+      "provider_status": {
+        "openalex": "success_with_results",
+        "semantic_scholar": "failed",
+        "arxiv": "success_with_results"
+      },
+      "preserved_lkg_count": 0,
+      "evidence_stale": false
+    },
+    "cross-task-generalization": {
+      "total_retrieved": 44,
+      "unique_after_dedup": 44,
       "supporting_count": 2,
       "counter_count": 0,
       "sources": {
-        "openalex": 57,
-        "semantic_scholar": 0,
-        "arxiv": 0
+        "openalex": 22,
+        "semantic_scholar": 20,
+        "arxiv": 2
       },
       "searched_at": "2026-09-29",
       "coverage_status": "degraded",
@@ -4268,60 +4331,9 @@
       "provider_status": {
         "openalex": "success_with_results",
         "semantic_scholar": "failed",
-        "arxiv": "failed"
+        "arxiv": "success_with_results"
       },
-      "preserved_lkg_count": 17,
-      "evidence_stale": false
-    },
-    "learning-from-corrections": {
-      "total_retrieved": 0,
-      "unique_after_dedup": 0,
-      "supporting_count": 0,
-      "counter_count": 0,
-      "sources": {
-        "openalex": 0,
-        "semantic_scholar": 0,
-        "arxiv": 0
-      },
-      "searched_at": "2026-09-29",
-      "coverage_status": "",
-      "fresh_providers": null,
-      "provider_status": {},
-      "preserved_lkg_count": 0,
-      "evidence_stale": false
-    },
-    "benchmark-gap": {
-      "total_retrieved": 0,
-      "unique_after_dedup": 0,
-      "supporting_count": 0,
-      "counter_count": 0,
-      "sources": {
-        "openalex": 0,
-        "semantic_scholar": 0,
-        "arxiv": 0
-      },
-      "searched_at": "2026-09-29",
-      "coverage_status": "",
-      "fresh_providers": null,
-      "provider_status": {},
-      "preserved_lkg_count": 0,
-      "evidence_stale": false
-    },
-    "cross-task-generalization": {
-      "total_retrieved": 40,
-      "unique_after_dedup": 40,
-      "supporting_count": 2,
-      "counter_count": 0,
-      "sources": {
-        "openalex": 20,
-        "semantic_scholar": 20,
-        "arxiv": 0
-      },
-      "searched_at": "2026-09-29",
-      "coverage_status": "",
-      "fresh_providers": null,
-      "provider_status": {},
-      "preserved_lkg_count": 0,
+      "preserved_lkg_count": 22,
       "evidence_stale": false
     }
   },
