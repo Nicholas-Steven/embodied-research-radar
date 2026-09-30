@@ -1,11 +1,393 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-29",
+  "generated_at": "2026-09-30",
   "source": "arXiv",
-  "candidate_count": 4942,
-  "retained_count": 312,
+  "candidate_count": 5593,
+  "retained_count": 319,
   "relevance_threshold": 45,
   "papers": [
+    {
+      "arxiv_id": "2609.37552",
+      "paper_id": "arxiv-2609-37552",
+      "title": "Wrench-ACT: Enhancing Robot Policies for Contact Rich Behavior Using Direct Wrench Control",
+      "abstract": "While contact-rich manipulation requires deliberate regulation of interaction forces, recent approaches to robot manipulation learning predominantly represent actions as target positions or poses. Even methods that incorporate force sensing either use it solely as an observation or, when predicting forces as part of the output, rely on a hybrid force controller. In this paper, we propose an imitation learning policy that predicts wrenches as its sole action output for direct use by a pure force controller. Our studies suggest that force-domain imitation learning depends critically on data collection, with force-feedback teleoperation improving policy performance by capturing the operator's deliberate force regulation. Using Action Chunking with Transformers (ACT) as the base architecture, we train single-task models on bilateral wrench demonstrations and evaluate them on five contact-rich manipulation tasks. The wrench policy matches or outperforms position-based baselines across all tasks, with gains varying according to the degree of deliberate force regulation each task requires. Cross-condition ablations show that the bilateral data collection interface and the wrench action space each contribute independently to performance. To support further research, we will release over 1000 wrench-action demonstrations spanning these tasks on a companion website upon publication.",
+      "authors": [
+        "Johannes Hechtl",
+        "Yannik Blei",
+        "Simon Ball",
+        "Reihaneh Mirjalili",
+        "Michael Krawez",
+        "Seongjin Bien",
+        "Philipp Schmitt",
+        "Wolfram Burgard"
+      ],
+      "published_date": "2026-09-29",
+      "updated_date": "2026-09-29",
+      "oai_datestamp": "2026-09-30",
+      "version_count": 1,
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.37552",
+      "pdf_url": "https://arxiv.org/pdf/2609.37552",
+      "research_topics": [
+        "vision-force",
+        "generative-policy"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出一种以力旋量作为唯一动作输出的模仿学习策略，直接由纯力控制器使用。",
+        "证明力域模仿学习依赖于数据收集，力反馈遥操作能提升策略性能。",
+        "在五个接触丰富操作任务上验证力旋量策略匹配或优于位置基线。",
+        "通过交叉条件消融显示双边数据收集和力旋量动作空间独立贡献性能。",
+        "将发布超过1000个力旋量动作演示数据集。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "虽然接触丰富的操作需要刻意调节交互力，但近期机器人操作学习方法主要将动作表示为目标位置或姿态。即使包含力传感的方法，要么仅将其用作观测，要么在预测力作为输出的一部分时依赖混合力控制器。本文提出一种模仿学习策略，将力旋量作为唯一动作输出，直接由纯力控制器使用。我们的研究表明，力域模仿学习关键依赖于数据收集，力反馈遥操作通过捕捉操作者的刻意力调节来提升策略性能。以Action Chunking with Transformers (ACT)为基础架构，我们在双边力旋量演示上训练单任务模型，并在五个接触丰富操作任务上评估。力旋量策略在所有任务上匹配或优于基于位置的基线，收益根据每个任务所需的刻意力调节程度而变化。交叉条件消融显示，双边数据收集界面和力旋量动作空间各自独立地贡献于性能。为支持进一步研究，我们将在发表后在配套网站上发布涵盖这些任务的超过1000个力旋量动作演示。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.37552v1/cover_pic.png",
+      "image_caption": "Fig. 1 : Method overview of the proposed pure wrench approach. (A) Data collection via bilateral teleoperation. Operator wrench commands are executed by the follower arm and recorded, while the follower position is mirrored back to the leader. (B) Inference. Multimodal observations (RGB streams and robot state) are processed by the policy to directly predict a 6D target wrench, entirely bypassing intermediate positional control for contact-rich manipulation.",
+      "summary_one_sentence": "本文提出Wrench-ACT，一种以力旋量作为唯一动作输出的模仿学习策略，结合力反馈遥操作数据收集，在接触丰富操作任务上优于位置基线的策略。",
+      "research_problem": "接触丰富操作中，现有机器人操作学习方法主要使用位置或姿态作为动作表示，未能充分利用力控制，导致力调节能力不足。",
+      "method_summary": "基于Action Chunking with Transformers (ACT)架构，训练策略直接预测力旋量作为动作输出，用于纯力控制器；数据通过双边力反馈遥操作收集，以捕捉操作者的力调节意图。",
+      "experimental_setup": "使用双边力旋量演示训练单任务模型，在五个接触丰富操作任务上评估，与基于位置的基线比较，并进行交叉条件消融。",
+      "key_results": "力旋量策略在所有五个任务上匹配或优于位置基线，性能提升程度与任务所需的刻意力调节程度相关；双边数据收集和力旋量动作空间各自独立贡献性能。",
+      "limitations": "无法从摘要确认。",
+      "why_it_matters": "该工作挑战了以位置为中心的操作学习范式，展示了直接力控制与力反馈数据收集结合的有效性，为接触丰富操作提供了新思路。",
+      "relevance_reason": "该论文直接涉及力控制与接触丰富操作，与视觉-力觉融合和接触状态估计紧密相关，可作为方法参考和基线对比。",
+      "related_to_my_research": "方法参考：其力旋量动作空间和力反馈数据收集策略可借鉴于视觉-力觉融合的接触状态估计研究；基线对比：可作为接触丰富操作任务的性能基准。",
+      "recommended_reading": "建议阅读Action Chunking with Transformers (ACT)相关论文，以及力控制、遥操作和接触丰富操作的相关工作。",
+      "reproduction_value": "High - 方法基于公开的ACT架构，数据收集接口和力旋量动作空间定义清晰，且将发布演示数据集，便于复现。",
+      "core_candidate": "Yes",
+      "last_checked": "2026-09-30",
+      "relevance_score": 86,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": true,
+      "competition_reason": "主题、传感器或闭环恢复机制与当前视觉–力觉研究规划存在明显交集；需要逐篇核对任务、平台和实验范围。",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-30T07:18:31.587497+00:00"
+    },
+    {
+      "arxiv_id": "2609.37433",
+      "paper_id": "arxiv-2609-37433",
+      "title": "FP2: Equipping Robotic Foundation Models with Force Control",
+      "abstract": "Robotic foundation models (RFMs) are increasingly capable of general-purpose manipulation, yet reliable physical interaction remains challenging in contact-rich settings. We present FP2, a lightweight downstream interface that equips task-adapted RFMs with explicit force control while preserving their action-generation capability. FP2 adopts an action-regulation decomposition: the task-adapted RFM serves as a foundation policy responsible for task-level action generation, while a high-frequency force control policy focuses solely on interaction regulation. To condition force regulation on the ongoing manipulation, FP2 compresses foundation-policy contextual representations and combines them with wrench and proprioceptive histories to predict structured force-control parameters. We evaluate FP2 with four RFM backbones across four real-world contact-rich manipulation tasks. FP2 consistently improves task performance and force regulation quality over the corresponding foundation policies, while comparing favorably with representative force-aware and force-control baselines. Ablations further show that foundation-policy context and physical feedback are complementary for effective force regulation, while preserving foundation-policy action generation improves both efficiency and novel-object generalization. Project website: http://force-policy.github.io/fp2",
+      "authors": [
+        "Hongjie Fang",
+        "Shirun Tang",
+        "Junjian Hu",
+        "Shidong Zhang",
+        "Derek Zhang",
+        "Linhao Chen",
+        "Dehai Li",
+        "Mingyu Mei",
+        "Wanxi Liu",
+        "Cewu Lu",
+        "Shiquan Wang"
+      ],
+      "published_date": "2026-09-29",
+      "updated_date": "2026-09-29",
+      "oai_datestamp": "2026-09-30",
+      "version_count": 1,
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.37433",
+      "pdf_url": "https://arxiv.org/pdf/2609.37433",
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出FP2，一种轻量级下游接口，通过动作调节分解为RFMs配备显式力控制，同时保留其动作生成能力。",
+        "设计了一种方法，压缩基础策略上下文表示，并结合力/力矩和本体感觉历史来预测结构化力控制参数。",
+        "在四个真实世界接触丰富任务中，使用四种RFM骨干网络进行了全面评估，证明FP2持续提升任务性能和力调节质量。",
+        "消融实验表明基础策略上下文和物理反馈互补，且保留动作生成有助于效率和泛化。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "机器人基础模型（RFMs）在通用操作方面能力日益增强，但在接触丰富的环境中，可靠的物理交互仍然具有挑战性。我们提出了FP2，一个轻量级的下游接口，为任务适配的RFMs配备显式力控制，同时保留其动作生成能力。FP2采用动作调节分解：任务适配的RFM作为基础策略负责任务级动作生成，而高频力控制策略仅专注于交互调节。为了将力调节与当前操作状态相结合，FP2压缩基础策略的上下文表示，并将其与力/力矩和本体感觉历史结合，以预测结构化的力控制参数。我们在四个真实世界的接触丰富操作任务中，使用四种RFM骨干网络评估了FP2。FP2在任务性能和力调节质量上持续优于对应的基础策略，并与代表性的力感知和力控制基线相比表现良好。消融实验进一步表明，基础策略上下文和物理反馈对于有效的力调节是互补的，而保留基础策略的动作生成则提高了效率和新型物体泛化能力。项目网站：http://force-policy.github.io/fp2",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.37433v1/model.png",
+      "image_caption": "Fig. 1: FP2 Framework. (Top left) The task-adapted RFM serves as a foundation policy for action generation, while FP2 compresses its contextual tokens and combines them with wrench and proprioceptive histories to predict structured force-control parameters. (Top right) The contextual token compressor is trained self-supervisedly through reconstruction; the reconstruction decoder is discarded after training. (Bottom) Training proceeds in three stages: (1) standard RFM task adaptation, (2) self-supervised contextual token compression with the RFM frozen, and (3) force-control policy training with both the RFM and compressor frozen.",
+      "summary_one_sentence": "FP2是一种轻量级下游接口，通过动作调节分解，为机器人基础模型配备显式力控制，在保留动作生成能力的同时提升接触丰富操作任务中的力调节质量。",
+      "research_problem": "如何在不牺牲机器人基础模型动作生成能力的前提下，为其配备显式力控制，以应对接触丰富操作任务中的可靠物理交互挑战。",
+      "method_summary": "FP2采用动作调节分解：任务适配的RFM作为基础策略生成任务级动作，高频力控制策略仅负责交互调节。力控制策略通过压缩基础策略的上下文表示，并结合力/力矩和本体感觉历史，预测结构化的力控制参数（如目标力或阻抗参数），以高频方式调整动作，实现力调节。",
+      "experimental_setup": "在四个真实世界的接触丰富操作任务中，使用四种不同的RFM骨干网络（具体名称未在摘要中列出）进行评估，并与代表性力感知和力控制基线进行比较，同时进行消融实验。",
+      "key_results": "FP2在任务性能和力调节质量上持续优于对应的基础策略，并与力感知和力控制基线相比表现良好。消融实验显示基础策略上下文和物理反馈互补，保留动作生成提高了效率和新型物体泛化能力。",
+      "limitations": "无法从摘要确认。",
+      "why_it_matters": "这项工作解决了机器人基础模型在接触丰富操作中缺乏显式力控制的问题，通过轻量级接口增强了RFMs的物理交互能力，推动了具身智能在真实世界操作中的应用。",
+      "relevance_reason": "该论文直接涉及机器人操作中的力控制，与视觉-力觉融合和接触状态估计紧密相关，因为力控制策略依赖于力/力矩反馈和本体感觉，且与基础策略上下文结合，属于具身智能领域的前沿工作。",
+      "related_to_my_research": "方法参考：FP2的动作调节分解和上下文压缩方法可借鉴于视觉-力觉融合的力控制策略设计；背景文献：提供了机器人基础模型与力控制结合的最新进展；潜在竞争：其力控制策略可能与我们正在开发的接触状态估计方法形成竞争或互补。",
+      "recommended_reading": "建议阅读与机器人基础模型、力控制、接触丰富操作相关的文献，以及该论文的项目网站（http://force-policy.github.io/fp2）获取更多细节。",
+      "reproduction_value": "Medium - 摘要提供了方法框架和评估结果，但未给出具体实现细节、网络架构、训练超参数或代码，复现需要参考项目网站或论文全文。",
+      "core_candidate": "Review",
+      "last_checked": "2026-09-30",
+      "relevance_score": 75,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-30T07:19:02.161605+00:00"
+    },
+    {
+      "arxiv_id": "2609.36596",
+      "paper_id": "arxiv-2609-36596",
+      "title": "HACo: Learning Haptic Active Compliance for Force-Aware Dexterous Manipulation",
+      "abstract": "Contact-rich dexterous manipulation requires policies that translate physical feedback into motion commands while regulating interaction loads across evolving multi-contact interactions. This requires haptic observations of contact state and action supervision showing how commands should adapt. Existing policies often overlook complementary fingertip tactile and joint-torque feedback, while common action targets either encode excessive loading or omit motion constrained by the object. We introduce HACo, a Haptic Active Compliance policy that learns force-regulating actions directly from haptic feedback. Compliance-regulated teleoperation converts operator inputs into controller-executable compliant actions that preserve motion intent while regulating loads. HACo learns these actions directly, using command-state discrepancy as auxiliary compliant-intent supervision. It combines local fingertip tactile responses with joint-torque feedback capturing load transmission through the articulated hand, including contacts beyond tactile coverage. A Compliance Grounding Module uses gated haptic cross-attention to ground action generation in the evolving haptic state, enabling closed-loop force regulation without explicit online contact modeling. We evaluate HACo on a real-world benchmark covering multi-contact friction, tangential interaction, fragile curved-surface contact, rotational torque, and deformable-object manipulation. Across 20 trials per task, HACo achieves an 83% mean success rate, compared with 35% for the strongest evaluated baseline. These results demonstrate active compliance across diverse force-sensitive dexterous manipulation tasks.",
+      "authors": [
+        "Naisheng Ye",
+        "Yinzhe Zhou",
+        "Junkai Zhao",
+        "Yuhang Lu",
+        "Checheng Yu",
+        "Zhenjie Yang",
+        "Pengwei Wang",
+        "Hongyang Li"
+      ],
+      "published_date": "2026-09-29",
+      "updated_date": "2026-09-29",
+      "oai_datestamp": "2026-09-30",
+      "version_count": 1,
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.36596",
+      "pdf_url": "https://arxiv.org/pdf/2609.36596",
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出HACo，一种直接从触觉反馈学习力调节动作的主动顺应策略",
+        "设计顺应调节遥操作，将操作员输入转换为保持运动意图同时调节负载的控制器可执行动作",
+        "引入顺应基础模块，使用门控触觉交叉注意力将动作生成基于演变的触觉状态，实现无需显式接触建模的闭环力调节",
+        "在真实世界基准上验证了HACo在多种力敏感任务中的有效性，平均成功率83%"
+      ],
+      "research_branches": [],
+      "abstract_zh": "接触丰富的灵巧操作需要策略将物理反馈转化为运动指令，同时调节不断演变的多接触交互中的交互负载。这需要接触状态的触觉观测以及显示指令应如何调整的动作监督。现有策略往往忽视互补的指尖触觉和关节力矩反馈，而常见的动作目标要么编码过大的负载，要么忽略由物体约束的运动。我们提出了HACo，一种触觉主动顺应策略，直接从触觉反馈学习力调节动作。顺应调节的遥操作将操作员输入转换为控制器可执行的顺应动作，在调节负载的同时保持运动意图。HACo直接学习这些动作，使用指令-状态差异作为辅助的顺应意图监督。它结合了局部指尖触觉响应和关节力矩反馈，以捕捉通过关节手传递的负载，包括触觉覆盖范围之外的接触。顺应基础模块使用门控触觉交叉注意力将动作生成基于不断演变的触觉状态，实现无需显式在线接触建模的闭环力调节。我们在真实世界基准上评估了HACo，涵盖多接触摩擦、切向交互、脆弱曲面接触、旋转力矩和可变形物体操作。每个任务20次试验中，HACo实现了83%的平均成功率，而最强基线为35%。这些结果展示了在多种力敏感的灵巧操作任务中的主动顺应能力。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.36596v1/fig02-model.png",
+      "image_caption": "Fig. 2: Overview of HACo. The haptic expert aligns fingertip wrench and deformation features with joint-torque features from the same finger before cross-finger fusion. The Compliance Grounding Module (right) lets action features query this haptic representation through gated haptic cross-attention alongside vision-language conditioning. Trained with conditional flow matching, the action expert learns compliant actions from force-regulated demonstrations, with auxiliary compliant-intent supervision capturing the discrepancy between compliant hand commands and observed hand states.",
+      "summary_one_sentence": "HACo是一种触觉主动顺应策略，通过结合指尖触觉和关节力矩反馈，直接从触觉反馈学习力调节动作，在多种力敏感的灵巧操作任务中实现了83%的平均成功率，远超基线。",
+      "research_problem": "接触丰富的灵巧操作需要策略将物理反馈转化为运动指令并调节交互负载，但现有策略忽视互补的指尖触觉和关节力矩反馈，且常见动作目标要么编码过大负载要么忽略物体约束。",
+      "method_summary": "HACo通过顺应调节遥操作生成控制器可执行的顺应动作，并直接学习这些动作，使用指令-状态差异作为辅助监督。它结合指尖触觉和关节力矩反馈，通过顺应基础模块中的门控触觉交叉注意力将动作生成基于触觉状态，实现闭环力调节。",
+      "experimental_setup": "在真实世界基准上评估，涵盖多接触摩擦、切向交互、脆弱曲面接触、旋转力矩和可变形物体操作，每个任务进行20次试验。",
+      "key_results": "HACo平均成功率为83%，而最强基线为35%。",
+      "limitations": "无法从摘要确认。",
+      "why_it_matters": "这项工作解决了灵巧操作中力调节的关键问题，通过结合触觉反馈和主动顺应策略，显著提升了力敏感任务的性能，为机器人操作提供了新的思路。",
+      "relevance_reason": "该论文直接涉及触觉反馈和力调节在机器人操作中的应用，与视觉-力觉融合和接触状态估计紧密相关，可作为方法参考和基线对比。",
+      "related_to_my_research": "方法参考：其触觉主动顺应策略和门控交叉注意力机制可借鉴于视觉-力觉融合的接触状态估计；基线对比：其真实世界基准可用来评估我们的方法。",
+      "recommended_reading": "无法从摘要确认。",
+      "reproduction_value": "Medium - 摘要提供了方法框架和实验设置，但缺乏实现细节和代码，复现需要较多推测。",
+      "core_candidate": "Review",
+      "last_checked": "2026-09-30",
+      "relevance_score": 69,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-30T07:19:26.700110+00:00"
+    },
+    {
+      "arxiv_id": "2609.36785",
+      "paper_id": "arxiv-2609-36785",
+      "title": "TaRL: Learning General and Physical Rewards from Tactile Demonstrations",
+      "abstract": "Contact-rich manipulation requires robots to sequence precise contacts, maintain stable grasps, and apply directed forces. Reinforcement learning (RL) can acquire such behaviors automatically, but its performance hinges on reward design: sparse rewards reduce the learning efficiency, while dense rewards are hard to specify. Visual reward learning addresses this by inferring rewards from action-free demonstrations. Because it conditions only on visual observations, it fails to capture rewards beyond visual goals. We propose Tactile Reward Learning (TaRL), a framework that learns rewards from tactile demonstrations. TaRL takes a sequence of tactile deformation maps as input, and regresses task-completion progress from both successful and failed demonstrations. Because TaRL captures local robot-object interaction, it provides informative feedback to learn firm grasps and correctly directed forces; meanwhile, it is robust to changes in scene layout such as object position. We evaluate TaRL on four manipulation tasks in simulation and two in the real world. Used as a shaping reward, it substantially improves both sample efficiency and final success rate, raising success on Nut threading from 34% to 56% in simulation and on cube pickup from 37% to 97% in the real world. Combining tactile with visual rewards improves performance further. TaRL also generalizes across object instances: trained on box placement and directly deployed to can placement, it significantly improves policy learning on the new task. Project page is available at https://embodiedai-ntu.github.io/tarl.",
+      "authors": [
+        "Po-Yi Wu",
+        "Dao-Jan Chang",
+        "Shang-Ya Hsiao",
+        "Hong-Ming Chen",
+        "Yu-Cheng Su",
+        "Tsung-Wei Ke"
+      ],
+      "published_date": "2026-09-29",
+      "updated_date": "2026-09-29",
+      "oai_datestamp": "2026-09-30",
+      "version_count": 1,
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.36785",
+      "pdf_url": "https://arxiv.org/pdf/2609.36785",
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出触觉奖励学习（TaRL）框架，从触觉演示中学习奖励函数",
+        "利用触觉变形图序列回归任务完成进度，提供信息丰富的塑形奖励",
+        "在仿真和真实世界任务中验证TaRL显著提升样本效率和成功率",
+        "展示TaRL对场景布局变化和物体实例泛化的鲁棒性"
+      ],
+      "research_branches": [],
+      "abstract_zh": "接触丰富的操作任务要求机器人精确地规划接触序列、保持稳定抓取并施加定向力。强化学习（RL）可以自动学习此类行为，但其性能依赖于奖励设计：稀疏奖励降低学习效率，而密集奖励难以指定。视觉奖励学习通过从无动作演示中推断奖励来解决这一问题，但由于仅基于视觉观察，它无法捕捉超出视觉目标的奖励。我们提出触觉奖励学习（TaRL），一个从触觉演示中学习奖励的框架。TaRL以触觉变形图序列为输入，从成功和失败的演示中回归任务完成进度。由于TaRL捕捉局部机器人-物体交互，它能为学习稳固抓取和正确定向力提供信息丰富的反馈；同时，它对场景布局（如物体位置）的变化具有鲁棒性。我们在四个仿真任务和两个真实世界任务上评估了TaRL。作为塑形奖励，它显著提高了样本效率和最终成功率，在仿真中将螺母拧紧任务的成功率从34%提升至56%，在真实世界中将立方体拾取任务的成功率从37%提升至97%。结合触觉和视觉奖励可进一步提高性能。TaRL还能跨物体实例泛化：在盒子放置任务上训练后直接部署到罐子放置任务，显著改善了新任务的策略学习。项目页面：https://embodiedai-ntu.github.io/tarl。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.36785v1/figures/visual_tactile_comaprison.png",
+      "image_caption": "Figure 10: The visual and tactile reward model’s generalization to unseen object positions. We show predicted tactile and visual rewards along successful rollouts at the training position (left) and an unseen position (right). The single-position visual model collapses at the unseen position while TaRL does not.",
+      "summary_one_sentence": "TaRL提出从触觉演示中学习奖励函数，通过触觉变形图回归任务进度，显著提升接触丰富操作任务的强化学习效率和成功率。",
+      "research_problem": "接触丰富操作任务中强化学习的奖励设计困难：稀疏奖励学习效率低，密集奖励难以手工指定，而现有视觉奖励学习无法捕捉超出视觉目标的奖励（如力、接触质量）。",
+      "method_summary": "TaRL以触觉变形图序列为输入，使用神经网络回归任务完成进度，从成功和失败的演示中学习。该奖励函数作为塑形奖励与强化学习结合，捕捉局部机器人-物体交互，提供关于抓取力和力方向的反馈，同时对场景布局变化鲁棒。",
+      "experimental_setup": "在四个仿真任务（包括螺母拧紧、盒子放置等）和两个真实世界任务（立方体拾取、罐子放置）上评估，与视觉奖励和稀疏奖励基线对比，并测试跨物体实例泛化。",
+      "key_results": "在仿真中，螺母拧紧任务成功率从34%提升至56%；真实世界中，立方体拾取成功率从37%提升至97%。结合触觉和视觉奖励进一步提高性能。跨物体泛化测试中，从盒子放置训练直接部署到罐子放置，显著改善新任务学习。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该工作填补了触觉奖励学习的空白，为接触丰富操作任务提供了有效的奖励信号，解决了视觉奖励无法捕捉力相关目标的局限，对机器人操作和具身智能领域有重要价值。",
+      "relevance_reason": "该论文直接涉及触觉感知和接触状态估计，通过触觉变形图学习奖励，与视觉-力觉融合和接触状态估计高度相关，可作为方法参考和基线对比。",
+      "related_to_my_research": "方法参考：TaRL利用触觉信息学习奖励，可借鉴其触觉表示和奖励回归思路，用于接触状态估计和力觉融合研究。",
+      "recommended_reading": "建议阅读与触觉感知、奖励学习、接触丰富操作相关的文献，以及视觉奖励学习（如DROID）和触觉表示学习的工作。",
+      "reproduction_value": "Medium: 方法描述清晰，但依赖触觉传感器和演示数据，复现需要特定硬件和数据处理流程，摘要未提供代码或详细实验配置。",
+      "core_candidate": "Review",
+      "last_checked": "2026-09-30",
+      "relevance_score": 62,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-30T07:20:06.808660+00:00"
+    },
+    {
+      "arxiv_id": "2609.36454",
+      "paper_id": "arxiv-2609-36454",
+      "title": "DynamicHOI: Coupled Dynamics for Physics-aware HOI Reconstruction",
+      "abstract": "We study hand-object interaction (HOI) reconstruction from monocular RGB videos, where partial observations can produce visually plausible yet mechanically inconsistent trajectories. Existing methods mainly enforce visual and geometric agreement, leaving the underlying interaction dynamics insufficiently constrained. We propose DynamicHOI, a physics-aware HOI reconstruction framework combining geometry-grounded diffusion refinement with coupled hand-object dynamics. Geometry spatially grounds visual evidence for trajectory refinement, while articulated inverse dynamics and Newton-Euler dynamics derive hand generalized forces and object wrenches for dynamics-level supervision. We further couple hand and object dynamics through contact-force transfer and recover active hand actuation as an interaction-level physical quantity. We formulate its empirical magnitude distribution into a probabilistic prior that penalizes unlikely actuation and suppresses mechanically implausible reconstructed motion. Experiments on three HOI datasets show consistent improvements in both hand and object reconstruction. The reconstructed trajectories further benefit downstream applications including hand world-model generation and robotic manipulation learning, demonstrating the value of physics-aware HOI modeling beyond reconstruction.",
+      "authors": [
+        "Wenliang Guo",
+        "Zhanbo Huang and Yu Kong"
+      ],
+      "published_date": "2026-09-29",
+      "updated_date": "2026-09-29",
+      "oai_datestamp": "2026-09-30",
+      "version_count": 1,
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.CV"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.CV"
+      ],
+      "oai_set_specs": [
+        "cs:cs:CV"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.36454",
+      "pdf_url": "https://arxiv.org/pdf/2609.36454",
+      "research_topics": [
+        "core-papers"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出DynamicHOI，一种结合几何引导扩散细化与耦合手-物动力学的物理感知HOI重建框架。",
+        "利用关节逆动力学和牛顿-欧拉动力学推导手部广义力和物体wrench，提供动力学级监督。",
+        "通过接触力传递耦合手和物体动力学，并恢复主动手部驱动作为交互级物理量，形成概率先验以惩罚不合理的驱动。",
+        "在三个HOI数据集上验证了手和物体重建的一致改进，并展示了对下游任务（如手部世界模型生成和机器人操作学习）的益处。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "我们研究从单目RGB视频中进行手-物交互（HOI）重建，其中部分观测可能产生视觉上合理但机械上不一致的轨迹。现有方法主要强制视觉和几何一致性，对底层交互动力学的约束不足。我们提出DynamicHOI，一种物理感知的HOI重建框架，结合了几何引导的扩散细化与耦合的手-物动力学。几何在空间上锚定视觉证据以进行轨迹细化，而关节逆动力学和牛顿-欧拉动力学推导出手部广义力和物体 wrench 以进行动力学级监督。我们进一步通过接触力传递耦合手和物体动力学，并恢复主动手部驱动作为交互级物理量。我们将其经验幅度分布公式化为概率先验，惩罚不可能的驱动并抑制机械上不合理的重建运动。在三个HOI数据集上的实验显示手和物体重建的一致改进。重建轨迹进一步有益于下游应用，包括手部世界模型生成和机器人操作学习，展示了物理感知HOI建模在重建之外的价值。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.36454v1/framework.png",
+      "image_caption": "Figure 1: Framework overview. Framewise reconstruction models first estimate the initial trajectory in parametric states, which is then refined progressively by a diffusion-based refinement network, and finally decoded to HOI mesh trajectory.",
+      "summary_one_sentence": "DynamicHOI提出一种物理感知的手-物交互重建框架，通过几何引导的扩散细化与耦合手-物动力学约束，在三个数据集上提升重建精度并支持下游机器人操作。",
+      "research_problem": "从单目RGB视频进行手-物交互重建时，现有方法仅约束视觉和几何一致性，导致重建轨迹在机械上不合理（如违反物理规律）。",
+      "method_summary": "DynamicHOI框架包含两个主要部分：几何引导的扩散细化模块，利用视觉几何信息在空间上锚定轨迹；以及耦合动力学模块，通过关节逆动力学和牛顿-欧拉动力学计算手部广义力和物体wrench，并通过接触力传递耦合两者，恢复主动手部驱动，将其幅度分布建模为概率先验以约束重建。",
+      "experimental_setup": "在三个HOI数据集上进行实验，评估手和物体重建的精度，并测试下游应用（手部世界模型生成和机器人操作学习）。具体数据集名称和指标未在摘要中说明。",
+      "key_results": "在三个HOI数据集上，手和物体重建均获得一致改进；重建轨迹有益于下游应用，包括手部世界模型生成和机器人操作学习。具体数值未在摘要中给出。",
+      "limitations": "无法从摘要确认。",
+      "why_it_matters": "该工作强调物理一致性在HOI重建中的重要性，通过引入动力学约束和耦合手-物交互，不仅提升重建质量，还直接支持机器人操作学习等具身智能应用，推动从视觉重建到物理理解的发展。",
+      "relevance_reason": "该论文直接涉及手-物交互中的接触状态估计和动力学建模，与视觉-力觉融合和机器人操作紧密相关，其耦合动力学方法可作为参考。",
+      "related_to_my_research": "方法参考：其耦合手-物动力学和接触力传递思想可借鉴到视觉-力觉融合的接触状态估计中；背景文献：提供物理感知HOI重建的最新进展。",
+      "recommended_reading": "建议阅读关于手-物交互重建、物理感知的3D重建、以及基于动力学的运动生成的相关文献，例如涉及接触力建模和逆动力学的方法。",
+      "reproduction_value": "Medium: 方法描述较具体（扩散细化+动力学约束），但缺少数据集细节和超参数，复现需参考更多信息。",
+      "core_candidate": "No",
+      "last_checked": "2026-09-30",
+      "relevance_score": 46,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-30T07:20:29.733566+00:00"
+    },
     {
       "arxiv_id": "2609.34400",
       "paper_id": "arxiv-2609-34400",
@@ -144,7 +526,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:41:27.382967+00:00"
+      "ai_generated_at": "2026-09-29T09:41:27.382967+00:00",
+      "image_caption_zh": "DTWM的流程。在训练和推理过程中，模型观察RGB帧、手部姿态以及双手的触觉信号，时间步长t ≤ K。每个视频帧从两只手套中各采样一次读数（共255个压力触点和30个手指弯曲通道）。触觉面板中，颜色表示压力，蓝色条表示弯曲度。任务指令由文本编码器编码，观察到的帧表示为干净潜变量，手部骨架使用加宽的补丁嵌入进行编码。每只手的触觉信号嵌入为e，并通过归一化高斯足迹g添加到手部投影位置的视频令牌中：u ← u + proj(LN(e)) g。随后模型进行预测。"
     },
     {
       "arxiv_id": "2609.34182",
@@ -214,7 +597,83 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:42:04.615071+00:00"
+      "ai_generated_at": "2026-09-29T09:42:04.615071+00:00",
+      "image_caption_zh": "被动式触觉外骨骼捕捉手部运动与触觉信号。集成系统另含VIVE追踪器与腕戴式RGB相机，分别用于捕捉腕部姿态与以腕部为中心的图像。相机与VIVE追踪器均校准至Sharpa Wave腕部坐标系。"
+    },
+    {
+      "arxiv_id": "2609.36250",
+      "paper_id": "arxiv-2609-36250",
+      "title": "Action Chunking Proximal Policy Optimization with Feedback Correction",
+      "abstract": "Action chunking provides temporal abstraction in reinforcement learning by selecting short action sequences instead of individual actions, but many existing approaches face two limitations in high-dimensional robotic control. First, many rely on value functions over action chunks, which can be difficult to learn as action dimensionality and chunk length grow. Second, executing chunks open-loop removes within-chunk feedback, limiting reactivity in contact-rich tasks. We present Action Chunking PPO (ACPPO), a PPO extension that uses a chunked actor while retaining a standard state-value critic, thereby avoiding chunked Q-functions. We further propose ACPPO-Corr, which augments the chunk planner with a stepwise feedback corrector that adjusts planned actions online within each chunk. Across 25 simulated robotics tasks from IsaacGym and Bi-DexHands, spanning locomotion, arm manipulation, and dexterous hand-object interaction, ACPPO-Corr achieves the strongest aggregate performance among evaluated methods and performs best on both decision-frequency-sensitive and decision-frequency-neutral task subsets. Ablations show that moderate chunk lengths work best and that corrector regularization is important for balancing chunk-level planning with local feedback. These results suggest that action chunking can be effective in online PPO when chunk-level planning is paired with closed-loop correction. The code is available at: https://github.com/hshhahn/ACPPO.",
+      "authors": [
+        "Sanghyun Hahn",
+        "Jonghyun Choi"
+      ],
+      "published_date": "2026-09-28",
+      "updated_date": "2026-09-28",
+      "oai_datestamp": "2026-09-30",
+      "version_count": 1,
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.LG",
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO",
+        "cs.LG"
+      ],
+      "oai_set_specs": [
+        "cs:cs:LG",
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.36250",
+      "pdf_url": "https://arxiv.org/pdf/2609.36250",
+      "research_topics": [
+        "vision-force",
+        "generative-policy"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出ACPPO，一种PPO扩展，使用分块演员和标准状态值评论家，避免块级Q函数。",
+        "提出ACPPO-Corr，增加逐步反馈校正器，在线调整块内动作，实现闭环控制。",
+        "在25个模拟任务中验证方法，涵盖运动、操作和灵巧手交互，取得最佳综合性能。",
+        "通过消融实验分析块长度和校正器正则化的影响。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "动作分块通过在强化学习中选择短动作序列而非单个动作来提供时间抽象，但许多现有方法在高维机器人控制中面临两个限制。首先，许多方法依赖于动作块上的值函数，随着动作维度和块长度的增加，这变得难以学习。其次，开环执行动作块会丢失块内反馈，限制了在接触丰富任务中的反应能力。我们提出了动作分块PPO（ACPPO），一种PPO扩展，使用分块演员同时保留标准状态值评论家，从而避免分块Q函数。我们进一步提出ACPPO-Corr，它通过逐步反馈校正器增强分块规划器，在线调整每个块内的计划动作。在来自IsaacGym和Bi-DexHands的25个模拟机器人任务中，涵盖运动、手臂操作和灵巧手-物体交互，ACPPO-Corr在评估方法中取得了最强的综合性能，并在决策频率敏感和决策频率中性任务子集上均表现最佳。消融实验表明，适中的块长度效果最好，校正器正则化对于平衡块级规划和局部反馈很重要。这些结果表明，当块级规划与闭环校正相结合时，动作分块在在线PPO中可以有效。代码可在：https://github.com/hshhahn/ACPPO。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.36250v1/figs/acppo_benchmark_unified.png",
+      "image_caption": "(a) Training Curve (25 Tasks)",
+      "summary_one_sentence": "本文提出ACPPO及其变体ACPPO-Corr，通过分块演员和逐步反馈校正器，在在线PPO中有效利用动作分块，在25个模拟机器人任务中取得最佳综合性能。",
+      "research_problem": "现有动作分块强化学习方法在高维机器人控制中面临两个问题：依赖难以学习的块级值函数，以及开环执行导致缺乏块内反馈，影响接触丰富任务的反应性。",
+      "method_summary": "ACPPO基于PPO，使用分块演员输出动作序列，但保留标准状态值评论家，避免学习块级Q函数。ACPPO-Corr在分块规划器基础上增加一个逐步反馈校正器，根据当前状态在线调整块内每个动作，实现闭环反馈。",
+      "experimental_setup": "在IsaacGym和Bi-DexHands的25个模拟机器人任务上评估，涵盖运动、手臂操作和灵巧手交互，比较ACPPO-Corr与其他方法，并进行消融实验。",
+      "key_results": "ACPPO-Corr在25个任务中取得最强综合性能，在决策频率敏感和中性任务子集上均最佳；消融显示中等块长度最佳，校正器正则化重要。",
+      "limitations": "无法从摘要确认。",
+      "why_it_matters": "该工作解决了动作分块在在线强化学习中的两个关键问题，通过闭环校正提升接触丰富任务的表现，为机器人操作中的时间抽象和反馈控制提供了新思路。",
+      "relevance_reason": "该论文直接涉及机器人操作中的动作分块和闭环反馈，与接触丰富任务相关，对视觉-力觉融合和接触状态估计有潜在参考价值。",
+      "related_to_my_research": "方法参考：其闭环校正思想可借鉴到接触状态估计中的反馈机制；背景文献：动作分块与强化学习结合。",
+      "recommended_reading": "建议阅读PPO原始论文、动作分块相关研究（如Action Chunking with Transformers）、以及闭环校正方法。",
+      "reproduction_value": "High：方法描述清晰，代码公开，实验设置详细，易于复现。",
+      "core_candidate": "No",
+      "last_checked": "2026-09-30",
+      "relevance_score": 52,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-30T07:20:49.806586+00:00"
     },
     {
       "arxiv_id": "2609.35450",
@@ -259,8 +718,8 @@
       "abstract_zh": "物理接触通常决定人形机器人在移动操作过程中应如何响应，然而仅靠视觉和本体感觉往往不足以表征物理交互，尤其是在接触区域被遮挡时。与在预定区域上的稀疏力或力矩测量不同，分布式触觉传感保留了跨越机器人身体的接触模式的空间分辨率。因此，我们研究如何将这种全身触觉信息整合到视觉-语言-动作（VLA）策略中，用于接触丰富的控制。我们的方法Uni-VLaT引入了一条触觉通路，其潜在状态不仅训练用于动作生成，还用于预测未来的触觉、本体感觉和视觉表示。这种预测性目标构建了一个以触觉为核心的多模态上下文，鼓励对物理世界进行更结构化的理解。我们在五个真实机器人任务上评估了Uni-VLaT，涵盖触觉触发的移动、持续物理交互、人机接触和移动操作。Uni-VLaT实现了75%的平均成功率，比无触觉输入的基线高出43个百分点，比有触觉输入但无预测监督的基线高出7个百分点。在两个预训练VLA骨干上，我们的方法在桌面清扫任务上均提高了30个百分点，在背部轻拍行走任务上提高了85-90个百分点。消融实验进一步表明，情境化的触觉预测和绝对未来目标对性能至关重要。这些结果表明，预测性触觉学习为将预训练VLA策略扩展到全身物理交互提供了一种有效途径。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.35450v1/Fig2_method.png",
+      "image_caption": "Fig. 2: Overview of Uni-VLaT. Whole-body tactile features are integrated into a pretrained VLA policy for action generation, while training-time multimodal prediction is supervised by future tactile, proprioceptive, and visual representations.",
       "summary_one_sentence": "Uni-VLaT通过引入预测性触觉通路，将全身触觉信息整合到VLA策略中，显著提升了人形机器人在接触丰富的移动操作任务中的成功率。",
       "research_problem": "如何在视觉和本体感觉不足、接触区域可能被遮挡的情况下，将全身分布式触觉信息有效整合进视觉-语言-动作（VLA）策略，以实现接触丰富的移动操作控制。",
       "method_summary": "Uni-VLaT在VLA策略基础上增加一条触觉通路，其潜在状态通过预测未来触觉、本体感觉和视觉表示进行训练，形成以触觉为中心的多模态上下文，从而增强策略对物理交互的理解。",
@@ -328,8 +787,8 @@
       "abstract_zh": "视觉-语言-动作（VLA）模型的最新进展通过统一感知、指令和控制，指向了通用机器人智能。尽管取得了令人瞩目的进展，但现有的VLA模型通常由于视觉、语言和动作之间的三模态错位而适应性较差，这削弱了动作接地，损害了泛化能力和微调效率。在这项工作中，我们提出了对齐引导流变换器（AGFT），一个通过专门的对齐损失显式强制三模态对齐的新框架，弥合了模态间的表示差距，增强了任务适应性。虽然先前的研究主要强调双模态的视觉-语言对齐，我们系统地形式化并研究了VLA模型中的三模态对齐，并提供了消融和分析来隔离其在改进适应性和鲁棒性中的作用。为了进一步加速部署，我们采用了流匹配目标，使得推理步骤远少于基于扩散的策略，同时保持准确性。理论上，我们建立了三模态对齐差距与流匹配优化紧度之间的定量联系；实证上，在广泛基准上的实验表明，与最先进的基线相比，AGFT实现了更高的成功率和更低的推理延迟，强调了三模态对齐作为扩展稳健VLA操作的关键成分。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.34467v2/architecture3.png",
+      "image_caption": "Figure 2 : Overview of the proposed AGFT architecture. The model adopts a Transformer-based policy design that integrates a pretrained CLIP encoder for language understanding and a DINOv2 backbone for visual representation learning. The extracted instruction tokens, image embeddings, timestep encodings, and noised action vectors are concatenated to form a unified token sequence, which is processed by the Transformer to predict clean actions. Training is jointly guided by a flow matching objective for efficient action generation and an alignment loss that enforces semantic consistency across vision, language, and action modalities.",
       "summary_one_sentence": "本文提出对齐引导流变换器（AGFT），通过显式的三模态对齐损失和流匹配目标，提升了VLA策略学习的成功率与推理效率。",
       "research_problem": "现有VLA模型存在视觉、语言和动作之间的三模态错位，导致动作接地弱、泛化能力和微调效率差。",
       "method_summary": "AGFT框架包含一个对齐损失用于显式强制视觉、语言和动作三模态对齐，并采用流匹配目标实现高效推理。",
@@ -666,8 +1125,8 @@
       "abstract_zh": "缆索悬挂吊运广泛用于移动重型或笨重载荷，例如起重机辅助施工中无法由刚性抓取系统方便处理的场景。使用柔性缆索的机器人吊运具有挑战性，因为载荷运动欠驱动、外部扰动多变，且延迟或丢失的视觉观测会使控制执行时感知到的载荷状态过时。这些效应在将悬挂载荷的套筒精确插入钢筋销钉时尤为关键，这是施工环境中非常常见的任务。我们提出了SwingRL，一个残差强化学习框架，结合了年龄感知的世界模型、经典防摆先验和循环残差策略，以解决两个耦合问题：反馈过时和动力学不确定。世界模型利用已执行的命令将最新接收到的载荷观测传播到当前控制步，在延迟和有损感知下提供时间对齐的状态估计。先验提供标称跟踪和摆动阻尼。残差策略学习对先验的有界修正，而非完整控制律，以补偿系统参数变化、外部扰动和剩余状态估计误差。我们在涵盖系统参数变化、风扰动、感知退化和强阵风的累积难度阶梯上，将SwingRL与经典和基于学习的基线进行了评估。在最困难设置下，SwingRL实现了69.5%的严格成功率和77.3%的宽泛成功率，分别超过所有基线至少60个百分点。世界模型消融支持时间对齐状态估计在观测丢失增加时维持插入成功的作用。最后，无需真实机器人微调，SwingRL在物理平台上实现了90%的成功率。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.33053v1/figure2.png",
+      "image_caption": "Fig. 2: Swing-RL. Delayed and intermittent payload observations and recorded commands drive a recurrent world model. Its current-state prediction is fused with end-effector proprioception and supplied to both the prior controller and the residual actor. The residual action enters the prior controller’s target before gating, saturation, and smoothing. The asymmetric critic uses privileged state and channel information only during training.",
       "summary_one_sentence": "SwingRL提出了一种结合世界模型预测和残差强化学习的框架，用于解决缆索悬挂吊运中延迟观测和不确定动力学下的精确插入控制问题。",
       "research_problem": "缆索悬挂吊运中，延迟或丢失的视觉观测导致状态反馈过时，以及系统动力学不确定，使得精确插入任务（如套筒插入钢筋销钉）难以实现。",
       "method_summary": "SwingRL采用残差强化学习框架，包含三个组件：年龄感知世界模型（利用执行命令传播最新观测以对齐时间）、经典防摆先验（提供标称跟踪和摆动阻尼）、循环残差策略（学习对先验的有界修正）。",
@@ -691,6 +1150,87 @@
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
       "ai_generated_at": "2026-09-29T09:46:18.256471+00:00"
+    },
+    {
+      "arxiv_id": "2609.37455",
+      "paper_id": "arxiv-2609-37455",
+      "title": "Surgical Master Console Using General-Purpose Robot Arms and a Separable Articulated Distal Interface: Porcine In-Vivo Evaluation",
+      "abstract": "High-performance surgical master consoles offer intuitive articulated manipulation but are expensive and difficult to reproduce, while accessible commercial haptic devices lack built-in interfaces for surgical wrist articulation and continuous grasp. We present a laparoscopic master in which general-purpose robot manipulators provide the programmable base and surgical-specific interaction is concentrated in a separable distal adapter. Each 6-DoF arm carries a custom 2-DoF direct-drive wrist, continuous grasp sensing, and clutch-based workspace management; the complete bimanual hardware costs approximately US$5,500, below common bimanual commercial haptic references. To support sustained hand-guided use, we characterize current scaling, gravity, and break-away friction and use them for posture-dependent gravity compensation and motion-gated assistance, reducing continuous actuation and thermal loading. A common master state drives either Isaac Sim or an RCM-constrained dual-FR3 platform. Master-state publication to FR3 target update adds at most 8 ms, and tip tracking shows 0.31-0.66 mm mean delay-aligned residuals. In a porcine cholecystectomy experiment, five common operator-side metrics and hand/tip-speed distributions were compared descriptively with human in-vivo telemetry from 120 clinical Versius recordings of 99 cholecystectomy procedures; no interruption originated from the master console, and no abnormal clinical signs were recorded during the 7-day postoperative observation period. These results demonstrate a surgical master built from general-purpose robot arms with surgical-specific interaction concentrated in a separable distal interface.",
+      "authors": [
+        "Minsung Kim",
+        "Seonho Shim",
+        "Dongho Yee",
+        "Younghoon Noh",
+        "Juahn Oh",
+        "Yechan Seo",
+        "Jinseok Lee",
+        "Jiyul Lee",
+        "Seong Jeong",
+        "Hyuk Choi",
+        "Youngbin Kong",
+        "and Hyoun-Joong Kong"
+      ],
+      "published_date": "2026-09-27",
+      "updated_date": "2026-09-27",
+      "oai_datestamp": "2026-09-30",
+      "version_count": 1,
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.37455",
+      "pdf_url": "https://arxiv.org/pdf/2609.37455",
+      "research_topics": [
+        "core-papers"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出了一种将通用机器人臂与可分离远端适配器结合的手术主控台架构，降低了成本并提高了可复现性。",
+        "设计了定制的2自由度直驱腕部和连续抓取传感接口，支持手术腕部关节运动和连续抓取。",
+        "实现了基于电流缩放、重力和断裂摩擦表征的姿态相关重力补偿和运动门控辅助，减少持续驱动和热负载。",
+        "在猪胆囊切除术中进行了体内评估，并与临床Versius遥测数据进行了描述性比较，证明了主控台的可靠性和安全性。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "高性能手术主控台提供直观的关节操作，但价格昂贵且难以复现，而可用的商业触觉设备缺乏用于手术腕部关节运动和连续抓取的内置接口。我们提出了一种腹腔镜主控台，其中通用机器人操作臂提供可编程基座，手术特定交互集中在可分离的远端适配器中。每个6自由度臂配备定制的2自由度直驱腕部、连续抓取传感和基于离合的工作空间管理；完整的双臂硬件成本约为5500美元，低于常见的双臂商业触觉参考设备。为支持持续的手引导使用，我们表征了电流缩放、重力和断裂摩擦力，并将其用于姿态相关的重力补偿和运动门控辅助，减少持续驱动和热负载。一个共同的主控状态驱动Isaac Sim或受RCM约束的双FR3平台。主控状态发布到FR3目标更新的延迟最多为8毫秒，尖端跟踪显示平均延迟对齐残差为0.31-0.66毫米。在猪胆囊切除术实验中，将五个常见的操作者侧指标和手/尖端速度分布与120例临床Versius记录的99例胆囊切除术的人体体内遥测数据进行了描述性比较；主控台未引起任何中断，术后7天观察期内未记录异常临床体征。这些结果表明，一个由通用机器人臂构建的手术主控台，其手术特定交互集中在可分离的远端接口中。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.37455v1/fig/fig2.png",
+      "image_caption": "Fig. 2: System architecture and common endpoint-independent master state. The master console combines a general-purpose 6-DoF robotic leader arm, the custom 2-DoF direct-drive wrist, continuous grasp sensing, and clutch input. These measurements are normalized into a common master state ℳ ⁡ ( t ) = { T tool , q wrist , g , c } \\mathcal{M}(t)=\\{T_{\\mathrm{tool}},q_{\\mathrm{wrist}},g,c\\} . The same state drives either (top) the Isaac Sim branch with FEM soft-tissue organs for cholecystectomy-oriented teleoperation practice or (bottom) the physical branch, where ROS 2/DDS and an endpoint-specific adapter map the operator command to the Franka Research 3 (FR3) laparoscopic platform. Endpoint-specific mapping, safety checks, and the pre-existing 1-kHz RCM controller remain on the patient side.",
+      "summary_one_sentence": "本文提出了一种基于通用机器人臂和可分离远端接口的低成本手术主控台，并在猪体内实验中验证了其可行性和安全性。",
+      "research_problem": "如何构建一种既具备高精度关节操作能力又成本可控、易于复现的手术主控台，以替代昂贵且难以获取的专用系统。",
+      "method_summary": "使用两个6自由度通用机器人臂作为基座，每个臂配备定制的2自由度直驱腕部、连续抓取传感和基于离合的工作空间管理；通过表征电流缩放、重力和断裂摩擦力，实现姿态相关的重力补偿和运动门控辅助；主控状态可驱动Isaac Sim或RCM约束的双FR3平台，并评估了延迟和跟踪精度。",
+      "experimental_setup": "在猪胆囊切除术中进行了体内实验，收集了五个操作者侧指标和手/尖端速度分布，并与120例临床Versius记录的99例胆囊切除术的人体体内遥测数据进行了描述性比较；同时测量了主控状态发布到FR3目标更新的延迟和尖端跟踪残差。",
+      "key_results": "主控状态发布到FR3目标更新延迟最多为8毫秒，尖端跟踪平均延迟对齐残差为0.31-0.66毫米；猪实验中主控台未引起中断，术后7天无异常临床体征。",
+      "limitations": "无法从摘要确认",
+      "why_it_matters": "该研究展示了利用通用机器人臂构建低成本、可复现的手术主控台的可行性，有望降低手术机器人的普及门槛，并促进手术机器人技术的推广。",
+      "relevance_reason": "该论文涉及机器人操作和具身智能在手术领域的应用，特别是主控台的力觉和触觉交互，与视觉-力觉融合和接触状态估计相关，可作为背景文献或方法参考。",
+      "related_to_my_research": "该论文与视觉-力觉融合和接触状态估计相关，其主控台的力觉传感和重力补偿方法可作为参考，但未涉及视觉信息，因此作为背景文献或潜在竞争。",
+      "recommended_reading": "无法从摘要确认",
+      "reproduction_value": "Medium：摘要提供了硬件架构、成本、延迟和实验结果的详细信息，但未提供代码或详细设计图纸，复现需要一定的工程能力。",
+      "core_candidate": "No",
+      "last_checked": "2026-09-30",
+      "relevance_score": 48,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-09-30T07:21:17.157061+00:00"
     },
     {
       "arxiv_id": "2609.33235",
@@ -1161,7 +1701,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:49:40.845460+00:00"
+      "ai_generated_at": "2026-09-29T09:49:40.845460+00:00",
+      "image_caption_zh": "普拉克西斯架构。第一阶段：导航至操作区域。第二阶段：以闭环方式校准至可操作的姿态。第三阶段：通过第一人称视频提炼手-物交互先验，并应用在线反馈调整操作策略。"
     },
     {
       "arxiv_id": "2609.30868",
@@ -1229,7 +1770,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:50:04.003554+00:00"
+      "ai_generated_at": "2026-09-29T09:50:04.003554+00:00",
+      "image_caption_zh": "VLaRL及其四阶段工作流程概览：（1）微调VLA，（2）训练潜在映射器，（3）在VLA和映射器冻结的情况下于仿真中训练残差策略，（4）在真实机器人上部署冻结的VLA和残差策略。部署期间，直接输入真实图像潜在特征，不使用映射器。"
     },
     {
       "arxiv_id": "2609.30715",
@@ -1297,7 +1839,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:50:19.307686+00:00"
+      "ai_generated_at": "2026-09-29T09:50:19.307686+00:00",
+      "image_caption_zh": "RoboMonitor概览。训练分为两个阶段：（1）在无标注机器人轨迹上进行预测性自监督预训练，利用多视角观测、记录的机器人状态及执行动作，学习与执行相关的视觉和时间表征；（2）在较小的监控标注数据集上进行因果监督微调（时间SFT），以预测执行阶段、故障和任务完成情况。部署时，RoboMonitor仅接收任务指令和摄像头观测，因此无需访问底层控制器，即可监控端到端视觉运动策略和任务编排系统。"
     },
     {
       "arxiv_id": "2609.28660",
@@ -1364,7 +1907,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:50:27.910765+00:00"
+      "ai_generated_at": "2026-09-29T09:50:27.910765+00:00",
+      "image_caption_zh": "动态重定向 rollout。我们展示了三种机器人手形态（Dex3、Allegro 和 Sharpa）在三种物体类别（锤子、苹果和立方体）上的残差强化学习策略 rollout 延时摄影。所有策略使用相同的训练超参数，表明残差强化学习框架可跨不同手部形态和抓取配置迁移，无需针对具体形态或任务进行调参。"
     },
     {
       "arxiv_id": "2609.30969",
@@ -1430,7 +1974,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:50:56.780632+00:00"
+      "ai_generated_at": "2026-09-29T09:50:56.780632+00:00",
+      "image_caption_zh": "TACTIC概览。我们研究了五种触觉编码器搭配五种多模态融合方法的效果，并在四项具有挑战性的接触丰富操作任务上进行了测试。"
     },
     {
       "arxiv_id": "2609.30959",
@@ -1497,7 +2042,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:51:23.983423+00:00"
+      "ai_generated_at": "2026-09-29T09:51:23.983423+00:00",
+      "image_caption_zh": "触觉协同训练流程。上方：使用触觉手套和手部追踪（蓝色）采集的人类演示，以及通过ORCA手远程操作的机器人演示（绿色），汇入共享协同训练数据集。每条数据流提供以物体为中心的点云、逐指触觉激活信号，以及针对电钻、草莓和乐高任务的动作轨迹（t₁到达、t₂抓取、t₃提起/放置）。视觉对齐、触觉对齐和运动学重定向将人类模态映射到机器人的观测与动作空间。中间：扩散Transformer策略将点云、本体感觉和触觉标记编码为上下文，并通过一致性流匹配对64步动作块进行去噪。底部：协同训练后的策略部署于……"
     },
     {
       "arxiv_id": "2609.31112",
@@ -1541,8 +2087,8 @@
       "abstract_zh": "视觉语言模型（VLM）使机器人操作具备开放词汇推理能力，但其高推理延迟限制了在动态场景中的响应速度。然而，许多场景变化只改变物体几何形状，并不影响任务意图。我们提出DualManip，一种双路径框架，将低频语义推理与高频几何适应解耦。语义路径分解任务并定位与任务相关的交互，随后通过约束求解模块进行位姿优化。在执行过程中，几何路径通过形状自适应网络，从实时RGB-D观测中持续更新模板到观测的对应关系。这些对应关系将任务相关的抓取接触点跨观测传递，从而在物体运动和柔性变形下实现在线抓取重建。信息交互模块连接两条路径，通过语义定位初始化任务相关抓取，验证几何更新，并在更新失败时触发语义重规划。真实世界评估涵盖六种操作任务，包括柔性变形、关节重配置、刚性运动和精密装配，在静态、单次变化和连续动态三种设置下进行。DualManip展示了优越的操作鲁棒性，尤其在连续场景变化下，同时几何适应速度比智能体验证和语义重规划快约46倍。项目页面：https://lichengxi1.github.io/Dualmanip。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.31112v2/Figs/pipeline.png",
+      "image_caption": "Fig. 2: Overview of DualManip. Given instruction and RGB-D observation, the semantic path establishes a task-conditioned plan, from which the information interaction module generates the initial grasp. During execution, the geometric path continuously updates the grasp from live RGB-D observations, executing feasible updates and falling back otherwise. For subsequent manipulation stages, task-conditioned spatial relations are formulated as constraints and optimized into executable poses.",
       "summary_one_sentence": "DualManip提出一种双路径框架，将低频语义推理与高频几何适应解耦，通过实时RGB-D对应关系实现动态场景下的鲁棒机器人操作。",
       "research_problem": "视觉语言模型在机器人操作中推理延迟高，难以应对动态场景中的实时响应需求，而现有方法无法在保持任务意图的同时快速适应物体几何变化。",
       "method_summary": "DualManip包含两条路径：语义路径使用VLM分解任务并定位任务相关交互，通过约束求解优化位姿；几何路径使用形状自适应网络从实时RGB-D观测中更新模板到观测的对应关系，传递抓取接触点。信息交互模块初始化抓取、验证更新并触发重规划。",
@@ -1842,7 +2388,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:53:08.993416+00:00"
+      "ai_generated_at": "2026-09-29T09:53:08.993416+00:00",
+      "image_caption_zh": "用于抓取和操作的重要区域热力图，改编自文献[4]"
     },
     {
       "arxiv_id": "2609.29760",
@@ -1908,7 +2455,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:53:35.054905+00:00"
+      "ai_generated_at": "2026-09-29T09:53:35.054905+00:00",
+      "image_caption_zh": "左图：同一场景下不同传感器视角的关系。触觉相机透过传感表面“看到”螺丝刀，并通过周边视觉看到灯泡。腕部相机直接看到灯泡，而螺丝刀大部分被握持的手指遮挡。当设备与环境交互时，接触事件由压电麦克风检测，表现为音频频谱图中的尖峰，在夹爪操作期间也可通过耳机听到。中图、右图：PolyUMI系统由夹爪和末端执行器组成，经过精心设计，共享相同的触觉手指组件和面向任务的几何结构。"
     },
     {
       "arxiv_id": "2609.30023",
@@ -1975,7 +2523,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:53:44.024078+00:00"
+      "ai_generated_at": "2026-09-29T09:53:44.024078+00:00",
+      "image_caption_zh": "所提出的Res-HIL框架概览。在环境交互过程中，冻结的基础策略与学习到的残差策略共同决定执行动作，同时人工干预提供修正动作并融入奖励塑形。所有转移均存入回放缓冲区，干预转移额外存入干预缓冲区。与此同时，学习循环持续采样训练批次以更新评论家网络和残差演员网络，随后更新对应的目标网络。"
     },
     {
       "arxiv_id": "2609.30140",
@@ -2017,8 +2566,8 @@
       "abstract_zh": "本文研究了在给定的腿式操作任务中，联合选择环境支撑接触和全身配置的问题。接触可能提供更大的物理支撑，但同时限制任务所需的运动。我们通过三个能力度量来表述该问题：残余力旋量、末端执行器可达性和满足任务要求后的基座机动性，并平衡它们与接触获取成本。评估每个候选接触需要重复的全身优化。为降低计算成本，我们提出了能力权衡接触选择（CTCS）。CTCS筛选候选接触和任务可行性，在每个表面内对相似候选进行分组，并通过局部敏感性分析从精确锚点评估预测其能力。它通过选择性精确评估检查这些预测，按能力对候选排序，并精确评估一个短列表以进行最终选择。我们在仿真和硬件实验中评估了CTCS，使用Unitree Go2四足机器人和AgileX NERO机械臂，覆盖392个任务条件和九个可用支撑表面。结果表明，CTCS优于仅地面和固定接触支撑，因为它能选择为任务提供有利能力权衡的支撑表面。与精确评估每个候选相比，CTCS实现了约3倍加速，同时紧密匹配最终的平均目标值。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.30140v1/method_flow_3.png",
+      "image_caption": "Fig. 2: Overview of CTCS: candidate grouping, anchor selection, group members’ capability prediction, validation, and final selection. Yellow stars are anchors and the purple star is the selected candidate.",
       "summary_one_sentence": "本文提出了一种能力权衡接触选择方法（CTCS），通过预测和筛选候选接触，在腿式操作任务中实现高效且有效的支撑接触选择。",
       "research_problem": "在腿式操作任务中，如何联合选择环境支撑接触和全身配置，以平衡物理支撑与任务运动需求，同时降低计算成本。",
       "method_summary": "CTCS首先筛选候选接触和任务可行性，然后在每个表面内对相似候选分组，通过局部敏感性分析从精确锚点评估预测能力，选择性精确评估检查预测，按能力排序候选，并精确评估短列表以最终选择。",
@@ -2083,8 +2632,8 @@
       "abstract_zh": "户外环境中的空中操作仍然具有挑战性，因为它同时需要可靠的状态估计、稳定的空中运动和在外界干扰下的精确操作。在这项工作中，我们提出了一个真实世界户外空中操作框架，该框架集成了模仿学习、机载LiDAR-惯性状态估计和全身模型预测控制。训练了一个扩散策略，从操作演示中学习，根据机载观测生成期望的末端执行器运动。这些学习到的命令由全身MPC执行，该MPC联合协调空中平台和机械臂以实现期望的末端执行器轨迹。为了消除对外部运动捕捉基础设施的依赖，平台在户外操作期间采用机载LiDAR-惯性里程计进行状态估计。我们在物理空中操作器上验证了完整框架，并展示了户外操作任务的成功执行。实验结果表明，演示驱动的操作策略可以有效地与机载状态估计和基于模型的全身控制集成，使空中操作能够超越受控的室内环境。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.30521v1/indoor_peg_init.png",
+      "image_caption": "(a) Policy inference initialization",
       "summary_one_sentence": "本文提出了一个集成模仿学习、机载LiDAR-惯性状态估计和全身模型预测控制的户外空中操作框架，并在真实平台上验证了其有效性。",
       "research_problem": "如何在户外环境中实现可靠的空中操作，同时满足状态估计、稳定飞行和精确操作的需求，并摆脱对外部运动捕捉系统的依赖。",
       "method_summary": "框架包括三个主要部分：1) 使用扩散策略从操作演示中学习，根据机载观测生成期望的末端执行器运动；2) 全身模型预测控制（MPC）协调空中平台和机械臂以执行期望的末端执行器轨迹；3) 机载LiDAR-惯性里程计用于状态估计，无需外部运动捕捉。",
@@ -2584,7 +3133,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:57:31.404696+00:00"
+      "ai_generated_at": "2026-09-29T09:57:31.404696+00:00",
+      "image_caption_zh": "DEAL-Grasp框架概述。该框架通过在连续时间域中建模条件神经向量场𝐯_φ来生成灵巧抓取。对象编码器首先将对象点𝒪与其基于PCA的空间尺度𝒔集成，提取几何特征(ℰ_{𝒪,glo}, ℰ_{𝒪,loc})。同时，DEAL编码器通过嵌入算子Φ(·)将随机状态ℋ_t映射到初始查询位置𝒫_ℋ^0，而ℰ_ℋ^0表示用于区分不同运动学组件的预定义身份标记。随后，迭代速度"
     },
     {
       "arxiv_id": "2609.27695",
@@ -2853,7 +3403,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T10:00:10.913639+00:00"
+      "ai_generated_at": "2026-09-29T10:00:10.913639+00:00",
+      "image_caption_zh": "Trossen插入任务中RouteRLT的实时部署效果。同步的前视图和腕部视图展示了一次 rollout 中的主动控制器序列，控制器归属通过画面边框和下方时间线标示。在操作者对齐交接协议下，路由器自动选择两个专家控制器，插入执行在操作者对位后开始。"
     },
     {
       "arxiv_id": "2609.25631",
@@ -2919,7 +3470,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T10:00:21.283235+00:00"
+      "ai_generated_at": "2026-09-29T10:00:21.283235+00:00",
+      "image_caption_zh": "DynaForge概览。低频运动规划器在几何稳定阶段提供标称轨迹，而高频物体中心逆运动学在动态接触边界附近更新规划动作，残差策略在执行前对其进行修正。对于残差学习，匹配难度条件下的 rollout 形成分组，仅混合成功组参与组相对更新。成功的 rollout 被保留为演示，用于下游模仿学习、仿真评估及仿真到现实的部署。"
     },
     {
       "arxiv_id": "2609.25630",
@@ -3812,7 +4364,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-22T09:02:33.301102+00:00"
+      "ai_generated_at": "2026-09-22T09:02:33.301102+00:00",
+      "image_caption_zh": "物理异构双臂机器人系统在真实古琴上进行乐句级演奏。该系统集成了配备多指手的Elfin机械臂用于右手弹拨，配备接触感应手的UR5机械臂用于左手泛音交互，RGB-D相机用于乐器定位，以及声学反馈流水线。"
     },
     {
       "arxiv_id": "2609.24996",
@@ -3878,7 +4431,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-22T09:03:13.408796+00:00"
+      "ai_generated_at": "2026-09-22T09:03:13.408796+00:00",
+      "image_caption_zh": "灵巧任务的机器人系统设置。"
     },
     {
       "arxiv_id": "2609.24511",
@@ -3921,8 +4475,8 @@
       "abstract_zh": "接触丰富的精密插入是机器人装配中的关键操作技能。紧公差使得插入对对齐误差更加敏感，容易发生碰撞和卡阻，而零件之间几何形状和公差的差异进一步使策略复用变得复杂。我们提出了一种强化学习框架，完全在仿真中训练插入策略，无需真实世界演示或策略微调即可直接部署。通过将目标姿态与紧凑的三维指尖力反馈相结合，策略学会在孔位估计存在误差的情况下搜索对齐并修正其运动。一个解耦的门控奖励协调对齐和插入过程。力信号平滑和状态无关的标准差稳定了学习过程。所得策略在多个孔几何形状上执行真实世界插入，最小名义间隙为0.02毫米，并在孔位误差下提高了成功率同时降低了峰值接触力。跨间隙和跨几何评估进一步确认了策略的泛化能力。该系统在ManipulationNet的插销入孔基准测试中，在其Human-in-the-Loop协议下首次获得20/20的满分，且插入动作完全自主。仅在一个仿真六边形插入任务上训练的策略在八个未见过的真实世界插入任务中实现了95.0%的总体成功率。这些结果表明，完全在仿真中学习可以产生直接部署并跨真实世界任务复用的精密插入技能。项目网站（https://mzhsoul.github.io/InsertAnything/）提供了开源仿真和真实机器人实验脚本、资产以及训练好的检查点。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.24511v1/figures/fig01.png",
+      "image_caption": "Fig. 1: Overview of learning precision insertion in simulation and deploying it on a real robot. (a) The robot platform with fingertip force sensors, shown alongside standard insertion workpieces and the ManipulationNet Peg-in-Hole Assembly benchmark board [ 45 ] . (b) Five hole geometries and four clearance levels of the standard insertion workpieces fabricated for this study. The bottom row illustrates the square-hole task, with close-up views showing progressively tighter clearances. (c) Asymmetric actor–critic training in simulation: the actor uses deployable observations, the critic additionally uses simulation state to estimate value, and PPO updates the policy under observation and dynamics randomization. (d) Real-world deployment: the trained policy generates mean actions from the robot state, calibrated target, and fingertip force. Postprocessing converts these actions into end-effector pose commands executed by a Cartesian impedance controller, without real-world demonstrations or policy fine-tuning.",
       "summary_one_sentence": "提出一个完全在仿真中训练、无需真实演示或微调即可直接部署且跨任务泛化的接触密集型精密插入强化学习框架，通过目标姿态与指尖力反馈结合实现真实世界高精度插入。",
       "research_problem": "如何在紧公差和几何变化下，直接部署仿真训练的插入策略到真实世界，无需真实演示或微调，并保持高成功率和低接触力。",
       "method_summary": "使用强化学习在仿真中训练插入策略，策略输入包括目标姿态和紧凑的三维指尖力反馈，采用解耦门控奖励协调对齐与插入，并通过力信号平滑和状态无关标准差来稳定训练。",
@@ -3994,8 +4548,8 @@
       "abstract_zh": "灵巧操作依赖于接触动力学，而这些动力学通常仅从视觉中部分可观测。最近的World-Action Models (WAMs)将预测性视频世界建模与动作生成相结合，但主要基于视觉，因此无法直接建模这些接触动力学。我们提出了DexTacWAM，一种视觉-触觉WAM，它独立编码每个指尖，通过手指和姿态感知的触觉压缩器聚合特征，并将触觉潜在表示注入视频扩散世界模型，以实现联合视觉-触觉世界建模。在22自由度双臂平台上的六个接触密集型灵巧操作任务中，DexTacWAM在每个任务上都取得了最高分，平均70.6分，而最强基线为38.0分。消融实验将增益归因于将接触演化建模为预测世界状态的一部分，而非仅依赖触觉条件：移除触觉世界建模后，四个任务的平均分从74.7降至26.6，同时保持相同的触觉特征和动作专家。经过四小时的触觉编码器适应（使用冻结的预训练视觉VAE），我们的持续视觉到触觉学习将预训练视频模型扩展到触觉，每个任务仅需约100个演示，无需触觉中间训练，同时视觉预测质量保持在仅视觉对应模型的0.5 dB以内。压缩器保留了融合前接触召回率的89.4%，同时实现了2.26倍更快的训练和1.29倍更快的推理。这些结果表明，预训练视频先验可以以数据和计算高效的方式扩展到分布式多指接触动力学。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.24976v1/architecture.png",
+      "image_caption": "Figure 1 : Overall architecture of Dex Tac WAM . A two-block transformer design. Left: the World-Model Transformer ( × N \\times N ) fuses vision and bimanual tactile tokens through per-modality self-attention and a shared cross-modality self-attention, producing predictive latents that form a joint visuo-tactile world state. Right: the Action Model ( × N \\times N ) cross-attends to the World-Model latents with per-modality K/V RMS normalization, conditioned on a state token from proprioception, and predicts contact force, action, and next-state. Inputs are head-view RGB and left/right dexterous tactile streams encoded by lightweight encoders, together with raw state observations.",
       "summary_one_sentence": "DexTacWAM通过将触觉潜在表示注入视频扩散世界模型，实现了视觉-触觉联合世界建模，在多个灵巧操作任务上显著优于视觉中心基线。",
       "research_problem": "灵巧操作中的接触动力学仅从视觉部分可观测，现有World-Action Models主要基于视觉，无法直接建模接触动力学。",
       "method_summary": "DexTacWAM独立编码每个指尖的触觉特征，通过手指和姿态感知的触觉压缩器聚合，然后将触觉潜在表示注入视频扩散世界模型，进行联合视觉-触觉世界建模，并利用预训练视觉VAE进行持续学习。",
@@ -4818,8 +5372,8 @@
       "abstract_zh": "用于基于学习的自主结肠镜导航的仿真主要集中于全驱动胶囊机器人，未能捕捉长而灵活的临床结肠镜的接触丰富导航。我们提出了自主机器人结肠镜健身房（ARCGym），一个开源的强化学习环境和基准，用于在临床衍生的可变形结肠解剖结构中进行基于图像的导航。ARCGym支持多种类型的结肠镜机器人，包括胶囊机器人和柔性内窥镜，本工作侧重于柔性内窥镜，包括磁驱动尖端驱动和临床使用的近端平移驱动。这项工作包括五个CT重建的结肠，代表典型临床场景，一组具有临床意义的导航子任务，以及统一的成功指标。我们引入了一种结合基于深度的腔道对齐和腔道可见性评分的奖励，以改善遮挡下的学习。跨任务、机器人和解剖结构的实验表明，自主导航对于磁驱动和近端插入柔性机器人均具有挑战性，其中近端插入驱动仍是一个开放问题。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.22803v1/software_architecture.png",
+      "image_caption": "Fig. 2: Architecture of the Autonomous Robotic Colonoscopy Gym (ArcGym). (a–d) Clinical CT data are reconstructed into colon meshes, rendered soft-tissue models, and replicated into parallel simulation environments for scalable reinforcement learning training. The framework integrates deformable anatomical models and multiple robot actuation modes within a reinforcement learning environment built on Isaac Lab/Isaac Sim. Depth images are processed to compute lumen-based rewards for RL policy training.",
       "summary_one_sentence": "ARCGym是一个开源的强化学习环境和基准，用于在临床衍生的可变形结肠解剖结构中进行基于图像的自主结肠镜导航，涵盖多种机器人类型并发现近端插入驱动导航仍具挑战性。",
       "research_problem": "现有仿真主要关注全驱动胶囊机器人，无法捕捉长而灵活的临床结肠镜的接触丰富导航，缺乏针对柔性内窥镜的自主导航强化学习基准。",
       "method_summary": "ARCGym提供一个仿真环境，包含CT重建的结肠解剖结构，支持不同驱动方式的柔性内窥镜，并设计基于深度图像的奖励函数（深度腔道对齐+腔道可见性评分）来训练强化学习智能体进行导航。",
@@ -7832,7 +8386,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-16T09:10:29.490678+00:00"
+      "ai_generated_at": "2026-09-16T09:10:29.490678+00:00",
+      "image_caption_zh": "机器人实验平台。抓取试验在双臂操作系统中进行，该系统由两台Franka机械臂组成。其中一只手臂搭载Robotiq三指夹爪，指尖集成微型六轴力/力矩传感器，用于接触力测量。A 实验平台概览，展示部分典型抓取物体。B 夹爪末端细节，突出集成传感器与线缆布局。C 传感器指尖特写，包含集成Resense HEX21六轴力/力矩传感器、定制转接件和刚性半球形指尖。D 配备传感指尖的Robotiq三指自适应夹爪CAD渲染图。"
     },
     {
       "arxiv_id": "2609.13516",
