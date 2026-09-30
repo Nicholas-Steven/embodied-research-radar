@@ -83,7 +83,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-30T07:18:31.587497+00:00"
+      "ai_generated_at": "2026-09-30T07:18:31.587497+00:00",
+      "image_caption_zh": "所提纯力旋量方法总览。(A) 通过双边遥操作进行数据采集。操作者的力旋量指令由从臂执行并记录，同时从臂位置镜像反馈至主臂。(B) 推理。多模态观测（RGB图像流与机器人状态）由策略处理，直接预测6D目标力旋量，完全绕过接触丰富操作中的中间位置控制。"
     },
     {
       "arxiv_id": "2609.37433",
@@ -163,7 +164,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-30T07:19:02.161605+00:00"
+      "ai_generated_at": "2026-09-30T07:19:02.161605+00:00",
+      "image_caption_zh": "FP2框架。（左上）任务适配的RFM作为动作生成的基础策略，而FP2压缩其上下文令牌，并将其与力和本体感受历史结合，以预测结构化的力控参数。（右上）上下文令牌压缩器通过重建进行自监督训练；训练后重建解码器被丢弃。（底部）训练分三个阶段进行：（1）标准RFM任务适配，（2）在RFM冻结的情况下进行自监督上下文令牌压缩，以及（3）在RFM和压缩器均冻结的情况下进行力控策略训练。"
     },
     {
       "arxiv_id": "2609.36596",
@@ -240,7 +242,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-30T07:19:26.700110+00:00"
+      "ai_generated_at": "2026-09-30T07:19:26.700110+00:00",
+      "image_caption_zh": "HACo概览。触觉专家在跨手指融合前，将指尖力/力矩和形变特征与同一手指的关节力矩特征对齐。顺应性接地模块（右侧）让动作特征通过门控触觉交叉注意力，结合视觉-语言条件，查询该触觉表示。通过条件流匹配训练，动作专家从力调节演示中学习顺应性动作，辅助的顺应性意图监督捕捉顺应性手部指令与观察到手部状态之间的差异。"
     },
     {
       "arxiv_id": "2609.36785",
@@ -315,7 +318,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-30T07:20:06.808660+00:00"
+      "ai_generated_at": "2026-09-30T07:20:06.808660+00:00",
+      "image_caption_zh": "视觉与触觉奖励模型对未见物体位置的泛化。我们展示了在训练位置（左）和未见位置（右）的成功轨迹中预测的触觉与视觉奖励。单位置视觉模型在未见位置失效，而TaRL则保持稳定。"
     },
     {
       "arxiv_id": "2609.36454",
@@ -386,7 +390,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-30T07:20:29.733566+00:00"
+      "ai_generated_at": "2026-09-30T07:20:29.733566+00:00",
+      "image_caption_zh": "框架概览。逐帧重建模型首先在参数化状态下估计初始轨迹，随后通过基于扩散的细化网络逐步优化，最终解码为人体-物体交互网格轨迹。"
     },
     {
       "arxiv_id": "2609.34400",
@@ -673,7 +678,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-30T07:20:49.806586+00:00"
+      "ai_generated_at": "2026-09-30T07:20:49.806586+00:00",
+      "image_caption_zh": "(a) 训练曲线（25个任务）"
     },
     {
       "arxiv_id": "2609.35450",
@@ -742,7 +748,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:42:12.962544+00:00"
+      "ai_generated_at": "2026-09-29T09:42:12.962544+00:00",
+      "image_caption_zh": "Uni-VLaT概览。全身触觉特征被整合进预训练的VLA策略中以生成动作，同时训练时的多模态预测由未来的触觉、本体感觉和视觉表征进行监督。"
     },
     {
       "arxiv_id": "2609.34467",
@@ -811,7 +818,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:42:19.248524+00:00"
+      "ai_generated_at": "2026-09-29T09:42:19.248524+00:00",
+      "image_caption_zh": "所提出的AGFT架构总览。该模型采用基于Transformer的策略设计，集成了用于语言理解的预训练CLIP编码器和用于视觉表征学习的DINOv2主干网络。提取的指令令牌、图像嵌入、时间步编码和噪声动作向量被拼接成统一的令牌序列，由Transformer处理以预测干净动作。训练由流匹配目标（用于高效动作生成）和对齐损失（用于强制视觉、语言和动作模态之间的语义一致性）联合指导。"
     },
     {
       "arxiv_id": "2609.35039",
@@ -1149,7 +1157,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:46:18.256471+00:00"
+      "ai_generated_at": "2026-09-29T09:46:18.256471+00:00",
+      "image_caption_zh": "Swing-RL。延迟且间歇的负载观测与记录指令驱动循环世界模型。其当前状态预测与末端执行器本体感觉融合，并同时提供给先验控制器和残差actor。残差动作在门控、饱和和平滑之前进入先验控制器的目标。非对称critic仅在训练期间使用特权状态和通道信息。"
     },
     {
       "arxiv_id": "2609.37455",
@@ -1230,7 +1239,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-30T07:21:17.157061+00:00"
+      "ai_generated_at": "2026-09-30T07:21:17.157061+00:00",
+      "image_caption_zh": "系统架构与通用端点无关的主端状态。主控制台结合了通用六自由度机器人引导臂、定制二自由度直驱腕部、连续抓取感知及离合输入。这些测量值被归一化为通用主端状态ℳ(t)={T_tool, q_wrist, g, c}。同一状态驱动两条分支：上方为Isaac Sim分支，配备软体组织器官模型，用于面向胆囊切除术的遥操作训练；下方为物理分支，通过ROS 2/DDS及端点专用适配器将操作者指令映射至Franka Research 3（FR3）腹腔镜平台。端点专用映射、安全检查及既有1 kHz RCM控制器均保留在患者侧。"
     },
     {
       "arxiv_id": "2609.33235",
@@ -1273,8 +1283,8 @@
       "abstract_zh": "难以直接从视觉中推断的隐式物体属性，如材质、容器内容或柔软度，可以通过触觉感知和探索性交互来揭示。然而，由于触觉信号是瞬态且稀疏的，提取信息丰富的触觉事件并将其有效整合到机器人操作中仍然是一个挑战。在这项工作中，我们提出了一种以物体为中心的上下文感知操作框架，通过触觉探索学习与任务无关的物体表示。一个令牌学习器自动从长时间探索中选择代表性的触觉片段，而与描述性文本嵌入的对比对齐使得潜在空间能够捕获多个物理物体属性。这些学习到的表示随后被用作语义上下文，以指导以物体为中心的操作策略，并根据物体属性调整策略。实验表明，学习到的表示在已见和未见物体上的属性估计准确率分别达到93%和84%。在涉及视觉模糊物体的三个任务（多物体重排、倒水和开箱）上评估，所提出的框架提高了目标选择和属性相关的操作适应性，将所有评估试验的聚合任务成功率从基线策略（无物体上下文条件）的41%提高到已见物体的92%，从未见物体的19%提高到67%。视频和额外结果可在 https://xinyiyxyx.github.io/tactile-object-centric/ 获取。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.33235v1/figs/teaser.png",
+      "image_caption": "Figure 1: An object-centric manipulation learning framework. Task-agnostic object representations are learned through tactile exploration and then used as semantic context for downstream manipulation. In a multi-object rearrangement task, the policy adapts grasping strategies based on object rigidity and placement strategies based on object contents.",
       "summary_one_sentence": "本文提出一种以物体为中心的上下文感知操作框架，通过触觉探索学习任务无关的物体表示，并将其作为语义上下文指导机器人操作策略，显著提升视觉模糊物体上的任务成功率。",
       "research_problem": "如何从瞬态且稀疏的触觉信号中提取信息丰富的触觉事件，并将其有效整合到机器人操作中，以揭示难以从视觉直接推断的隐式物体属性。",
       "method_summary": "框架包含两个阶段：首先通过触觉探索学习物体表示，使用令牌学习器从长时程探索中选择代表性触觉片段，并通过对比学习与文本嵌入对齐，形成捕获多属性的潜在空间；然后利用这些表示作为语义上下文，结合物体中心策略进行属性相关的操作调整。",
@@ -1339,8 +1349,8 @@
       "abstract_zh": "基于视觉的触觉传感器（VBTS）为机器人操作提供丰富的接触信息，但现有设计往往难以简化并适配人形机器人指尖的尺寸和约束。我们提出了GlowTact，一种压力响应的基于视觉的触觉传感机制，直接可视化接触压力。GlowTact仅需单色、非方向性照明，原始触觉图像直接表示压力分布，无需显式几何重建。这一简单的传感原理使得传感器紧凑、可定制，同时保持高灵敏度和丰富的空间细节。我们展示了克级接触检测、准确的法向力估计以及精细接触几何的重建，包括M1螺丝螺纹。这些结果确立了GlowTact作为一种实用新型传感技术，适用于紧凑的人形指尖，结合了耐用的丁腈薄膜和简单的光学设计，提供灵敏且信息丰富的触觉感知。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.32471v1/teaser.png",
+      "image_caption": "Fig. 1: GlowTact is a pressure-responsive vision-based tactile sensing mechanism . A GlowTact-equipped LEAP hand grasps a screw (left), while the tactile images (right) directly visualize contact pressure and fine thread geometry. GlowTact combines sensitive low-force response with rich spatial detail using only single-color illumination.",
       "summary_one_sentence": "GlowTact提出了一种仅需单色非方向性照明即可直接可视化压力分布的简洁触觉传感机制，支持克级检测和精细几何重建，适用于紧凑人形指尖。",
       "research_problem": "现有视觉触觉传感器难以简化并适配人形机器人指尖的尺寸和约束，需要一种紧凑、可定制且保持高灵敏度和空间分辨率的传感机制。",
       "method_summary": "GlowTact采用压力响应机制，单色非方向性光照下，触觉图像直接映射压力分布，配合耐用丁腈薄膜和简单光学结构实现灵敏触觉感知。",
@@ -2111,7 +2121,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:52:00.627940+00:00"
+      "ai_generated_at": "2026-09-29T09:52:00.627940+00:00",
+      "image_caption_zh": "DualManip系统概览。给定指令和RGB-D观测，语义路径建立任务条件规划，信息交互模块据此生成初始抓取。执行过程中，几何路径根据实时RGB-D观测持续更新抓取，执行可行更新，否则回退。对于后续操作阶段，任务条件空间关系被构建为约束，并优化为可执行位姿。"
     },
     {
       "arxiv_id": "2609.31225",
@@ -2155,8 +2166,8 @@
       "abstract_zh": "接触丰富的操作要求机器人在精确跟踪运动与顺从交互之间取得平衡，然而大多数视觉-动作策略将顺从性固定地设定在控制器层面。我们提出了Imp-ACT，一种方法论上严谨且实用的方法，将方向相关的笛卡尔刚度调制直接纳入演示采集过程，无需手动选择刚度或离线目标重建。在遥操作过程中，自整定阻抗控制器沿瞬时运动方向自适应调整刚度，同时保持正交方向的顺从性。调整后的刚度与视觉观测和运动指令一起被应用并记录，从而在相同的动力学下捕获运动和顺从性。我们使用Transformer动作分块（ACT）实现该流程，从视觉、本体感受和力/力矩观测中预测末端执行器位姿、夹爪动作和运动方向刚度。Imp-ACT的性能在擦拭和插孔插入任务中通过成功率以及接触行为的定量指标进行评估。与固定低刚度和高刚度基线相比，Imp-ACT在保持低交互力的同时实现了相当或更高的成功率。在擦拭任务中，接触力振动相对于顺从基线减少了约29倍，相对于刚性基线减少了180倍。在插孔插入任务中，相对于更好的固定刚度基线，与插入方向正交的力减少了43%。这些结果突显了在任务执行所需方向保持足够刚度，同时在其它方向保持顺从性以限制接触力并适应环境约束的优势。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.31225v1/images/figure2.jpg",
+      "image_caption": "Fig. 2 : Overview of (a) Demonstrations and (b) Deployment phases, where 𝚿 B \\bm{\\Psi}_{B} denotes the base frame. During demonstration collection, images from the cameras, measured end-effector pose 𝑿 a \\bm{X}_{a} , external interaction wrench 𝑭 e ​ x ​ t \\bm{F}_{ext} , and the gripper state G s G_{s} are recorded as observations. The corresponding action targets comprise the desired end-effector pose 𝑿 d \\bm{X}_{d} , the gripper command G c = o ​ p ​ e ​ n , c ​ l ​ o ​ s ​ e G_{c}={open,close} , and the applied stiffness coefficient k s ​ t k_{st} . During deployment, Imp-ACT predicts these action targets, including the stiffness coefficient k ~ s ​ t \\tilde{k}_{st} .",
       "summary_one_sentence": "Imp-ACT提出一种在遥操作中自适应调制方向相关刚度、并结合动作分块Transformer学习接触丰富操作的方法，在擦拭和插孔插入任务中实现了比固定刚度基线更低的接触力和相当或更高的成功率。",
       "research_problem": "接触丰富操作中，视觉-动作策略通常在控制器层面固定阻抗刚度，缺乏方向相关的顺从性调制，难以在任务执行所需的刚度与限制接触力的顺从性之间取得平衡。",
       "method_summary": "在遥操作过程中使用自整定阻抗控制器，沿瞬时运动方向自适应调整刚度，同时在正交方向保持顺从性，并将调整后的刚度与视觉观测和运动指令一起记录。随后采用Transformer动作分块（ACT）模型，利用视觉、本体感受和力/力矩观测预测末端执行器位姿、夹爪动作和运动方向刚度，实现策略学习。",
@@ -2590,7 +2601,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:54:14.041740+00:00"
+      "ai_generated_at": "2026-09-29T09:54:14.041740+00:00",
+      "image_caption_zh": "CTCS概览：候选分组、锚点选择、组成员能力预测、验证及最终选择。黄色星为锚点，紫色星为选中的候选。"
     },
     {
       "arxiv_id": "2609.30521",
@@ -2656,7 +2668,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:54:33.457532+00:00"
+      "ai_generated_at": "2026-09-29T09:54:33.457532+00:00",
+      "image_caption_zh": "策略推理初始化"
     },
     {
       "arxiv_id": "2609.29020",
@@ -2698,8 +2711,8 @@
       "abstract_zh": "熟练的人类能够通过协调拦截、速度匹配和跟随动作来柔和地接住快速移动的物体，从而减轻冲击。然而，使用强化学习（RL）学习这种冲击感知的接物行为具有挑战性，因为策略必须在调节接触过渡的同时实现可靠的拦截和抓取。此外，即使是一个能力强大的特权状态RL教师也可能无法为可部署的模仿学习（IL）学生提供理想的示范：教师的失败限制了任务覆盖范围，而接触前运动的微小变化可能导致截然不同的冲击和抓取结果。我们通过干预结果敏感性来表征这一现象，并引入结果敏感窗口（OSW）来指导有针对性的示范构建。基于这一表述，我们提出了结果敏感运动搜索方法，该方法学习一个任务条件下的成功OSW运动流形，并执行局部测地线搜索来优化成功的教师轨迹并修复教师失败的任务条件。然后，我们在完整的IL学生动作误差模型下通过完整轨迹验证候选运动，仅保留成功执行作为示范。大量模拟实验表明，我们的方法有效修复了教师失败的任务条件，并使生成的IL策略在接物成功率和冲击缓解方面均优于特权RL教师。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.29020v1/framework.png",
+      "image_caption": "Fig. 3: Overview of Outcome-Sensitive Motion Search. RL experience flows through event alignment, geodesic search on the OSW motion manifold, student-aware complete-rollout validation, and construction of the final IL training dataset.",
       "summary_one_sentence": "本文提出结果敏感运动搜索方法，通过构建成功运动流形并执行局部搜索来修复教师失败的任务条件，从而提升模仿学习策略在冲击感知灵巧接物中的表现。",
       "research_problem": "如何为冲击感知的灵巧接物任务生成高质量的模仿学习示范，以克服特权状态RL教师失败导致的覆盖不足和接触前运动敏感性带来的示范质量问题。",
       "method_summary": "方法包括：1) 定义结果敏感窗口（OSW）以识别接触前运动的关键阶段；2) 学习一个任务条件下的成功OSW运动流形；3) 在流形上执行局部测地线搜索以优化教师成功轨迹并修复失败条件；4) 在完整的IL学生动作误差模型下验证候选运动，仅保留成功执行作为示范。",
@@ -2764,8 +2777,8 @@
       "abstract_zh": "抓取是连接感知与物理任务执行的基础机器人能力。本文研究感知-执行不匹配下的抓取姿态恢复问题，即由视觉感知生成的抓取在物体移动后可能变得空间过时，仅使用稀疏的触觉交互且无进一步视觉观测。我们提出DA-GRD（决策感知的抓取相关消歧），该方法维护关于可能物体配置的加权平面信念，并根据触觉探针消除假设和改善候选任务抓取一致性的能力来选择触觉探针。DA-GRD不进行完全重定位，而是在剩余假设支持一个共同可执行的抓取时停止。MuJoCo实验中，针对十个刚体物体，平移达5厘米，偏航扰动达±45°，DA-GRD实现了84.7%的物理举起成功率，相比之下，过时的AnyGrasp为9.1%，原始固定扫描基线为21.2%，采用SE(2)信念的固定扫描方法为63.7%。DA-GRD还实现了57.3%的任务条件成功率。跨物体，它使用十个物体均值的成功平均触觉探针数为4.13，相比固定15探针基线减少了72.5%。真实世界实验中，六个物体实现了71.7%的物理举起成功率和38.3%的任务条件成功率，平均使用4.20个探针。这些结果表明，在视觉关闭条件下，触觉感知可以通过有限的物理交互恢复任务相关的抓取，而无需完整的物体定位。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.29065v1/113_lower.png",
+      "image_caption": "Fig. 1: Overview of stale-grasp recovery. (a) A task-conditioned grasp is generated from RGB-D observation and language grounding. (b) After the stale visual grasp fails, its interaction outcome initializes an S ​ E ​ ( 2 ) SE(2) belief. DA-GRD alternates between evaluating grasp coverage and collecting probe feedback until a sufficiently supported recovery grasp can be executed. (c) Execute the selected grasp pose.",
       "summary_one_sentence": "DA-GRD通过决策感知的触觉探针选择，在感知-执行不匹配下高效恢复可执行抓取，无需视觉重定位，显著提升物理举起成功率并减少触觉交互次数。",
       "research_problem": "在视觉感知生成的抓取因物体移动而失效的情况下，仅利用稀疏触觉交互（不依赖视觉观测）恢复可执行抓取姿态。",
       "method_summary": "DA-GRD维护一个加权平面信念（关于物体可能配置），根据每个触觉探针消除假设和改善候选任务抓取一致性的能力来选择探针位置，并在剩余假设支持共同可执行抓取时终止，从而实现决策感知的消歧。",
@@ -2832,8 +2845,8 @@
       "abstract_zh": "操作不仅需要推理外部环境，还需要考虑机器人自身的物理状态。一个策略可能在几何上仍然可行，但由于关节负载增加或活动受限而变得物理上不再合适，然而内部物理状态通常仅用于低级控制。我们提出了基于身体锚定的高级重规划（body-grounded high-level replanning），它利用内部物理状态在执行过程中调整操作策略。身体状态事件触发策略重规划，大语言模型（LLM）解释底层的关节级状态、最近的执行统计数据和执行历史，以选择上下文相关的替代方案，同时保持任务目标和低级控制器不变。我们在仿真和真实机器人上，在受控负载和非对称运动约束条件下，对到达任务评估了该框架。实验表明，基于身体锚定的重规划在保持高任务成功率的同时减少了物理努力，并实现了更高效的策略调整。额外的接触丰富操作实验展示了同一重规划接口在到达任务之外的适用性。这些结果表明，内部物理状态不仅能用于低级控制，还能为操作任务应如何执行的高级决策提供信息。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.30024v1/concept_2.png",
+      "image_caption": "Figure 1 : Environment-centered and body-grounded strategies reach the same task-space goal, but the body-grounded strategy reduces load on the affected joint (red, Joint 4) by selecting an alternative approach.",
       "summary_one_sentence": "本文提出身体锚定的高级重规划框架，利用机器人内部物理状态（如关节负载和活动受限）触发LLM进行策略级重规划，在保持任务目标和低级控制不变的情况下提高操作效率。",
       "research_problem": "现有机器人操作策略通常只利用内部物理状态进行低级控制，而高级策略规划仅考虑几何可行性，忽略了机器人自身的物理状态（如关节负载增加或活动受限）可能导致策略在物理上不再适用。",
       "method_summary": "该方法通过监控机器人的内部物理状态（如关节负载、活动性），当检测到身体状态事件时触发高级重规划。LLM接收关节级状态、近期执行统计和执行历史，生成上下文相关的替代策略，但任务目标和低级控制器不变。",
@@ -3177,8 +3190,8 @@
       "abstract_zh": "感知环境中的物体是自主机器人的基本能力。在黑暗或低光环境中，外部摄像头通常无法可靠地感知物体位置和几何形状；当视觉感知不可用时，仅通过触觉完成目标搜索、识别和抓取成为关键的机器人操作能力。该任务必须同时处理容器级空间探索和物体级细粒度几何感知，这对低自由度平行夹爪尤其具有挑战性。然而，目前缺乏一个统一框架来连接容器级空间探索与物体级细粒度几何感知及抓取。为解决这一挑战，我们提出了GLoTouch，一个基于平行夹爪的全局到局部触觉感知与操作框架。在全局阶段，夹爪持有一个被动长距离探针，结合力测量与已知工具几何来定位接触点，并主动估计候选物体的位置、粗略轮廓和高度。在局部阶段，机器人放下探针，使用同一夹爪上的双侧视觉触觉传感器直接获取局部触觉观测，并与给定的目标3D模型进行匹配，无需针对特定物体的训练。我们在仿真和真实机器人实验中评估了该框架。源代码将开源。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.27695v1/fig2_test2.png",
+      "image_caption": "Fig. 1: GLoTouch pipeline. Given the target STL model and workspace, A Global Haptic Exploration performs coverage-driven probe search, tool-geometry-aware contact localization, and surrounding touch positioning to estimate a candidate object C i C_{i} . After the probe is set down, B Local Haptic Recognition acquires stable tactile contacts, predicts finite-window support geometry from the target STL, and ranks candidates for retrieval. The ranking bars in B are illustrative similarity scores; the implemented decision ranks candidates by matching loss, where lower is better (Sec. V ).",
       "summary_one_sentence": "GLoTouch提出了一种基于平行夹爪的全局到局部触觉感知框架，通过被动探针进行容器级空间探索，再利用视觉触觉传感器进行物体级识别与抓取，无需外部视觉。",
       "research_problem": "在无外部视觉（如黑暗环境）条件下，如何仅通过触觉实现容器级空间探索与物体级细粒度几何感知的统一，并完成目标搜索、识别和抓取。",
       "method_summary": "GLoTouch框架分为全局和局部两个阶段：全局阶段，平行夹爪持有一个被动长距离探针，通过力测量和已知工具几何计算接触点，主动探索容器空间，估计候选物体的位置、粗略轮廓和高度；局部阶段，机器人放下探针，使用同一夹爪上的双侧视觉触觉传感器获取局部触觉数据，与目标3D模型进行匹配，实现物体识别和抓取，无需针对特定物体的训练。",
@@ -3513,8 +3526,8 @@
       "abstract_zh": "真实世界的强化学习（RL）系统在接触丰富的工业操作中仍面临挑战，包括微米级精度、超过99%的成功率以及人类水平的周期时间。尽管离线策略算法可以通过利用演示和干预来提高性能，但一个关键瓶颈是缺乏直观的界面来收集此类指导，同时满足物理系统和策略的约束。我们提出PAKT，一种用于RL的动力学示教框架。与遥操作方法不同，PAKT依赖于工业中广泛使用的动力学引导。然而，动力学引导的一个关键弱点是操作员可能使机器人沿物理上无法复现的轨迹（如速度、加速度、加加速度）运动。使用PAKT，操作员通过导纳控制引导机器人，将人力施加的力映射为运动。下游参考生成器应用与策略执行时相同的运动学限制，使收集的轨迹保持在这些限制内。为了支持该示教界面并配备适当的执行层，PAKT添加了一个高性能控制栈，将低频RL动作映射为高频扭矩命令。它由参考生成器和随后的阻抗控制器组成，其中参考生成器在改善接触处理并产生更平滑的策略动作的同时，保持了阻抗控制器的跟踪性能。在四个插入和工业装配基准（包括数据中心计算托盘）的报告中，相对于HIL-SERL基线，端到端系统将周期时间减少了23%-48%，累计干预次数减少了62%-86%。项目网站：https://pakt-website.github.io/pakt-website",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.25630v1/x1.png",
+      "image_caption": "Figure 1: Overview of PAKT. In policy mode, policy actions are sent directly to the reference generator, whereas during guiding mode, human-applied forces first pass through an admittance controller. The reference generator outputs a filtered, limit-compliant command for the impedance controller, which computes the final torque command. The policy runs at 10 10 Hz and the downstream controller stack at 1000 1000 Hz.",
       "summary_one_sentence": "PAKT提出了一种基于动力学示教的RL框架，通过导纳控制和运动学限制保证轨迹物理可复现，并结合高性能控制栈，在工业插入装配任务中显著缩短周期时间并减少干预。",
       "research_problem": "真实世界RL在接触丰富的工业操作中缺乏直观且物理一致的示教界面，现有动力学引导可能产生机器人或策略无法复现的轨迹，且执行层无法处理低频RL动作与高频扭矩命令的映射。",
       "method_summary": "PAKT使用导纳控制作为示教界面，操作员施加的力被映射为期望运动，并经过参考生成器施加与策略执行相同的运动学限制，确保轨迹物理可行；下游控制栈包含参考生成器和阻抗控制器，其中参考生成器优化跟踪性能并平滑策略动作，最终由阻抗控制器输出高频扭矩。",
@@ -3580,8 +3593,8 @@
       "abstract_zh": "肌肉骨骼（MSK）类人机器人提供了一种生理学上合理的具身平台，用于研究全身运动控制，但其高维肌肉驱动、延迟的激活动力学和冗余的肌肉-肌腱结构使得学习比扭矩驱动的类人控制困难得多。现有的MSK基准在步态、假肢、灵巧手或特定挑战任务上仍然分散，导致全身肌肉驱动控制缺乏在标准化任务、方法和指标下的充分评估。我们提出了MSK-Bench，一个包含22个全身运动控制任务的基准，分为三个渐进难度的类别：姿势稳定、常见运动行为和接触丰富的环境交互。在统一的任务协议和鲁棒性扰动下，MSK-Bench评估了5种代表性控制范式，包括基于奖励的强化学习、智能体奖励调优、潜在动作强化学习、模仿先验控制以及模仿先验上的残差适应。除了任务成功率和奖励外，MSK-Bench还报告了鲁棒性分析和生理学导向的诊断指标，包括激活成本、关节平滑度和EMG包络相似度。我们的实证研究表明，具身感知的探索和结构化动作表示提高了高维肌肉空间中的任务覆盖率，模仿先验增强了参考兼容的稳定和运动，但在接触丰富的地形不匹配时性能下降，而残差适应可以在固定参考失败时恢复成功行为。我们还发现，任务成功率的提高并不一定意味着生理一致性的提高，这强调了联合评估任务性能、鲁棒性和生理行为的重要性。MSK-Bench为全身肌肉驱动类人控制提供了一个任务-方法-指标测试平台。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.26872v1/teaser.png",
+      "image_caption": "Fig. 1: Overview of the Musculoskeletal Benchmark (MSK-Bench). (a) Benchmark Components: An open-source suite featuring 22 tasks across stabilization, locomotion, and interaction, evaluated under 5 control paradigms and 7 metric families. (b) Method Evaluation: Radar charts compare control methods across the 3 task families using 8 reported axes derived from the benchmark metrics. Each value represents the average performance across all applicable tasks within the respective category. EMG-envelope similarity is evaluated only where matched human reference data are available, while cumulative reward is reported separately in Fig. 2 .",
       "summary_one_sentence": "MSK-Bench是一个包含22个全身肌肉骨骼运动控制任务的基准，统一评估5种控制范式，并引入生理学诊断指标，发现任务成功与生理一致性并不总是相关。",
       "research_problem": "现有肌肉骨骼控制基准分散且缺乏标准化，导致全身肌肉驱动控制在统一任务、方法和指标下的评估不足。",
       "method_summary": "MSK-Bench定义了22个任务，分为三类，统一任务协议和鲁棒性扰动，评估5种控制范式，包括基于奖励的RL、智能体奖励调优、潜在动作RL、模仿先验控制和残差适应，并报告任务成功率、奖励、鲁棒性分析和生理学诊断指标。",
@@ -3656,8 +3669,8 @@
       "abstract_zh": "成功的移动操作需要协调的基座和手臂运动，同时保持准确的空间定位。然而，基于演示训练的策略可能难以可靠地实现预期的基座运动，导致空间错位和后续操作失败。我们提出了MAVP（地图感知的视觉运动策略），一个通过预测显式基座位姿目标并利用定位反馈进行跟踪来提高执行可靠性的框架。MAVP从遥操作演示中重建静态地图，并在共享地图坐标系中表达演示的基座轨迹，为跨演示提供一致的空间监督。在执行时，策略接收RGB观测、关节状态和机器人当前的地图坐标系基座位姿，并联合预测目标基座位姿、手臂动作和夹爪动作。低级控制器使用前馈运动和位姿误差反馈跟踪预测的基座目标，能够纠正执行偏差。我们还在训练中使用位姿噪声增强，以提高对策略位姿输入误差的鲁棒性。在六个真实世界操作任务和三个策略家族中，MAVP在所有任务中均取得了比无锚定速度控制更高的任务成功率。视频和额外结果可在 https://123qwedsa123.github.io/mavp/ 获取。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.26378v1/mavp_overview_release.png",
+      "image_caption": "Fig. 2: Overview of MAVP: map localisation and visual odometry (VO) estimate the base pose in a shared static map reconstructed from masked demonstrations. The policy jointly predicts base-pose targets and arm/gripper actions; feedforward (FF) and pose-error feedback (FB) track the base targets (camera views are illustrative).",
       "summary_one_sentence": "MAVP通过预测显式基座位姿目标并利用定位反馈跟踪，提高了移动操作中基座运动的执行可靠性，从而提升任务成功率。",
       "research_problem": "移动操作中，基于演示训练的策略难以可靠地执行基座运动，导致空间错位和操作失败。",
       "method_summary": "MAVP从遥操作演示中重建静态地图，将演示的基座轨迹转换到地图坐标系。执行时，策略输入RGB观测、关节状态和当前地图坐标系基座位姿，联合预测目标基座位姿、手臂动作和夹爪动作。低级控制器使用前馈运动和位姿误差反馈跟踪预测的基座目标，并在训练中使用位姿噪声增强。",
@@ -4499,7 +4512,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-22T09:03:26.684566+00:00"
+      "ai_generated_at": "2026-09-22T09:03:26.684566+00:00",
+      "image_caption_zh": "在仿真中学习精密插入并将其部署到真实机器人上的概览。(a) 配备指尖力传感器的机器人平台，以及标准插入工件和ManipulationNet Peg-in-Hole装配基准板[45]。(b) 为本研究制造的标准插入工件的五种孔几何形状和四种间隙等级。底行展示了方孔任务，特写视图显示间隙逐渐变紧。(c) 仿真中的非对称演员-评论家训练：演员使用可部署观测，评论家额外使用仿真状态估计价值，PPO在观测和动力学随机化下更新策略。(d) 真实世界部署：训练策略生成均值动作。"
     },
     {
       "arxiv_id": "2609.24976",
@@ -4572,7 +4586,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-22T09:04:06.835900+00:00"
+      "ai_generated_at": "2026-09-22T09:04:06.835900+00:00",
+      "image_caption_zh": "DexTacWAM的整体架构。采用双块Transformer设计。左侧：世界模型Transformer（×N）通过逐模态自注意力和共享的跨模态自注意力融合视觉与双手触觉令牌，生成预测潜变量，形成联合的视觉-触觉世界状态。右侧：动作模型（×N）以逐模态K/V RMS归一化方式与世界模型潜变量进行交叉注意力，以本体感觉的状态令牌为条件，预测接触力、动作和下一状态。输入包括头戴视角RGB图像、左右灵巧触觉流（由轻量级编码器编码）以及原始状态观测。"
     },
     {
       "arxiv_id": "2609.24621",
@@ -4619,8 +4634,8 @@
       "abstract_zh": "触觉感知正越来越多地被整合到基于学习的机器人操作中，但许多现有方法依赖于空间分布的传感器。这里我们介绍了SpectRobot，一个将单点触觉信号转换为紧凑的时频频谱图的框架。这些频谱图将高带宽触觉历史编码为固定大小的图像类表示。它们可以被标准视觉编码器处理，并集成到最初为视觉开发的学习流程中，同时保留了传统相机无法获得的时间和频率信息。SpectRobot不是通过触觉元件阵列增加空间密度，而是利用稀疏、高带宽单点测量中包含的丰富动态。在我们的实现中，传感器安装在远离接触表面的位置，同时与其机械耦合，减少直接磨损暴露，并可能在恶劣环境和灵巧机器人的长期部署中提高鲁棒性。我们的实验表明：（1）机器人可以利用单点振动信号解决视觉遮挡的操作任务；（2）时间历史强烈影响策略性能，而传感带宽控制可用的频谱信息，测量范围扩展到100 kHz；（3）相同的表示可以用于由加速度、力或应变介导的不同触觉传感技术。我们进一步表明，以前与科研级仪器相关的能力可以使用现成的、市面上可获得的硬件来实现。我们认为，更广泛地获得高带宽触觉感知可以促进接触动力学在具身学习系统中的集成，并且对于某些任务，可以作为增加触觉传感空间密度的替代或补充。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.24621v2/figure_1_task_compressed.png",
+      "image_caption": "Figure 1: SpectRobot framework. (a) Example of a 224 × 224 224\\times 224 grayscale input spectrogram. (b) Learning pipeline, adapted from [ 1 ] . (c) Sorting task: the robot picks up and shakes an opaque box, uses visual observations from top and wrist cameras, as well as tactile spectrograms to infer one of four hidden contents, and places the box in the corresponding bin. (d) Box contents used in the sorting task. Scale bar indicates 2 cm.",
       "summary_one_sentence": "SpectRobot通过将单点高带宽触觉信号转换为时频频谱图，实现了利用标准视觉编码器的触觉感知，在视觉遮挡操作任务中表现出色，并可在不同触觉技术间通用。",
       "research_problem": "如何利用单个高带宽触觉传感器（而非空间分布阵列）为机器人操作提供有效且鲁棒的触觉感知，同时兼容现有基于视觉的学习流程。",
       "method_summary": "SpectRobot将单点触觉传感器（如加速度计、力传感器或应变传感器）的时域信号通过短时傅里叶变换等转换为二维时频频谱图，作为固定大小的图像类输入，使用标准视觉编码器（如CNN或ViT）进行特征提取，并接入机器人操作策略的学习流程中。传感器被安装在远离接触面但与接触面机械耦合的位置。",
@@ -4753,8 +4768,8 @@
       "abstract_zh": "在这项工作中，我们提出了一种利用反作用力矩来修正机器人阀门操作过程中轴向错位的触觉更新控制律。与基于视觉的估计（可能受到标定误差、遮挡和接触几何不确定性的影响）不同，反作用力矩直接产生于夹持器与阀门之间的物理交互。错位（误差）向量与这些力矩之间存在几何关系。本工作的主要目标是提出一种利用该几何特性的稳定控制器。我们的控制律被证明是一致渐近稳定的。进行了仿真验证。此外，我们使用Kinova Gen3机械臂在3个不同阀门位置对初始错位从-15°到15°的范围进行了实验测试，以验证方法的鲁棒性，并报告了所得数据分布。在所有18个测试案例中，错位绝对值的中位数在2.46°以内，反作用力矩绝对值的中位数在0.23Nm以内。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2609.24413v1/figures/Valve_model_with_Drake_v7.png",
+      "image_caption": "Fig. 1 : (a) Valve interaction model showcasing the misalignment between valve ( z V ) (z_{V}) and gripper ( z G ) (z_{G}) axes. (b) Drake simulation setup: Hydroelastic contact between the fingers and the valve generates reaction torques used for online pose correction.",
       "summary_one_sentence": "提出了一种基于反作用力矩反馈的触觉更新控制律，用于在机器人阀门操作中修正轴向错位，并证明了控制律的一致渐近稳定性，通过仿真和实验验证了其鲁棒性。",
       "research_problem": "在机器人阀门操作中，由于视觉估计受标定误差、遮挡和接触几何不确定性影响，轴向错位难以精确修正，需要一种不依赖视觉的稳定控制方法。",
       "method_summary": "该方法通过测量夹持器与阀门交互产生的反作用力矩，利用错位向量与力矩之间的几何关系设计触觉更新控制律，实现轴向错位的实时校正，不依赖视觉信息。",
@@ -5396,7 +5411,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-22T09:08:59.231754+00:00"
+      "ai_generated_at": "2026-09-22T09:08:59.231754+00:00",
+      "image_caption_zh": "自主机器人结肠镜检查训练平台（ArcGym）架构。(a–d) 临床CT数据重建为结肠网格，生成软组织模型，并复制到并行仿真环境中，用于可扩展的强化学习训练。该框架在基于Isaac Lab/Isaac Sim的强化学习环境中集成了可变形解剖模型和多种机器人驱动模式。深度图像被处理以计算基于管腔的奖励，用于强化学习策略训练。"
     },
     {
       "arxiv_id": "2609.21753",
@@ -5923,8 +5939,8 @@
       "abstract_zh": "接触丰富型任务对机器人系统构成重大挑战，因为其固有的不确定性、复杂的动力学以及交互过程中高损坏风险。近年来，基于学习的控制方法在使机器人能够获取并泛化此类环境中的复杂操作技能方面展现出巨大潜力，但确保探索和执行过程中的安全性仍然是可靠实际部署的关键瓶颈。本综述全面概述了用于机器人接触丰富型任务的基于学习的安全方法。我们将现有方法分为两大领域：安全探索和安全执行。我们回顾了关键技术，包括约束强化学习、风险敏感优化、不确定性感知建模、控制屏障函数和模型预测安全防护，并强调这些方法如何结合先验知识、任务结构和在线自适应来平衡安全性与效率。本综述特别关注这些安全学习原则如何扩展到新兴的机器人基础模型，尤其是视觉-语言模型（VLMs）和视觉-语言-动作模型（VLAs），它们统一了感知、语言和控制，用于接触丰富型操作。我们讨论了VLM/VLA方法带来的新安全机遇，如语言级约束规范和模态多模态安全信号接地，以及它们引入的放大风险和评估挑战。最后，我们概述了当前局限性和未来有前景的方向，以在复杂接触丰富型环境中部署可靠、安全对齐且由基础模型赋能的机器人。更多细节和材料可在我们的项目GitHub仓库中获取。",
       "code_url": "",
       "project_url": "",
-      "image": "",
-      "image_caption": "",
+      "image": "https://arxiv.org/html/2512.11908v3/data_pyramid_pie.png",
+      "image_caption": "Figure 6: Data pyramid for safe policy learning in contact-rich manipulation. The pyramid is organized into three layers according to physical fidelity and safety relevance. (1) Real-world data: includes task execution logs, high-frequency proprioception (joint states, velocities, tactile and force–torque sensing ), contact-rich interaction episodes, and safe and unsafe or failure cases, which provide the most direct evidence about real physical contacts and safety-critical events. (2) Simulation: includes domain randomization (dynamics, appearance, noise), ground-truth physical quantities (forces, poses, contacts), physics engines (MuJoCo, PyBullet, Isaac Lab), procedural scene and task generation, and residual or learned dynamics models with sim-to-real adaptation, enabling large-scale exploration of contact scenarios under controllable yet imperfect dynamics. (3) Internet and shared datasets: includes web-scale language corpora (LLM data), generic vision datasets (web images and videos), large-scale robot logs with weak contact labels, manipulation datasets with limited contact or safety labels, and task-specific real-robot benchmarks with small scale, which are abundant but only indirectly capture contact-rich and safety-critical phenomena.",
       "summary_one_sentence": "本文综述了接触丰富型机器人任务中的安全学习方法，涵盖从经典学习到基础模型的安全探索与执行技术，并探讨了VLM/VLA带来的机遇与挑战。",
       "research_problem": "接触丰富型机器人任务中，如何确保学习型方法在探索和执行过程中的安全性，以支持可靠的实际部署。",
       "method_summary": "综述了约束强化学习、风险敏感优化、不确定性感知建模、控制屏障函数和模型预测安全防护等方法，并探讨了这些方法如何结合先验知识、任务结构和在线自适应来平衡安全与效率，以及如何与VLM/VLA基础模型交互。",
