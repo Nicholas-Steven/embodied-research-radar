@@ -3,6 +3,7 @@
 import json
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from scripts.build_landscape import (
     build,
@@ -19,6 +20,7 @@ from scripts.build_landscape import (
     _FAILURE_DIAG_RE,
     _text,
 )
+import scripts.radar.gap_search as gap_search
 from scripts.radar.gap_search import (
     deduplicate,
     classify_external_evidence,
@@ -509,13 +511,46 @@ class ExternalEvidenceClassificationTests(unittest.TestCase):
 
 
 class GapSearchAPIFailureTests(unittest.TestCase):
-    """Test that API failures don't crash the system."""
+    """Deterministic provider-failure semantics (no live network).
 
-    def test_search_returns_empty_on_bad_query(self):
+    Production contract since the Provider Health model: a provider request
+    failure (HTTP error, network error, malformed XML) raises ProviderError;
+    only an HTTP-200 + parsed response with zero entries is a genuine [].
+    The previous version of this test hit the real arXiv API and went red on
+    runner-side 429s (deploy run 36579731110)."""
+
+    def test_search_returns_empty_on_successful_empty_feed(self):
+        """HTTP 200 + parsed OK but zero entries → genuine empty list."""
         from scripts.radar.gap_search import search_arxiv
-        # Empty query should not crash
-        result = search_arxiv("__invalid_query_that_should_return_nothing__12345__")
-        self.assertIsInstance(result, list)
+        empty_feed = (b'<?xml version="1.0" encoding="UTF-8"?>'
+                      b'<feed xmlns="http://www.w3.org/2005/Atom"></feed>')
+        resp = mock.MagicMock()
+        resp.read.return_value = empty_feed
+        resp.__enter__.return_value = resp
+        with mock.patch.object(gap_search.urllib.request, "urlopen", return_value=resp):
+            result = search_arxiv("__invalid_query_that_should_return_nothing__12345__")
+        self.assertEqual(result, [])
+
+    def test_search_http_429_raises_provider_error(self):
+        """HTTP 429 → ProviderError, never a silent []."""
+        import urllib.error
+        from scripts.radar.gap_search import search_arxiv, ProviderError
+        err = urllib.error.HTTPError("url", 429, "Too Many Requests", None, None)
+        with mock.patch.object(gap_search.urllib.request, "urlopen", side_effect=err):
+            with self.assertRaises(ProviderError) as ctx:
+                search_arxiv("anything")
+        self.assertEqual(ctx.exception.reason, "http_429")
+
+    def test_search_malformed_xml_raises_provider_error(self):
+        """HTTP 200 but unparseable XML → ProviderError, never a silent []."""
+        from scripts.radar.gap_search import search_arxiv, ProviderError
+        resp = mock.MagicMock()
+        resp.read.return_value = b"this is not xml"
+        resp.__enter__.return_value = resp
+        with mock.patch.object(gap_search.urllib.request, "urlopen", return_value=resp):
+            with self.assertRaises(ProviderError) as ctx:
+                search_arxiv("anything")
+        self.assertEqual(ctx.exception.reason, "xml_parse_error")
 
     def test_classify_neutral_for_irrelevant(self):
         paper = {"title": "Deep Learning for Image Classification", "abstract": "CNN for cats and dogs"}

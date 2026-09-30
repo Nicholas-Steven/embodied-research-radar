@@ -15,7 +15,7 @@ All network calls are mocked; no real arXiv request is made.
 import json
 import tempfile
 import unittest
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from unittest import mock
 
@@ -423,7 +423,8 @@ class ImageOnlyChangeTests(unittest.TestCase):
         self.assertEqual(after["papers"][0]["image_caption"], "Figure 1: method")
         self.assertEqual(len(after["papers"]), len(before["papers"]))
         self.assertEqual(after["papers"][0]["paper_id"], before["papers"][0]["paper_id"])
-        self.assertEqual(after["generated_at"], "2026-09-29")  # real change → date updates
+        self.assertEqual(after["generated_at"],
+                         datetime.now(timezone.utc).date().isoformat())  # real change → date updates (UTC, matches production)
 
     def test_2_caption_persisted_with_recovery(self):
         """Caption arrives together with the recovered image (papers WITH an
