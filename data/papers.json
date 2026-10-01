@@ -1,11 +1,167 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-30",
+  "generated_at": "2026-10-01",
   "source": "arXiv",
-  "candidate_count": 5593,
-  "retained_count": 319,
+  "candidate_count": 6067,
+  "retained_count": 322,
   "relevance_threshold": 45,
   "papers": [
+    {
+      "arxiv_id": "2609.40134",
+      "paper_id": "arxiv-2609-40134",
+      "title": "Tactile Curiosity Drives Robot Interaction",
+      "abstract": "Mastering robot manipulation skills via reinforcement learning (RL) remains largely sample-inefficient. The most common RL algorithms rely on random action sampling to discover new strategies, resulting in agents that allocate most of their training budget to motions in free space, away from the contacts from which manipulation skills emerge. Existing intrinsic motivation methods based on model disagreement or epistemic uncertainty improve on isotropic noise, but they can also reward uncertainty in functionally irrelevant transitions, such as erratic motions in free space. In this work, we argue that tactile feedback provides a natural signal for exploration, and introduce TacEx, a framework that incorporates touch into epistemic uncertainty-driven exploration by decomposing model uncertainty across sensory modalities and directing curiosity toward the tactile channel. By anchoring curiosity to the sense of touch, TacEx drives the robot to discover complex contact dynamics, learning to manipulate and grasp objects without task rewards or expert demonstrations during exploration. The interaction-dense dataset collected through this tactile-driven curiosity supports offline learning of downstream pick-and-place policies without additional environment interaction. We further use tactile-driven exploration to post-train vision-language-action (VLA) models. Although the VLAs are initially pre-trained without tactile feedback, post-training with TacEx substantially improves downstream performance while remaining highly sample-efficient.",
+      "authors": [
+        "Klemens Iten",
+        "Alexander Proshkin",
+        "Bhavya Sukhija",
+        "Stelian Coros",
+        "Andreas Krause",
+        "Pieter Abbeel",
+        "Carmelo Sferrazza"
+      ],
+      "published_date": "2026-09-30",
+      "updated_date": "2026-09-30",
+      "oai_datestamp": "2026-10-01",
+      "version_count": 1,
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO",
+        "cs:cs:AI"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.40134",
+      "pdf_url": "https://arxiv.org/pdf/2609.40134",
+      "research_topics": [
+        "vla-manipulation"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出TacEx框架，将触觉反馈融入认知不确定性驱动的探索，通过分解模型不确定性并导向触觉通道。",
+        "证明触觉驱动的好奇心能使机器人无需任务奖励或专家演示即可学习操作和抓取。",
+        "展示收集的交互密集数据集可支持离线学习下游拾取和放置策略。",
+        "利用TacEx对VLA模型进行后期训练，显著提升下游性能且保持样本效率。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "通过强化学习（RL）掌握机器人操作技能仍然存在严重的样本效率问题。最常见的RL算法依赖随机动作采样来发现新策略，导致智能体将大部分训练预算用于自由空间中的运动，而远离了操作技能所依赖的接触。现有的基于模型分歧或认知不确定性的内在动机方法虽然改进了各向同性噪声，但它们也可能在功能无关的转换中产生奖励，例如自由空间中的随机运动。在这项工作中，我们主张触觉反馈为探索提供了自然信号，并引入TacEx框架，该框架通过跨感官模态分解模型不确定性并将好奇心导向触觉通道，将触觉融入认知不确定性驱动的探索中。通过将好奇心锚定在触觉上，TacEx驱动机器人发现复杂的接触动力学，在探索期间无需任务奖励或专家演示即可学习操作和抓取物体。通过这种触觉驱动的好奇心收集的交互密集数据集支持离线学习下游拾取和放置策略，无需额外环境交互。我们还利用触觉驱动的探索对视觉-语言-动作（VLA）模型进行后期训练。尽管VLA最初在没有触觉反馈的情况下预训练，但使用TacEx进行后期训练显著提高了下游性能，同时保持了高度样本效率。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.40134v1/fig_1.png",
+      "image_caption": "Figure 1: Overview of TacEx . The state s s concatenates the fused latent z z , a visual embedding v v , and a tactile embedding ι \\iota , where v v and ι \\iota are produced by separate CNN encoders from RGB and tactile force maps. At each step, the policy π ⁡ ( a | s ) \\pi(a|s) acts in the environment, and the resulting transitions train an ensemble environment model that predicts the next state s ′ s^{\\prime} . The model’s epistemic uncertainty decomposes per modality into σ n z \\sigma_{n}^{z} , σ n v \\sigma_{n}^{v} , and σ n ι \\sigma_{n}^{\\iota} ; unlike standard MaxInfoRL [ 31 ] , which rewards the agent for total predictive uncertainty, TacEx explicitly weights the tactile component σ n ι ​ ( s , a ) \\sigma_{n}^{\\iota}(s,a) in the exploration bonus. This anchors curiosity to the sense of touch, driving the agent toward contact-rich interactions and away from uncertainty in functionally irrelevant regions and transitions.",
+      "summary_one_sentence": "TacEx通过将好奇心驱动的探索锚定于触觉模态，使机器人无需任务奖励或专家演示即可学习操作技能，并支持下游策略的高效训练。",
+      "research_problem": "强化学习在机器人操作中样本效率低下，且现有内在激励方法可能奖励无关的过渡，缺乏有效的探索信号来引导接触动力学学习。",
+      "method_summary": "TacEx将模型不确定性按感官模态分解，并将探索奖励导向触觉通道，从而驱动机器人主动探索接触事件，收集交互密集数据，用于离线RL或VLA后训练。",
+      "experimental_setup": "无法从摘要确认具体实验设置，但涉及机器人操作和抓取任务、离线学习及VLA模型后训练。",
+      "key_results": "TacEx使机器人无需任务奖励或专家演示即可学习操作和抓取；触觉驱动探索收集的数据支持离线策略学习；VLA后训练显著提高下游性能且样本高效。",
+      "limitations": "无法从摘要确认明确的局限性。",
+      "why_it_matters": "该工作将触觉作为内在动机的核心信号，为解决机器人RL样本效率低提供新方向，并展示触觉数据对VLA模型后训练的价值，推动触觉与具身智能结合。",
+      "relevance_reason": "论文聚焦触觉反馈驱动的探索，与视觉-力觉融合和接触状态估计紧密相关，直接涉及机器人操作中的接触动力学学习，可作为方法参考或基线对比。",
+      "related_to_my_research": "方法参考：触觉驱动的好奇心探索策略可借鉴于接触状态估计和操作学习；背景文献：强调触觉在探索中的关键作用，支持视觉-力觉融合的研究动机。",
+      "recommended_reading": "建议阅读TacEx原论文以及其引用或相关的内在动机、触觉感知、离线强化学习、VLA模型后训练文献。",
+      "reproduction_value": "High: 论文方法清晰（触觉驱动好奇心），且使用公开的RL和VLA框架，但具体细节需原文确认，不过核心思路易于复现。",
+      "core_candidate": "No",
+      "last_checked": "2026-10-01",
+      "relevance_score": 55,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-10-01T10:38:45.044113+00:00"
+    },
+    {
+      "arxiv_id": "2609.39017",
+      "paper_id": "arxiv-2609-39017",
+      "title": "OccluDex: Hierarchical 3D Visuo-Tactile Representation Learning for Egocentric Dexterous Manipulation under Self-Occlusion",
+      "abstract": "Reliable dexterous manipulation requires continuous estimation of object geometry and hand-object contact throughout interaction. With egocentric sensing, however, the manipulating hand frequently occludes task-relevant object surfaces and contact regions, reducing the visual evidence available for state estimation and thereby making robust closed-loop control and generalization to unseen object geometries particularly challenging. To address this, we present OccluDex, a hierarchical 3D visuo-tactile representation learning framework that integrates global geometric structure with local contact information for robust manipulation under dynamic self-occlusion during hand-object interaction. OccluDex adopts multi-scale masked autoencoding to progressively encode partial 3D geometry and fuses tactile contact tokens with high-level geometric features through cross-modal attention. The encoder is pretrained from synchronized human visuo-tactile demonstrations and transferred as a frozen perceptual backbone for downstream reinforcement learning. We evaluate OccluDex on a faucet rotation task, requiring one full clockwise handle revolution, and a tabletop object reorientation task, requiring a 180-degree tabletop object reorientation without toppling. In simulation experiments, OccluDex demonstrated 12.6% higher accuracy for unseen objects and 8.3% higher accuracy for previously seen objects than the strongest state-of-the-art baseline models. Physical experiments were further performed with a Shadow Hand to demonstrate successful zero-shot sim-to-real generalization on unseen physical objects. This results could enable humanoid egocentric object manipulation for seen and unseen objects even when the manipulating robotic hand occludes vision.",
+      "authors": [
+        "Ziheng Xu",
+        "Yueyuan Chen",
+        "Xinyuan He",
+        "Guoxing Liu",
+        "Yuanshuo Tan",
+        "Huiming Pan",
+        "Bin He",
+        "Shuo Jiang",
+        "Peter B. Shull"
+      ],
+      "published_date": "2026-09-30",
+      "updated_date": "2026-09-30",
+      "oai_datestamp": "2026-10-01",
+      "version_count": 1,
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.39017",
+      "pdf_url": "https://arxiv.org/pdf/2609.39017",
+      "research_topics": [
+        "core-papers"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出OccluDex，一种分层3D视觉-触觉表示学习框架，整合全局几何与局部接触信息以应对动态自我遮挡。",
+        "采用多尺度掩码自编码和跨模态注意力机制，从同步人类视觉-触觉演示中预训练编码器，并作为冻结骨干用于强化学习。",
+        "在仿真和物理实验中验证了OccluDex在自我遮挡下对已见和未见物体的操作性能，包括零样本sim-to-real泛化。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "可靠的灵巧操作需要在整个交互过程中持续估计物体几何形状和手-物接触。然而，在自我中心感知下，操作手经常遮挡任务相关的物体表面和接触区域，减少了可用于状态估计的视觉证据，使得鲁棒的闭环控制和对未见物体几何形状的泛化尤为困难。为此，我们提出OccluDex，一种分层3D视觉-触觉表示学习框架，在手-物交互过程中的动态自我遮挡下，整合全局几何结构与局部接触信息以实现鲁棒操作。OccluDex采用多尺度掩码自编码逐步编码部分3D几何，并通过跨模态注意力将触觉接触令牌与高层几何特征融合。编码器从同步的人类视觉-触觉演示中预训练，并作为冻结的感知骨干迁移到下游强化学习。我们在水龙头旋转任务（要求完整顺时针旋转手柄一整圈）和桌面物体重定向任务（要求180度重定向而不倾倒）上评估OccluDex。在仿真实验中，OccluDex对未见物体和已见物体的准确率分别比最强基线模型高12.6%和8.3%。此外，使用Shadow Hand进行了物理实验，展示了在未见物理物体上的零样本仿真到现实泛化。这些结果可能使类人自我中心物体操作在操作手遮挡视觉时也能对已见和未见物体有效。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.39017v1/pipeline2.png",
+      "image_caption": "Fig. 2: Overview of the proposed 3D visuo–tactile representation learning framework. (a) Multi-scale grouping and masking. (b) A hierarchical encoder progressively abstracts 3D geometry and performs high-level cross-modal interaction. (c) The decoder reconstructs masked geometric and tactile observations through hierarchical token propagation. (d) The pretrained encoder is frozen and transferred to downstream PPO-based dexterous manipulation.",
+      "summary_one_sentence": "OccluDex提出一种分层3D视觉-触觉表示学习框架，通过多尺度掩码自编码和跨模态注意力融合几何与触觉信息，在自我遮挡下实现鲁棒的灵巧操作，并在仿真和物理实验中验证了其泛化能力。",
+      "research_problem": "在自我中心感知下，操作手遮挡物体表面和接触区域，导致视觉证据不足，使得状态估计和闭环控制困难，影响对未见物体几何形状的泛化。",
+      "method_summary": "OccluDex使用多尺度掩码自编码逐步编码部分3D几何，并通过跨模态注意力将触觉接触令牌与高层几何特征融合。编码器从同步人类视觉-触觉演示中预训练，然后作为冻结的感知骨干用于下游强化学习策略训练。",
+      "experimental_setup": "在仿真中评估水龙头旋转任务（完整顺时针旋转手柄一整圈）和桌面物体重定向任务（180度重定向不倾倒）。物理实验使用Shadow Hand进行零样本sim-to-real泛化测试。",
+      "key_results": "在仿真中，OccluDex对未见物体准确率比最强基线高12.6%，对已见物体高8.3%。物理实验成功展示了在未见物理物体上的零样本sim-to-real泛化。",
+      "limitations": "无法从摘要确认。",
+      "why_it_matters": "该工作解决了自我中心感知下自我遮挡导致的视觉信息缺失问题，通过视觉-触觉融合表示学习提升了灵巧操作的鲁棒性和泛化能力，对具身智能和机器人操作领域有重要价值。",
+      "relevance_reason": "该论文直接涉及视觉-力觉融合（触觉）和接触状态估计，并应用于机器人操作，与我的研究领域高度相关。",
+      "related_to_my_research": "方法参考：其分层视觉-触觉融合和跨模态注意力机制可借鉴用于接触状态估计；背景文献：提供了自我遮挡下操作的最新进展。",
+      "recommended_reading": "建议阅读与视觉-触觉融合、掩码自编码、强化学习在机器人操作中的应用相关的文献，以及关于自我遮挡处理的感知方法。",
+      "reproduction_value": "Medium: 方法细节（如网络结构、训练细节）未完全公开，但仿真和物理实验设置明确，可尝试复现。",
+      "core_candidate": "No",
+      "last_checked": "2026-10-01",
+      "relevance_score": 53,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-10-01T10:39:22.194655+00:00"
+    },
     {
       "arxiv_id": "2609.37552",
       "paper_id": "arxiv-2609-37552",
@@ -320,6 +476,79 @@
       "ai_provider": "openai-compatible",
       "ai_generated_at": "2026-09-30T07:20:06.808660+00:00",
       "image_caption_zh": "视觉与触觉奖励模型对未见物体位置的泛化。我们展示了在训练位置（左）和未见位置（右）的成功轨迹中预测的触觉与视觉奖励。单位置视觉模型在未见位置失效，而TaRL则保持稳定。"
+    },
+    {
+      "arxiv_id": "2609.38418",
+      "paper_id": "arxiv-2609-38418",
+      "title": "PneuTac: Tactile Manipulation with Soft Pneumatic Robots via Unified MPM-Gaussian Splatting Simulation",
+      "abstract": "Soft robots and tactile sensors have demonstrated great potential in delicate manipulation tasks. Soft pneumatic robots enable safe contact through compliance, and vision-based tactile sensors offer high-resolution touch perception. However, learning tactile manipulation with compliant robots has been challenging, bottlenecked by the lack of efficient simulation. Existing simulators typically model them in isolation, and exhibit large calibration gaps that are difficult to overcome efficiently. We present PneuTac, a unified framework for tactile-feedback manipulation with soft pneumatic robots. We leverage the material point method (MPM) for modelling the dynamics of the soft robot and the deformable tactile membrane, and 3D Gaussian splatting (3DGS) for rendering. Real-to-sim modelling is done with a simple vision-based method, to then train action and perception networks for efficient simulation with surrogate models. We use the framework to drive a tactile-guided pipeline to collect demonstrations in simulation. Through experiments on a custom-designed pneumatic soft finger with a tactile sensing tip, together with additional cross-device evaluations, we show that PneuTac is capable of accurately modelling soft robots with tactile sensors, and that policies trained with simulation-augmented demonstrations outperform baselines trained on the same real data on three real-world contact-rich compliant manipulation tasks, making it a practical framework for tactile manipulation on compliant hardware.",
+      "authors": [
+        "Shaohong Zhong",
+        "Marco Pontin",
+        "Joe Watson",
+        "Perla Maiolino",
+        "and Ingmar Posner"
+      ],
+      "published_date": "2026-09-29",
+      "updated_date": "2026-09-29",
+      "oai_datestamp": "2026-10-01",
+      "version_count": 1,
+      "venue": "Preprint / arXiv",
+      "doi": "",
+      "keywords": [
+        "cs.RO"
+      ],
+      "source": "arXiv",
+      "source_categories": [
+        "cs.RO"
+      ],
+      "oai_set_specs": [
+        "cs:cs:RO"
+      ],
+      "year": 2026,
+      "paper_url": "https://arxiv.org/abs/2609.38418",
+      "pdf_url": "https://arxiv.org/pdf/2609.38418",
+      "research_topics": [
+        "vision-force"
+      ],
+      "literature_categories": [],
+      "methods": [],
+      "tasks": [],
+      "sensors": [],
+      "core_contributions": [
+        "提出PneuTac，一个统一框架，集成MPM和3DGS，用于软体气动机器人和触觉传感器的真实到仿真建模。",
+        "采用基于视觉的简单方法实现真实到仿真建模，并训练代理模型以高效仿真。",
+        "通过定制软体气动手指和跨设备评估，验证框架准确性，并展示仿真增强演示训练策略在真实任务中的优越性。"
+      ],
+      "research_branches": [],
+      "abstract_zh": "软体机器人和触觉传感器在精细操作任务中展现出巨大潜力。软体气动机器人通过柔顺性实现安全接触，基于视觉的触觉传感器提供高分辨率触觉感知。然而，利用柔顺机器人学习触觉操作一直具有挑战性，其瓶颈在于缺乏高效的仿真。现有仿真器通常孤立地建模这些组件，且存在难以高效克服的校准差距。我们提出PneuTac，一个用于软体气动机器人触觉反馈操作的综合框架。我们利用物质点法（MPM）建模软体机器人和可变形触觉膜的动力学，并使用3D高斯泼溅（3DGS）进行渲染。通过简单的基于视觉的方法实现真实到仿真建模，然后训练动作和感知网络，以使用代理模型进行高效仿真。我们利用该框架驱动一个触觉引导的流程，在仿真中收集演示。通过在定制设计的带有触觉感知尖端的软体气动手指上的实验，以及额外的跨设备评估，我们表明PneuTac能够准确建模带有触觉传感器的软体机器人，并且使用仿真增强演示训练的策略在三个真实世界的接触丰富柔顺操作任务上优于在相同真实数据上训练的基线，使其成为柔顺硬件上触觉操作的实用框架。",
+      "code_url": "",
+      "project_url": "",
+      "image": "https://arxiv.org/html/2609.38418v1/figures/overview.png",
+      "image_caption": "Fig. 1: Overview of PneuTac. The framework leverages MPM-3DGS coupling for efficient real-to-sim modelling from CAD models. This supports accurate modelling of soft robot deformation and tactile contact rendering, which facilitates policy learning for real-world contact-rich compliant manipulation.",
+      "summary_one_sentence": "PneuTac提出一个统一框架，结合物质点法和3D高斯泼溅，实现软体气动机器人与触觉传感器的真实到仿真建模，并利用仿真增强演示训练策略，在真实接触丰富操作任务中优于基线。",
+      "research_problem": "软体机器人和触觉传感器在精细操作中潜力巨大，但缺乏高效且准确的仿真工具，现有仿真器孤立建模组件且校准差距大，阻碍了触觉操作策略的学习。",
+      "method_summary": "PneuTac使用物质点法（MPM）建模软体机器人和可变形触觉膜的动力学，使用3D高斯泼溅（3DGS）进行渲染，通过基于视觉的方法进行真实到仿真建模，然后训练动作和感知网络作为代理模型，用于高效仿真和策略训练。",
+      "experimental_setup": "实验使用定制设计的带有触觉感知尖端的软体气动手指，进行跨设备评估，并在三个真实世界的接触丰富柔顺操作任务上测试策略性能。",
+      "key_results": "PneuTac能够准确建模软体机器人和触觉传感器，使用仿真增强演示训练的策略在三个真实任务上优于仅使用真实数据训练的基线。",
+      "limitations": "无法从摘要确认。",
+      "why_it_matters": "该工作解决了软体机器人触觉操作中仿真效率与准确性的瓶颈，提供统一框架，有助于推动柔顺硬件上的触觉操作策略学习，对机器人操作和具身智能领域有实际应用价值。",
+      "relevance_reason": "该论文直接涉及软体机器人操作和触觉感知，使用仿真增强学习，与视觉-力觉融合和接触状态估计相关，可作为方法参考或背景文献。",
+      "related_to_my_research": "方法参考：PneuTac的仿真框架和触觉引导策略训练方法可借鉴于视觉-力觉融合和接触状态估计研究，提供仿真到现实的迁移思路。",
+      "recommended_reading": "建议阅读关于物质点法（MPM）和3D高斯泼溅（3DGS）在机器人仿真中的应用，以及软体机器人触觉感知和操作的相关文献。",
+      "reproduction_value": "Medium: 摘要提供了方法框架和实验概述，但未给出具体实现细节、参数或代码，复现需要参考更多细节。",
+      "core_candidate": "No",
+      "last_checked": "2026-10-01",
+      "relevance_score": 52,
+      "fact_confidence": "verified-metadata",
+      "analysis_status": "ready",
+      "source_query_group": "",
+      "potential_competition": false,
+      "competition_reason": "",
+      "borrowable_methods": [],
+      "trend_bucket": "",
+      "ai_provider": "openai-compatible",
+      "ai_generated_at": "2026-10-01T10:39:42.511883+00:00"
     },
     {
       "arxiv_id": "2609.36454",
@@ -1307,7 +1536,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:46:54.591242+00:00"
+      "ai_generated_at": "2026-09-29T09:46:54.591242+00:00",
+      "image_caption_zh": "以物体为中心的操作学习框架。通过触觉探索学习与任务无关的物体表征，并将其作为下游操作的语义上下文。在多物体重排任务中，策略根据物体刚性调整抓取策略，并根据物体内容调整放置策略。"
     },
     {
       "arxiv_id": "2609.32471",
@@ -1373,7 +1603,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:47:27.068946+00:00"
+      "ai_generated_at": "2026-09-29T09:47:27.068946+00:00",
+      "image_caption_zh": "GlowTact是一种基于视觉的压力响应触觉传感机制。配备GlowTact的LEAP手抓握螺丝（左），触觉图像（右）直接可视化接触压力和精细螺纹几何形状。GlowTact仅使用单色照明，兼具敏感的低力响应和丰富的空间细节。"
     },
     {
       "arxiv_id": "2609.30842",
@@ -2190,7 +2421,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:52:12.959791+00:00"
+      "ai_generated_at": "2026-09-29T09:52:12.959791+00:00",
+      "image_caption_zh": "(a)演示阶段与(b)部署阶段总览，其中𝚿_B表示基坐标系。在演示采集过程中，记录相机图像、测量的末端执行器位姿𝑿_a、外部交互力/力矩𝑭_ext以及夹爪状态G_s作为观测值。对应的动作目标包括期望末端执行器位姿𝑿_d、夹爪指令G_c（开/关）以及施加的刚度系数k_st。在部署阶段，Imp-ACT预测这些动作目标，包括刚度系数k̃_st。"
     },
     {
       "arxiv_id": "2609.30082",
@@ -2735,7 +2967,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:55:24.104250+00:00"
+      "ai_generated_at": "2026-09-29T09:55:24.104250+00:00",
+      "image_caption_zh": "结果敏感运动搜索概览。强化学习经验流经事件对齐、OSW运动流形上的测地线搜索、学生感知的完整轨迹验证，以及最终IL训练数据集的构建。"
     },
     {
       "arxiv_id": "2609.29065",
@@ -2801,7 +3034,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:55:35.072112+00:00"
+      "ai_generated_at": "2026-09-29T09:55:35.072112+00:00",
+      "image_caption_zh": "陈旧抓取恢复概述。(a) 从RGB-D观测和语言定位生成任务条件化抓取。(b) 当过时视觉抓取失败后，其交互结果初始化一个SE(2)置信度。DA-GRD在评估抓取覆盖率和收集探测反馈之间交替，直到能够执行一个充分支撑的恢复抓取。(c) 执行选定的抓取位姿。"
     },
     {
       "arxiv_id": "2609.30024",
@@ -2869,7 +3103,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:55:44.180879+00:00"
+      "ai_generated_at": "2026-09-29T09:55:44.180879+00:00",
+      "image_caption_zh": "以环境为中心和以身体为基础的策略能达到相同的任务空间目标，但以身体为基础的策略通过选择替代路径减轻了受影响关节（红色，关节4）的负荷。"
     },
     {
       "arxiv_id": "2609.27656",
@@ -3214,7 +3449,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T09:57:57.725461+00:00"
+      "ai_generated_at": "2026-09-29T09:57:57.725461+00:00",
+      "image_caption_zh": "GLoTouch流程。给定目标STL模型和工作空间，全局触觉探索执行覆盖驱动的探针搜索、工具几何感知的接触定位及周边触摸定位，以估计候选物体C i C_{i} 。探针放下后，局部触觉识别获取稳定触觉接触，从目标STL预测有限窗口支撑几何，并对候选物体进行检索排序。B中的排序条为示意性相似度分数；实际决策按匹配损失对候选排序，数值越低越好（见第五节）。"
     },
     {
       "arxiv_id": "2609.25887",
@@ -3550,7 +3786,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T10:00:32.496394+00:00"
+      "ai_generated_at": "2026-09-29T10:00:32.496394+00:00",
+      "image_caption_zh": "PAKT系统概述。在策略模式下，策略动作直接发送至参考生成器；而在引导模式下，人体施加的力先经过导纳控制器。参考生成器输出经滤波且符合限制的命令，供阻抗控制器计算最终力矩指令。策略运行频率为10 Hz，下游控制器栈运行频率为1000 Hz。"
     },
     {
       "arxiv_id": "2609.26872",
@@ -3617,7 +3854,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T10:01:21.604308+00:00"
+      "ai_generated_at": "2026-09-29T10:01:21.604308+00:00",
+      "image_caption_zh": "musculoskeletal基准（MSK-Bench）概览。(a) 基准组成部分：开源套件，包含稳定、运动与交互三大类共22项任务，在5种控制范式和7类指标下进行评估。(b) 方法评估：雷达图基于基准指标中的8个报告轴，对比各类控制方法在3个任务家族上的表现。每个值代表该类别中所有适用任务的平均性能。仅在有匹配的人类参考数据时评估肌电包络相似度，而累积奖励单独在图2中报告。"
     },
     {
       "arxiv_id": "2609.26378",
@@ -3693,7 +3931,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-29T10:01:50.492566+00:00"
+      "ai_generated_at": "2026-09-29T10:01:50.492566+00:00",
+      "image_caption_zh": "MAVP概览：地图定位与视觉里程计（VO）在由掩码演示重建的共享静态地图中估计基座位姿。策略联合预测基座位姿目标及手臂/夹爪动作；前馈（FF）与位姿误差反馈（FB）跟踪基座目标（相机视图为示意）。"
     },
     {
       "arxiv_id": "2609.23968",
@@ -4658,7 +4897,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-22T09:04:44.191497+00:00"
+      "ai_generated_at": "2026-09-22T09:04:44.191497+00:00",
+      "image_caption_zh": "SpectRobot框架。(a) 224×224灰度输入频谱图示例。(b) 学习流程，改编自文献[1]。(c) 分拣任务：机器人拿起并摇晃不透明盒子，利用顶部和腕部摄像头的视觉观察以及触觉频谱图推断四种隐藏内容之一，并将盒子放入对应料箱。(d) 分拣任务中使用的盒子内容物。比例尺表示2厘米。"
     },
     {
       "arxiv_id": "2510.26280",
@@ -4792,7 +5032,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-22T09:05:03.914728+00:00"
+      "ai_generated_at": "2026-09-22T09:05:03.914728+00:00",
+      "image_caption_zh": "(a) 阀门交互模型，展示阀门(zV)与夹爪(zG)轴线之间的错位。(b) Drake仿真设置：手指与阀门之间的水弹性接触产生反作用力矩，用于在线位姿修正。"
     },
     {
       "arxiv_id": "2609.23554",
@@ -5963,7 +6204,8 @@
       "borrowable_methods": [],
       "trend_bucket": "",
       "ai_provider": "openai-compatible",
-      "ai_generated_at": "2026-09-22T09:11:26.883978+00:00"
+      "ai_generated_at": "2026-09-22T09:11:26.883978+00:00",
+      "image_caption_zh": "用于接触丰富操作中安全策略学习的数据金字塔。该金字塔根据物理保真度和安全相关性分为三层。（1）真实世界数据：包括任务执行日志、高频本体感觉（关节状态、速度、触觉和力-力矩传感）、接触丰富的交互片段，以及安全与不安全或失败案例，为真实物理接触和安全关键事件提供最直接的证据。（2）仿真：包括域随机化（动力学、外观、噪声）、真实物理量（力、位姿、接触）、物理引擎（MuJoCo、PyBullet、Isaac Lab）、程序化场景与任务生成，以及带有仿真到现实适应的残差或学习动力学模型，支持大规模数据生成。"
     },
     {
       "arxiv_id": "2609.21449",
